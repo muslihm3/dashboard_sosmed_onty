@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Onty Analytics Dashboard — Juni 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+:root{
+  --bg:#0a0908;--bg2:#111009;--bg3:#1a1612;--bg4:#201c13;--surface:#26201a;
+  --border:rgba(255,215,100,0.10);--border2:rgba(255,215,100,0.22);--border3:rgba(255,215,100,0.40);
+  --gold:#e8b86d;--gold2:#f5d38a;--gold3:#c89040;--gold4:#7a5520;
+  --text:#f2ead8;--text2:#aa9878;--text3:#6a5a40;--text4:#3a2e1e;
+  --ig:#e1306c;--ig2:#f77737;--tt:#45d0d8;--yt:#ff3b3b;--yt2:#ff8080;
+  --green:#3ecb82;--amber:#f59e0b;--red:#ef4444;--blue:#60a5fa;
+  --r:14px;--rs:8px;--rx:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.5}
+
+/* TOPBAR */
+.topbar{position:sticky;top:0;z-index:200;background:rgba(10,9,8,0.96);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.brand{display:flex;align-items:center;gap:11px}
+.brand-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--gold4),var(--gold3),var(--gold));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.brand h1{font-family:'DM Serif Display',serif;font-size:19px;color:var(--gold2)}
+.brand p{font-size:10px;color:var(--text3);letter-spacing:.5px;text-transform:uppercase;margin-top:1px}
+.topbar-right{display:flex;align-items:center;gap:10px}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:4px 11px;border-radius:20px;font-weight:500;border:1px solid}
+.pill-gold{background:rgba(232,184,109,0.10);border-color:var(--border2);color:var(--gold)}
+.live-dot{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text3)}
+.live-dot::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 2s infinite;display:block}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+
+/* PLATFORM NAV */
+.platform-nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 28px;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.platform-nav::-webkit-scrollbar{display:none}
+.pnav-tab{display:flex;align-items:center;gap:8px;padding:14px 18px;font-size:12.5px;font-weight:500;cursor:pointer;color:var(--text3);border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;position:relative;bottom:-1px}
+.pnav-tab:hover{color:var(--text2)}
+.pnav-tab.active{color:var(--text);border-bottom-color:var(--tab-color,var(--gold))}
+.pnav-icon{width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:10px}
+
+/* MAIN */
+.main{padding:28px 32px}
+.tab-page{display:none;animation:fadeUp .28s ease}
+.tab-page.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+
+/* KPI GRID */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:22px}
+.kpi{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:16px;position:relative;overflow:hidden;transition:border-color .2s,transform .15s;cursor:default}
+.kpi:hover{border-color:var(--border2);transform:translateY(-2px)}
+.kpi::after{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;background:var(--kpi-color,var(--gold));opacity:.8}
+.kpi-icon{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;margin-bottom:9px;background:var(--kpi-bg,rgba(232,184,109,.1));color:var(--kpi-color,var(--gold))}
+.kpi-val{font-family:'DM Serif Display',serif;font-size:26px;line-height:1;margin-bottom:3px}
+.kpi-lbl{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.kpi-tag{display:inline-flex;align-items:center;gap:3px;font-size:9.5px;padding:2px 8px;border-radius:20px;font-weight:500}
+.t-up{background:rgba(62,203,130,.12);color:var(--green)}
+.t-warn{background:rgba(245,158,11,.12);color:var(--amber)}
+.t-info{background:rgba(232,184,109,.10);color:var(--gold)}
+.t-red{background:rgba(239,68,68,.12);color:var(--red)}
+.t-blue{background:rgba(96,165,250,.12);color:var(--blue)}
+
+/* ACCOUNT HERO */
+.acct-hero{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:24px;margin-bottom:20px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px}
+.acct-avatar{width:68px;height:68px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0;position:relative}
+.acct-avatar::after{content:'';position:absolute;inset:-2px;border-radius:50%;background:var(--av-ring,var(--gold));z-index:-1;opacity:.35}
+.acct-info h2{font-family:'DM Serif Display',serif;font-size:20px;margin-bottom:3px}
+.acct-info .handle{font-size:12px;color:var(--text3);display:flex;align-items:center;gap:5px;margin-bottom:7px}
+.acct-info .handle a{color:var(--gold);text-decoration:none}
+.acct-info .handle a:hover{color:var(--gold2);text-decoration:underline}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{display:inline-flex;align-items:center;gap:4px;font-size:10px;padding:3px 9px;border-radius:20px;border:1px solid}
+.tag-brand{background:rgba(232,184,109,.07);border-color:rgba(232,184,109,.22);color:var(--gold)}
+.tag-edu{background:rgba(62,203,130,.07);border-color:rgba(62,203,130,.22);color:var(--green)}
+.tag-tt{background:rgba(69,208,216,.07);border-color:rgba(69,208,216,.22);color:var(--tt)}
+.tag-yt{background:rgba(255,59,59,.07);border-color:rgba(255,59,59,.22);color:var(--yt2)}
+.tag-halal{background:rgba(62,203,130,.07);border-color:rgba(62,203,130,.22);color:var(--green)}
+.acct-score{text-align:center;background:var(--surface);border:1px solid var(--border);border-radius:var(--rs);padding:14px 20px;min-width:110px}
+.score-n{font-family:'DM Serif Display',serif;font-size:34px;color:var(--gold);line-height:1}
+.score-l{font-size:9.5px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-top:3px}
+.score-s{font-size:9px;margin-top:3px}
+
+/* GRID LAYOUTS */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-bottom:22px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px}
+@media(max-width:900px){.grid3{grid-template-columns:1fr 1fr}.acct-hero{grid-template-columns:auto 1fr}.acct-score{display:none}}
+@media(max-width:600px){.grid3{grid-template-columns:1fr}.main{padding:14px 16px}}
+
+/* PANEL */
+.panel{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:18px}
+.panel-hdr{font-size:10.5px;text-transform:uppercase;letter-spacing:.9px;color:var(--text3);margin-bottom:13px;display:flex;align-items:center;gap:7px}
+.panel-hdr i{font-size:12px;color:var(--gold3)}
+
+/* CHART */
+.chart-wrap{position:relative;width:100%}
+.h180{height:180px}.h200{height:200px}.h220{height:220px}.h240{height:240px}.h260{height:260px}.h300{height:300px}
+
+/* METRIC ROWS */
+.mrow{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--border)}
+.mrow:last-child{border-bottom:none}
+.mrow-l{font-size:12.5px;color:var(--text2);display:flex;align-items:center;gap:7px}
+.mrow-l i{font-size:11px;color:var(--text3)}
+.mrow-r{font-size:12.5px;font-weight:600;color:var(--text)}
+
+/* INSIGHT */
+.ins{display:flex;gap:9px;padding:9px 0;border-bottom:1px solid var(--border);font-size:12.5px;line-height:1.65}
+.ins:last-child{border-bottom:none}
+.dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.d-g{background:var(--green)}.d-a{background:var(--amber)}.d-r{background:var(--red)}.d-o{background:var(--gold)}.d-b{background:var(--blue)}
+
+/* TREND CARDS */
+.tcard{background:var(--bg4);border:1px solid var(--border);border-radius:10px;padding:13px;transition:border-color .2s;margin-bottom:10px}
+.tcard:hover{border-color:var(--border2)}
+.tc-tag{font-size:9.5px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;font-weight:500}
+.tc-title{font-size:13px;font-weight:600;margin-bottom:4px}
+.tc-text{font-size:11.5px;color:var(--text2);line-height:1.6}
+
+/* KEYWORD TABLE */
+.kw-table{width:100%;border-collapse:collapse;font-size:12px}
+.kw-table th{text-align:left;padding:8px 10px;font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);border-bottom:1px solid var(--border);font-weight:600}
+.kw-table td{padding:7px 10px;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:middle}
+.kw-table tr:last-child td{border-bottom:none}
+.kw-table tr:hover td{background:var(--bg4)}
+.kw-si{font-weight:600;color:var(--text);font-size:13px}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:20px;font-size:10.5px;font-weight:600}
+.b-green{background:rgba(62,203,130,.12);color:var(--green)}
+.b-red{background:rgba(239,68,68,.12);color:var(--red)}
+.b-amber{background:rgba(245,158,11,.12);color:var(--amber)}
+.b-blue{background:rgba(96,165,250,.12);color:var(--blue)}
+.b-purple{background:rgba(167,139,250,.12);color:#a78bfa}
+
+/* ACTION ITEMS */
+.action-item{background:var(--bg3);border:1px solid var(--border);border-left:3px solid var(--step-color,var(--gold));border-radius:var(--rs);padding:14px 16px;margin-bottom:10px;transition:border-color .2s}
+.action-item:hover{border-color:var(--border2)}
+.ai-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.ai-title{font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px}
+.ai-badge{font-size:9.5px;padding:2px 8px;border-radius:20px;font-weight:600}
+.ai-b1{background:rgba(239,68,68,.15);color:var(--red)}
+.ai-b2{background:rgba(245,158,11,.15);color:var(--amber)}
+.ai-b3{background:rgba(62,203,130,.12);color:var(--green)}
+.ai-body{font-size:12px;color:var(--text2);line-height:1.65}
+.ai-chips{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.chip{font-size:10px;padding:2px 8px;border-radius:4px;background:var(--bg4);border:1px solid var(--border);color:var(--text3)}
+
+/* SECTION HEADER */
+.sec-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px;margin-top:4px}
+.sec-title{font-family:'DM Serif Display',serif;font-size:17px;color:var(--text)}
+.sec-sub{font-size:11px;color:var(--text3)}
+
+/* LEGEND */
+.legend{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:9px;font-size:11px;color:var(--text3)}
+.legend span{display:flex;align-items:center;gap:4px}
+.legend-box{width:9px;height:9px;border-radius:2px}
+
+/* PROGRESS BAR */
+.prog{height:6px;background:var(--border);border-radius:3px;overflow:hidden;margin:6px 0}
+.prog-fill{height:100%;border-radius:3px;transition:width 1s ease}
+
+/* ALERT BANNER */
+.alert-banner{background:linear-gradient(135deg,rgba(62,203,130,.07),rgba(232,184,109,.05));border:1px solid rgba(62,203,130,.18);border-radius:var(--r);padding:14px 18px;margin-bottom:20px;display:flex;align-items:flex-start;gap:12px;font-size:12.5px;line-height:1.65;color:var(--text2)}
+.alert-banner i{color:var(--green);margin-top:2px;flex-shrink:0;font-size:14px}
+.alert-banner strong{color:var(--text)}
+.alert-warn{border-color:rgba(245,158,11,.25);background:rgba(245,158,11,.05)}
+.alert-warn i{color:var(--amber)}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
+
+/* PLATFORM CARD */
+.pc-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-bottom:22px}
+.pc{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:16px;cursor:pointer;transition:all .2s}
+.pc:hover{border-color:var(--border2);transform:translateY(-3px)}
+.pc-hdr{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.pc-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.pc-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;text-align:center;margin-bottom:10px}
+.pv{font-size:16px;font-weight:600;font-family:'DM Serif Display',serif}
+.pl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.3px}
+.progbar{height:3px;background:var(--border);border-radius:2px;overflow:hidden}
+.progfill{height:100%;border-radius:2px;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+.progmeta{display:flex;justify-content:space-between;font-size:9px;color:var(--text3);margin-top:3px}
+
+/* REAL DATA BADGE */
+.real-badge{display:inline-flex;align-items:center;gap:4px;font-size:9.5px;padding:2px 7px;border-radius:4px;background:rgba(69,208,216,.07);border:1px solid rgba(69,208,216,.18);color:var(--tt)}
+
+/* CONTENT PLAN TABLE */
+.cp-table{width:100%;border-collapse:collapse;font-size:11.5px}
+.cp-table th{padding:8px 10px;text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);border-bottom:1px solid var(--border);font-weight:600;background:var(--bg4)}
+.cp-table td{padding:8px 10px;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:top;line-height:1.5}
+.cp-table tr:hover td{background:rgba(255,215,100,.03)}
+.cp-table tr:last-child td{border-bottom:none}
+.w-tag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;white-space:nowrap}
+.wk1{background:rgba(239,68,68,.12);color:var(--red)}
+.wk2{background:rgba(245,158,11,.12);color:var(--amber)}
+.wk3{background:rgba(62,203,130,.12);color:var(--green)}
+.wk4{background:rgba(96,165,250,.12);color:var(--blue)}
+
+/* FOOTER */
+.footer{margin-top:36px;padding:18px 0;border-top:1px solid var(--border);font-size:10.5px;color:var(--text3);line-height:1.8;display:flex;align-items:flex-start;gap:7px}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="brand">
+    <div class="brand-icon">🎂</div>
+    <div>
+      <h1>Onty Analytics</h1>
+      <p>Social Media Dashboard · Pekalongan, Indonesia</p>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <div class="pill pill-gold"><i class="fa-solid fa-calendar-days"></i> Juni 2026</div>
+    <div class="live-dot" id="timestamp">Memuat...</div>
+  </div>
+</div>
+
+<!-- PLATFORM NAV -->
+<nav class="platform-nav" role="tablist">
+  <div class="pnav-tab active" onclick="showTab('ringkasan')" data-tab="ringkasan" style="--tab-color:var(--gold)">
+    <div class="pnav-icon" style="background:linear-gradient(135deg,var(--gold4),var(--gold))">🎂</div> Ringkasan
+  </div>
+  <div class="pnav-tab" onclick="showTab('ig-ontycake')" data-tab="ig-ontycake" style="--tab-color:var(--ig)">
+    <div class="pnav-icon" style="background:linear-gradient(135deg,#f09433,#dc2743,#bc1888)"><i class="fa-brands fa-instagram" style="color:#fff;font-size:9px"></i></div> IG @ontycake
+  </div>
+  <div class="pnav-tab" onclick="showTab('tt-ontycake')" data-tab="tt-ontycake" style="--tab-color:var(--tt)">
+    <div class="pnav-icon" style="background:#000;border:1px solid #333"><i class="fa-brands fa-tiktok" style="color:#fff;font-size:9px"></i></div> TT @ontycake
+  </div>
+  <div class="pnav-tab" onclick="showTab('yt')" data-tab="yt" style="--tab-color:var(--yt)">
+    <div class="pnav-icon" style="background:var(--yt)"><i class="fa-brands fa-youtube" style="color:#fff;font-size:9px"></i></div> YouTube
+  </div>
+  <div class="pnav-tab" onclick="showTab('ig-class')" data-tab="ig-class" style="--tab-color:var(--green)">
+    <div class="pnav-icon" style="background:linear-gradient(135deg,#1D9E75,#4eca8b)"><i class="fa-brands fa-instagram" style="color:#fff;font-size:9px"></i></div> IG Baking Class
+  </div>
+  <div class="pnav-tab" onclick="showTab('tt-class')" data-tab="tt-class" style="--tab-color:#a78bfa">
+    <div class="pnav-icon" style="background:#111;border:1px solid #2a2a2a"><i class="fa-brands fa-tiktok" style="color:#fff;font-size:9px"></i></div> TT Baking Class
+  </div>
+  <div class="pnav-tab" onclick="showTab('insight-juni')" data-tab="insight-juni" style="--tab-color:var(--amber)">
+    <div class="pnav-icon" style="background:linear-gradient(135deg,#c89040,#e8b86d)">✦</div> Insight Juni 2026
+  </div>
+</nav>
+
+<div class="main">
+
+<!-- ══════ TAB: RINGKASAN ══════ -->
+<div id="tab-ringkasan" class="tab-page active">
+  <div class="alert-banner">
+    <i class="fa-solid fa-circle-check"></i>
+    <div><strong>Data real dari semua platform — update Juni 2026.</strong> Followers aktual dari screenshot: IG @ontycake 46.7K, TikTok @ontycake 9.103, YouTube 7.662 subs, IG Baking Class 2.451, TikTok Baking Class 396. Total ekosistem: <strong>66.205+ followers</strong> di 5 platform.</div>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi" style="--kpi-color:var(--gold)">
+      <div class="kpi-icon"><i class="fa-solid fa-users"></i></div>
+      <div class="kpi-val">66.2K+</div>
+      <div class="kpi-lbl">Total Ekosistem</div>
+      <div class="kpi-tag t-info"><i class="fa-solid fa-layer-group"></i> 5 Platform</div>
+    </div>
+    <div class="kpi" style="--kpi-color:var(--ig);--kpi-bg:rgba(225,48,108,.1)">
+      <div class="kpi-icon"><i class="fa-brands fa-instagram"></i></div>
+      <div class="kpi-val">49.2K</div>
+      <div class="kpi-lbl">Total IG Followers</div>
+      <div class="kpi-tag t-up">↑ 74% dari total</div>
+    </div>
+    <div class="kpi" style="--kpi-color:var(--tt);--kpi-bg:rgba(69,208,216,.1)">
+      <div class="kpi-icon"><i class="fa-brands fa-tiktok"></i></div>
+      <div class="kpi-val">9.5K</div>
+      <div class="kpi-lbl">Total TikTok</div>
+      <div class="kpi-tag t-warn">506.7K Likes</div>
+    </div>
+    <div class="kpi" style="--kpi-color:var(--yt);--kpi-bg:rgba(255,59,59,.1)">
+      <div class="kpi-icon"><i class="fa-brands fa-youtube"></i></div>
+      <div class="kpi-val">7.662</div>
+      <div class="kpi-lbl">YouTube Subs</div>
+      <div class="kpi-tag t-up">26.4K views Mei</div>
+    </div>
+    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)">
+      <div class="kpi-icon"><i class="fa-solid fa-images"></i></div>
+      <div class="kpi-val">3.125+</div>
+      <div class="kpi-lbl">Total Konten</div>
+      <div class="kpi-tag t-info">Aktif semua platform</div>
+    </div>
+    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)">
+      <div class="kpi-icon"><i class="fa-solid fa-fire"></i></div>
+      <div class="kpi-val">506.7K</div>
+      <div class="kpi-lbl">TT Likes @ontycake</div>
+      <div class="kpi-tag t-warn">Engagement kuat</div>
+    </div>
+  </div>
+
+  <!-- PLATFORM CARDS -->
+  <div class="sec-hdr">
+    <div class="sec-title">Performa Per Platform</div>
+    <div class="real-badge"><i class="fa-solid fa-camera"></i> Data aktual dari screenshot</div>
+  </div>
+
+  <div class="pc-row">
+    <div class="pc" onclick="showTab('ig-ontycake')">
+      <div class="pc-hdr">
+        <div class="pc-icon" style="background:linear-gradient(135deg,#f09433,#dc2743,#cc2366)">📸</div>
+        <div><div style="font-size:13px;font-weight:600">@ontycake</div><div style="font-size:10px;color:var(--text3)">Instagram · Brand Utama</div></div>
+        <div class="tag tag-brand" style="margin-left:auto">⭐ Andalan</div>
+      </div>
+      <div class="pc-stats">
+        <div><div class="pv" style="color:var(--ig)">46.7K</div><div class="pl">Followers</div></div>
+        <div><div class="pv">2.859</div><div class="pl">Posts</div></div>
+        <div><div class="pv">~4.5%</div><div class="pl">Est. ER</div></div>
+      </div>
+      <div class="progbar"><div class="progfill" style="width:84%;background:linear-gradient(90deg,#dc2743,#f09433)"></div></div>
+      <div class="progmeta"><span>Skor ekosistem</span><span>84/100</span></div>
+    </div>
+    <div class="pc" onclick="showTab('tt-ontycake')">
+      <div class="pc-hdr">
+        <div class="pc-icon" style="background:#000;border:1px solid #333">🎵</div>
+        <div><div style="font-size:13px;font-weight:600">@ontycake</div><div style="font-size:10px;color:var(--text3)">TikTok · Brand Utama</div></div>
+        <div class="tag tag-tt" style="margin-left:auto">⚡ Recovery</div>
+      </div>
+      <div class="pc-stats">
+        <div><div class="pv" style="color:var(--tt)">9.103</div><div class="pl">Followers</div></div>
+        <div><div class="pv">506.7K</div><div class="pl">Likes</div></div>
+        <div><div class="pv">-49%</div><div class="pl">Reach</div></div>
+      </div>
+      <div class="progbar"><div class="progfill" style="width:42%;background:linear-gradient(90deg,var(--tt),#45d0d8cc)"></div></div>
+      <div class="progmeta"><span>Skor ekosistem</span><span>42/100 — Perlu akselerasi</span></div>
+    </div>
+    <div class="pc" onclick="showTab('yt')">
+      <div class="pc-hdr">
+        <div class="pc-icon" style="background:var(--yt)">▶️</div>
+        <div><div style="font-size:13px;font-weight:600">@ontycakebakery</div><div style="font-size:10px;color:var(--text3)">YouTube · Tutorial</div></div>
+        <div class="tag tag-yt" style="margin-left:auto">📺 AVD 109%</div>
+      </div>
+      <div class="pc-stats">
+        <div><div class="pv" style="color:var(--yt2)">7.662</div><div class="pl">Subs</div></div>
+        <div><div class="pv">26.4K</div><div class="pl">Views Mei</div></div>
+        <div><div class="pv">+350%</div><div class="pl">Subs Growth</div></div>
+      </div>
+      <div class="progbar"><div class="progfill" style="width:55%;background:linear-gradient(90deg,var(--yt),var(--yt2))"></div></div>
+      <div class="progmeta"><span>Skor ekosistem</span><span>55/100 — Momentum kuat</span></div>
+    </div>
+    <div class="pc" onclick="showTab('ig-class')">
+      <div class="pc-hdr">
+        <div class="pc-icon" style="background:linear-gradient(135deg,#1D9E75,#4eca8b)">📚</div>
+        <div><div style="font-size:13px;font-weight:600">@ontyfarahbakingclass</div><div style="font-size:10px;color:var(--text3)">Instagram · Edukatif</div></div>
+        <div class="tag tag-edu" style="margin-left:auto">🎓 Kelas</div>
+      </div>
+      <div class="pc-stats">
+        <div><div class="pv" style="color:var(--green)">2.451</div><div class="pl">Followers</div></div>
+        <div><div class="pv">266</div><div class="pl">Posts</div></div>
+        <div><div class="pv">~5.8%</div><div class="pl">Est. ER</div></div>
+      </div>
+      <div class="progbar"><div class="progfill" style="width:30%;background:linear-gradient(90deg,var(--green),#3ecb82aa)"></div></div>
+      <div class="progmeta"><span>Skor ekosistem</span><span>58/100</span></div>
+    </div>
+    <div class="pc" onclick="showTab('tt-class')">
+      <div class="pc-hdr">
+        <div class="pc-icon" style="background:#111;border:1px solid #1D9E7530">🎓</div>
+        <div><div style="font-size:13px;font-weight:600">@ontyfarahbakingclass</div><div style="font-size:10px;color:var(--text3)">TikTok · Edukatif</div></div>
+        <div class="tag tag-edu" style="margin-left:auto">🌱 Tumbuh</div>
+      </div>
+      <div class="pc-stats">
+        <div><div class="pv" style="color:var(--tt)">396</div><div class="pl">Followers</div></div>
+        <div><div class="pv">2.825</div><div class="pl">Likes</div></div>
+        <div><div class="pv">>7x</div><div class="pl">Like/Follower</div></div>
+      </div>
+      <div class="progbar"><div class="progfill" style="width:18%;background:linear-gradient(90deg,var(--tt),var(--tt)88)"></div></div>
+      <div class="progmeta"><span>Skor ekosistem</span><span>22/100 — Potensi besar</span></div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-chart-bar"></i> Followers Semua Akun (Data Aktual)</div>
+      <div class="chart-wrap h240"><canvas id="chartAllFollowers"></canvas></div>
+    </div>
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-chart-pie"></i> Distribusi Ekosistem</div>
+      <div class="legend">
+        <span><div class="legend-box" style="background:var(--ig)"></div>IG Brand</span>
+        <span><div class="legend-box" style="background:var(--tt)"></div>TT Brand</span>
+        <span><div class="legend-box" style="background:var(--yt2)"></div>YouTube</span>
+        <span><div class="legend-box" style="background:var(--green)"></div>IG Edu</span>
+        <span><div class="legend-box" style="background:#a78bfa"></div>TT Edu</span>
+      </div>
+      <div class="chart-wrap h200"><canvas id="chartDist"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ TAB: IG ONTYCAKE ══════ -->
+<div id="tab-ig-ontycake" class="tab-page">
+  <div class="acct-hero">
+    <div class="acct-avatar" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366);--av-ring:linear-gradient(135deg,#f09433,#cc2366)">📸</div>
+    <div class="acct-info">
+      <h2>@ontycake</h2>
+      <div class="handle"><i class="fa-brands fa-instagram" style="color:var(--ig)"></i><a href="https://www.instagram.com/ontycake/" target="_blank">instagram.com/ontycake</a><i class="fa-solid fa-arrow-up-right-from-square" style="font-size:9px;color:var(--text3)"></i></div>
+      <div class="tags">
+        <div class="tag tag-brand">⭐ Brand Utama</div>
+        <div class="tag tag-halal"><i class="fa-solid fa-check-circle"></i> HALAL MUI 15200067361120</div>
+        <div class="tag tag-brand">📦 Kirim Luar Kota</div>
+        <div class="real-badge"><i class="fa-solid fa-camera"></i> Screenshot Juni 2026</div>
+      </div>
+    </div>
+    <div class="acct-score"><div class="score-n">84</div><div class="score-l">Skor Platform</div><div class="score-s" style="color:var(--green)">● Sangat Baik</div></div>
+  </div>
+
+  <div class="grid3">
+    <div class="kpi" style="--kpi-color:var(--ig);--kpi-bg:rgba(225,48,108,.1)"><div class="kpi-icon"><i class="fa-solid fa-users"></i></div><div class="kpi-val">46.7K</div><div class="kpi-lbl">Followers</div><div class="kpi-tag t-up">Akun terkuat</div></div>
+    <div class="kpi" style="--kpi-color:var(--gold)"><div class="kpi-icon"><i class="fa-solid fa-images"></i></div><div class="kpi-val">2.859</div><div class="kpi-lbl">Total Posts</div><div class="kpi-tag t-info">Sangat aktif</div></div>
+    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-users-between-lines"></i></div><div class="kpi-val">1.239</div><div class="kpi-lbl">Following</div><div class="kpi-tag t-up">Rasio sehat 2.6%</div></div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-circle-info"></i> Info Akun (Aktual)</div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-tag"></i>Brand</div><div class="mrow-r">Home Made Cake & Bakery</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-quote-left"></i>Tagline</div><div class="mrow-r" style="color:var(--text2);font-size:11px">Happiness In Every Moment</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-clock"></i>Operasional</div><div class="mrow-r">08.00–20.00 Setiap Hari</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-truck"></i>Pengiriman</div><div class="mrow-r" style="color:var(--green)">Bisa Luar Kota ✓</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-certificate"></i>Sertifikasi</div><div class="mrow-r" style="color:var(--green)">HALAL MUI ✓</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-link"></i>Link</div><div class="mrow-r" style="color:var(--gold);font-size:11px">desty.page/onty</div></div>
+    </div>
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-chart-line"></i> Proyeksi Pertumbuhan Jun–Nov 2026</div>
+      <div class="chart-wrap h220"><canvas id="chartIgBrandGrowth"></canvas></div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-chart-bar"></i> Engagement per Tipe Konten — Benchmark 2026</div>
+      <div class="chart-wrap h220"><canvas id="chartIgBrandEng"></canvas></div>
+    </div>
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-lightbulb"></i> Insight & Analisis</div>
+      <div class="ins"><div class="dot d-g"></div><div>Akun terkuat ekosistem Onty. IG algoritma 2026 <strong>memprioritaskan Reels</strong> — creator yang rutin Reels tumbuh 47% lebih cepat.</div></div>
+      <div class="ins"><div class="dot d-o"></div><div>Rasio following/followers (1.239/46.7K = 2.6%) menandakan pertumbuhan organik sangat sehat. Benchmark nano IG Indonesia: 7.9% ER.</div></div>
+      <div class="ins"><div class="dot d-a"></div><div>44% follower loss disebabkan konten terlalu sales-driven. Selingi 1–2 konten edukatif baking per minggu.</div></div>
+      <div class="ins"><div class="dot d-g"></div><div>HALAL MUI adalah trust signal terkuat. Tampilkan konsisten di caption + Highlights untuk meningkatkan konversi luar kota.</div></div>
+      <div class="ins"><div class="dot d-b"></div><div>Aktifkan Instagram Shopping — tag produk di setiap foto kue untuk mempersingkat perjalanan dari "lihat" ke "pesan" dalam 1–2 tap.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ TAB: TT ONTYCAKE ══════ -->
+<div id="tab-tt-ontycake" class="tab-page">
+  <div class="acct-hero">
+    <div class="acct-avatar" style="background:#0a0a0a;border:2px solid #1a1a1a;--av-ring:var(--tt)">🎵</div>
+    <div class="acct-info">
+      <h2>@ontycake</h2>
+      <div class="handle"><i class="fa-brands fa-tiktok" style="color:var(--tt)"></i><a href="https://www.tiktok.com/@ontycake" target="_blank">tiktok.com/@ontycake</a><i class="fa-solid fa-arrow-up-right-from-square" style="font-size:9px;color:var(--text3)"></i></div>
+      <div class="tags">
+        <div class="tag tag-tt">⚡ Perlu Recovery</div>
+        <div class="tag" style="background:rgba(245,158,11,.07);border-color:rgba(245,158,11,.22);color:var(--amber)">⚠️ Reach -49% Mei</div>
+        <div class="real-badge">Nano ER benchmark: 8.1% (Arfadia 2026)</div>
+      </div>
+    </div>
+    <div class="acct-score"><div class="score-n" style="color:var(--tt)">42</div><div class="score-l">Skor Platform</div><div class="score-s" style="color:var(--amber)">● Butuh Akselerasi</div></div>
+  </div>
+
+  <div class="grid3">
+    <div class="kpi" style="--kpi-color:var(--tt);--kpi-bg:rgba(69,208,216,.1)"><div class="kpi-icon"><i class="fa-solid fa-users"></i></div><div class="kpi-val">9.103</div><div class="kpi-lbl">Followers</div><div class="kpi-tag t-warn">Reach sedang turun</div></div>
+    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-heart"></i></div><div class="kpi-val">506.7K</div><div class="kpi-lbl">Total Likes</div><div class="kpi-tag t-up">Engagement kuat</div></div>
+    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-link"></i></div><div class="kpi-val">+10%</div><div class="kpi-lbl">Website Clicks</div><div class="kpi-tag t-up">Satu-satunya naik</div></div>
+  </div>
+
+  <div class="alert-banner alert-warn">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div><strong>Performa Mei 2026 (2–29 Mei):</strong> Video Views 66.979 (<strong>-36.64%</strong>) · Reached Audience 39.342 (<strong>-49.21%</strong>) · Likes 722 (<strong>-55.68%</strong>) · Shares 246 (<strong>-69.40%</strong>) · Net Followers +24 (<strong>-60%</strong>). Hanya Website Clicks yang naik +10%.</div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-chart-bar"></i> TikTok vs Instagram @ontycake</div>
+      <div class="chart-wrap h240"><canvas id="chartTtVsIg"></canvas></div>
+    </div>
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-chart-line"></i> Proyeksi Recovery (Konsisten vs Tidak)</div>
+      <div class="chart-wrap h240"><canvas id="chartTtRecovery"></canvas></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-hdr"><i class="fa-solid fa-robot"></i> Update Algoritma TikTok Juni 2026 — Action Plan</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:4px">
+      <div class="tcard" style="border-color:rgba(239,68,68,.2)"><div class="tc-tag" style="color:var(--red)">Completion Rate</div><div class="tc-title">Target ≥70%</div><div class="tc-text">Naik dari 50% (2024). Buat video pacing cepat + ending kuat agar penonton tidak skip. Ini syarat masuk FYP.</div></div>
+      <div class="tcard" style="border-color:rgba(69,208,216,.2)"><div class="tc-tag" style="color:var(--tt)">Durasi Optimal</div><div class="tc-title">60–180 Detik</div><div class="tc-text">Bukan 15 detik lagi! Update algoritma Juni 2026 mengutamakan video yang lebih panjang dan substantif.</div></div>
+      <div class="tcard" style="border-color:rgba(62,203,130,.2)"><div class="tc-tag" style="color:var(--green)">Prioritas Engagement</div><div class="tc-title">Save & Share > Likes</div><div class="tc-text">Buat konten tips/resep yang layak disimpan. Share adalah sinyal terkuat untuk distribusi organik FYP.</div></div>
+      <div class="tcard" style="border-color:rgba(232,184,109,.2)"><div class="tc-tag" style="color:var(--gold)">Distribusi</div><div class="tc-title">Follower-First</div><div class="tc-text">Video ditampilkan ke 9.103 followers dulu. Kualitas engagement mereka menentukan apakah video masuk FYP lebih luas.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ TAB: YOUTUBE ══════ -->
+<div id="tab-yt" class="tab-page">
+  <div class="acct-hero">
+    <div class="acct-avatar" style="background:var(--yt);--av-ring:var(--yt)">▶️</div>
+    <div class="acct-info">
+      <h2>@ontycakebakery</h2>
+      <div class="handle"><i class="fa-brands fa-youtube" style="color:var(--yt)"></i><a href="https://www.youtube.com/@ontycakebakery" target="_blank">youtube.com/@ontycakebakery</a><i class="fa-solid fa-arrow-up-right-from-square" style="font-size:9px;color:var(--text3)"></i></div>
+      <div class="tags">
+        <div class="tag tag-yt">📺 Tutorial Lengkap</div>
+        <div class="tag" style="background:rgba(62,203,130,.07);border-color:rgba(62,203,130,.22);color:var(--green)">🏆 AVD 109% — Luar Biasa</div>
+        <div class="real-badge"><i class="fa-solid fa-camera"></i> 7.662 subs realtime</div>
+      </div>
+    </div>
+    <div class="acct-score"><div class="score-n" style="color:var(--yt2)">55</div><div class="score-l">Skor Platform</div><div class="score-s" style="color:var(--amber)">● Momentum Kuat</div></div>
+  </div>
+
+  <div class="grid3">
+    <div class="kpi" style="--kpi-color:var(--yt);--kpi-bg:rgba(255,59,59,.1)"><div class="kpi-icon"><i class="fa-solid fa-users"></i></div><div class="kpi-val">7.662</div><div class="kpi-lbl">Subscribers</div><div class="kpi-tag t-up">Data realtime</div></div>
+    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-eye"></i></div><div class="kpi-val">26.4K</div><div class="kpi-lbl">Views Mei 2026</div><div class="kpi-tag t-warn">-17.2K dari biasanya</div></div>
+    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-clock"></i></div><div class="kpi-val">121.3</div><div class="kpi-lbl">Watch Time (jam)</div><div class="kpi-tag t-warn">-48.7 dari biasanya</div></div>
+  </div>
+
+  <div class="alert-banner">
+    <i class="fa-solid fa-circle-check"></i>
+    <div><strong>Retensi penonton luar biasa!</strong> Bongko Roti Onty: AVD <strong>109.1%</strong> · Pizza Roti Sobek: AVD <strong>104.5%</strong> · Cookies Semprit: <strong>91.1%</strong>. AVD di atas 100% artinya penonton <strong>memutar ulang</strong> — pencapaian yang sangat langka. Subscriber growth naik <strong>+350%</strong> Mei ini.</div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-chart-line"></i> Proyeksi Subscribers Jun–Nov 2026</div>
+      <div class="chart-wrap h240"><canvas id="chartYtGrowth"></canvas></div>
+    </div>
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-trophy"></i> Performa Video Terbaik (AVD)</div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-star" style="color:var(--gold)"></i>Bongko Roti Onty</div><div class="mrow-r" style="color:var(--green)">AVD 109.1% 🔄</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-star" style="color:var(--gold)"></i>Pizza tapi di Roti Sobek?</div><div class="mrow-r" style="color:var(--green)">AVD 104.5% 🔄</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-star" style="color:var(--gold)"></i>Cookies Semprit</div><div class="mrow-r" style="color:var(--blue)">AVD 91.1%</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-triangle-exclamation" style="color:var(--red)"></i>"lebaran 2026" (terbaru)</div><div class="mrow-r" style="color:var(--red)">CTR 1% ⚠️</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-chart-simple"></i>Penayangan 48 jam</div><div class="mrow-r">1.421 views</div></div>
+      <div style="margin-top:12px;background:var(--bg4);border-radius:8px;padding:12px;font-size:12px;color:var(--text2);line-height:1.6">
+        ⚡ <strong>CTR ideal YouTube: 2–10%</strong>. Video "lebaran 2026" hanya 1% — thumbnail dan judul perlu dirombak. Konten yang sudah ada <em>sangat baik</em>, hanya "pintunya" yang perlu diperbaiki.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ TAB: IG BAKING CLASS ══════ -->
+<div id="tab-ig-class" class="tab-page">
+  <div class="acct-hero">
+    <div class="acct-avatar" style="background:linear-gradient(135deg,#1D9E75,#4eca8b);--av-ring:var(--green)">📚</div>
+    <div class="acct-info">
+      <h2>@ontyfarahbakingclass</h2>
+      <div class="handle"><i class="fa-brands fa-instagram" style="color:var(--ig)"></i><a href="https://www.instagram.com/ontyfarahbakingclass/" target="_blank">instagram.com/ontyfarahbakingclass</a><i class="fa-solid fa-arrow-up-right-from-square" style="font-size:9px;color:var(--text3)"></i></div>
+      <div class="tags">
+        <div class="tag tag-edu"><i class="fa-solid fa-graduation-cap"></i> Platform Edukatif</div>
+        <div class="tag tag-edu">🤝 Kolaborasi Puratos & PT Jaya Fermex</div>
+        <div class="real-badge"><i class="fa-solid fa-camera"></i> Screenshot Juni 2026</div>
+      </div>
+    </div>
+    <div class="acct-score"><div class="score-n" style="color:var(--green)">58</div><div class="score-l">Skor Platform</div><div class="score-s" style="color:var(--amber)">● Cukup Baik</div></div>
+  </div>
+
+  <div class="grid3">
+    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-users"></i></div><div class="kpi-val">2.451</div><div class="kpi-lbl">Followers</div><div class="kpi-tag t-warn">×19 gap vs @ontycake</div></div>
+    <div class="kpi" style="--kpi-color:var(--gold)"><div class="kpi-icon"><i class="fa-solid fa-images"></i></div><div class="kpi-val">266</div><div class="kpi-lbl">Total Posts</div><div class="kpi-tag t-info">Aktif & konsisten</div></div>
+    <div class="kpi" style="--kpi-color:var(--ig);--kpi-bg:rgba(225,48,108,.1)"><div class="kpi-icon"><i class="fa-solid fa-percent"></i></div><div class="kpi-val">~5.8%</div><div class="kpi-lbl">Est. Engagement</div><div class="kpi-tag t-up">Tinggi untuk ukurannya</div></div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-chart-line"></i> Proyeksi Growth + Cross-Promote dari @ontycake</div>
+      <div class="chart-wrap h240"><canvas id="chartIgClassGrowth"></canvas></div>
+    </div>
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-circle-info"></i> Info & Strategi</div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-bullseye"></i>Tujuan</div><div class="mrow-r" style="font-size:11px">Info & Pendaftaran Baking Class</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-person-chalkboard"></i>Instruktur</div><div class="mrow-r">@ontyfarah (Onty Farah)</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-users-between-lines"></i>Following</div><div class="mrow-r">38 akun (sangat selektif)</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-link"></i>Akun Induk</div><div class="mrow-r" style="color:var(--gold)">@ontycake (46.7K)</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-arrow-trend-up"></i>Potensi Cross-Promo</div><div class="mrow-r" style="color:var(--green)">+300–500 followers/bulan</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-link"></i>Link Bio</div><div class="mrow-r" style="color:var(--gold);font-size:11px">lynk.id/ontycake</div></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-hdr"><i class="fa-solid fa-lightbulb"></i> Insight Kritis</div>
+    <div class="ins"><div class="dot d-r"></div><div><strong>Gap terbesar ekosistem:</strong> akun utama 46.7K tapi baking class hanya 2.451. Padahal baking class adalah revenue stream bernilai tinggi — kelas sudah kolaborasi dengan brand besar!</div></div>
+    <div class="ins"><div class="dot d-a"></div><div>1 Story mention dari @ontycake (46.7K) per minggu diestimasi mendatangkan +300–500 followers baru/bulan tanpa biaya. Story view rate 5–7% = 2.335–3.269 orang melihat setiap minggu.</div></div>
+    <div class="ins"><div class="dot d-g"></div><div>ER ~5.8% hampir setara benchmark nano IG Indonesia 2026 (7.9%). Audiens yang ada sangat loyal dan engaged — tinggal besarkan volumenya.</div></div>
+    <div class="ins"><div class="dot d-o"></div><div>Tambahkan Highlight "Testimoni" dan "Jadwal Kelas" — dua informasi paling dicari calon peserta baru sebelum memutuskan mendaftar.</div></div>
+    <div class="ins"><div class="dot d-b"></div><div>Konten micro-series "5 Kesalahan Fatal Baking Pemula" (6–8 clip saling terhubung) sangat relevan dengan tren DIY yang sedang meledak di pencarian Mei 2026.</div></div>
+  </div>
+</div>
+
+<!-- ══════ TAB: TT BAKING CLASS ══════ -->
+<div id="tab-tt-class" class="tab-page">
+  <div class="acct-hero">
+    <div class="acct-avatar" style="background:#0a0a0a;border:2px solid #1D9E7530;--av-ring:var(--red)">🎓</div>
+    <div class="acct-info">
+      <h2>@ontyfarahbakingclass</h2>
+      <div class="handle"><i class="fa-brands fa-tiktok" style="color:var(--tt)"></i><a href="https://www.tiktok.com/@ontyfarahbakingclass" target="_blank">tiktok.com/@ontyfarahbakingclass</a><i class="fa-solid fa-arrow-up-right-from-square" style="font-size:9px;color:var(--text3)"></i></div>
+      <div class="tags">
+        <div class="tag" style="background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.25);color:var(--red)">🚨 Kebocoran Konversi KRITIS</div>
+        <div class="tag" style="background:rgba(62,203,130,.07);border-color:rgba(62,203,130,.22);color:var(--green)">✅ Reach +211% Mei 2026</div>
+        <div class="real-badge"><i class="fa-solid fa-chart-bar"></i> TikTok Studio 1–30 Mei 2026</div>
+      </div>
+    </div>
+    <div class="acct-score"><div class="score-n" style="color:var(--red)">⚠</div><div class="score-l">Anomali Kritis</div><div class="score-s" style="color:var(--red)">● Konversi = 0</div></div>
+  </div>
+
+  <!-- CRITICAL ALERT -->
+  <div style="background:linear-gradient(135deg,rgba(239,68,68,.10),rgba(239,68,68,.04));border:1.5px solid rgba(239,68,68,.35);border-radius:14px;padding:18px 20px;margin-bottom:18px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+      <div style="width:32px;height:32px;background:rgba(239,68,68,.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">🚨</div>
+      <div>
+        <div style="font-size:14px;font-weight:700;color:var(--red)">ANOMALI KRITIS — Kebocoran Konversi Terdeteksi</div>
+        <div style="font-size:11px;color:var(--text3);margin-top:1px">Data TikTok Studio @ontyfarahbakingclass · Periode 1–30 Mei 2026</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div style="background:rgba(62,203,130,.07);border:1px solid rgba(62,203,130,.18);border-radius:10px;padding:12px">
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--green);margin-bottom:8px;font-weight:600">📈 Popularitas Meledak</div>
+        <div class="mrow" style="padding:5px 0;border-color:rgba(62,203,130,.1)"><div class="mrow-l" style="font-size:11.5px">Video Views</div><div class="mrow-r" style="color:var(--green)">38.260 <small style="color:var(--green);font-size:10px">+211.59%</small></div></div>
+        <div class="mrow" style="padding:5px 0;border-color:rgba(62,203,130,.1)"><div class="mrow-l" style="font-size:11.5px">Reached Audience</div><div class="mrow-r" style="color:var(--green)">31.730</div></div>
+        <div class="mrow" style="padding:5px 0;border-color:rgba(62,203,130,.1)"><div class="mrow-l" style="font-size:11.5px">Likes</div><div class="mrow-r" style="color:var(--green)">751 ↑↑</div></div>
+        <div class="mrow" style="padding:5px 0;border-color:rgba(62,203,130,.1)"><div class="mrow-l" style="font-size:11.5px">Comments</div><div class="mrow-r" style="color:var(--green)">73 ↑↑</div></div>
+        <div class="mrow" style="padding:5px 0;border-color:rgba(62,203,130,.1)"><div class="mrow-l" style="font-size:11.5px">Shares</div><div class="mrow-r" style="color:var(--green)">169 ↑↑</div></div>
+        <div class="mrow" style="padding:5px 0;border-bottom:none"><div class="mrow-l" style="font-size:11.5px">Kunjungan Profil</div><div class="mrow-r" style="color:var(--amber)">817 orang</div></div>
+      </div>
+      <div style="background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.22);border-radius:10px;padding:12px">
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--red);margin-bottom:8px;font-weight:600">💀 Konversi = Nol</div>
+        <div style="text-align:center;padding:16px 0">
+          <div style="font-family:'DM Serif Display',serif;font-size:56px;color:var(--red);line-height:1">0</div>
+          <div style="font-size:11px;color:var(--text3);margin-top:4px">Website Clicks</div>
+        </div>
+        <div style="border-top:1px solid rgba(239,68,68,.15);padding-top:10px;text-align:center">
+          <div style="font-family:'DM Serif Display',serif;font-size:56px;color:var(--red);line-height:1">0</div>
+          <div style="font-size:11px;color:var(--text3);margin-top:4px">Phone Number Clicks</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:12px;background:rgba(239,68,68,.06);border-radius:8px;padding:12px;font-size:12.5px;color:var(--text2);line-height:1.7;border-left:3px solid var(--red)">
+      <strong style="color:var(--red)">Kesimpulan:</strong> Akun sukses besar dalam <strong>Brand Awareness</strong> namun <strong style="color:var(--red)">gagal total dalam Konversi Penjualan</strong>. 817 orang sudah masuk ke profil — tidak satu pun mengklik link pendaftaran. Ini adalah "conversion hole" yang harus ditutup sebelum bulan Juni, bukan setelah.
+    </div>
+  </div>
+
+  <!-- FUNNEL VISUALIZATION -->
+  <div class="grid2" style="margin-bottom:18px">
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-filter"></i> Conversion Funnel Aktual — Mei 2026</div>
+      <div class="chart-wrap h260"><canvas id="chartConvFunnel"></canvas></div>
+    </div>
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-magnifying-glass-chart"></i> Diagnosa: Mengapa 817 Profil Visit = 0 Klik?</div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px">
+        <div style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.18);border-radius:10px;padding:12px">
+          <div style="font-size:10px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">❌ Sebab 1 — Bio Tidak Ada CTA</div>
+          <div style="font-size:12px;color:var(--text2);line-height:1.6">Bio saat ini: <em>"Bantu ningkatin skill bakingmu... Informasi Baking Class Klik"</em> — tidak ada urgency, tidak ada instruksi jelas mengapa harus klik <strong>sekarang</strong>.</div>
+        </div>
+        <div style="background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:12px">
+          <div style="font-size:10px;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">⚠️ Sebab 2 — Tidak Ada Scarcity/Urgency</div>
+          <div style="font-size:12px;color:var(--text2);line-height:1.6">Konten menghibur & edukatif, tapi penonton tidak merasa <em>"harus daftar sekarang atau kehabisan"</em>. Tanpa urgency, orang menunda = tidak pernah mendaftar.</div>
+        </div>
+        <div style="background:rgba(96,165,250,.06);border:1px solid rgba(96,165,250,.18);border-radius:10px;padding:12px">
+          <div style="font-size:10px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">🔗 Sebab 3 — Pinned Video Bukan "Brosur"</div>
+          <div style="font-size:12px;color:var(--text2);line-height:1.6">Video yang disematkan (pinned) seharusnya menjelaskan: jadwal, harga, fasilitas, cara daftar — dalam 3 detik pertama. Ini "brosur digital" gratis untuk 817 pengunjung.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TARGET FUNNEL YANG SEHARUSNYA -->
+  <div class="panel" style="margin-bottom:18px">
+    <div class="panel-hdr"><i class="fa-solid fa-bullseye"></i> Target Funnel yang Seharusnya vs Aktual</div>
+    <div style="overflow-x:auto">
+    <table style="width:100%;border-collapse:collapse;font-size:12px">
+      <thead><tr>
+        <th style="padding:8px 10px;text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);border-bottom:1px solid var(--border);background:var(--bg4)">Tahap Funnel</th>
+        <th style="padding:8px 10px;text-align:center;color:var(--text3);border-bottom:1px solid var(--border);background:var(--bg4);font-size:10px;text-transform:uppercase;letter-spacing:.5px">Aktual Mei</th>
+        <th style="padding:8px 10px;text-align:center;color:var(--text3);border-bottom:1px solid var(--border);background:var(--bg4);font-size:10px;text-transform:uppercase;letter-spacing:.5px">Target Sehat</th>
+        <th style="padding:8px 10px;text-align:center;color:var(--text3);border-bottom:1px solid var(--border);background:var(--bg4);font-size:10px;text-transform:uppercase;letter-spacing:.5px">Gap</th>
+        <th style="padding:8px 10px;text-align:left;color:var(--text3);border-bottom:1px solid var(--border);background:var(--bg4);font-size:10px;text-transform:uppercase;letter-spacing:.5px">Perbaikan</th>
+      </tr></thead>
+      <tbody>
+        <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);color:var(--text2)">👁️ Video Dilihat</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid var(--border);font-weight:700;color:var(--green)">38.260</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid var(--border);color:var(--text3)">38.260</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid var(--border)"><span class="badge b-green">✓ OK</span></td><td style="padding:8px 10px;border-bottom:1px solid var(--border);color:var(--text3);font-size:11px">Konten sudah bagus, pertahankan</td></tr>
+        <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);color:var(--text2)">👤 Kunjungi Profil</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid var(--border);font-weight:700;color:var(--amber)">817 (2.1%)</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid var(--border);color:var(--text3)">3.000–5.000</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid var(--border)"><span class="badge b-amber">Rendah</span></td><td style="padding:8px 10px;border-bottom:1px solid var(--border);color:var(--text3);font-size:11px">Tambah CTA verbal: "cek bio" di video</td></tr>
+        <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);color:var(--text2)">🔗 Klik Link Bio</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid var(--border);font-weight:700;color:var(--red)">0 (0%)</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid var(--border);color:var(--text3)">82–164 (10–20%)</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid var(--border)"><span class="badge b-red">❌ KRITIS</span></td><td style="padding:8px 10px;border-bottom:1px solid var(--border);color:var(--text3);font-size:11px">Ubah bio + tambahkan scarcity urgency</td></tr>
+        <tr><td style="padding:8px 10px;border-bottom:1px solid var(--border);color:var(--text2)">💬 WA / DM Masuk</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid var(--border);font-weight:700;color:var(--red)">~0</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid var(--border);color:var(--text3)">20–40</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid var(--border)"><span class="badge b-red">❌ KRITIS</span></td><td style="padding:8px 10px;border-bottom:1px solid var(--border);color:var(--text3);font-size:11px">WA Direct Link + tombol paling atas Linktree</td></tr>
+        <tr><td style="padding:8px 10px;border-bottom:none;color:var(--text2)">🎓 Peserta Mendaftar</td><td style="padding:8px 10px;text-align:center;border-bottom:none;font-weight:700;color:var(--red)">0 (dari TikTok)</td><td style="padding:8px 10px;text-align:center;border-bottom:none;color:var(--text3)">5–10</td><td style="padding:8px 10px;text-align:center;border-bottom:none"><span class="badge b-red">❌ HILANG</span></td><td style="padding:8px 10px;border-bottom:none;color:var(--text3);font-size:11px">Perbaikan bio + pinned video komersial</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- ACTION PLAN DARURAT -->
+  <div class="sec-hdr"><div class="sec-title">🚑 Strategi Darurat — Tutup Kebocoran Konversi</div><div style="font-size:11px;color:var(--red);font-weight:600">Lakukan Malam Ini Juga</div></div>
+
+  <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:18px">
+    <div class="action-item" style="--step-color:var(--red)">
+      <div class="ai-header">
+        <div class="ai-title"><i class="fa-solid fa-pen-to-square" style="color:var(--red)"></i> A · Ubah Bio TikTok Malam Ini</div>
+        <div class="ai-badge ai-b1">PALING MENDESAK</div>
+      </div>
+      <div class="ai-body">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:8px">
+          <div style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.15);border-radius:8px;padding:10px">
+            <div style="font-size:9.5px;color:var(--red);font-weight:700;margin-bottom:5px;text-transform:uppercase">❌ Bio Sekarang</div>
+            <div style="font-size:11.5px;color:var(--text3);line-height:1.6;font-style:italic">"Bantu ningkatin skill bakingmu with @ontyfarah<br>Informasi Baking Class Klik"</div>
+          </div>
+          <div style="background:rgba(62,203,130,.06);border:1px solid rgba(62,203,130,.18);border-radius:8px;padding:10px">
+            <div style="font-size:9.5px;color:var(--green);font-weight:700;margin-bottom:5px;text-transform:uppercase">✅ Bio yang Disarankan</div>
+            <div style="font-size:11.5px;color:var(--text2);line-height:1.6;font-weight:500">"Baking class privat Pekalongan 🎂<br>Slot JUNI terbatas — cek jadwal 👇<br>⬇️ Daftar via WhatsApp (Fast Respon)"</div>
+          </div>
+        </div>
+      </div>
+      <div class="ai-chips">
+        <span class="chip" style="color:var(--red)">⏱ Waktu pengerjaan: 5 menit</span>
+        <span class="chip">Dampak: Langsung terasa pada kunjungan berikutnya</span>
+      </div>
+    </div>
+
+    <div class="action-item" style="--step-color:var(--red)">
+      <div class="ai-header">
+        <div class="ai-title"><i class="fa-brands fa-whatsapp" style="color:var(--green)"></i> B · WhatsApp Direct Link di Linktree</div>
+        <div class="ai-badge ai-b1">KRITIS</div>
+      </div>
+      <div class="ai-body">Pastikan tombol <strong>paling atas</strong> di Linktree adalah: <em>"👋 Daftar Kelas via WhatsApp (Fast Respon)"</em> yang langsung membuka percakapan WA dengan pesan pre-filled: <em>"Halo Onty, saya mau tanya info baking class bulan ini..."</em>. Kurangi tombol tidak penting. Setiap tombol tambahan = kebingungan = calon peserta pergi. Format link: <code style="background:var(--bg4);padding:2px 6px;border-radius:4px;font-size:10.5px">https://wa.me/62XXXXXXXXX?text=Halo+Onty...</code></div>
+      <div class="ai-chips">
+        <span class="chip" style="color:var(--green)">⏱ 10 menit setup</span>
+        <span class="chip">linktr.ee/ontyfarahbakingclass</span>
+      </div>
+    </div>
+
+    <div class="action-item" style="--step-color:var(--amber)">
+      <div class="ai-header">
+        <div class="ai-title"><i class="fa-solid fa-video" style="color:var(--amber)"></i> C · Buat Video "Hard Sell + Scarcity" Segera</div>
+        <div class="ai-badge ai-b2">MINGGU INI</div>
+      </div>
+      <div class="ai-body">
+        Dari 3 video berikutnya, buat <strong>1 video khusus konversi</strong> dengan efek kelangkaan (scarcity). Naskah yang disarankan:
+        <div style="background:var(--bg4);border:1px solid var(--border);border-radius:8px;padding:12px;margin-top:8px;font-size:12px;line-height:1.8;color:var(--text2);border-left:3px solid var(--amber)">
+          <em>"Makasih banyak warga Pekalongan yang udah penasaran sama kelas kita 🙏 Kelas <strong>Soft Cookies &amp; Bolu Gulung</strong> tanggal [TANGGAL] Juni masih ada <strong>2 kursi terakhir</strong>. Studio kita sengaja dibatasin biar belajarnya lebih privat dan detail banget. Kalau slot ini habis, baru buka lagi bulan depan. Link pendaftaran ada di bio ya — cepet sebelum kehabisan!"</em>
+        </div>
+      </div>
+      <div class="ai-chips">
+        <span class="chip" style="color:var(--amber)">Format: 30–60 detik, casual tone</span>
+        <span class="chip">Tampilkan studio/suasana kelas</span>
+        <span class="chip">End dengan CTA "link di bio"</span>
+      </div>
+    </div>
+
+    <div class="action-item" style="--step-color:var(--blue)">
+      <div class="ai-header">
+        <div class="ai-title"><i class="fa-solid fa-thumbtack" style="color:var(--blue)"></i> D · Ubah Pinned Video → "Brosur Digital"</div>
+        <div class="ai-badge ai-b2">MINGGU INI</div>
+      </div>
+      <div class="ai-body">Video yang disematkan (📌 pinned) di paling atas profil adalah yang pertama dilihat oleh 817+ kunjungan profil. Buat 1 video khusus yang dalam <strong>3 detik pertama</strong> sudah menampilkan: (1) Nama kelas, (2) Tanggal & harga, (3) Fasilitas, (4) Cara daftar via WA. Ini adalah brosur digital yang bekerja 24 jam tanpa biaya.</div>
+      <div class="ai-chips">
+        <span class="chip" style="color:var(--blue)">Durasi ideal: 45–60 detik</span>
+        <span class="chip">Text overlay besar dan terbaca</span>
+        <span class="chip">End card: nomor WA & link bio</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHART + FORMAT KONTEN -->
+  <div class="grid2">
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-chart-line"></i> Proyeksi Growth + Konversi (Jika Perbaikan Diterapkan)</div>
+      <div class="chart-wrap h240"><canvas id="chartTtClassGrowth"></canvas></div>
+    </div>
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-lightbulb"></i> Formula Konten 3-1-1 untuk Juni</div>
+      <div style="font-size:11.5px;color:var(--text3);margin-bottom:10px">Dari setiap 5 video per minggu, bagi menjadi:</div>
+      <div class="tcard" style="border-color:rgba(69,208,216,.2)"><div class="tc-tag" style="color:var(--tt)">3 Video · Konten Edukatif (Awareness)</div><div class="tc-title">Problem-Solution 60–90 Detik</div><div class="tc-text">Tips baking, kesalahan pemula, behind the class. Tujuan: viral, save, share — bangun kepercayaan dulu.</div></div>
+      <div class="tcard" style="border-color:rgba(245,158,11,.2)"><div class="tc-tag" style="color:var(--amber)">1 Video · Soft Sell (Consideration)</div><div class="tc-title">Testimoni Peserta / Before-After</div><div class="tc-text">UGC autentik dari peserta kelas. Tampilkan transformasi skill nyata. CTA ringan: "info kelas di bio".</div></div>
+      <div class="tcard" style="border-color:rgba(239,68,68,.2)"><div class="tc-tag" style="color:var(--red)">1 Video · Hard Sell + Scarcity (Conversion)</div><div class="tc-title">Slot Terbatas + Urgency</div><div class="tc-text">Tunjukkan studio hampir penuh, sebut sisa slot, berikan deadline. Ini video yang mengubah viewer jadi peserta.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ TAB: INSIGHT JUNI 2026 ══════ -->
+<div id="tab-insight-juni" class="tab-page">
+
+  <div class="alert-banner">
+    <i class="fa-solid fa-newspaper"></i>
+    <div><strong>Insight Komprehensif Juni 2026</strong> — Berdasarkan data aktual semua platform + Google Trends Mei 2026 (bolu gulung & salt bread RI + Jawa Tengah) + Arfadia Digital Marketing Benchmark 2026 + We Are Social Indonesia 2026.</div>
+  </div>
+
+  <!-- TREN BOLU GULUNG -->
+  <div class="sec-hdr"><div class="sec-title">📈 Tren Pasar: Bolu Gulung — Mei 2026</div><div class="real-badge">Google Trends</div></div>
+
+  <div class="kpi-grid">
+    <div class="kpi" style="--kpi-color:var(--green)"><div class="kpi-icon"><i class="fa-solid fa-chart-simple"></i></div><div class="kpi-val">100</div><div class="kpi-lbl">Top SI Indonesia</div><div class="kpi-tag t-up">resep bolu gulung</div></div>
+    <div class="kpi" style="--kpi-color:var(--blue);--kpi-bg:rgba(96,165,250,.1)"><div class="kpi-icon"><i class="fa-solid fa-location-dot"></i></div><div class="kpi-val">100</div><div class="kpi-lbl">Top SI Jawa Tengah</div><div class="kpi-tag t-blue">resep bolu gulung</div></div>
+    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-arrow-trend-up"></i></div><div class="kpi-val">+150%</div><div class="kpi-lbl">Keyword Terkuat RI</div><div class="kpi-tag t-up">resep kukus</div></div>
+    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-bolt"></i></div><div class="kpi-val">6</div><div class="kpi-lbl">Breakout Jateng</div><div class="kpi-tag t-warn">Keyword baru</div></div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-arrow-trend-up"></i> Keyword Naik — Indonesia</div>
+      <table class="kw-table">
+        <thead><tr><th>Keyword</th><th>SI</th><th>Tren</th></tr></thead>
+        <tbody>
+          <tr><td>resep bolu gulung kukus</td><td class="kw-si">18</td><td><span class="badge b-green">+150%</span></td></tr>
+          <tr><td>bolu meranti</td><td class="kw-si">29</td><td><span class="badge b-green">+90%</span></td></tr>
+          <tr><td>bolu gulung nanas</td><td class="kw-si">22</td><td><span class="badge b-green">+90%</span></td></tr>
+          <tr><td>bolu pisang</td><td class="kw-si">12</td><td><span class="badge b-green">+70%</span></td></tr>
+          <tr><td>bolu pandan</td><td class="kw-si">18</td><td><span class="badge b-green">+50%</span></td></tr>
+          <tr><td>bolu gulung rainbow</td><td class="kw-si">15</td><td><span class="badge b-green">+50%</span></td></tr>
+          <tr><td>bolu gulung abon</td><td class="kw-si">55</td><td><span class="badge b-green">+40%</span></td></tr>
+          <tr><td>resep bolu gulung</td><td class="kw-si">100</td><td><span class="badge b-blue">+20%</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-bolt"></i> Keyword Breakout — Jawa Tengah</div>
+      <table class="kw-table">
+        <thead><tr><th>Keyword</th><th>SI</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>roti bolu gulung</td><td class="kw-si">25</td><td><span class="badge b-purple">Breakout</span></td></tr>
+          <tr><td>bolu gulung abon</td><td class="kw-si">17</td><td><span class="badge b-purple">Breakout</span></td></tr>
+          <tr><td>resep bolu gulung panggang</td><td class="kw-si">11</td><td><span class="badge b-purple">Breakout</span></td></tr>
+          <tr><td>bolu gulung coklat</td><td class="kw-si">8</td><td><span class="badge b-purple">Breakout</span></td></tr>
+          <tr><td>resep bolu gulung kukus</td><td class="kw-si">6</td><td><span class="badge b-purple">Breakout</span></td></tr>
+          <tr><td>bolu gulung pandan</td><td class="kw-si">5</td><td><span class="badge b-purple">Breakout</span></td></tr>
+          <tr><td>harga bolu gulung</td><td class="kw-si">28</td><td><span class="badge b-red">-70%</span></td></tr>
+          <tr><td>bolu kukus</td><td class="kw-si">20</td><td><span class="badge b-red">-80%</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TREN SALT BREAD -->
+  <div class="sec-hdr" style="margin-top:8px"><div class="sec-title">🍞 Tren Pasar: Salt Bread — Mei 2026</div><div class="real-badge">Google Trends</div></div>
+
+  <div class="grid2">
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-bolt"></i> Breakout Jateng — Peluang Besar Onty</div>
+      <table class="kw-table">
+        <thead><tr><th>Keyword</th><th>SI</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>salt bread adalah</td><td class="kw-si">32</td><td><span class="badge b-purple">Breakout</span></td></tr>
+          <tr><td>resep salt bread</td><td class="kw-si">25</td><td><span class="badge b-purple">Breakout</span></td></tr>
+          <tr><td>little salt bread</td><td class="kw-si">12</td><td><span class="badge b-purple">Breakout</span></td></tr>
+          <tr><td>salt bread terdekat</td><td class="kw-si">6</td><td><span class="badge b-purple">Breakout</span></td></tr>
+          <tr><td>kalori salt bread</td><td class="kw-si">100</td><td><span class="badge b-green">+20%</span></td></tr>
+          <tr><td>salt bread roti boy</td><td class="kw-si">15</td><td><span class="badge b-red">-90%</span></td></tr>
+          <tr><td>salt bread blok m</td><td class="kw-si">0</td><td><span class="badge b-red">-100%</span></td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:10px;background:var(--bg4);border-radius:8px;padding:12px;font-size:12px;color:var(--text2);line-height:1.6">
+        💡 <strong>Fase Jateng vs Nasional berbeda!</strong> Nasional sudah post-peak, Jateng baru mulai. Onty berada di posisi sempurna sebagai <strong>first mover lokal Pekalongan</strong>.
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-chart-bar"></i> Tren Salt Bread vs Bolu Gulung</div>
+      <div class="chart-wrap h240"><canvas id="chartTrenComp"></canvas></div>
+    </div>
+  </div>
+
+  <!-- MASTER CONTENT PLAN -->
+  <div class="sec-hdr" style="margin-top:8px"><div class="sec-title">📅 Master Content Plan — Juni 2026</div></div>
+
+  <div class="panel" style="margin-bottom:20px">
+    <div class="panel-hdr"><i class="fa-solid fa-calendar-days"></i> Kalender Konten Semua Platform</div>
+    <div style="overflow-x:auto">
+    <table class="cp-table">
+      <thead><tr><th>Minggu</th><th>Platform</th><th>Format</th><th>Ide Konten</th><th>Berbasis Tren</th></tr></thead>
+      <tbody>
+        <tr><td><span class="w-tag wk1">M1</span></td><td>TikTok @ontycake</td><td>Video 60-90s</td><td>Reveal bolu gulung abon — close-up isian + tekstur lembut</td><td>Breakout Jateng: bolu gulung abon</td></tr>
+        <tr><td><span class="w-tag wk1">M1</span></td><td>IG @ontycake</td><td>Story</td><td>CTA Subscribe YouTube: "Tutorial lengkap bolu gulung di YouTube Onty!"</td><td>Push subs, momentum +350%</td></tr>
+        <tr><td><span class="w-tag wk1">M1</span></td><td>IG @ontycake</td><td>Reels</td><td>Behind the scenes produksi salt bread dari awal</td><td>salt bread adalah — Breakout Jateng</td></tr>
+        <tr><td><span class="w-tag wk1">M1</span></td><td>TikTok BC</td><td>Video 60s</td><td>"Bolu gulung gagal? Ini 3 penyebab paling umum" — hook kuat</td><td>DIY demand tinggi + problem-solution</td></tr>
+        <tr><td><span class="w-tag wk1">M1</span></td><td>YouTube</td><td>Tutorial 10-15 mnt</td><td>Bolu Gulung Pandan Kukus Super Lembut Anti Gagal (SEO-optimized)</td><td>+150% RI keyword terkuat</td></tr>
+        <tr><td><span class="w-tag wk2">M2</span></td><td>IG @ontycake</td><td>Story (Senin)</td><td>Weekly cross-promo: mention @ontyfarahbakingclass — teaser kelas</td><td>Gap 19x perlu diperkecil rutin</td></tr>
+        <tr><td><span class="w-tag wk2">M2</span></td><td>TikTok @ontycake</td><td>Video 90s</td><td>Salt bread: "Apa itu salt bread dan kenapa semua orang ngomongin ini?"</td><td>salt bread adalah — Breakout Jateng</td></tr>
+        <tr><td><span class="w-tag wk2">M2</span></td><td>TikTok BC</td><td>Video 90s</td><td>Testimoni peserta kelas — before/after skill bolu gulung, UGC style</td><td>47% marketer prioritaskan UGC 2026</td></tr>
+        <tr><td><span class="w-tag wk2">M2</span></td><td>YouTube</td><td>5 Shorts</td><td>Potong tutorial M1 → 5 klip pendek untuk YouTube Shorts</td><td>1 produksi = 5 konten distribusi</td></tr>
+        <tr><td><span class="w-tag wk3">M3</span></td><td>TikTok @ontycake</td><td>Video 90s</td><td>Launch bolu gulung nanas: "Varian baru yang belum ada di mana-mana!"</td><td>SI 22, +90% RI tren naik kuat</td></tr>
+        <tr><td><span class="w-tag wk3">M3</span></td><td>IG @ontycake</td><td>Reels</td><td>Bolu gulung rainbow — visual warna-warni, caption arahkan ke order</td><td>bolu gulung rainbow +50% RI</td></tr>
+        <tr><td><span class="w-tag wk3">M3</span></td><td>TikTok BC</td><td>Video 60s</td><td>"Behind the class" — sneak peek suasana kelas, FOMO agar penonton daftar</td><td>FOMO content terbukti convert</td></tr>
+        <tr><td><span class="w-tag wk3">M3</span></td><td>YouTube</td><td>Tutorial 10 mnt</td><td>Bolu Gulung Abon Onty Cake — tutorial lengkap + cerita di balik produk terlaris</td><td>Keyword Breakout Jateng</td></tr>
+        <tr><td><span class="w-tag wk4">M4</span></td><td>TikTok @ontycake</td><td>Video 90s</td><td>"Cara bikin salt bread yang selalu gagal" — edukasi + soft sell produk jadi</td><td>resep salt bread — Breakout Jateng</td></tr>
+        <tr><td><span class="w-tag wk4">M4</span></td><td>IG @ontycake</td><td>Story</td><td>Polling: "Bolu gulung rasa apa bulan depan?" — engagement + riset produk</td><td>Interaksi boost ER Instagram</td></tr>
+        <tr><td><span class="w-tag wk4">M4</span></td><td>TikTok BC</td><td>Video 90s</td><td>Q&A baking: jawab 3 pertanyaan umum yang paling sering masuk DM</td><td>Expertise = trust = konversi kelas</td></tr>
+        <tr><td><span class="w-tag wk4">M4</span></td><td>YouTube</td><td>Tutorial</td><td>Salt Bread Onty Cake: Cara Membuat Salt Bread ala Pekalongan</td><td>SEO lokal Jateng yang kuat</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- ACTION PLAN -->
+  <div class="sec-hdr"><div class="sec-title">🎯 Action Plan 30 Hari — Prioritas Juni 2026</div></div>
+
+  <div class="action-item" style="--step-color:var(--red)">
+    <div class="ai-header">
+      <div class="ai-title"><i class="fa-solid fa-triangle-exclamation" style="color:var(--red)"></i> Push YouTube ke lebih banyak views</div>
+      <div class="ai-badge ai-b1">PALING MENDESAK</div>
+    </div>
+    <div class="ai-body">Channel sudah punya 7.662 subscriber dengan AVD 109% — kontennya luar biasa. Masalah utama: penurunan video yang dipublikasikan = views turun. Solusi: Upload konsisten 1–2x per minggu + blast dari IG @ontycake (46.7K) via Story & Reels dengan CTA tonton YouTube.</div>
+    <div class="ai-chips">
+      <span class="chip"><i class="fa-brands fa-youtube"></i> YouTube</span>
+      <span class="chip"><i class="fa-brands fa-instagram"></i> IG @ontycake</span>
+      <span class="chip"><i class="fa-regular fa-calendar"></i> Minggu 1–2</span>
+      <span class="chip" style="color:var(--green)">🎯 KPI: Naikan views dari 26.4K</span>
+    </div>
+  </div>
+
+  <div class="action-item" style="--step-color:var(--red)">
+    <div class="ai-header">
+      <div class="ai-title"><i class="fa-brands fa-tiktok" style="color:var(--tt)"></i> Ubah Format TikTok: 15 Detik → 60–180 Detik</div>
+      <div class="ai-badge ai-b1">PRIORITAS TINGGI</div>
+    </div>
+    <div class="ai-body">Algoritma TikTok Juni 2026 sudah berubah fundamental. Video 15 detik tidak lagi optimal — completion rate ≥70% jadi syarat FYP. Buat batch 5 video 60–90 detik sekaligus, posting 1 per hari. Target shares recovery dari -69%.</div>
+    <div class="ai-chips">
+      <span class="chip"><i class="fa-brands fa-tiktok"></i> TT @ontycake</span>
+      <span class="chip"><i class="fa-brands fa-tiktok"></i> TT Baking Class</span>
+      <span class="chip"><i class="fa-regular fa-calendar"></i> Mulai Minggu Ini</span>
+      <span class="chip" style="color:var(--green)">🎯 CR ≥70%</span>
+    </div>
+  </div>
+
+  <div class="action-item" style="--step-color:var(--amber)">
+    <div class="ai-header">
+      <div class="ai-title"><i class="fa-solid fa-arrows-turn-to-dots" style="color:var(--amber)"></i> Weekly Story Cross-Promo Setiap Senin</div>
+      <div class="ai-badge ai-b2">PRIORITAS TINGGI</div>
+    </div>
+    <div class="ai-body">1 Story dari @ontycake ke @ontyfarahbakingclass setiap Senin. Kalkulasi: 46.7K followers × 5–7% Story view rate = 2.335–3.269 tayangan/minggu. Estimasi +300–500 followers baking class per bulan TANPA biaya iklan. ROI tertinggi dari semua strategi yang ada.</div>
+    <div class="ai-chips">
+      <span class="chip">IG @ontycake → Baking Class</span>
+      <span class="chip"><i class="fa-regular fa-calendar"></i> Setiap Senin</span>
+      <span class="chip" style="color:var(--green)">💸 Biaya: Rp 0</span>
+      <span class="chip" style="color:var(--green)">🎯 +300–500 followers/bulan</span>
+    </div>
+  </div>
+
+  <div class="action-item" style="--step-color:var(--amber)">
+    <div class="ai-header">
+      <div class="ai-title"><i class="fa-solid fa-magnifying-glass" style="color:var(--gold)"></i> Dominasi Keyword Salt Bread Jawa Tengah</div>
+      <div class="ai-badge ai-b2">MOMENTUM TREN</div>
+    </div>
+    <div class="ai-body">4 keyword Breakout di Jateng = pasar baru yang baru mulai mengenal salt bread. Onty sudah ada di sini terlebih dahulu. Buat konten "salt bread adalah" + "resep salt bread" + behind the scenes produksi untuk mengunci posisi sebagai brand salt bread terpercaya Pekalongan sebelum kompetitor lokal bergerak.</div>
+    <div class="ai-chips">
+      <span class="chip"><i class="fa-brands fa-tiktok"></i> TikTok</span>
+      <span class="chip"><i class="fa-brands fa-instagram"></i> Instagram</span>
+      <span class="chip"><i class="fa-brands fa-youtube"></i> YouTube</span>
+      <span class="chip" style="color:var(--amber)">🔥 Momentum sedang puncak Jateng</span>
+    </div>
+  </div>
+
+  <div class="action-item" style="--step-color:var(--amber)">
+    <div class="ai-header">
+      <div class="ai-title"><i class="fa-solid fa-cake-candles" style="color:var(--gold)"></i> Konten Bolu Gulung Kukus Pandan</div>
+      <div class="ai-badge ai-b2">PRIORITAS MENENGAH</div>
+    </div>
+    <div class="ai-body">Keyword "resep bolu gulung kukus" naik +150% RI — keyword terkuat yang naik bulan ini. Format optimal: tutorial video 60–90 detik di TikTok + Reels IG. Di YouTube buat tutorial lengkap 10–15 menit dengan judul SEO: "Resep Bolu Gulung Kukus Pandan Super Lembut Anti Gagal". Satu produksi bisa jadi konten di semua platform.</div>
+    <div class="ai-chips">
+      <span class="chip"><i class="fa-brands fa-tiktok"></i> TikTok</span>
+      <span class="chip"><i class="fa-brands fa-instagram"></i> Reels IG</span>
+      <span class="chip"><i class="fa-brands fa-youtube"></i> YouTube</span>
+      <span class="chip" style="color:var(--green)">📈 +150% keyword naik</span>
+    </div>
+  </div>
+
+  <div class="action-item" style="--step-color:var(--green)">
+    <div class="ai-header">
+      <div class="ai-title"><i class="fa-solid fa-users" style="color:var(--green)"></i> Aktifkan Strategi UGC</div>
+      <div class="ai-badge ai-b3">JANGKA MENENGAH</div>
+    </div>
+    <div class="ai-body">47% marketer Indonesia kini prioritaskan UGC (Emplifi 2026). Tambahkan kalimat di caption: "Tag @ontycake saat kamu unboxing, kami repost!" Buat hashtag brand: #TemanOnty atau #OntyCakePekalongan. Aktifkan notifikasi tag. Setiap minggu repost 2–3 konten pelanggan di Story. Efek: konten gratis + social proof + boost distribusi organik.</div>
+    <div class="ai-chips">
+      <span class="chip"><i class="fa-brands fa-instagram"></i> IG @ontycake</span>
+      <span class="chip"><i class="fa-brands fa-tiktok"></i> TT @ontycake</span>
+      <span class="chip" style="color:var(--green)">💸 Biaya: Rp 0</span>
+    </div>
+  </div>
+
+  <!-- BENCHMARK -->
+  <div class="sec-hdr" style="margin-top:8px"><div class="sec-title">📊 Benchmark Industri Indonesia 2026</div><div class="real-badge">Arfadia Digital Marketing Report</div></div>
+  <div class="grid2">
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-chart-bar"></i> Engagement Rate per Tier — Indonesia 2026</div>
+      <div class="chart-wrap h240"><canvas id="chartBenchmark"></canvas></div>
+    </div>
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-circle-check"></i> Posisi Onty vs Benchmark</div>
+      <div class="mrow"><div class="mrow-l">Nano IG Indonesia (benchmark)</div><div class="mrow-r" style="color:var(--green)">7.9% ER</div></div>
+      <div class="mrow"><div class="mrow-l">Nano TikTok Indonesia (benchmark)</div><div class="mrow-r" style="color:var(--green)">8.1% ER</div></div>
+      <div class="mrow"><div class="mrow-l">Micro IG Indonesia (benchmark)</div><div class="mrow-r">3.2% ER</div></div>
+      <div class="mrow"><div class="mrow-l">@ontycake IG (estimasi)</div><div class="mrow-r" style="color:var(--amber)">~4.5% ER</div></div>
+      <div class="mrow"><div class="mrow-l">@ontyfarahbakingclass IG (estimasi)</div><div class="mrow-r" style="color:var(--green)">~5.8% ER</div></div>
+      <div class="mrow"><div class="mrow-l">TikTok BC — likes/follower</div><div class="mrow-r" style="color:var(--green)">>7x (luar biasa)</div></div>
+      <div style="margin-top:12px;background:var(--bg4);border-radius:8px;padding:12px;font-size:12px;color:var(--text2);line-height:1.6">
+        📌 <strong>Orang Indonesia rata-rata online 37 jam 20 menit/minggu</strong> (We Are Social 2026). 42.3% suka konten tutorial — <em>selaras sempurna dengan konten baking Onty!</em>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <i class="fa-solid fa-circle-info"></i>
+    <div>Sumber data: Screenshot aktual semua platform (Juni 2026) · Google Trends Mei 2026 (bolu gulung & salt bread RI + Jawa Tengah) · Arfadia Indonesia Digital Marketing Benchmark 2026 (n=127 bisnis) · We Are Social Indonesia 2026 · Emplifi 2026. Data TikTok @ontycake: 9.103 followers, 506.7K likes. YouTube: 7.662 subs realtime. IG @ontycake: 46.7K followers, 2.859 posts.</div>
+  </div>
+</div>
+
+</div><!-- end .main -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+// ── TABS ──
+function showTab(n){
+  document.querySelectorAll('.tab-page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.pnav-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+n).classList.add('active');
+  document.querySelector('[data-tab="'+n+'"]').classList.add('active');
+}
+
+// ── TIMESTAMP ──
+function stamp(){
+  const n=new Date();
+  document.getElementById('timestamp').textContent='Update: '+n.toLocaleString('id-ID',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
+}
+
+// ── CHART DEFAULTS ──
+const G='rgba(255,215,100,0.07)',T='#6a5a40',T2='#aa9878';
+const TT={backgroundColor:'#1a1612',titleColor:'#f2ead8',bodyColor:'#aa9878',borderColor:'rgba(232,184,109,0.2)',borderWidth:1};
+const charts={};
+function mk(id,cfg){if(charts[id])charts[id].destroy();const el=document.getElementById(id);if(el)charts[id]=new Chart(el,cfg);}
+function baseOpt(x={}){return{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:TT},scales:{x:{ticks:{color:T,font:{size:10}},grid:{color:G}},y:{ticks:{color:T,font:{size:10}},grid:{color:G}}},...x};}
+
+function months6(){const m=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Ags','Sep','Okt','Nov','Des'];const s=new Date().getMonth();return Array.from({length:6},(_,i)=>m[(s+i)%12]);}
+
+function initCharts(){
+  const L=months6();
+
+  // ALL FOLLOWERS
+  mk('chartAllFollowers',{type:'bar',data:{
+    labels:['IG @ontycake','TT @ontycake','YouTube','IG BC','TT BC'],
+    datasets:[{data:[46700,9103,7662,2451,396],backgroundColor:['#e1306c','#45d0d8','#ff8080','#3ecb82','#a78bfa'],borderRadius:6}]
+  },options:{...baseOpt(),plugins:{legend:{display:false},tooltip:{...TT,callbacks:{label:c=>' '+c.raw.toLocaleString('id-ID')+' followers/subs'}}},scales:{x:{ticks:{color:T,font:{size:9}},grid:{color:G}},y:{ticks:{color:T,callback:v=>v>=1000?(v/1000).toFixed(0)+'K':v,font:{size:10}},grid:{color:G}}}}});
+
+  // DOUGHNUT
+  mk('chartDist',{type:'doughnut',data:{
+    labels:['IG Brand 46.7K','TT Brand 9.1K','YouTube 7.7K','IG BC 2.5K','TT BC 0.4K'],
+    datasets:[{data:[46700,9103,7662,2451,396],backgroundColor:['#e1306c','#45d0d8','#ff8080','#3ecb82','#a78bfa'],borderWidth:0,hoverOffset:6}]
+  },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{...TT,callbacks:{label:c=>' '+c.label+': '+c.raw.toLocaleString('id-ID')}}}}});
+
+  // IG BRAND GROWTH
+  mk('chartIgBrandGrowth',{type:'line',data:{labels:L,datasets:[{label:'Followers',data:[46700,47900,49200,50600,52100,53700],borderColor:'#e1306c',backgroundColor:'rgba(225,48,108,.06)',tension:.4,pointRadius:4,pointBackgroundColor:'#e1306c',fill:true}]},options:{...baseOpt(),scales:{x:{ticks:{color:T,font:{size:10}},grid:{color:G}},y:{ticks:{color:T,callback:v=>(v/1000).toFixed(0)+'K',font:{size:10}},grid:{color:G},min:44000}}}});
+
+  // IG BRAND ENG
+  mk('chartIgBrandEng',{type:'bar',data:{
+    labels:['Reels','Carousel','Video','Foto Tunggal','Story'],
+    datasets:[{data:[7.2,6.1,4.8,3.9,2.1],backgroundColor:['#e1306c','#e8b86d','#f09433','#aa9878','#6a5a40'],borderRadius:5}]
+  },options:{...baseOpt(),plugins:{legend:{display:false},tooltip:{...TT,callbacks:{label:c=>' '+c.raw+'%'}}},scales:{x:{ticks:{color:T,font:{size:10}},grid:{color:G}},y:{ticks:{color:T,callback:v=>v+'%',font:{size:10}},grid:{color:G},max:9}}}});
+
+  // TT VS IG RADAR
+  mk('chartTtVsIg',{type:'radar',data:{
+    labels:['Followers','Volume\nKonten','Engagement','Potensi\nViral','Konsistensi','Discoverability'],
+    datasets:[
+      {label:'Instagram',data:[9,9,7,5,8,6],backgroundColor:'rgba(225,48,108,.12)',borderColor:'#e1306c',pointBackgroundColor:'#e1306c',pointRadius:3},
+      {label:'TikTok',data:[4,4,7,9,4,9],backgroundColor:'rgba(69,208,216,.10)',borderColor:'#45d0d8',pointBackgroundColor:'#45d0d8',pointRadius:3}
+    ]
+  },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:TT},scales:{r:{ticks:{color:T,font:{size:9},backdropColor:'transparent'},grid:{color:G},pointLabels:{color:T2,font:{size:10}},angleLines:{color:G},suggestedMin:0,suggestedMax:10}}}});
+
+  // TT RECOVERY
+  mk('chartTtRecovery',{type:'line',data:{labels:L,datasets:[
+    {label:'Tanpa konsistensi',data:[9103,9300,9450,9600,9750,9900],borderColor:'#6a5a40',borderDash:[5,4],tension:.4,pointRadius:3,pointBackgroundColor:'#6a5a40'},
+    {label:'Konsisten 3-5x/minggu 60-180s',data:[9103,13500,19000,26000,35000,46000],borderColor:'#45d0d8',backgroundColor:'rgba(69,208,216,.06)',tension:.4,pointRadius:4,pointBackgroundColor:'#45d0d8',fill:true}
+  ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:{...TT,callbacks:{label:c=>' '+c.dataset.label+': '+c.raw.toLocaleString('id-ID')}}},scales:{x:{ticks:{color:T,font:{size:10}},grid:{color:G}},y:{ticks:{color:T,callback:v=>v>=1000?(v/1000).toFixed(0)+'K':v,font:{size:10}},grid:{color:G}}}}});
+
+  // YOUTUBE GROWTH
+  mk('chartYtGrowth',{type:'line',data:{labels:L,datasets:[
+    {label:'Organik saja',data:[7662,7800,7960,8130,8320,8530],borderColor:'#6a5a40',borderDash:[5,4],tension:.4,pointRadius:3,pointBackgroundColor:'#6a5a40'},
+    {label:'Dengan push cross-platform',data:[7662,9200,11500,14500,18500,24000],borderColor:'#ff8080',backgroundColor:'rgba(255,128,128,.06)',tension:.4,pointRadius:4,pointBackgroundColor:'#ff8080',fill:true}
+  ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:{...TT,callbacks:{label:c=>' '+c.dataset.label+': '+c.raw.toLocaleString('id-ID')}}},scales:{x:{ticks:{color:T,font:{size:10}},grid:{color:G}},y:{ticks:{color:T,callback:v=>v>=1000?(v/1000).toFixed(0)+'K':v,font:{size:10}},grid:{color:G}}}}});
+
+  // IG CLASS GROWTH
+  mk('chartIgClassGrowth',{type:'line',data:{labels:L,datasets:[
+    {label:'Tanpa cross-promo',data:[2451,2550,2655,2765,2880,3000],borderColor:'#6a5a40',borderDash:[5,4],tension:.4,pointRadius:3,pointBackgroundColor:'#6a5a40'},
+    {label:'Dengan weekly Story mention',data:[2451,2900,3500,4200,5100,6200],borderColor:'#3ecb82',backgroundColor:'rgba(62,203,130,.07)',tension:.4,pointRadius:4,pointBackgroundColor:'#3ecb82',fill:true}
+  ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:{...TT,callbacks:{label:c=>' '+c.dataset.label+': '+c.raw.toLocaleString('id-ID')}}},scales:{x:{ticks:{color:T,font:{size:10}},grid:{color:G}},y:{ticks:{color:T,callback:v=>v>=1000?(v/1000).toFixed(1)+'K':v,font:{size:10}},grid:{color:G}}}}});
+
+  // TT CLASS GROWTH
+  mk('chartTtClassGrowth',{type:'line',data:{labels:L,datasets:[{
+    label:'Proyeksi konten konsisten',data:[396,650,1100,1900,3200,5200],
+    borderColor:'#a78bfa',backgroundColor:'rgba(167,139,250,.06)',tension:.4,pointRadius:4,pointBackgroundColor:'#a78bfa',fill:true
+  }]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{...TT,callbacks:{label:c=>' '+c.raw.toLocaleString('id-ID')}}},scales:{x:{ticks:{color:T,font:{size:10}},grid:{color:G}},y:{ticks:{color:T,callback:v=>v>=1000?(v/1000).toFixed(1)+'K':v,font:{size:10}},grid:{color:G}}}}});
+
+  // TREN COMPARISON
+  mk('chartTrenComp',{type:'bar',data:{
+    labels:['Bolu Gulung\nRI (SI)','Bolu Gulung\nJateng (SI)','Salt Bread\nRI (SI)','Salt Bread\nJateng (Breakout)'],
+    datasets:[
+      {label:'Search Interest',data:[100,100,41,32],backgroundColor:['#639922','#97C459','#185FA5','#378ADD'],borderRadius:5},
+      {label:'Keyword Breakout Naik',data:[17,6,3,4],backgroundColor:['rgba(99,153,34,.25)','rgba(151,196,89,.25)','rgba(24,95,165,.25)','rgba(55,138,221,.25)'],borderRadius:5,yAxisID:'y2'}
+    ]
+  },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{...TT,callbacks:{label:c=>' '+c.dataset.label+': '+c.raw}}},scales:{x:{ticks:{color:T,font:{size:9}},grid:{color:G}},y:{ticks:{color:T,font:{size:10}},grid:{color:G},title:{display:true,text:'Search Interest',color:T,font:{size:9}}},y2:{position:'right',ticks:{color:T,font:{size:10}},grid:{display:false},title:{display:true,text:'Breakout Count',color:T,font:{size:9}}}}}});
+
+  // BENCHMARK
+  mk('chartBenchmark',{type:'bar',data:{
+    labels:['Nano TT\nIndonesia','Nano IG\nIndonesia','Micro TT\nIndonesia','Micro IG\nIndonesia','@ontyfarah\nBC IG','@ontycake\nIG','Macro IG\nIndonesia'],
+    datasets:[{data:[8.1,7.9,5.8,3.2,5.8,4.5,1.1],backgroundColor:['#3ecb82','#3ecb82','#e8b86d','#e8b86d','#45d0d8','#e1306c','#6a5a40'],borderRadius:5}]
+  },options:{...baseOpt(),plugins:{legend:{display:false},tooltip:{...TT,callbacks:{label:c=>' '+c.raw+'% ER'}}},scales:{x:{ticks:{color:T,font:{size:9}},grid:{color:G}},y:{ticks:{color:T,callback:v=>v+'%',font:{size:10}},grid:{color:G},max:10}}}});
+}
+
+document.addEventListener('DOMContentLoaded',()=>{stamp();initCharts();});
+</script>
+</body>
+</html>
