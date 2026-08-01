@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Onty Analytics Dashboard — Juli 2026 · Taste of Taro</title>
+<title>Onty Analytics Dashboard — Agustus 2026 · Data Juli & Momentum Merdeka</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
@@ -15,7 +15,7 @@
   --text:#f2ead8;--text2:#aa9878;--text3:#6a5a40;--text4:#3a2e1e;
   --ig:#e1306c;--ig2:#f77737;--tt:#45d0d8;--yt:#ff3b3b;--yt2:#ff8080;
   --green:#3ecb82;--amber:#f59e0b;--red:#ef4444;--blue:#60a5fa;
-  --taro:#9b7fd4;--taro2:#c4aeed;
+  --taro:#9b7fd4;--taro2:#c4aeed;--merah:#e84545;--putih:#f0f0f0;
   --r:14px;--rs:8px;--rx:20px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -32,6 +32,7 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:4px 11px;border-radius:20px;font-weight:500;border:1px solid}
 .pill-gold{background:rgba(232,184,109,0.10);border-color:var(--border2);color:var(--gold)}
 .pill-taro{background:rgba(155,127,212,0.14);border-color:rgba(155,127,212,0.35);color:var(--taro2)}
+.pill-merah{background:rgba(232,69,69,0.12);border-color:rgba(232,69,69,0.3);color:#ff8080}
 .live-dot{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text3)}
 .live-dot::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 2s infinite;display:block}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
@@ -105,7 +106,7 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .ins{display:flex;gap:9px;padding:9px 0;border-bottom:1px solid var(--border);font-size:12.5px;line-height:1.65}
 .ins:last-child{border-bottom:none}
 .dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}
-.d-g{background:var(--green)}.d-a{background:var(--amber)}.d-r{background:var(--red)}.d-o{background:var(--gold)}.d-b{background:var(--blue)}.d-t{background:var(--taro)}
+.d-g{background:var(--green)}.d-a{background:var(--amber)}.d-r{background:var(--red)}.d-o{background:var(--gold)}.d-b{background:var(--blue)}.d-t{background:var(--taro)}.d-m{background:var(--merah)}
 
 .tcard{background:var(--bg4);border:1px solid var(--border);border-radius:10px;padding:13px;transition:border-color .2s;margin-bottom:10px}
 .tcard:hover{border-color:var(--border2)}
@@ -126,6 +127,7 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .b-blue{background:rgba(96,165,250,.12);color:var(--blue)}
 .b-purple{background:rgba(167,139,250,.12);color:#a78bfa}
 .b-taro{background:rgba(155,127,212,.16);color:var(--taro2)}
+.b-merah{background:rgba(232,69,69,.14);color:#ff8080}
 
 .action-item{background:var(--bg3);border:1px solid var(--border);border-left:3px solid var(--step-color,var(--gold));border-radius:var(--rs);padding:14px 16px;margin-bottom:10px;transition:border-color .2s}
 .action-item:hover{border-color:var(--border2)}
@@ -156,6 +158,8 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .alert-red i{color:var(--red)}
 .alert-taro{border-color:rgba(155,127,212,.3);background:linear-gradient(135deg,rgba(155,127,212,.09),rgba(232,184,109,.04))}
 .alert-taro i{color:var(--taro2)}
+.alert-merah{border-color:rgba(232,69,69,.3);background:linear-gradient(135deg,rgba(232,69,69,.08),rgba(240,240,240,.03))}
+.alert-merah i{color:#ff8080}
 
 ::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-track{background:var(--bg)}
@@ -189,6 +193,7 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .product-card{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);padding:16px;transition:all .2s}
 .product-card:hover{border-color:var(--taro);transform:translateY(-3px)}
 .product-emoji{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--taro),#7c5fc4);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:10px}
+.product-emoji.merah{background:linear-gradient(135deg,var(--merah),#a91f1f)}
 .product-name{font-size:14px;font-weight:700;margin-bottom:4px}
 .product-desc{font-size:11.5px;color:var(--text2);line-height:1.6;margin-bottom:8px}
 
@@ -213,8 +218,9 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
     </div>
   </div>
   <div class="topbar-right">
-    <div class="pill pill-taro"><i class="fa-solid fa-seedling"></i> Taste of Taro</div>
-    <div class="pill pill-gold"><i class="fa-solid fa-calendar-days"></i> Juli 2026</div>
+    <div class="pill pill-taro"><i class="fa-solid fa-seedling"></i> Taste of Taro — Lanjutan</div>
+    <div class="pill pill-merah"><i class="fa-solid fa-flag"></i> Momentum Merdeka</div>
+    <div class="pill pill-gold"><i class="fa-solid fa-calendar-days"></i> Agustus 2026</div>
     <div class="live-dot" id="timestamp">Memuat...</div>
   </div>
 </div>
@@ -227,8 +233,8 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
   <div class="pnav-tab" onclick="showTab('ig-class')" data-tab="ig-class" style="--tab-color:var(--green)"><div class="pnav-icon" style="background:linear-gradient(135deg,#1D9E75,#4eca8b)"><i class="fa-brands fa-instagram" style="color:#fff;font-size:9px"></i></div> IG Baking Class</div>
   <div class="pnav-tab" onclick="showTab('tt-class')" data-tab="tt-class" style="--tab-color:var(--red)"><div class="pnav-icon" style="background:#111;border:1px solid #2a2a2a">🚨</div> TT Baking Class</div>
   <div class="pnav-tab" onclick="showTab('kompetitor')" data-tab="kompetitor" style="--tab-color:#ff8fb3"><div class="pnav-icon" style="background:linear-gradient(135deg,#ff8fb3,#e1306c)">⚔️</div> Kompetitor</div>
-  <div class="pnav-tab" onclick="showTab('tren-taro')" data-tab="tren-taro" style="--tab-color:var(--taro)"><div class="pnav-icon" style="background:linear-gradient(135deg,var(--taro),#7c5fc4)">🍠</div> Tren Taro</div>
-  <div class="pnav-tab" onclick="showTab('strategi-juli')" data-tab="strategi-juli" style="--tab-color:var(--taro2)"><div class="pnav-icon" style="background:linear-gradient(135deg,#c4aeed,#9b7fd4)">🚀</div> Strategi Juli</div>
+  <div class="pnav-tab" onclick="showTab('tren')" data-tab="tren" style="--tab-color:var(--taro)"><div class="pnav-icon" style="background:linear-gradient(135deg,var(--taro),#7c5fc4)">🍠</div> Tren Taro & Roti</div>
+  <div class="pnav-tab" onclick="showTab('strategi-agustus')" data-tab="strategi-agustus" style="--tab-color:var(--merah)"><div class="pnav-icon" style="background:linear-gradient(135deg,#e84545,#a91f1f)">🇮🇩</div> Strategi Agustus</div>
   <div class="pnav-tab" onclick="showTab('ai')" data-tab="ai" style="--tab-color:var(--gold)"><div class="pnav-icon" style="background:linear-gradient(135deg,#c89040,#e8b86d)">✦</div> Analisis AI</div>
 </nav>
 
@@ -237,53 +243,58 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 <!-- ══════ TAB: RINGKASAN ══════ -->
 <div id="tab-ringkasan" class="tab-page active">
 
-  <div class="alert-banner alert-taro">
-    <i class="fa-solid fa-seedling"></i>
-    <div><strong>Fokus Juli 2026: Peluncuran "Taste of Taro".</strong> 6 produk baru (Taro Bun, Bolu Gulung Taro, Egg Claire Taro, Bolu Taro Keju, Taro Latte, Taro Soes Retak) akan menjadi pendorong konten utama bulan ini, didukung data Google Trends yang menunjukkan permintaan taro sedang <strong>Breakout di Jawa Tengah</strong> — persis pola first-mover yang sudah terbukti berhasil pada salt bread bulan lalu.</div>
+  <div class="alert-banner alert-merah">
+    <i class="fa-solid fa-flag"></i>
+    <div><strong>Fokus Agustus 2026: Momentum Kemerdekaan + Lanjutan Taste of Taro.</strong> Data Google Trends Juli menunjukkan lonjakan pencarian "roti merdeka" (+400%) dan "roti ketawa" (+700%) menjelang 17 Agustus & musim MPLS (tahun ajaran baru). Sementara itu, "taro bun" di Jawa Tengah naik dari SI 16 (Juni) → <strong>52 (Juli, +130%)</strong> — sinyal kuat bahwa launching Taro sudah mulai menggerakkan pencarian lokal.</div>
+  </div>
+
+  <div class="alert-banner alert-warn">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div><strong>Peringatan: Engagement IG & TikTok utama turun signifikan di Juli</strong> meski followers tumbuh tipis. Views IG -10,6%, reach -23,2%, interaksi -26,8%. Views TikTok anjlok -49,24%. Ini terjadi BERSAMAAN dengan periode launching Taro — kemungkinan konten launching kurang optimal formatnya. Lihat detail di tab masing-masing platform.</div>
   </div>
 
   <div class="kpi-grid">
     <div class="kpi" style="--kpi-color:var(--gold)">
       <div class="kpi-icon"><i class="fa-solid fa-users"></i></div>
-      <div class="kpi-val">66.7K</div>
+      <div class="kpi-val">67.0K</div>
       <div class="kpi-lbl">Total Ekosistem</div>
-      <div class="kpi-tag t-info"><i class="fa-solid fa-layer-group"></i> 5 Platform · Data Juni</div>
+      <div class="kpi-tag t-up">↑ +330 vs Juni · Data Aktual Juli</div>
     </div>
     <div class="kpi" style="--kpi-color:var(--ig);--kpi-bg:rgba(225,48,108,.1)">
       <div class="kpi-icon"><i class="fa-brands fa-instagram"></i></div>
-      <div class="kpi-val">49.6K</div>
+      <div class="kpi-val">49.8K</div>
       <div class="kpi-lbl">Total IG Followers</div>
-      <div class="kpi-tag t-up">↑ 74% dari total ekosistem</div>
+      <div class="kpi-tag t-up">+243 followers vs Juni</div>
     </div>
     <div class="kpi" style="--kpi-color:var(--tt);--kpi-bg:rgba(69,208,216,.1)">
       <div class="kpi-icon"><i class="fa-brands fa-tiktok"></i></div>
       <div class="kpi-val">9.5K</div>
       <div class="kpi-lbl">Total TikTok</div>
-      <div class="kpi-tag t-warn">640K Likes gabungan</div>
+      <div class="kpi-tag t-warn">Views turun tajam -49%</div>
     </div>
     <div class="kpi" style="--kpi-color:var(--yt);--kpi-bg:rgba(255,59,59,.1)">
       <div class="kpi-icon"><i class="fa-brands fa-youtube"></i></div>
-      <div class="kpi-val">7.661</div>
+      <div class="kpi-val">7.655</div>
       <div class="kpi-lbl">YouTube Subs</div>
-      <div class="kpi-tag t-warn">-4 subs Juni · perlu dorongan</div>
+      <div class="kpi-tag t-red">-6 subs + 1 video diblokir region</div>
     </div>
     <div class="kpi" style="--kpi-color:var(--red);--kpi-bg:rgba(239,68,68,.1)">
-      <div class="kpi-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
-      <div class="kpi-val">-97%</div>
-      <div class="kpi-lbl">TT Baking Class Juni</div>
-      <div class="kpi-tag t-red">Kolaps kritis — lihat tab khusus</div>
+      <div class="kpi-icon"><i class="fa-solid fa-heart-crack"></i></div>
+      <div class="kpi-val">571</div>
+      <div class="kpi-lbl">TT Baking Class Views Juli</div>
+      <div class="kpi-tag t-red">Turun lagi -31% dari Juni (830)</div>
     </div>
     <div class="kpi" style="--kpi-color:var(--taro);--kpi-bg:rgba(155,127,212,.14)">
       <div class="kpi-icon"><i class="fa-solid fa-fire"></i></div>
-      <div class="kpi-val">16-19</div>
-      <div class="kpi-lbl">SI "taro bun/snack" Jateng</div>
-      <div class="kpi-tag t-taro">Status: Breakout 🔥</div>
+      <div class="kpi-val">52</div>
+      <div class="kpi-lbl">SI "taro bun" Jateng Juli</div>
+      <div class="kpi-tag t-taro">+130% dari Juni (naik dari 16)</div>
     </div>
   </div>
 
   <div class="sec-hdr">
-    <div class="sec-title">Performa Per Platform — Update Data Juni 2026</div>
-    <div class="real-badge"><i class="fa-solid fa-chart-bar"></i> Meta Business Suite · TikTok Studio · YouTube Studio</div>
+    <div class="sec-title">Performa Per Platform — Update Data Juli 2026</div>
+    <div class="real-badge"><i class="fa-solid fa-chart-bar"></i> Meta Business Suite · TikTok Studio (XLSX Export) · YouTube Studio</div>
   </div>
 
   <div class="pc-row">
@@ -291,107 +302,107 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
       <div class="pc-hdr">
         <div class="pc-icon" style="background:linear-gradient(135deg,#f09433,#dc2743,#cc2366)">📸</div>
         <div><div style="font-size:13px;font-weight:600">@ontycake</div><div style="font-size:10px;color:var(--text3)">Instagram · Brand Utama</div></div>
-        <div class="tag tag-brand" style="margin-left:auto">⭐ Andalan</div>
+        <div class="tag" style="margin-left:auto;background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.25);color:var(--amber)">⚠️ Engagement Turun</div>
       </div>
       <div class="pc-stats">
-        <div><div class="pv" style="color:var(--ig)">47K</div><div class="pl">Followers</div></div>
-        <div><div class="pv">697K</div><div class="pl">Views 30hr</div></div>
-        <div><div class="pv">56.3K</div><div class="pl">Reach</div></div>
+        <div><div class="pv" style="color:var(--ig)">47,2K</div><div class="pl">Followers</div></div>
+        <div><div class="pv">624K</div><div class="pl">Views 30hr</div></div>
+        <div><div class="pv">43,2K</div><div class="pl">Reach</div></div>
       </div>
-      <div class="progbar"><div class="progfill" style="width:86%;background:linear-gradient(90deg,#dc2743,#f09433)"></div></div>
-      <div class="progmeta"><span>Skor ekosistem</span><span>86/100</span></div>
+      <div class="progbar"><div class="progfill" style="width:68%;background:linear-gradient(90deg,#dc2743,#f09433)"></div></div>
+      <div class="progmeta"><span>Skor ekosistem</span><span>68/100 (turun dari 86)</span></div>
     </div>
     <div class="pc" onclick="showTab('tt-ontycake')">
       <div class="pc-hdr">
         <div class="pc-icon" style="background:#000;border:1px solid #333">🎵</div>
         <div><div style="font-size:13px;font-weight:600">@ontycake</div><div style="font-size:10px;color:var(--text3)">TikTok · Brand Utama</div></div>
-        <div class="tag tag-tt" style="margin-left:auto">⚡ Campuran</div>
+        <div class="tag tag-red" style="margin-left:auto">📉 Views -49%</div>
       </div>
       <div class="pc-stats">
-        <div><div class="pv" style="color:var(--tt)">9.119</div><div class="pl">Followers</div></div>
-        <div><div class="pv">507K</div><div class="pl">Likes</div></div>
-        <div><div class="pv">+4.4%</div><div class="pl">Reach</div></div>
+        <div><div class="pv" style="color:var(--tt)">9.132</div><div class="pl">Followers</div></div>
+        <div><div class="pv">507,7K</div><div class="pl">Likes</div></div>
+        <div><div class="pv">34,8K</div><div class="pl">Video Views</div></div>
       </div>
-      <div class="progbar"><div class="progfill" style="width:38%;background:linear-gradient(90deg,var(--tt),#45d0d8cc)"></div></div>
-      <div class="progmeta"><span>Skor ekosistem</span><span>38/100 — Shares turun -57%</span></div>
+      <div class="progbar"><div class="progfill" style="width:25%;background:linear-gradient(90deg,var(--tt),#45d0d8cc)"></div></div>
+      <div class="progmeta"><span>Skor ekosistem</span><span>25/100 — Kritis</span></div>
     </div>
     <div class="pc" onclick="showTab('yt')">
       <div class="pc-hdr">
         <div class="pc-icon" style="background:var(--yt)">▶️</div>
         <div><div style="font-size:13px;font-weight:600">@ontycakebakery</div><div style="font-size:10px;color:var(--text3)">YouTube · Tutorial</div></div>
-        <div class="tag tag-yt" style="margin-left:auto">📉 Turun Juni</div>
+        <div class="tag tag-red" style="margin-left:auto">🚫 Video Diblokir</div>
       </div>
       <div class="pc-stats">
-        <div><div class="pv" style="color:var(--yt2)">7.661</div><div class="pl">Subs</div></div>
-        <div><div class="pv">17.8K</div><div class="pl">Views Juni</div></div>
-        <div><div class="pv">-28%</div><div class="pl">vs Mei</div></div>
+        <div><div class="pv" style="color:var(--yt2)">7.655</div><div class="pl">Subs</div></div>
+        <div><div class="pv">17,0K</div><div class="pl">Views Juli</div></div>
+        <div><div class="pv">-7%</div><div class="pl">vs Juni</div></div>
       </div>
-      <div class="progbar"><div class="progfill" style="width:40%;background:linear-gradient(90deg,var(--yt),var(--yt2))"></div></div>
-      <div class="progmeta"><span>Skor ekosistem</span><span>40/100 — Publikasi minim</span></div>
+      <div class="progbar"><div class="progfill" style="width:36%;background:linear-gradient(90deg,var(--yt),var(--yt2))"></div></div>
+      <div class="progmeta"><span>Skor ekosistem</span><span>36/100 — Minim Publikasi</span></div>
     </div>
-    <div class="pc" onclick="showTab('ig-class')">
+    <div class="pc" onclick="showTab('ig-class')" style="border-color:rgba(62,203,130,.35)">
       <div class="pc-hdr">
         <div class="pc-icon" style="background:linear-gradient(135deg,#1D9E75,#4eca8b)">📚</div>
         <div><div style="font-size:13px;font-weight:600">@ontyfarahbakingclass</div><div style="font-size:10px;color:var(--text3)">Instagram · Edukatif</div></div>
-        <div class="tag tag-edu" style="margin-left:auto">🎓 Kelas</div>
+        <div class="tag tag-edu" style="margin-left:auto">✅ Tumbuh Bagus</div>
       </div>
       <div class="pc-stats">
-        <div><div class="pv" style="color:var(--green)">2.554</div><div class="pl">Followers</div></div>
-        <div><div class="pv">100.6K</div><div class="pl">Tayangan</div></div>
-        <div><div class="pv">5.7%</div><div class="pl">Eng./Reach</div></div>
+        <div><div class="pv" style="color:var(--green)">2.664</div><div class="pl">Followers</div></div>
+        <div><div class="pv">111,8K</div><div class="pl">Tayangan (+11%)</div></div>
+        <div><div class="pv">468</div><div class="pl">Akun Interaksi</div></div>
       </div>
-      <div class="progbar"><div class="progfill" style="width:31%;background:linear-gradient(90deg,var(--green),#3ecb82aa)"></div></div>
-      <div class="progmeta"><span>Skor ekosistem</span><span>55/100</span></div>
+      <div class="progbar"><div class="progfill" style="width:65%;background:linear-gradient(90deg,var(--green),#3ecb82aa)"></div></div>
+      <div class="progmeta"><span>Skor ekosistem</span><span>65/100 (naik dari 55)</span></div>
     </div>
-    <div class="pc" onclick="showTab('tt-class')" style="border-color:rgba(239,68,68,.35)">
+    <div class="pc" onclick="showTab('tt-class')" style="border-color:rgba(239,68,68,.4)">
       <div class="pc-hdr">
         <div class="pc-icon" style="background:#111;border:1px solid rgba(239,68,68,.3)">🚨</div>
         <div><div style="font-size:13px;font-weight:600">@ontyfarahbakingclass</div><div style="font-size:10px;color:var(--text3)">TikTok · Edukatif</div></div>
-        <div class="tag tag-red" style="margin-left:auto">Kolaps -97%</div>
+        <div class="tag tag-red" style="margin-left:auto">Makin Parah -31%</div>
       </div>
       <div class="pc-stats">
-        <div><div class="pv" style="color:var(--red)">396</div><div class="pl">Followers</div></div>
-        <div><div class="pv">830</div><div class="pl">Views Juni</div></div>
-        <div><div class="pv">-97.7%</div><div class="pl">vs Mei</div></div>
+        <div><div class="pv" style="color:var(--red)">391</div><div class="pl">Followers</div></div>
+        <div><div class="pv">571</div><div class="pl">Views Juli</div></div>
+        <div><div class="pv">$0</div><div class="pl">Est. Reward</div></div>
       </div>
-      <div class="progbar"><div class="progfill" style="width:8%;background:linear-gradient(90deg,var(--red),#ff8080)"></div></div>
-      <div class="progmeta"><span>Skor ekosistem</span><span>10/100 — Darurat</span></div>
+      <div class="progbar"><div class="progfill" style="width:4%;background:linear-gradient(90deg,var(--red),#ff8080)"></div></div>
+      <div class="progmeta"><span>Skor ekosistem</span><span>4/100 — Darurat Berlanjut</span></div>
     </div>
     <div class="pc" onclick="showTab('kompetitor')">
       <div class="pc-hdr">
         <div class="pc-icon" style="background:linear-gradient(135deg,#ff8fb3,#e1306c)">⚔️</div>
         <div><div style="font-size:13px;font-weight:600">@deliziabakery</div><div style="font-size:10px;color:var(--text3)">Kompetitor · Batang</div></div>
-        <div class="tag" style="margin-left:auto;background:rgba(255,143,179,.1);border-color:rgba(255,143,179,.3);color:#ff8fb3">👀 Analisis</div>
+        <div class="tag" style="margin-left:auto;background:rgba(255,143,179,.1);border-color:rgba(255,143,179,.3);color:#ff8fb3">🔥 Viral 998K</div>
       </div>
       <div class="pc-stats">
-        <div><div class="pv" style="color:#ff8fb3">15.8K</div><div class="pl">IG Followers</div></div>
-        <div><div class="pv">811K</div><div class="pl">Views Terbaik</div></div>
-        <div><div class="pv">2.7K</div><div class="pl">TT Followers</div></div>
+        <div><div class="pv" style="color:#ff8fb3">16,1K</div><div class="pl">IG Followers</div></div>
+        <div><div class="pv">998K</div><div class="pl">Video Terviral</div></div>
+        <div><div class="pv">+300</div><div class="pl">Followers/bulan</div></div>
       </div>
       <div class="progbar"><div class="progfill" style="width:100%;background:linear-gradient(90deg,#ff8fb3,#e1306c)"></div></div>
-      <div class="progmeta"><span>Strategi</span><span>Hero-product launches</span></div>
+      <div class="progmeta"><span>Strategi baru</span><span>Konten humor/relatable</span></div>
     </div>
   </div>
 
   <div class="grid2">
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-chart-bar"></i> Followers Semua Akun (Data Aktual Juni 2026)</div>
+      <div class="panel-hdr"><i class="fa-solid fa-chart-bar"></i> Followers Semua Akun — Juni vs Juli (Aktual)</div>
       <div class="chart-wrap h240"><canvas id="chartAllFollowers"></canvas></div>
     </div>
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-chart-radar"></i> Skor Kesehatan Ekosistem — Juni vs Target Juli</div>
+      <div class="panel-hdr"><i class="fa-solid fa-chart-radar"></i> Skor Kesehatan Ekosistem — Juni vs Juli vs Target Agustus</div>
       <div class="chart-wrap h240"><canvas id="chartRadarOverview"></canvas></div>
     </div>
   </div>
 
   <div class="panel" style="margin-bottom:22px">
-    <div class="panel-hdr"><i class="fa-solid fa-bullseye"></i> 5 Prioritas Juli 2026 — Ringkasan Eksekutif</div>
+    <div class="panel-hdr"><i class="fa-solid fa-bullseye"></i> 5 Prioritas Agustus 2026 — Ringkasan Eksekutif</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin-top:4px">
-      <div class="tcard" style="border-color:rgba(155,127,212,.3)"><div class="tc-tag" style="color:var(--taro2)">① Launch Utama</div><div class="tc-title">Taste of Taro — 6 Produk</div><div class="tc-text">Dorong seluruh 5 akun untuk mempromosikan launch produk taro sepanjang Juli, dengan hero product Taro Bun & Bolu Gulung Taro di minggu pertama.</div></div>
-      <div class="tcard" style="border-color:rgba(239,68,68,.3)"><div class="tc-tag" style="color:var(--red)">② Darurat</div><div class="tc-title">Selamatkan TikTok Baking Class</div><div class="tc-text">Reach turun -99.66%, views -97.67%. Perlu diagnosis akun (shadowban/hashtag banned) + reset strategi konten total.</div></div>
-      <div class="tcard" style="border-color:rgba(245,158,11,.3)"><div class="tc-tag" style="color:var(--amber)">③ Recovery</div><div class="tc-title">YouTube — Kembalikan Ritme Upload</div><div class="tc-text">Views turun -28%, watch time -27% akibat minim publikasi (hanya 17 penayangan video reguler bulan ini). Perlu 1-2 upload/minggu konsisten.</div></div>
-      <div class="tcard" style="border-color:rgba(69,208,216,.3)"><div class="tc-tag" style="color:var(--tt)">④ Format</div><div class="tc-title">TikTok @ontycake — Perbaiki Shares</div><div class="tc-text">Shares anjlok -56.94% meski reach naik +4.36%. Konten dilihat tapi tidak dibagikan — butuh hook & save-worthy value yang lebih kuat.</div></div>
-      <div class="tcard" style="border-color:rgba(255,143,179,.3)"><div class="tc-tag" style="color:#ff8fb3">⑤ Kompetitif</div><div class="tc-title">Tiru Formula Viral Delizia</div><div class="tc-text">Delizia (15.8K IG) capai 811K views dengan 1 hero-product drop (Dubai Chewy Mochi). Onty (47K IG) bisa replikasi pola ini dengan Taro line.</div></div>
+      <div class="tcard" style="border-color:rgba(232,69,69,.3)"><div class="tc-tag" style="color:#ff8080">① Momentum Musiman</div><div class="tc-title">Kejar Tren "Roti Merdeka" & MPLS</div><div class="tc-text">SI "roti merdeka" +400% nasional, "roti ketawa" +700%. Jendela waktu terbatas hingga 17 Agustus — eksekusi cepat di minggu 1-2.</div></div>
+      <div class="tcard" style="border-color:rgba(239,68,68,.3)"><div class="tc-tag" style="color:var(--red)">② Darurat Berlanjut</div><div class="tc-title">TikTok Baking Class Makin Parah</div><div class="tc-text">Views turun lagi -31% MoM (830→571), likes tinggal 2, comments 0. Rekomendasi Juli (reset caption) belum berhasil dieksekusi — perlu evaluasi ulang total.</div></div>
+      <div class="tcard" style="border-color:rgba(245,158,11,.3)"><div class="tc-tag" style="color:var(--amber)">③ Investigasi</div><div class="tc-title">Kenapa Engagement IG & TikTok Turun?</div><div class="tc-text">Views/reach/interaksi turun signifikan meski followers naik & Taro sudah launching. Perlu audit format konten launching vs konten organik biasa.</div></div>
+      <div class="tcard" style="border-color:rgba(255,59,59,.3)"><div class="tc-tag" style="color:var(--yt2)">④ Compliance</div><div class="tc-title">Cek Video YouTube yang Diblokir</div><div class="tc-text">Video "cosplay Bandung Bondowoso... project cake candi" diblokir di beberapa wilayah — kemungkinan klaim hak cipta musik/aset. Perlu ditinjau & diganti audio.</div></div>
+      <div class="tcard" style="border-color:rgba(255,143,179,.3)"><div class="tc-tag" style="color:#ff8fb3">⑤ Kompetitif</div><div class="tc-title">Tiru Formula Viral Baru Delizia</div><div class="tc-text">Video "pekerjaanmu akan digantikan AI" (998K views) BUKAN konten produk — konten humor/relatable. Buka peluang format baru di luar foto produk.</div></div>
     </div>
   </div>
 
@@ -406,54 +417,54 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
       <div class="handle"><i class="fa-brands fa-instagram" style="color:var(--ig)"></i><a href="https://www.instagram.com/ontycake/" target="_blank">instagram.com/ontycake</a><i class="fa-solid fa-arrow-up-right-from-square" style="font-size:9px;color:var(--text3)"></i></div>
       <div class="tags">
         <div class="tag tag-brand">⭐ Brand Utama</div>
-        <div class="tag tag-halal"><i class="fa-solid fa-check-circle"></i> HALAL MUI 15200067361120</div>
-        <div class="tag tag-brand">📦 Kirim Luar Kota</div>
-        <div class="real-badge"><i class="fa-solid fa-chart-bar"></i> Insights 30 Hari Juni 2026</div>
+        <div class="tag" style="background:rgba(245,158,11,.07);border-color:rgba(245,158,11,.22);color:var(--amber)">⚠️ Semua Metrik Engagement Turun</div>
+        <div class="real-badge"><i class="fa-solid fa-chart-bar"></i> Insights 30 Hari Juli 2026</div>
       </div>
     </div>
-    <div class="acct-score"><div class="score-n">86</div><div class="score-l">Skor Platform</div><div class="score-s" style="color:var(--green)">● Sangat Baik</div></div>
+    <div class="acct-score"><div class="score-n" style="color:var(--amber)">68</div><div class="score-l">Skor Platform</div><div class="score-s" style="color:var(--amber)">● Turun dari 86</div></div>
   </div>
 
   <div class="grid3">
-    <div class="kpi" style="--kpi-color:var(--ig);--kpi-bg:rgba(225,48,108,.1)"><div class="kpi-icon"><i class="fa-solid fa-users"></i></div><div class="kpi-val">47.0K</div><div class="kpi-lbl">Followers</div><div class="kpi-tag t-up">2.885 posts · 1.241 following</div></div>
-    <div class="kpi" style="--kpi-color:var(--gold)"><div class="kpi-icon"><i class="fa-solid fa-eye"></i></div><div class="kpi-val">697.1K</div><div class="kpi-lbl">Views (30 hari)</div><div class="kpi-tag t-info">Pengikut 70.8% · Non 29.2%</div></div>
-    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-arrows-to-circle"></i></div><div class="kpi-val">56.291</div><div class="kpi-lbl">Accounts Reached</div><div class="kpi-tag t-up">119% dari total followers</div></div>
+    <div class="kpi" style="--kpi-color:var(--ig);--kpi-bg:rgba(225,48,108,.1)"><div class="kpi-icon"><i class="fa-solid fa-users"></i></div><div class="kpi-val">47.151</div><div class="kpi-lbl">Followers</div><div class="kpi-tag t-up">+133 vs Juni (47.018)</div></div>
+    <div class="kpi" style="--kpi-color:var(--red);--kpi-bg:rgba(239,68,68,.1)"><div class="kpi-icon"><i class="fa-solid fa-eye"></i></div><div class="kpi-val">623.975</div><div class="kpi-lbl">Views (30 hari)</div><div class="kpi-tag t-red">-10,6% dari Juni (697.137)</div></div>
+    <div class="kpi" style="--kpi-color:var(--red);--kpi-bg:rgba(239,68,68,.1)"><div class="kpi-icon"><i class="fa-solid fa-arrows-to-circle"></i></div><div class="kpi-val">43.241</div><div class="kpi-lbl">Accounts Reached</div><div class="kpi-tag t-red">-23,2% dari Juni (56.291)</div></div>
   </div>
 
   <div class="grid3">
-    <div class="kpi" style="--kpi-color:var(--blue);--kpi-bg:rgba(96,165,250,.1)"><div class="kpi-icon"><i class="fa-solid fa-hand-pointer"></i></div><div class="kpi-val">4.961</div><div class="kpi-lbl">Interaksi (30 hari)</div><div class="kpi-tag t-blue">3.274 akun terlibat</div></div>
-    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-user-check"></i></div><div class="kpi-val">11.910</div><div class="kpi-lbl">Kunjungan Profil</div><div class="kpi-tag t-warn">25.4% dari akun dijangkau</div></div>
-    <div class="kpi" style="--kpi-color:var(--gold);"><div class="kpi-icon"><i class="fa-solid fa-link"></i></div><div class="kpi-val">2.571</div><div class="kpi-lbl">External Link Taps</div><div class="kpi-tag t-info">21.6% dari kunjungan profil</div></div>
+    <div class="kpi" style="--kpi-color:var(--red);--kpi-bg:rgba(239,68,68,.1)"><div class="kpi-icon"><i class="fa-solid fa-hand-pointer"></i></div><div class="kpi-val">3.630</div><div class="kpi-lbl">Interaksi (30 hari)</div><div class="kpi-tag t-red">-26,8% dari Juni (4.961)</div></div>
+    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-user-check"></i></div><div class="kpi-val">10.586</div><div class="kpi-lbl">Kunjungan Profil</div><div class="kpi-tag t-warn">-11,1% dari Juni (11.910)</div></div>
+    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-link"></i></div><div class="kpi-val">2.291</div><div class="kpi-lbl">External Link Taps</div><div class="kpi-tag t-warn">-10,9% dari Juni (2.571)</div></div>
   </div>
 
   <div class="grid2">
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-circle-info"></i> Info Akun (Aktual)</div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-tag"></i>Brand</div><div class="mrow-r">Home Made Cake & Bakery</div></div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-quote-left"></i>Tagline</div><div class="mrow-r" style="color:var(--text2);font-size:11px">Happiness In Every Moment</div></div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-clock"></i>Operasional</div><div class="mrow-r">08.00–20.00 Setiap Hari</div></div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-truck"></i>Pengiriman</div><div class="mrow-r" style="color:var(--green)">Bisa Luar Kota ✓</div></div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-certificate"></i>Sertifikasi</div><div class="mrow-r" style="color:var(--green)">HALAL MUI ✓</div></div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-link"></i>Link</div><div class="mrow-r" style="color:var(--gold);font-size:11px">desty.page/onty</div></div>
-    </div>
-    <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-chart-pie"></i> Sumber Tayangan by Jenis Konten</div>
+      <div class="panel-hdr"><i class="fa-solid fa-chart-pie"></i> Sumber Tayangan by Jenis Konten (Juni → Juli)</div>
       <div class="chart-wrap h220"><canvas id="chartIgContentType"></canvas></div>
     </div>
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-trophy"></i> Konten Terpopuler Juli (Berdasarkan Views)</div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-cake-candles" style="color:var(--gold)"></i>Wedding Cake "SHELLA & LUTHFI"</div><div class="mrow-r" style="color:var(--green)">14,1K views · 243 interaksi (13 Jul)</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-bread-slice" style="color:var(--gold)"></i>Adonan roti/dough putih</div><div class="mrow-r">14,1K views (6 Jul)</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-seedling" style="color:var(--taro2)"></i>Taste of Taro (Launching)</div><div class="mrow-r" style="color:var(--taro2)">11,9K views · 151 interaksi (25 Jul)</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-mug-hot"></i>Konten outdoor/kopi</div><div class="mrow-r">8,5K views (11 Jul)</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-children"></i>Baking Class Kids Event</div><div class="mrow-r" style="color:var(--green)">215 interaksi tertinggi ke-2 (28 Jul)</div></div>
+      <div style="margin-top:10px;background:var(--bg4);border-radius:8px;padding:12px;font-size:11.5px;color:var(--text2);line-height:1.6">
+        💡 <strong>Insight kunci:</strong> Konten Taste of Taro (11,9K views) ada di posisi ke-3, KALAH dari konten custom order (wedding cake) dan dough/adonan biasa. Ini menandakan momentum launching belum dieksekusi sebagai "event besar" — perlu foto reveal yang lebih dramatis & CTA lebih kuat di Agustus.
+      </div>
+    </div>
   </div>
 
   <div class="grid2">
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-chart-line"></i> Proyeksi Pertumbuhan Juli–Des 2026 (Dampak Taro Launch)</div>
-      <div class="chart-wrap h220"><canvas id="chartIgBrandGrowth"></canvas></div>
+      <div class="panel-hdr"><i class="fa-solid fa-chart-line"></i> Tren Views & Reach 3 Bulan (Juni-Agustus Proyeksi)</div>
+      <div class="chart-wrap h220"><canvas id="chartIgTrend3M"></canvas></div>
     </div>
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-lightbulb"></i> Insight & Analisis Juni 2026</div>
-      <div class="ins"><div class="dot d-g"></div><div>Reach 56.291 lebih besar dari total followers (47K) — tanda kuat bahwa konten menjangkau <strong>non-followers secara organik</strong>, indikasi algoritma IG sedang mendukung akun ini.</div></div>
-      <div class="ins"><div class="dot d-o"></div><div>Non-followers menyumbang <strong>62.9% dari total interaksi</strong> tapi hanya 29.2% dari views — konten dengan reach tinggi berhasil menarik engagement lebih dari sekadar dilihat sekilas.</div></div>
-      <div class="ins"><div class="dot d-a"></div><div>External link taps 2.571 dari 11.910 kunjungan profil (21.6% CTR ke link) — bio dan CTA sudah cukup efektif, tapi masih ada ruang optimasi menuju 30%+.</div></div>
-      <div class="ins"><div class="dot d-t"></div><div><strong>Momentum untuk Taro:</strong> dengan reach organik setinggi ini, minggu pertama peluncuran Taste of Taro di akun ini berpotensi menjangkau 50-60rb akun tanpa biaya iklan sama sekali.</div></div>
-      <div class="ins"><div class="dot d-g"></div><div>HALAL MUI tetap trust signal terkuat. Tampilkan konsisten di setiap caption produk taro baru sebagai penguat kepercayaan pembeli baru.</div></div>
+      <div class="panel-hdr"><i class="fa-solid fa-lightbulb"></i> Insight & Diagnosa Juli 2026</div>
+      <div class="ins"><div class="dot d-r"></div><div><strong>Semua metrik engagement turun bersamaan</strong> (views -10,6%, reach -23,2%, interaksi -26,8%, akun terlibat -37%) meski followers naik. Pola ini konsisten dengan algoritma IG yang menurunkan distribusi ke non-followers ketika rasio Stories terlalu dominan (68,7% dari views, naik dari 73,9%→68,7% relatif stabil tapi Reels turun 25,3%→30,3%... perlu cross check format).</div></div>
+      <div class="ins"><div class="dot d-a"></div><div>Reels tetap penyumbang interaksi terbesar (80,8%) meski turun dari 85,5% Juni — pertahankan volume Reels, jangan alihkan terlalu banyak effort ke Stories.</div></div>
+      <div class="ins"><div class="dot d-g"></div><div>Rasio followers vs non-followers pada interaksi <strong>berbalik</strong>: Juni non-followers dominan (62,9%), Juli followers dominan (62,3%) — sinyal jangkauan organik ke audiens baru melemah, konten lebih banyak dikonsumsi followers lama saja.</div></div>
+      <div class="ins"><div class="dot d-t"></div><div><strong>Untuk Agustus:</strong> jadikan reveal produk Taro susulan (Bolu Gulung Taro, Egg Claire Taro, dst) sebagai Reels utama — bukan Stories — untuk memulihkan reach ke non-followers.</div></div>
     </div>
   </div>
 </div>
@@ -466,46 +477,49 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
       <h2>@ontycake</h2>
       <div class="handle"><i class="fa-brands fa-tiktok" style="color:var(--tt)"></i><a href="https://www.tiktok.com/@ontycake" target="_blank">tiktok.com/@ontycake</a><i class="fa-solid fa-arrow-up-right-from-square" style="font-size:9px;color:var(--text3)"></i></div>
       <div class="tags">
-        <div class="tag tag-tt">📊 Hasil Campuran Juni</div>
-        <div class="tag" style="background:rgba(245,158,11,.07);border-color:rgba(245,158,11,.22);color:var(--amber)">⚠️ Shares -56.9%</div>
-        <div class="real-badge"><i class="fa-solid fa-chart-bar"></i> TikTok Studio Jun 1–29, 2026</div>
+        <div class="tag tag-red">📉 Views -49,24%</div>
+        <div class="tag" style="background:rgba(245,158,11,.07);border-color:rgba(245,158,11,.22);color:var(--amber)">Likes -46,13%</div>
+        <div class="real-badge"><i class="fa-solid fa-chart-bar"></i> TikTok Studio Export XLSX Jul 1–30, 2026</div>
       </div>
     </div>
-    <div class="acct-score"><div class="score-n" style="color:var(--tt)">38</div><div class="score-l">Skor Platform</div><div class="score-s" style="color:var(--amber)">● Butuh Perbaikan Format</div></div>
+    <div class="acct-score"><div class="score-n" style="color:var(--red)">25</div><div class="score-l">Skor Platform</div><div class="score-s" style="color:var(--red)">● Kritis, turun dari 38</div></div>
   </div>
 
   <div class="grid3">
-    <div class="kpi" style="--kpi-color:var(--tt);--kpi-bg:rgba(69,208,216,.1)"><div class="kpi-icon"><i class="fa-solid fa-users"></i></div><div class="kpi-val">9.119</div><div class="kpi-lbl">Followers</div><div class="kpi-tag t-up">507.3K total likes</div></div>
-    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-arrows-to-circle"></i></div><div class="kpi-val">41.478</div><div class="kpi-lbl">Reached Audience</div><div class="kpi-tag t-up">+4.36% vs periode lalu</div></div>
-    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-link"></i></div><div class="kpi-val">40</div><div class="kpi-lbl">Website Clicks</div><div class="kpi-tag t-up">+14.29% — satu-satunya konversi naik</div></div>
+    <div class="kpi" style="--kpi-color:var(--tt);--kpi-bg:rgba(69,208,216,.1)"><div class="kpi-icon"><i class="fa-solid fa-users"></i></div><div class="kpi-val">9.132</div><div class="kpi-lbl">Followers</div><div class="kpi-tag t-up">507,7K total likes</div></div>
+    <div class="kpi" style="--kpi-color:var(--red);--kpi-bg:rgba(239,68,68,.1)"><div class="kpi-icon"><i class="fa-solid fa-eye"></i></div><div class="kpi-val">34.840</div><div class="kpi-lbl">Video Views Juli</div><div class="kpi-tag t-red">-49,24% dari Juni (69.324)</div></div>
+    <div class="kpi" style="--kpi-color:var(--red);--kpi-bg:rgba(239,68,68,.1)"><div class="kpi-icon"><i class="fa-solid fa-heart"></i></div><div class="kpi-val">341</div><div class="kpi-lbl">New Likes</div><div class="kpi-tag t-red">-46,13% dari Juni (651)</div></div>
   </div>
 
-  <div class="alert-banner alert-warn">
+  <div class="alert-banner alert-red">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <div><strong>Overview Juni 2026 (1–29 Jun, 42 postingan):</strong> Video views 67.346 (<strong>-0.45%</strong>) · Reached audience 41.478 (<strong style="color:var(--green)">+4.36%</strong>) · Profile views 1.291 (<strong>-19.11%</strong>) · Likes 626 (<strong>-13.66%</strong>) · Shares 124 (<strong style="color:var(--red)">-56.94%</strong>) · Comments 34 (<strong>-35.85%</strong>) · Net follower growth +10 (<strong>-65.52%</strong>), New followers 72, Lost followers 62 (<strong>+37.78%</strong>).</div>
+    <div><strong>Overview Juli 2026 (32 video terunggah):</strong> Video views 34.840 (<strong>-49,24%</strong>) · Reached audience 15.492 · Profile views 866 (<strong>-34,59%</strong>) · Likes 341 · Shares 47 · Comments 25 · Website clicks 18 · Net follower growth <strong>-8</strong> (New followers 72, Lost followers 80). Dari sisi harian: rata-rata hanya ~1.000-1.500 views/hari, jauh di bawah performa historis akun ini.</div>
   </div>
 
   <div class="grid2">
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-users-viewfinder"></i> Profil Audiens TikTok @ontycake</div>
-      <div class="mrow"><div class="mrow-l">Gender</div><div class="mrow-r">97.5% Pria · 2.5% Wanita</div></div>
-      <div class="mrow"><div class="mrow-l">Usia dominan</div><div class="mrow-r">25–34 tahun (43.2%)</div></div>
-      <div class="mrow"><div class="mrow-l">Negara teratas</div><div class="mrow-r">Indonesia 36.6% · Singapura 9.9% · Taiwan 8.9%</div></div>
-      <div class="mrow"><div class="mrow-l">Kota teratas</div><div class="mrow-r" style="color:var(--gold)">Pekalongan 10.5% · Semarang 7.9%</div></div>
-      <div class="mrow"><div class="mrow-l">Interpretasi</div><div class="mrow-r" style="font-size:11px;color:var(--amber)">Rasio gender 97.5:2.5 sangat tidak wajar — indikasi bot/spam follower campaign lama</div></div>
+      <div class="panel-hdr"><i class="fa-solid fa-chart-line"></i> Reach & Views Harian Juli 2026</div>
+      <div class="chart-wrap h240"><canvas id="chartTtDaily"></canvas></div>
     </div>
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-chart-line"></i> Proyeksi Recovery (Format Baru vs Status Quo)</div>
-      <div class="chart-wrap h240"><canvas id="chartTtRecovery"></canvas></div>
+      <div class="panel-hdr"><i class="fa-solid fa-trophy"></i> Top 5 Video Juli (dari 32 video)</div>
+      <div class="mrow"><div class="mrow-l">🍪 "gimana rasanya rollcake cookies and cream"</div><div class="mrow-r">870 views · 8 likes</div></div>
+      <div class="mrow"><div class="mrow-l">🎥 "Kalau bolunya lembut, proses menggulung..."</div><div class="mrow-r">851 views · 13 likes</div></div>
+      <div class="mrow"><div class="mrow-l">🧂 "Hari ini udah kebagian salt bread belum?"</div><div class="mrow-r">633 views · 15 likes</div></div>
+      <div class="mrow"><div class="mrow-l">🐜 "tarian semut penjemput customer"</div><div class="mrow-r" style="color:var(--green)">578 views · 22 likes (like rate tertinggi)</div></div>
+      <div class="mrow"><div class="mrow-l">🎁 "Cari oleh-oleh? Bolu gulung fresh..."</div><div class="mrow-r">537 views · 8 likes</div></div>
+      <div style="margin-top:10px;background:var(--bg4);border-radius:8px;padding:12px;font-size:11.5px;color:var(--text2);line-height:1.6">
+        ⚠️ <strong>Video Taro underperform:</strong> "Hari ini, Taro Bun 🥯💜ngga berhenti masuk kantong belanja" hanya 480 views/6 likes, dan teaser "tungguin onty lounching produk ini" hanya 346 views/11 likes — keduanya di BAWAH rata-rata bulanan (~408 views/video). Konten Taro belum menemukan formula yang resonan di TikTok.
+      </div>
     </div>
   </div>
 
   <div class="panel">
-    <div class="panel-hdr"><i class="fa-solid fa-magnifying-glass-chart"></i> Diagnosa: Mengapa Reach Naik tapi Shares Anjlok?</div>
+    <div class="panel-hdr"><i class="fa-solid fa-magnifying-glass-chart"></i> Diagnosa: Kenapa Views Anjlok -49% Meski Followers Stabil?</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:4px">
-      <div class="tcard" style="border-color:rgba(62,203,130,.2)"><div class="tc-tag" style="color:var(--green)">✅ Yang Berhasil</div><div class="tc-title">Distribusi & Konversi Membaik</div><div class="tc-text">Reach +4.36% dan Website Clicks +14.29% menunjukkan algoritma follower-first TikTok mulai mendistribusikan konten dengan baik ke audiens yang tepat.</div></div>
-      <div class="tcard" style="border-color:rgba(239,68,68,.2)"><div class="tc-tag" style="color:var(--red)">❌ Yang Gagal</div><div class="tc-title">Konten Tidak "Save-worthy"</div><div class="tc-text">Shares -56.94% adalah sinyal paling kritis di algoritma TikTok 2026. Konten dilihat (views stabil) tapi tidak dianggap cukup berharga untuk dibagikan ulang.</div></div>
-      <div class="tcard" style="border-color:rgba(245,158,11,.2)"><div class="tc-tag" style="color:var(--amber)">🎯 Rekomendasi Juli</div><div class="tc-title">Format 60–180s + Value Eksplisit</div><div class="tc-text">Setiap video Taro harus punya 1 "reason to share" jelas: resep rahasia, harga promo terbatas, atau reveal produk yang belum pernah ada — bukan sekadar dokumentasi produk.</div></div>
+      <div class="tcard" style="border-color:rgba(239,68,68,.2)"><div class="tc-tag" style="color:var(--red)">❌ Volume Konsisten, Hasil Turun</div><div class="tc-title">32 Video Diposting, Performa Rata Datar</div><div class="tc-text">Rata-rata views per video hanya ~408 (vs performa historis yang jauh lebih tinggi). Bukan masalah frekuensi upload, tapi kualitas hook & distribusi algoritma.</div></div>
+      <div class="tcard" style="border-color:rgba(245,158,11,.2)"><div class="tc-tag" style="color:var(--amber)">⚠️ Konten Terlalu "Soft Promo"</div><div class="tc-title">Minim Value Eksplisit</div><div class="tc-text">Mayoritas video bertema mood/relate ("self reward", "walaupun bentar tapi gpp") tanpa CTA produk jelas — engagement rendah karena tidak actionable bagi penonton.</div></div>
+      <div class="tcard" style="border-color:rgba(69,208,216,.2)"><div class="tc-tag" style="color:var(--tt)">🎯 Rekomendasi Agustus</div><div class="tc-title">Format Reveal Produk + Urgency</div><div class="tc-text">Video dengan produk konkret (salt bread, rollcake) tetap mengungguli video mood/lifestyle. Perbanyak reveal produk Taro susulan dengan urgency ("stok terbatas", "cuma minggu ini").</div></div>
     </div>
   </div>
 </div>
@@ -518,48 +532,53 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
       <h2>@ontycakebakery</h2>
       <div class="handle"><i class="fa-brands fa-youtube" style="color:var(--yt)"></i><a href="https://www.youtube.com/@ontycakebakery" target="_blank">youtube.com/@ontycakebakery</a><i class="fa-solid fa-arrow-up-right-from-square" style="font-size:9px;color:var(--text3)"></i></div>
       <div class="tags">
-        <div class="tag tag-yt">📺 Tutorial Panjang</div>
-        <div class="tag" style="background:rgba(245,158,11,.07);border-color:rgba(245,158,11,.22);color:var(--amber)">📉 Views -28% Juni</div>
-        <div class="real-badge"><i class="fa-solid fa-chart-bar"></i> YouTube Studio 1–29 Jun 2026</div>
+        <div class="tag tag-red">🚫 1 Video Diblokir di Beberapa Wilayah</div>
+        <div class="tag" style="background:rgba(245,158,11,.07);border-color:rgba(245,158,11,.22);color:var(--amber)">📉 Views -7% Juli</div>
+        <div class="real-badge"><i class="fa-solid fa-chart-bar"></i> YouTube Studio 1–30 Jul 2026</div>
       </div>
     </div>
-    <div class="acct-score"><div class="score-n" style="color:var(--yt2)">40</div><div class="score-l">Skor Platform</div><div class="score-s" style="color:var(--amber)">● Kurang Publikasi</div></div>
+    <div class="acct-score"><div class="score-n" style="color:var(--yt2)">36</div><div class="score-l">Skor Platform</div><div class="score-s" style="color:var(--amber)">● Turun dari 40</div></div>
   </div>
 
   <div class="grid3">
-    <div class="kpi" style="--kpi-color:var(--yt);--kpi-bg:rgba(255,59,59,.1)"><div class="kpi-icon"><i class="fa-solid fa-users"></i></div><div class="kpi-val">7.661</div><div class="kpi-lbl">Subscribers (realtime)</div><div class="kpi-tag t-warn">-4 subs bulan ini</div></div>
-    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-eye"></i></div><div class="kpi-val">17.8K</div><div class="kpi-lbl">Penayangan Juni</div><div class="kpi-tag t-warn">28% lebih rendah dari Mei</div></div>
-    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-clock"></i></div><div class="kpi-val">83.0</div><div class="kpi-lbl">Waktu Tonton (jam)</div><div class="kpi-tag t-warn">27% lebih rendah dari Mei</div></div>
+    <div class="kpi" style="--kpi-color:var(--yt);--kpi-bg:rgba(255,59,59,.1)"><div class="kpi-icon"><i class="fa-solid fa-users"></i></div><div class="kpi-val">7.655</div><div class="kpi-lbl">Subscribers (realtime)</div><div class="kpi-tag t-warn">-6 subs bulan ini</div></div>
+    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-eye"></i></div><div class="kpi-val">17.006</div><div class="kpi-lbl">Penayangan Juli</div><div class="kpi-tag t-warn">7% lebih rendah dari Juni</div></div>
+    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-clock"></i></div><div class="kpi-val">72,9</div><div class="kpi-lbl">Waktu Tonton (jam)</div><div class="kpi-tag t-warn">15% lebih rendah dari Juni</div></div>
   </div>
 
-  <div class="alert-banner alert-warn">
-    <i class="fa-solid fa-triangle-exclamation"></i>
-    <div><strong>Akar masalah: publikasi minim.</strong> Tab Konten Juni menunjukkan penayangan Shorts 17,8rb (99,9%) vs Video reguler hanya 17 penayangan (0,1%) — praktis tidak ada video panjang baru diunggah bulan ini. Penonton baru mendominasi 88,3%, tapi 99,6% penonton tidak subscribe setelah menonton — tanda channel kehilangan momentum konversi subscriber.</div>
+  <div class="alert-banner alert-red">
+    <i class="fa-solid fa-ban"></i>
+    <div><strong>🚫 Notifikasi Penting: Video Diblokir di Beberapa Wilayah.</strong> Video "#TimOnty lagi cosplay Bandung Bondowoso kali ini, karena bikin project cake candi dlm wktu sejam!" (diunggah 4 Jul 2026) diblokir di sejumlah wilayah — kemungkinan besar karena klaim hak cipta (musik latar/aset visual). <strong>Perlu segera ditinjau di YouTube Studio → Konten → cek detail klaim</strong> dan ganti audio bila diperlukan agar tidak mempengaruhi channel secara keseluruhan.</div>
   </div>
 
   <div class="grid2">
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-chart-line"></i> Proyeksi Subscribers: Push Juli vs Status Quo</div>
-      <div class="chart-wrap h240"><canvas id="chartYtGrowth"></canvas></div>
+      <div class="panel-hdr"><i class="fa-solid fa-chart-line"></i> Penayangan 3 Bulan (Juni-Agustus)</div>
+      <div class="chart-wrap h240"><canvas id="chartYtTrend3M"></canvas></div>
     </div>
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-trophy"></i> Konten Terpopuler (Evergreen — Tetap Kuat)</div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-star" style="color:var(--gold)"></i>Rahasia Bolu Gulung Super Lembut</div><div class="mrow-r" style="color:var(--green)">8.761 views · AVD 86,7%</div></div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-star" style="color:var(--gold)"></i>Pizza Roll Onty Cake</div><div class="mrow-r" style="color:var(--green)">2.736 views · AVD 98,4%</div></div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-star" style="color:var(--gold)"></i>Nikmati Bongko Roti Onty</div><div class="mrow-r" style="color:var(--blue)">1.377 views · AVD 103,7% 🔄</div></div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-triangle-exclamation" style="color:var(--red)"></i>"lebaran 2026" (terbaru)</div><div class="mrow-r" style="color:var(--red)">25 views · CTR 1,1% ⚠️</div></div>
-      <div style="margin-top:12px;background:var(--bg4);border-radius:8px;padding:12px;font-size:12px;color:var(--text2);line-height:1.6">
-        📌 <strong>Cara penonton menemukan:</strong> Penelusuran YouTube 87,5% — SEO judul masih menjadi mesin discovery utama. "Rahasia Bolu Gulung" tetap jadi video andalan (rata-rata durasi tonton 86,7%). Judul dengan pola serupa untuk Taro sangat direkomendasikan.
+      <div class="panel-hdr"><i class="fa-solid fa-star"></i> Konten Baru Juli — Performa Retensi</div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-sparkles" style="color:var(--gold)"></i>"bukan sulap bukan sihir!" (16 Jul)</div><div class="mrow-r" style="color:var(--green)">1.362 views · AVD 68,6%</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-truck" style="color:var(--amber)"></i>"KIRIM KUE KE PEKALONGAN..." (16 Jul)</div><div class="mrow-r" style="color:var(--amber)">311 views · AVD hanya 32,1%</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-star" style="color:var(--gold)"></i>Rahasia Bolu Gulung (evergreen)</div><div class="mrow-r" style="color:var(--green)">6.417 views · AVD 80,2%</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-star" style="color:var(--gold)"></i>Pizza Roll Onty Cake (evergreen)</div><div class="mrow-r" style="color:var(--green)">2.916 views · AVD 84,5%</div></div>
+      <div style="margin-top:10px;background:var(--bg4);border-radius:8px;padding:12px;font-size:11.5px;color:var(--text2);line-height:1.6">
+        📌 <strong>Hanya 2 Shorts diunggah bulan ini</strong> (0 video panjang). Publikasi masih sangat minim — 99,8% penayangan berasal dari Shorts (17rb dari 17,04rb total), sementara video reguler hampir tidak berkontribusi (0,2%).
       </div>
     </div>
   </div>
 
-  <div class="panel" style="margin-bottom:22px">
-    <div class="panel-hdr"><i class="fa-solid fa-lightbulb"></i> Action Plan Juli — Kembalikan Ritme Upload + Manfaatkan Taro</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px">
-      <div class="tcard" style="border-color:rgba(239,68,68,.2)"><div class="tc-tag" style="color:var(--red)">① Minggu 1</div><div class="tc-title">Upload "Rahasia Taro Bun" SEO-optimized</div><div class="tc-text">Judul mengikuti pola video terbaik: "Rahasia [Produk] Super Lembut/Anti Gagal" — pola ini terbukti membawa 8,7rb views.</div></div>
-      <div class="tcard" style="border-color:rgba(245,158,11,.2)"><div class="tc-tag" style="color:var(--amber)">② Minggu 2–3</div><div class="tc-title">1–2 Video Panjang per Minggu</div><div class="tc-text">Fokus tutorial lengkap produk Taro line (Bolu Gulung Taro, Egg Claire Taro) 8–15 menit, potong jadi Shorts untuk distribusi tambahan.</div></div>
-      <div class="tcard" style="border-color:rgba(69,208,216,.2)"><div class="tc-tag" style="color:var(--tt)">③ Sepanjang Juli</div><div class="tc-title">CTA Subscribe di Semua Story IG</div><div class="tc-text">Manfaatkan 56rb reach IG untuk mendorong kembali subscriber baru — channel butuh momentum ulang setelah penurunan Juni.</div></div>
+  <div class="grid2">
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-compass"></i> Cara Penonton Menemukan Konten (Juni vs Juli)</div>
+      <div class="chart-wrap h220"><canvas id="chartYtDiscovery"></canvas></div>
+    </div>
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-lightbulb"></i> Insight Juli & Rencana Agustus</div>
+      <div class="ins"><div class="dot d-r"></div><div>Penelusuran YouTube turun dari 87,5% (Juni) ke <strong>79,8%</strong> (Juli), sementara Feed Shorts naik dari 7,2% ke <strong>15,7%</strong> — channel makin bergantung pada distribusi Shorts feed, bukan SEO pencarian.</div></div>
+      <div class="ins"><div class="dot d-g"></div><div>Video "bukan sulap bukan sihir" (proses baking cepat/satisfying) meraih AVD 68,6% — jauh di atas rata-rata konten baru — formula "proses cepat + reveal" ini layak direplikasi untuk konten Taro/Merdeka Agustus.</div></div>
+      <div class="ins"><div class="dot d-a"></div><div>3 subscriber baru signifikan 90 hari terakhir (Chigga 197, Yuliawati 81, Lulamlam 25) — total 303 dari sumber di luar biasa, kemungkinan dari campaign/kolaborasi tertentu, layak ditelusuri sumbernya untuk direplikasi.</div></div>
+      <div class="ins"><div class="dot d-m"></div><div><strong>Rencana Agustus:</strong> minimal 1 video panjang "Rahasia [Produk Taro/Merdeka] Anti Gagal" mengikuti pola SEO evergreen terbaik channel, plus lanjutkan ritme Shorts mingguan.</div></div>
     </div>
   </div>
 </div>
@@ -572,46 +591,60 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
       <h2>@ontyfarahbakingclass</h2>
       <div class="handle"><i class="fa-brands fa-instagram" style="color:var(--ig)"></i><a href="https://www.instagram.com/ontyfarahbakingclass/" target="_blank">instagram.com/ontyfarahbakingclass</a><i class="fa-solid fa-arrow-up-right-from-square" style="font-size:9px;color:var(--text3)"></i></div>
       <div class="tags">
-        <div class="tag tag-edu"><i class="fa-solid fa-graduation-cap"></i> Platform Edukatif</div>
-        <div class="tag tag-edu">🤝 Kolaborasi Fermex</div>
-        <div class="real-badge"><i class="fa-solid fa-chart-bar"></i> Dasbor Profesional 30 Hari</div>
+        <div class="tag tag-edu"><i class="fa-solid fa-arrow-trend-up"></i> Views +11,1%</div>
+        <div class="tag tag-edu">🤝 Kolaborasi Psikologi "Mom & Me"</div>
+        <div class="tag tag-edu">🥖 Kelas Sourdough Premium Baru</div>
+        <div class="real-badge"><i class="fa-solid fa-chart-bar"></i> Dasbor Profesional 30 Hari Juli</div>
       </div>
     </div>
-    <div class="acct-score"><div class="score-n" style="color:var(--green)">55</div><div class="score-l">Skor Platform</div><div class="score-s" style="color:var(--amber)">● Cukup Baik</div></div>
+    <div class="acct-score"><div class="score-n" style="color:var(--green)">65</div><div class="score-l">Skor Platform</div><div class="score-s" style="color:var(--green)">● Naik dari 55</div></div>
   </div>
 
   <div class="grid3">
-    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-users"></i></div><div class="kpi-val">2.554</div><div class="kpi-lbl">Followers</div><div class="kpi-tag t-warn">×18.4 gap vs @ontycake</div></div>
-    <div class="kpi" style="--kpi-color:var(--gold)"><div class="kpi-icon"><i class="fa-solid fa-eye"></i></div><div class="kpi-val">100.6K</div><div class="kpi-lbl">Tayangan 30 Hari</div><div class="kpi-tag t-info">Pengikut 57.6% · Non 42.4%</div></div>
-    <div class="kpi" style="--kpi-color:var(--ig);--kpi-bg:rgba(225,48,108,.1)"><div class="kpi-icon"><i class="fa-solid fa-hand-pointer"></i></div><div class="kpi-val">1.192</div><div class="kpi-lbl">Interaksi 30 Hari</div><div class="kpi-tag t-up">542 akun berinteraksi</div></div>
+    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-users"></i></div><div class="kpi-val">2.664</div><div class="kpi-lbl">Followers</div><div class="kpi-tag t-up">+110 vs Juni (2.554), +4,3%</div></div>
+    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-eye"></i></div><div class="kpi-val">111.774</div><div class="kpi-lbl">Tayangan 30 Hari</div><div class="kpi-tag t-up">+11,1% dari Juni (100.587)</div></div>
+    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-hand-pointer"></i></div><div class="kpi-val">1.124</div><div class="kpi-lbl">Interaksi 30 Hari</div><div class="kpi-tag t-warn">-5,7% dari Juni (1.192)</div></div>
+  </div>
+
+  <div class="alert-banner">
+    <i class="fa-solid fa-circle-check"></i>
+    <div><strong>Cerita sukses bulan ini:</strong> kelas premium baru — "Mom & Me: Create, Decorate, Celebrate" (kolaborasi psikologi, Rp120K/anak+ortu) dan "Hands On Sourdough" (Rp600K/seat) — menjadi konten terpopuler bulan ini: <strong>Mom & Me 9,7rb views</strong> dan <strong>Hands On Sourdough 5,3rb views</strong>, jauh di atas konten reguler lainnya. Diversifikasi ke kelas premium terbukti efektif menarik perhatian baru.</div>
   </div>
 
   <div class="grid2">
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-chart-pie"></i> Tayangan & Interaksi Berdasarkan Jenis Konten</div>
+      <div class="panel-hdr"><i class="fa-solid fa-chart-pie"></i> Tayangan & Interaksi by Jenis Konten (Juni → Juli)</div>
       <div class="chart-wrap h240"><canvas id="chartIgClassContentType"></canvas></div>
     </div>
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-circle-info"></i> Info & Strategi Akun</div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-bullseye"></i>Tujuan</div><div class="mrow-r" style="font-size:11px">Info & Pendaftaran Baking Class</div></div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-images"></i>Total Kiriman</div><div class="mrow-r">308 posts</div></div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-users-between-lines"></i>Following</div><div class="mrow-r">39 akun (sangat selektif)</div></div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-user-check"></i>Kunjungan Profil</div><div class="mrow-r" style="color:var(--gold)">1.420 (30 hari)</div></div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-link"></i>Link Bio</div><div class="mrow-r" style="color:var(--gold);font-size:11px">lynk.id/ontycake</div></div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-arrow-trend-up"></i>Potensi Cross-Promo</div><div class="mrow-r" style="color:var(--green)">+300–500 followers/bulan</div></div>
+      <div class="panel-hdr"><i class="fa-solid fa-trophy"></i> Top Konten Juli (Berdasarkan Views)</div>
+      <div class="mrow"><div class="mrow-l">👨‍👩‍👧 Mom & Me (kolab psikologi)</div><div class="mrow-r" style="color:var(--green)">9,7rb views (10 Jul)</div></div>
+      <div class="mrow"><div class="mrow-l">🍞 Hands On Sourdough Class</div><div class="mrow-r" style="color:var(--green)">5,3rb views (10 Jul)</div></div>
+      <div class="mrow"><div class="mrow-l">🎨 Memberi Warna di Hidupku</div><div class="mrow-r">1,8rb views (12 Jul)</div></div>
+      <div class="mrow"><div class="mrow-l">🍰 Kecanduan Nambah Menu Baking</div><div class="mrow-r">1,7rb views (20 Jul)</div></div>
+      <div class="mrow"><div class="mrow-l">👶 Suara Inner Child Waktu Baking</div><div class="mrow-r">1,5rb views (18 Jul)</div></div>
     </div>
   </div>
 
-  <div class="panel">
-    <div class="panel-hdr"><i class="fa-solid fa-lightbulb"></i> Insight Juni 2026</div>
-    <div class="ins"><div class="dot d-r"></div><div><strong>Gap masih besar:</strong> akun utama 47K followers, baking class 2.554 — rasio 1:18,4. Namun konten Reel menyumbang <strong>38,8% tayangan</strong> dan <strong>68,9% interaksi</strong> — format ini paling efektif dan harus diperbanyak.</div></div>
-    <div class="ins"><div class="dot d-a"></div><div>Reach 20.854 akun dari 100.587 tayangan (rasio repeat-view tinggi) menunjukkan konten sering ditonton berulang oleh audiens yang sama — bagus untuk edukasi, tapi perlu diversifikasi audiens baru via cross-promo dari akun utama.</div></div>
-    <div class="ins"><div class="dot d-g"></div><div>Engagement rate terhadap reach (1.192/20.854 = 5,7%) tetap solid, mendekati benchmark nano IG Indonesia (7,9%). Audiens sangat loyal.</div></div>
-    <div class="ins"><div class="dot d-t"></div><div><strong>Peluang Taro:</strong> gunakan konten "belajar bikin Taro Bun/Bolu Gulung Taro sendiri" sebagai jembatan konversi dari pembeli produk taro ke pendaftar kelas — cross-sell dua arah dengan @ontycake.</div></div>
+  <div class="grid2">
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-circle-info"></i> Info & Program Baru Juli</div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-child-reaching"></i>Kelas Baru</div><div class="mrow-r" style="font-size:11px">Mom & Me, Hands On Sourdough, Kids 3.0 Burnt Cheesecake</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-brain"></i>Kolaborasi</div><div class="mrow-r" style="font-size:11px">"Teman Bertumbuh Psikologi"</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-user-check"></i>Kunjungan Profil</div><div class="mrow-r">1.350 (30 hari)</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-users-between-lines"></i>Akun Berinteraksi</div><div class="mrow-r">468 (turun dari 542)</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-clock"></i>Waktu Paling Aktif</div><div class="mrow-r">Senin 03.00 (1.068)</div></div>
+    </div>
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-lightbulb"></i> Insight Juli & Rekomendasi Agustus</div>
+      <div class="ins"><div class="dot d-g"></div><div><strong>Kelas premium terbukti bekerja:</strong> "Mom & Me" (Rp120K) dan "Hands On Sourdough" (Rp600K) jadi top performer views — audiens tertarik pada pengalaman kolaboratif/bernilai tinggi, bukan sekadar promosi kelas reguler.</div></div>
+      <div class="ins"><div class="dot d-a"></div><div>Pergeseran format: Cerita naik dari 42,1% → 51,2% dari total tayangan, Reel turun dari 38,8% → 28,6% — tapi Reel tetap dominan di interaksi (61,1%). Jangan kurangi produksi Reel meski Stories lebih sering dipakai untuk promo kelas.</div></div>
+      <div class="ins"><div class="dot d-m"></div><div><strong>Untuk Agustus:</strong> pertimbangkan kelas tema "Kemerdekaan" (dekor cake merah-putih, kue tradisional) atau lanjutan kelas Taro ("Bikin Taro Bun Sendiri") untuk menjaga momentum kolaborasi tematik yang terbukti menarik views tinggi.</div></div>
+    </div>
   </div>
 </div>
 
-<!-- ══════ TAB: TT BAKING CLASS (KRITIS) ══════ -->
+<!-- ══════ TAB: TT BAKING CLASS (KRITIS BERLANJUT) ══════ -->
 <div id="tab-tt-class" class="tab-page">
   <div class="acct-hero">
     <div class="acct-avatar" style="background:#0a0a0a;border:2px solid rgba(239,68,68,.4);--av-ring:var(--red)">🎓</div>
@@ -619,94 +652,87 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
       <h2>@ontyfarahbakingclass</h2>
       <div class="handle"><i class="fa-brands fa-tiktok" style="color:var(--tt)"></i><a href="https://www.tiktok.com/@ontyfarahbakingclass" target="_blank">tiktok.com/@ontyfarahbakingclass</a><i class="fa-solid fa-arrow-up-right-from-square" style="font-size:9px;color:var(--text3)"></i></div>
       <div class="tags">
-        <div class="tag tag-red">🚨 Kolaps Menyeluruh Juni</div>
-        <div class="tag" style="background:rgba(62,203,130,.07);border-color:rgba(62,203,130,.22);color:var(--green)">+15 posts vs Mei</div>
-        <div class="real-badge"><i class="fa-solid fa-chart-bar"></i> TikTok Studio 1–29 Jun 2026</div>
+        <div class="tag tag-red">🚨 Belum Pulih — Makin Turun</div>
+        <div class="tag" style="background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.25);color:var(--red)">Followers -5</div>
+        <div class="real-badge"><i class="fa-solid fa-chart-bar"></i> TikTok Studio 1–31 Jul 2026</div>
       </div>
     </div>
-    <div class="acct-score"><div class="score-n" style="color:var(--red)">10</div><div class="score-l">Skor Platform</div><div class="score-s" style="color:var(--red)">● Darurat</div></div>
+    <div class="acct-score"><div class="score-n" style="color:var(--red)">4</div><div class="score-l">Skor Platform</div><div class="score-s" style="color:var(--red)">● Darurat Berlanjut</div></div>
   </div>
 
   <div style="background:linear-gradient(135deg,rgba(239,68,68,.10),rgba(239,68,68,.04));border:1.5px solid rgba(239,68,68,.35);border-radius:14px;padding:18px 20px;margin-bottom:18px">
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
       <div style="width:32px;height:32px;background:rgba(239,68,68,.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">🚨</div>
       <div>
-        <div style="font-size:14px;font-weight:700;color:var(--red)">KOLAPS MENYELURUH — Semua Metrik Anjlok Bersamaan</div>
-        <div style="font-size:11px;color:var(--text3);margin-top:1px">Meski jumlah posting NAIK (+15 video vs Mei, total 30 video Juni), performa jatuh drastis di semua lini</div>
+        <div style="font-size:14px;font-weight:700;color:var(--red)">TIDAK PULIH — Rekomendasi Juli Belum Berhasil, Kondisi Memburuk</div>
+        <div style="font-size:11px;color:var(--text3);margin-top:1px">Rencana reset (hentikan caption berulang, formula 3-1-1) yang direkomendasikan bulan lalu tampaknya belum dieksekusi — metrik justru turun lebih jauh</div>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
       <div style="background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.18);border-radius:10px;padding:12px;text-align:center">
-        <div style="font-family:'DM Serif Display',serif;font-size:30px;color:var(--red)">830</div>
-        <div style="font-size:10px;color:var(--text3);margin-top:2px">Video Views (-97,67%)</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:30px;color:var(--red)">571</div>
+        <div style="font-size:10px;color:var(--text3);margin-top:2px">Tayangan Video (-54,0% periode)</div>
       </div>
       <div style="background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.18);border-radius:10px;padding:12px;text-align:center">
-        <div style="font-family:'DM Serif Display',serif;font-size:30px;color:var(--red)">99</div>
-        <div style="font-size:10px;color:var(--text3);margin-top:2px">Reached Audience (-99,66%)</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:30px;color:var(--red)">2</div>
+        <div style="font-size:10px;color:var(--text3);margin-top:2px">Suka (-92,0%)</div>
       </div>
       <div style="background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.18);border-radius:10px;padding:12px;text-align:center">
-        <div style="font-family:'DM Serif Display',serif;font-size:30px;color:var(--red)">72</div>
-        <div style="font-size:10px;color:var(--text3);margin-top:2px">Profile Views (-90,80%)</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:30px;color:var(--red)">0</div>
+        <div style="font-size:10px;color:var(--text3);margin-top:2px">Komentar (-100%)</div>
       </div>
     </div>
     <div style="margin-top:10px;background:rgba(239,68,68,.06);border-radius:8px;padding:12px;font-size:12.5px;color:var(--text2);line-height:1.7;border-left:3px solid var(--red)">
-      <strong style="color:var(--red)">Perbandingan Mei → Juni:</strong> Bulan Mei akun ini sempat mengalami lonjakan reach hingga puluhan ribu (video views 38.260, reached 31.730). Bulan Juni <strong>runtuh total</strong> ke level di bawah akun baru sekalipun — 830 views dari 30 video. Ini BUKAN penurunan biasa, melainkan pola khas <strong>shadowban/pembatasan distribusi TikTok</strong> setelah lonjakan tak wajar di bulan sebelumnya, ATAU akibat konten yang terlalu repetitif (semua video memakai template CTA "Informasi pendaftaran dm atau klik link di bio" yang hampir identik).
+      <strong style="color:var(--red)">Perbandingan Juni → Juli:</strong> Views turun lagi dari 830 (Juni) ke <strong>571 (Juli, -31% MoM)</strong>. Tampilan profil turun dari 72 ke <strong>46 (-43,9%)</strong>. Bagikan (shares) turun dari 8 ke <strong>1 (-87,5%)</strong>. Followers bahkan turun -5 net (391 dari 396). Grafik harian menunjukkan sedikit lonjakan di sekitar 12-14 Juli (~80 views/hari) tapi turun lagi setelahnya — <strong>tidak ada tanda pemulihan berkelanjutan</strong>.
     </div>
   </div>
 
   <div class="grid2" style="margin-bottom:18px">
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-chart-bar"></i> Mei vs Juni — Semua Metrik</div>
-      <div class="chart-wrap h260"><canvas id="chartTtClassCollapse"></canvas></div>
+      <div class="panel-hdr"><i class="fa-solid fa-chart-bar"></i> Tren 3 Bulan: Mei → Juni → Juli</div>
+      <div class="chart-wrap h260"><canvas id="chartTtClassTrend3M"></canvas></div>
     </div>
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-magnifying-glass-chart"></i> Diagnosa Akar Masalah</div>
+      <div class="panel-hdr"><i class="fa-solid fa-magnifying-glass-chart"></i> Evaluasi: Kenapa Belum Pulih?</div>
       <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px">
         <div style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.18);border-radius:10px;padding:12px">
-          <div style="font-size:10px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">❌ Sebab 1 — Konten Sangat Repetitif</div>
-          <div style="font-size:12px;color:var(--text2);line-height:1.6">Hampir semua 30 video Juni memakai caption template hampir sama: "Informasi pendaftaran dm atau klik link di bio yaa!" TikTok mendeteksi ini sebagai konten berulang/spam-like, sehingga distribusi ditekan.</div>
+          <div style="font-size:10px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">❌ Kemungkinan 1 — Rencana Belum Dieksekusi</div>
+          <div style="font-size:12px;color:var(--text2);line-height:1.6">Rekomendasi bulan lalu (hentikan caption template, formula 3-1-1) sepertinya belum diterapkan konsisten — hasil masih terus menurun, bukan stagnan atau membaik.</div>
         </div>
         <div style="background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.18);border-radius:10px;padding:12px">
-          <div style="font-size:10px;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">⚠️ Sebab 2 — Tidak Ada Variasi Hook</div>
-          <div style="font-size:12px;color:var(--text2);line-height:1.6">Video-video Juni dominan seputar promosi kelas & liburan sekolah, tanpa hook edukatif/menghibur yang menahan penonton di 3 detik pertama — completion rate kemungkinan sangat rendah.</div>
+          <div style="font-size:10px;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">⚠️ Kemungkinan 2 — Distribusi Algoritma Tertekan Permanen</div>
+          <div style="font-size:12px;color:var(--text2);line-height:1.6">Penurunan berkelanjutan 3 bulan berturut-turut (Mei tinggi → Juni kolaps → Juli makin turun) bisa jadi indikasi shadow-restriction jangka panjang dari TikTok, bukan sekadar isu konten.</div>
         </div>
         <div style="background:rgba(96,165,250,.06);border:1px solid rgba(96,165,250,.18);border-radius:10px;padding:12px">
-          <div style="font-size:10px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">🔗 Titik Terang — Website Clicks Naik</div>
-          <div style="font-size:12px;color:var(--text2);line-height:1.6">Website clicks 3 (dari 0 sebelumnya) — perbaikan bio/CTA dari bulan lalu mulai berdampak kecil, meski volume trafik keseluruhan jatuh drastis.</div>
+          <div style="font-size:10px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">🔄 Kemungkinan 3 — Perlu Pertimbangkan Akun Baru</div>
+          <div style="font-size:12px;color:var(--text2);line-height:1.6">Jika Agustus masih belum ada tanda pemulihan meski sudah reset konten total, pertimbangkan strategi drastis: buat akun TikTok baru untuk Baking Class dengan identitas segar, sambil akun lama tetap aktif minim.</div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="sec-hdr"><div class="sec-title">🚑 Reset Total — Rencana Pemulihan Juli</div><div style="font-size:11px;color:var(--red);font-weight:600">Prioritas #1 Ekosistem Onty</div></div>
+  <div class="sec-hdr"><div class="sec-title">🚑 Rencana Agustus — Eskalasi dari Rencana Juli</div><div style="font-size:11px;color:var(--red);font-weight:600">Prioritas #1 Ekosistem Onty (Bulan Ke-2)</div></div>
 
   <div class="action-item" style="--step-color:var(--red)">
-    <div class="ai-header"><div class="ai-title"><i class="fa-solid fa-arrows-rotate" style="color:var(--red)"></i> A · Hentikan Template CTA Berulang</div><div class="ai-badge ai-b1">MENDESAK</div></div>
-    <div class="ai-body">Ganti caption template "informasi pendaftaran dm atau klik link di bio" yang muncul di hampir setiap video dengan caption unik dan variatif per video. Pengulangan pola yang sama persis adalah sinyal spam bagi algoritma TikTok.</div>
-    <div class="ai-chips"><span class="chip">Setiap video harus punya hook & caption unik</span></div>
-  </div>
-  <div class="action-item" style="--step-color:var(--red)">
-    <div class="ai-header"><div class="ai-title"><i class="fa-solid fa-video" style="color:var(--tt)"></i> B · Kembali ke Format Edukatif, Kurangi Promosi Langsung</div><div class="ai-badge ai-b1">MENDESAK</div></div>
-    <div class="ai-body">Rasio konten Juni terlalu berat ke "hard promo kelas" dibanding konten edukatif viral (tips baking, problem-solution). Terapkan formula 3-1-1: 3 video edukasi murni, 1 video testimoni/UGC, 1 video promosi — jangan lebih.</div>
-    <div class="ai-chips"><span class="chip">Formula 3-1-1 per 5 video</span></div>
+    <div class="ai-header"><div class="ai-title"><i class="fa-solid fa-clipboard-check" style="color:var(--red)"></i> A · Audit: Apakah Rencana Juli Benar-Benar Dijalankan?</div><div class="ai-badge ai-b1">MENDESAK</div></div>
+    <div class="ai-body">Sebelum eskalasi, cek dulu: apakah caption sudah divariasikan? Apakah formula 3-1-1 (edukasi-testimoni-promosi) sudah diterapkan? Jika belum, eksekusi ini dulu sebelum coba strategi baru.</div>
   </div>
   <div class="action-item" style="--step-color:var(--amber)">
-    <div class="ai-header"><div class="ai-title"><i class="fa-solid fa-seedling" style="color:var(--taro2)"></i> C · Manfaatkan Momentum Taro untuk Reset Konten</div><div class="ai-badge ai-b2">JULI</div></div>
-    <div class="ai-body">Gunakan launching produk Taro sebagai alasan alami untuk membuat konten baru yang segar — "belajar bikin Taro Bun sendiri di kelas" — menjauh dari pola caption lama yang mungkin sudah ditandai algoritma.</div>
-    <div class="ai-chips"><span class="chip">Konten baru = sinyal baru ke algoritma</span></div>
+    <div class="ai-header"><div class="ai-title"><i class="fa-solid fa-flag" style="color:#ff8080"></i> B · Manfaatkan Momentum Merdeka & Taro untuk Konten Segar</div><div class="ai-badge ai-b2">AGUSTUS</div></div>
+    <div class="ai-body">Buat seri "Kelas Bikin Kue Merdeka" (dekor merah-putih) dan lanjutan "Belajar Taro Bun" — konten musiman baru = sinyal baru ke algoritma, sekaligus selaras dengan tren pencarian "roti merdeka" yang sedang naik.</div>
   </div>
   <div class="action-item" style="--step-color:var(--blue)">
-    <div class="ai-header"><div class="ai-title"><i class="fa-solid fa-chart-simple" style="color:var(--blue)"></i> D · Pantau Ketat 2 Minggu Pertama Juli</div><div class="ai-badge ai-b2">EVALUASI</div></div>
-    <div class="ai-body">Jika setelah perubahan format & caption reach masih di bawah 1.000 views/video selama 2 minggu, kemungkinan besar ada shadowban aktif — pertimbangkan kontak TikTok Business Support atau evaluasi ulang akun.</div>
-    <div class="ai-chips"><span class="chip">Target checkpoint: 14 Juli 2026</span></div>
+    <div class="ai-header"><div class="ai-title"><i class="fa-solid fa-stopwatch" style="color:var(--blue)"></i> C · Checkpoint Akhir Agustus: Evaluasi Keras</div><div class="ai-badge ai-b2">EVALUASI</div></div>
+    <div class="ai-body">Jika akhir Agustus views masih di bawah 1.000/bulan meski sudah 2 bulan reset konten, pertimbangkan serius opsi akun baru atau alihkan fokus promosi kelas sepenuhnya ke Instagram yang sedang tumbuh baik.</div>
+    <div class="ai-chips"><span class="chip">Target checkpoint: 31 Agustus 2026</span></div>
   </div>
 </div>
 
 <!-- ══════ TAB: KOMPETITOR — DELIZIA ══════ -->
 <div id="tab-kompetitor" class="tab-page">
-  <div class="alert-banner" style="border-color:rgba(255,143,179,.3);background:linear-gradient(135deg,rgba(255,143,179,.06),rgba(232,184,109,.04))">
-    <i class="fa-solid fa-chess" style="color:#ff8fb3"></i>
-    <div><strong>Analisis Kompetitor: Delizia Bakery & Cake</strong> — bakery di Batang, Jawa Tengah (~20 menit dari Pekalongan). Followers jauh lebih kecil dari Onty di kedua platform, namun berhasil menghasilkan lonjakan views yang jauh lebih tinggi lewat strategi peluncuran produk hero tunggal (Dubai Chewy Mochi, Butter Tteok).</div>
+  <div class="alert-banner" style="border-color:rgba(255,143,179,.35);background:linear-gradient(135deg,rgba(255,143,179,.08),rgba(232,184,109,.04))">
+    <i class="fa-solid fa-bolt" style="color:#ff8fb3"></i>
+    <div><strong>Temuan besar bulan ini: Delizia viral 998.000 views</strong> BUKAN dengan foto produk, melainkan video humor/relatable berjudul <em>"suatu saat pekerjaanmu akan digantikan oleh AI"</em> — konten tentang kekhawatiran AI menggantikan pekerjaan baker. Ini strategi konten yang sama sekali berbeda dari formula hero-product yang mereka pakai Juni lalu (Dubai Chewy Mochi).</div>
   </div>
 
   <div class="acct-hero">
@@ -716,229 +742,226 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
       <div class="handle"><i class="fa-brands fa-instagram" style="color:var(--ig)"></i><a href="#">@deliziabakery</a> · Jl. Jenderal Sudirman 275-277, Batang, Jawa Tengah</div>
       <div class="tags">
         <div class="tag" style="background:rgba(255,143,179,.08);border-color:rgba(255,143,179,.25);color:#ff8fb3">⚔️ Kompetitor Terdekat</div>
-        <div class="tag tag-halal"><i class="fa-solid fa-check-circle"></i> Info Halal di Highlight</div>
-        <div class="real-badge"><i class="fa-solid fa-camera"></i> Screenshot Juni 2026</div>
+        <div class="tag" style="background:rgba(155,127,212,.08);border-color:rgba(155,127,212,.25);color:var(--taro2)">🔥 998K Video Terviral</div>
+        <div class="real-badge"><i class="fa-solid fa-camera"></i> Screenshot Juli/Agustus 2026</div>
       </div>
     </div>
   </div>
 
   <div class="grid2" style="margin-bottom:14px">
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-brands fa-instagram"></i> Delizia Instagram — Ringkasan</div>
-      <div class="mrow"><div class="mrow-l">Followers</div><div class="mrow-r">15.800</div></div>
-      <div class="mrow"><div class="mrow-l">Posts</div><div class="mrow-r">1.308</div></div>
-      <div class="mrow"><div class="mrow-l">Following</div><div class="mrow-r">412</div></div>
-      <div class="mrow"><div class="mrow-l">Highlight Utama</div><div class="mrow-r" style="font-size:11px">Baking Class, Halal, Comal, Donor, Lomba</div></div>
-      <div class="mrow"><div class="mrow-l">Video Terbaik</div><div class="mrow-r" style="color:var(--green)">811K views (produk Dubai Chewy)</div></div>
+      <div class="panel-hdr"><i class="fa-brands fa-instagram"></i> Delizia Instagram — Update Juli</div>
+      <div class="mrow"><div class="mrow-l">Followers</div><div class="mrow-r" style="color:var(--green)">16.100 (+300 dari Juni)</div></div>
+      <div class="mrow"><div class="mrow-l">Posts</div><div class="mrow-r">1.317 (+9)</div></div>
+      <div class="mrow"><div class="mrow-l">Following</div><div class="mrow-r">412 (stabil)</div></div>
+      <div class="mrow"><div class="mrow-l">Video Terviral Baru</div><div class="mrow-r" style="color:var(--taro2);font-weight:700">998K views 🔥</div></div>
+      <div class="mrow"><div class="mrow-l">Video Terviral Ke-2</div><div class="mrow-r" style="color:var(--green)">195K views</div></div>
     </div>
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-brands fa-tiktok"></i> Delizia TikTok — Ringkasan</div>
-      <div class="mrow"><div class="mrow-l">Followers</div><div class="mrow-r">2.742</div></div>
-      <div class="mrow"><div class="mrow-l">Total Likes</div><div class="mrow-r">133.200</div></div>
-      <div class="mrow"><div class="mrow-l">Following</div><div class="mrow-r">194</div></div>
-      <div class="mrow"><div class="mrow-l">Video Terbaik</div><div class="mrow-r" style="color:var(--green)">165,7K views</div></div>
-      <div class="mrow"><div class="mrow-l">Produk Andalan</div><div class="mrow-r" style="font-size:11px">Dubai Chewy Mochi, Butter Tteok, Salt Bread</div></div>
+      <div class="panel-hdr"><i class="fa-solid fa-ranking-star"></i> Top Konten Delizia Terbaru</div>
+      <div class="mrow"><div class="mrow-l">🤖 "Pekerjaanmu akan digantikan AI"</div><div class="mrow-r" style="color:var(--taro2);font-weight:700">998K</div></div>
+      <div class="mrow"><div class="mrow-l">😄 "Dua mood seorang baker"</div><div class="mrow-r" style="color:var(--green)">195K</div></div>
+      <div class="mrow"><div class="mrow-l">🍡 Reveal Dubai Chewy Mochi</div><div class="mrow-r">69,3K</div></div>
+      <div class="mrow"><div class="mrow-l">🎉 Bu Kaji Tasyakuran (gifting)</div><div class="mrow-r">47,3K</div></div>
+      <div class="mrow"><div class="mrow-l">📦 Roti Box Dadakan</div><div class="mrow-r">11,1K</div></div>
     </div>
   </div>
 
   <div class="panel" style="margin-bottom:18px">
-    <div class="panel-hdr"><i class="fa-solid fa-scale-balanced"></i> Onty vs Delizia — Perbandingan Langsung</div>
+    <div class="panel-hdr"><i class="fa-solid fa-scale-balanced"></i> Onty vs Delizia — Perbandingan Juli</div>
     <table class="vs-table">
       <thead><tr><th>Metrik</th><th>Onty Cake</th><th>Delizia Bakery</th><th>Insight</th></tr></thead>
       <tbody>
-        <tr><td>IG Followers</td><td class="vs-onty">47.018</td><td class="vs-delizia">15.800</td><td>Onty unggul 3× — basis audiens jauh lebih besar</td></tr>
-        <tr><td>TikTok Followers</td><td class="vs-onty">9.119</td><td class="vs-delizia">2.742</td><td>Onty unggul 3,3× di follower TikTok</td></tr>
-        <tr><td>TikTok Likes</td><td class="vs-onty">507.300</td><td class="vs-delizia">133.200</td><td>Onty unggul 3,8× — histori engagement lebih kuat</td></tr>
-        <tr><td>Video Terbaik (views)</td><td class="vs-onty">±194K (data historis)</td><td class="vs-delizia">811.000 (IG)</td><td><strong>Delizia menang telak</strong> — hero-product launch tunggal mengalahkan seluruh basis follower Onty</td></tr>
-        <tr><td>Strategi Konten</td><td class="vs-onty">Varian & rutinitas harian</td><td class="vs-delizia">Fokus 1-2 hero product/momen</td><td>Delizia lebih terarah & "event-driven"</td></tr>
-        <tr><td>Ritme Launch</td><td class="vs-onty">Produk baru jarang di-hero-kan</td><td class="vs-delizia">"250 PCS SOLD OUT", countdown, kode diskon</td><td>Delizia menciptakan urgency & FOMO eksplisit</td></tr>
+        <tr><td>IG Followers</td><td class="vs-onty">47.151</td><td class="vs-delizia">16.100</td><td>Onty unggul 2,9× — basis audiens tetap jauh lebih besar</td></tr>
+        <tr><td>Pertumbuhan Followers/bulan</td><td class="vs-onty">+133 (+0,3%)</td><td class="vs-delizia">+300 (+1,9%)</td><td>Delizia tumbuh 6× lebih cepat secara persentase</td></tr>
+        <tr><td>Video Terviral Bulan Ini</td><td class="vs-onty">11,9K (Taste of Taro)</td><td class="vs-delizia">998.000 (konten humor AI)</td><td><strong>Delizia unggul 84×</strong> — jenis konten yang sama sekali berbeda dari foto produk</td></tr>
+        <tr><td>Jenis Konten Terviral</td><td class="vs-onty">Reveal produk baru</td><td class="vs-delizia">Komentar sosial/humor relatable</td><td>Delizia berhasil keluar dari "kotak" konten produk semata</td></tr>
+        <tr><td>Engagement Rate (Views/Followers)</td><td class="vs-onty">~13,2× (Juli)</td><td class="vs-delizia">~62× (dengan video viral)</td><td>Meski followers lebih kecil, potensi viral Delizia jauh lebih tinggi</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="grid2">
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-chart-bar"></i> Followers: Onty vs Delizia per Platform</div>
-      <div class="chart-wrap h240"><canvas id="chartCompFollowers"></canvas></div>
+      <div class="panel-hdr"><i class="fa-solid fa-chart-bar"></i> Video Terviral: Onty vs Delizia (Juli)</div>
+      <div class="chart-wrap h240"><canvas id="chartCompViral"></canvas></div>
     </div>
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-lightbulb"></i> Apa yang Bisa Ditiru dari Delizia?</div>
-      <div class="ins"><div class="dot d-g"></div><div><strong>Hero product framing:</strong> Delizia membingkai "Dubai Chewy Mochi" sebagai satu produk ikonik dengan visual konsisten (foto belah dua memperlihatkan isian), bukan sekadar salah satu dari banyak menu.</div></div>
-      <div class="ins"><div class="dot d-a"></div><div><strong>Urgency & scarcity eksplisit:</strong> Caption "250 PCS SOLD OUT", "Sold Out — Ready 9-11" menciptakan FOMO nyata yang mendorong pembelian cepat & pembagian ulang konten.</div></div>
-      <div class="ins"><div class="dot d-o"></div><div><strong>Kode diskon di caption:</strong> "Pake Kode 'YUU10' Disc 10% All Item" — CTA konversi langsung tertanam di setiap post promosi.</div></div>
-      <div class="ins"><div class="dot d-t"></div><div><strong>Aplikasi untuk Onty:</strong> Taste of Taro adalah momen sempurna untuk meniru pola ini — treat launch sebagai "event", bukan penambahan menu biasa. Gunakan foto reveal/belah produk, hitung mundur launching, dan kode promo eksklusif minggu pertama.</div></div>
+      <div class="panel-hdr"><i class="fa-solid fa-lightbulb"></i> Apa Artinya untuk Onty di Agustus?</div>
+      <div class="ins"><div class="dot d-g"></div><div><strong>Konten "commentary/humor" bisa jauh lebih viral dari konten produk.</strong> Video "pekerjaanmu akan digantikan AI" relate dengan kekhawatiran banyak pekerja kreatif — bukan tentang kue sama sekali, tapi tetap membawa nama brand Delizia ke 998rb orang.</div></div>
+      <div class="ins"><div class="dot d-a"></div><div>Delizia konsisten kombinasikan 2 jalur konten: <strong>hero-product reveal</strong> (Dubai Chewy, Butter Tteok — Juni) DAN <strong>komentar sosial relatable</strong> (AI, mood baker — Juli). Onty saat ini hampir 100% berfokus pada konten produk.</div></div>
+      <div class="ins"><div class="dot d-t"></div><div><strong>Peluang Agustus:</strong> coba 1-2 video "commentary" ringan bertema momen Kemerdekaan atau kehidupan sehari-hari sebagai UMKM/baker — misalnya "Serba-serbi jualan kue jelang 17 Agustus" atau observasi humor seputar customer/dapur — untuk membuka peluang jangkauan viral di luar audiens loyal.</div></div>
+      <div class="ins"><div class="dot d-o"></div><div>Tetap pertahankan kekuatan Onty: followers 2,9× lebih besar dan basis TikTok 3× lebih besar — kombinasi basis besar + 1 konten viral punya potensi hasil lebih besar lagi dibanding Delizia.</div></div>
     </div>
   </div>
 </div>
 
-<!-- ══════ TAB: TREN TARO & DUBAI CHEWY ══════ -->
-<div id="tab-tren-taro" class="tab-page">
-  <div class="alert-banner alert-taro">
+<!-- ══════ TAB: TREN TARO & ROTI ══════ -->
+<div id="tab-tren" class="tab-page">
+  <div class="alert-banner alert-merah">
     <i class="fa-solid fa-magnifying-glass-chart"></i>
-    <div><strong>Sumber: Google Trends, data pencarian terbaru — Indonesia vs Jawa Tengah.</strong> Dua topik dianalisis untuk mendukung peluncuran "Taste of Taro": kata kunci Taro (rasa/bahan) dan Dubai Chewy (format produk viral yang akan dipadukan dengan rasa taro).</div>
+    <div><strong>Sumber: Google Trends terbaru — Indonesia vs Jawa Tengah.</strong> Bulan ini pencarian bergeser ke "Roti" (bukan lagi Dubai Chewy) — terdorong musim MPLS (masa pengenalan sekolah baru) dan menjelang 17 Agustus. Data "Taro" tetap dipantau sebagai kelanjutan line produk.</div>
   </div>
 
-  <div class="sec-hdr"><div class="sec-title">🍠 Tren Kata Kunci "Taro"</div><div class="real-badge">Google Trends — Search Interest 0-100</div></div>
+  <div class="sec-hdr"><div class="sec-title">🇮🇩 Tren Kata Kunci "Roti" — Peluang Musiman Agustus</div><div class="real-badge">Google Trends — Data 1 Jul - 1 Ags 2026</div></div>
 
   <div class="kpi-grid">
-    <div class="kpi" style="--kpi-color:var(--taro);--kpi-bg:rgba(155,127,212,.14)"><div class="kpi-icon"><i class="fa-solid fa-bolt"></i></div><div class="kpi-val">19</div><div class="kpi-lbl">SI "taro snack" Jateng</div><div class="kpi-tag t-taro">Status: Breakout 🔥</div></div>
-    <div class="kpi" style="--kpi-color:var(--taro);--kpi-bg:rgba(155,127,212,.14)"><div class="kpi-icon"><i class="fa-solid fa-bolt"></i></div><div class="kpi-val">16</div><div class="kpi-lbl">SI "taro bun" Jateng</div><div class="kpi-tag t-taro">Status: Breakout 🔥</div></div>
-    <div class="kpi" style="--kpi-color:var(--gold)"><div class="kpi-icon"><i class="fa-solid fa-chart-simple"></i></div><div class="kpi-val">100</div><div class="kpi-lbl">SI "taro bun" Indonesia</div><div class="kpi-tag t-info">Volume nasional tertinggi</div></div>
-    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-arrow-trend-up"></i></div><div class="kpi-val">+110%</div><div class="kpi-lbl">"ubi ungu" Indonesia</div><div class="kpi-tag t-warn">Terminologi lokal naik kuat</div></div>
+    <div class="kpi" style="--kpi-color:var(--merah);--kpi-bg:rgba(232,69,69,.14)"><div class="kpi-icon"><i class="fa-solid fa-flag"></i></div><div class="kpi-val">+400%</div><div class="kpi-lbl">"roti merdeka" Indonesia</div><div class="kpi-tag t-red">Jendela sempit s/d 17 Agustus</div></div>
+    <div class="kpi" style="--kpi-color:var(--merah);--kpi-bg:rgba(232,69,69,.14)"><div class="kpi-icon"><i class="fa-solid fa-face-laugh"></i></div><div class="kpi-val">+700%</div><div class="kpi-lbl">"roti ketawa" Indonesia</div><div class="kpi-tag t-red">Snack tradisional, momentum kuat</div></div>
+    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-graduation-cap"></i></div><div class="kpi-val">Breakout</div><div class="kpi-lbl">"roti ketawa/bantal mpls"</div><div class="kpi-tag t-warn">Musim tahun ajaran baru</div></div>
+    <div class="kpi" style="--kpi-color:var(--gold)"><div class="kpi-icon"><i class="fa-solid fa-chart-simple"></i></div><div class="kpi-val">57</div><div class="kpi-lbl">SI "roti coklat" Indonesia</div><div class="kpi-tag t-info">Volume tertinggi kategori umum</div></div>
   </div>
 
   <div class="grid2">
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-bolt"></i> Keyword Breakout — Jawa Tengah (Taro)</div>
+      <div class="panel-hdr"><i class="fa-solid fa-bolt"></i> Breakout & Naik Tajam — Indonesia (Roti)</div>
       <table class="kw-table">
         <thead><tr><th>Keyword</th><th>SI</th><th>Status</th></tr></thead>
         <tbody>
-          <tr><td>taro snack / snack taro</td><td class="kw-si">19</td><td><span class="badge b-taro">Breakout</span></td></tr>
-          <tr><td>taro bun</td><td class="kw-si">16</td><td><span class="badge b-taro">Breakout</span></td></tr>
-          <tr><td>taro terbuat dari</td><td class="kw-si">14</td><td><span class="badge b-taro">Breakout</span></td></tr>
-          <tr><td>taro terbuat dari apa</td><td class="kw-si">9</td><td><span class="badge b-taro">Breakout</span></td></tr>
-          <tr><td>pop ice taro</td><td class="kw-si">6</td><td><span class="badge b-taro">Breakout</span></td></tr>
-          <tr><td>taro latte</td><td class="kw-si">5</td><td><span class="badge b-taro">Breakout</span></td></tr>
-          <tr><td>taro berasal dari</td><td class="kw-si">5</td><td><span class="badge b-taro">Breakout</span></td></tr>
-          <tr><td>warna taro</td><td class="kw-si">100</td><td><span class="badge b-red">-40%</span></td></tr>
-          <tr><td>alam taro</td><td class="kw-si">93</td><td><span class="badge b-green">+50%</span></td></tr>
+          <tr><td>roti ketawa mpls</td><td class="kw-si">7</td><td><span class="badge b-merah">Breakout</span></td></tr>
+          <tr><td>roti bantal mpls</td><td class="kw-si">4</td><td><span class="badge b-merah">Breakout</span></td></tr>
+          <tr><td>roti merdeka mpls</td><td class="kw-si">2</td><td><span class="badge b-merah">Breakout</span></td></tr>
+          <tr><td>roti ngakak</td><td class="kw-si">2</td><td><span class="badge b-merah">Breakout</span></td></tr>
+          <tr><td>roti ketawa</td><td class="kw-si">16</td><td><span class="badge b-red">+700%</span></td></tr>
+          <tr><td>roti merdeka</td><td class="kw-si">4</td><td><span class="badge b-red">+400%</span></td></tr>
+          <tr><td>roti bantal</td><td class="kw-si">13</td><td><span class="badge b-green">+160%</span></td></tr>
+          <tr><td>roti near me</td><td class="kw-si">13</td><td><span class="badge b-green">+130%</span></td></tr>
+          <tr><td>roti kasur</td><td class="kw-si">4</td><td><span class="badge b-green">+30%</span></td></tr>
         </tbody>
       </table>
       <div style="margin-top:10px;background:var(--bg4);border-radius:8px;padding:12px;font-size:12px;color:var(--text2);line-height:1.6">
-        💡 <strong>Sinyal first-mover kuat!</strong> "taro bun", "taro snack", dan "taro latte" — persis nama-nama produk yang akan diluncurkan Onty — berstatus <strong>Breakout</strong> di Jawa Tengah, artinya belum banyak kompetitor lokal yang mengklaim istilah ini.
+        💡 <strong>"MPLS"</strong> = Masa Pengenalan Lingkungan Sekolah (tahun ajaran baru dimulai Juli). "Roti ketawa" & "roti bantal" jadi ide bekal/snack sekolah populer. <strong>"Roti merdeka"</strong> menandakan orang mulai mencari produk bertema kemerdekaan menjelang 17 Agustus.
       </div>
     </div>
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-arrow-trend-up"></i> Keyword Naik Kuat — Indonesia (Taro)</div>
-      <table class="kw-table">
-        <thead><tr><th>Keyword</th><th>SI</th><th>Tren</th></tr></thead>
-        <tbody>
-          <tr><td>rasa taro terbuat dari</td><td class="kw-si">3</td><td><span class="badge b-green">+190%</span></td></tr>
-          <tr><td>ubi ungu</td><td class="kw-si">11</td><td><span class="badge b-green">+110%</span></td></tr>
-          <tr><td>puding taro</td><td class="kw-si">5</td><td><span class="badge b-green">+60%</span></td></tr>
-          <tr><td>ube</td><td class="kw-si">8</td><td><span class="badge b-green">+60%</span></td></tr>
-          <tr><td>taro terbuat dari</td><td class="kw-si">11</td><td><span class="badge b-green">+60%</span></td></tr>
-          <tr><td>talas ungu</td><td class="kw-si">4</td><td><span class="badge b-green">+50%</span></td></tr>
-          <tr><td>harga taro bun</td><td class="kw-si">7</td><td><span class="badge b-green">+30%</span></td></tr>
-          <tr><td>taro bun</td><td class="kw-si">100</td><td><span class="badge b-blue">+4%</span></td></tr>
-          <tr><td>minuman taro</td><td class="kw-si">13</td><td><span class="badge b-green">+30%</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="sec-hdr" style="margin-top:8px"><div class="sec-title">🍪 Tren Kata Kunci "Dubai Chewy"</div><div class="real-badge">Google Trends — Search Interest 0-100</div></div>
-
-  <div class="grid2">
-    <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-bolt"></i> Breakout & Naik — Indonesia (Dubai Chewy)</div>
+      <div class="panel-hdr"><i class="fa-solid fa-map-location-dot"></i> Breakout & Naik Tajam — Jawa Tengah (Roti)</div>
       <table class="kw-table">
         <thead><tr><th>Keyword</th><th>SI</th><th>Status</th></tr></thead>
         <tbody>
-          <tr><td>dubai chewy cookie near me</td><td class="kw-si">0</td><td><span class="badge b-purple">Breakout</span></td></tr>
-          <tr><td>kataifi</td><td class="kw-si">0</td><td><span class="badge b-purple">Breakout</span></td></tr>
-          <tr><td>dubai chewy cookie jogja</td><td class="kw-si">1</td><td><span class="badge b-green">+200%</span></td></tr>
-          <tr><td>pistachio</td><td class="kw-si">3</td><td><span class="badge b-green">+80%</span></td></tr>
-          <tr><td>dubai chewy pistachio</td><td class="kw-si">2</td><td><span class="badge b-green">+50%</span></td></tr>
-          <tr><td>kunafa</td><td class="kw-si">2</td><td><span class="badge b-green">+50%</span></td></tr>
-          <tr><td>dubai chewy cookie</td><td class="kw-si">100</td><td><span class="badge b-blue">+20%</span></td></tr>
-          <tr><td>chewy dubai cookie</td><td class="kw-si">97</td><td><span class="badge b-blue">+10%</span></td></tr>
-          <tr><td>butter tteok</td><td class="kw-si">0</td><td><span class="badge b-red">-70%</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-map-location-dot"></i> Dubai Chewy — Jawa Tengah</div>
-      <table class="kw-table">
-        <thead><tr><th>Keyword</th><th>SI</th><th>Status</th></tr></thead>
-        <tbody>
-          <tr><td>coklat dubai</td><td class="kw-si">2</td><td><span class="badge b-purple">Breakout</span></td></tr>
-          <tr><td>pistachio</td><td class="kw-si">1</td><td><span class="badge b-purple">Breakout</span></td></tr>
-          <tr><td>kunafa</td><td class="kw-si">1</td><td><span class="badge b-purple">Breakout</span></td></tr>
-          <tr><td>dubai chewy cookie jogja</td><td class="kw-si">1</td><td><span class="badge b-purple">Breakout</span></td></tr>
-          <tr><td>dubai chewy cookie harga</td><td class="kw-si">12</td><td><span class="badge b-green">+40%</span></td></tr>
-          <tr><td>harga dubai chewy cookie</td><td class="kw-si">11</td><td><span class="badge b-green">+30%</span></td></tr>
-          <tr><td>dubai chewy cookie</td><td class="kw-si">98</td><td><span class="badge b-blue">+2%</span></td></tr>
-          <tr><td>chewy dubai cookie</td><td class="kw-si">100</td><td><span class="badge b-blue">+1%</span></td></tr>
+          <tr><td>roti ketawa mpls</td><td class="kw-si">6</td><td><span class="badge b-merah">Breakout</span></td></tr>
+          <tr><td>roti bantal mpls</td><td class="kw-si">5</td><td><span class="badge b-merah">Breakout</span></td></tr>
+          <tr><td>roti subuh semarang</td><td class="kw-si">3</td><td><span class="badge b-merah">Breakout</span></td></tr>
+          <tr><td>roti kecil solo</td><td class="kw-si">2</td><td><span class="badge b-merah">Breakout</span></td></tr>
+          <tr><td>roti ketawa</td><td class="kw-si">12</td><td><span class="badge b-red">+750%</span></td></tr>
+          <tr><td>roti bantal</td><td class="kw-si">10</td><td><span class="badge b-green">+200%</span></td></tr>
+          <tr><td>roti semir</td><td class="kw-si">5</td><td><span class="badge b-green">+140%</span></td></tr>
+          <tr><td>roti subuh</td><td class="kw-si">9</td><td><span class="badge b-green">+80%</span></td></tr>
+          <tr><td>roti abon</td><td class="kw-si">9</td><td><span class="badge b-green">+30%</span></td></tr>
         </tbody>
       </table>
       <div style="margin-top:10px;background:var(--bg4);border-radius:8px;padding:12px;font-size:12px;color:var(--text2);line-height:1.6">
-        💡 <strong>Tren "Dubai Chewy" generik sudah matang</strong> (volume tinggi tapi pertumbuhan melambat), sementara varian rasa spesifik (pistachio, kunafa) baru mulai Breakout. Ini membuka ruang untuk <strong>varian rasa Taro</strong> sebagai diferensiasi baru — bukan mengekor tren yang sudah jenuh, melainkan menciptakan sub-tren baru: "Dubai Chewy rasa Taro".
+        💡 Pola lokal Jawa Tengah konsisten dengan nasional — momentum "roti ketawa" bahkan lebih kuat (+750% vs +700% nasional). "Roti subuh Semarang" & "roti kecil Solo" menunjukkan minat produk artisan/lokal khas daerah.
       </div>
     </div>
   </div>
 
+  <div class="sec-hdr" style="margin-top:8px"><div class="sec-title">🍠 Tren Kata Kunci "Taro" — Kelanjutan Line Produk</div><div class="real-badge">Google Trends — Data 1 Jul - 1 Ags 2026</div></div>
+
   <div class="grid2">
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-chart-bar"></i> Perbandingan Search Interest: Taro vs Dubai Chewy</div>
-      <div class="chart-wrap h240"><canvas id="chartTrendComp"></canvas></div>
+      <div class="panel-hdr"><i class="fa-solid fa-chart-line"></i> Sinyal Positif — "Taro Bun" Jateng Naik Tajam</div>
+      <div class="chart-wrap h220"><canvas id="chartTaroBunGrowth"></canvas></div>
+      <div style="margin-top:10px;background:var(--bg4);border-radius:8px;padding:12px;font-size:12px;color:var(--text2);line-height:1.6">
+        🎯 <strong>"Taro bun" di Jawa Tengah naik dari SI 16 (Juni) → 52 (Juli), pertumbuhan +130%</strong> — pertanda kuat launching produk mulai menggerakkan pencarian lokal secara organik. Ini KPI paling penting untuk divalidasi terus di Agustus.
+      </div>
     </div>
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-lightbulb"></i> Kesimpulan Strategis untuk Taste of Taro</div>
-      <div class="ins"><div class="dot d-t"></div><div><strong>Pola sama dengan salt bread bulan lalu:</strong> istilah taro yang berstatus Breakout persis di Jawa Tengah menandakan pasar lokal baru mulai familiar — Onty berpeluang jadi penentu asosiasi pertama "Taro" di benak konsumen Pekalongan.</div></div>
-      <div class="ins"><div class="dot d-g"></div><div>Gunakan istilah lokal yang sudah dikenal luas ("ubi ungu" SI 11 +110% nasional) berdampingan dengan istilah global "Taro" di caption/SEO — menjangkau pencari yang belum familiar dengan kata "taro".</div></div>
-      <div class="ins"><div class="dot d-a"></div><div>Produk <strong>Dubai Chewy rasa Taro belum ada satu pun kompetitor Jateng</strong> yang teridentifikasi — kombinasi format viral (Dubai Chewy) + rasa lokal-relevan (Taro) adalah white space murni.</div></div>
-      <div class="ins"><div class="dot d-o"></div><div>Prioritaskan SEO & caption untuk "taro bun", "taro latte", "taro snack" — kata kunci ini punya volume tertinggi sekaligus status Breakout, kombinasi paling ideal untuk konten baru.</div></div>
+      <div class="panel-hdr"><i class="fa-solid fa-triangle-exclamation"></i> Peringatan: Keyword "Taro" Makin Terdilusi</div>
+      <table class="kw-table">
+        <thead><tr><th>Keyword Non-Kuliner</th><th>SI (Jateng)</th><th>Kategori</th></tr></thead>
+        <tbody>
+          <tr><td>chiki taro / ciki taro</td><td class="kw-si">30 / 6</td><td><span class="badge b-purple">Snack chip</span></td></tr>
+          <tr><td>black taro / djarum black taro</td><td class="kw-si">19 / 5</td><td><span class="badge b-purple">Rokok</span></td></tr>
+          <tr><td>relx taro / liquid taro</td><td class="kw-si">4 / 84</td><td><span class="badge b-purple">Vape</span></td></tr>
+          <tr><td>ultraman taro</td><td class="kw-si">44</td><td><span class="badge b-purple">Kartun/Tokusatsu</span></td></tr>
+          <tr><td>taro misaki</td><td class="kw-si">4</td><td><span class="badge b-purple">Karakter anime</span></td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:10px;background:var(--bg4);border-radius:8px;padding:12px;font-size:12px;color:var(--text2);line-height:1.6">
+        ⚠️ <strong>Kata "taro" generik didominasi topik non-kuliner</strong> (rokok, vape, snack kemasan, kartun Ultraman Taro). Untuk SEO & hashtag, WAJIB gunakan frasa spesifik seperti "taro bun", "kue taro", "roti taro" — jangan gunakan kata "taro" sendirian.
+      </div>
     </div>
+  </div>
+
+  <div class="panel" style="margin-bottom:22px">
+    <div class="panel-hdr"><i class="fa-solid fa-route"></i> Pergeseran Tahap Pencarian: Edukasi → Niat Beli (Jawa Tengah)</div>
+    <table class="kw-table">
+      <thead><tr><th>Keyword</th><th>Tren Juni→Juli</th><th>Tahap</th></tr></thead>
+      <tbody>
+        <tr><td>apa itu taro / taro itu apa</td><td class="kw-si"><span class="badge b-red">-70% / -70%</span></td><td>📉 Edukasi (menurun)</td></tr>
+        <tr><td>taro terbuat dari</td><td class="kw-si"><span class="badge b-red">-50%</span></td><td>📉 Edukasi (menurun)</td></tr>
+        <tr><td>es taro / minuman taro</td><td class="kw-si"><span class="badge b-red">-70% / -10%</span></td><td>📉 Kategori lain (menurun)</td></tr>
+        <tr><td>taro bun terdekat</td><td class="kw-si"><span class="badge b-green">+40% (nasional)</span></td><td>🛒 Niat beli (naik)</td></tr>
+        <tr><td>taro bun menu</td><td class="kw-si"><span class="badge b-green">+30% (nasional)</span></td><td>🛒 Niat beli (naik)</td></tr>
+        <tr><td>harga taro bun</td><td class="kw-si"><span class="badge b-green">Baru muncul</span></td><td>🛒 Niat beli (baru)</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:10px;background:var(--bg4);border-radius:8px;padding:12px;font-size:12px;color:var(--text2);line-height:1.6">
+      💡 <strong>Pola funnel klasik yang sehat:</strong> pencarian edukasi ("apa itu taro") menurun sementara pencarian niat beli ("taro bun terdekat", "harga taro bun") naik. Audiens sudah melewati tahap edukasi dan mulai mencari tempat membeli — momentum tepat untuk gencar promosi lokasi & harga di Agustus.
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-hdr"><i class="fa-solid fa-lightbulb"></i> Kesimpulan Strategis untuk Agustus 2026</div>
+    <div class="ins"><div class="dot d-m"></div><div><strong>Prioritas #1 — Roti Merdeka:</strong> jendela waktu sempit (hanya sampai 17 Agustus). Segera desain 1-2 produk merah-putih (roti/kue tema kemerdekaan) dan luncurkan minggu pertama Agustus.</div></div>
+    <div class="ins"><div class="dot d-a"></div><div><strong>Prioritas #2 — Roti Ketawa:</strong> pertumbuhan +700-750% adalah salah satu lonjakan terbesar yang tercatat. Snack tradisional ini relatif mudah diproduksi dan cocok untuk bundel bekal MPLS/arisan.</div></div>
+    <div class="ins"><div class="dot d-t"></div><div><strong>Prioritas #3 — Lanjutkan Taro dengan fokus niat-beli:</strong> highlight lokasi toko, harga, dan cara order di setiap konten Taro — bukan lagi edukasi "apa itu taro", karena audiens sudah paham.</div></div>
+    <div class="ins"><div class="dot d-g"></div><div>Pertimbangkan produk kombinasi: <strong>"Taro Bun Merdeka"</strong> — kemasan/dekorasi merah-putih untuk isian taro ungu, menggabungkan 2 momentum sekaligus dalam 1 produk.</div></div>
   </div>
 </div>
 
-<!-- ══════ TAB: STRATEGI JULI — TASTE OF TARO ══════ -->
-<div id="tab-strategi-juli" class="tab-page">
-  <div class="alert-banner alert-taro">
+<!-- ══════ TAB: STRATEGI AGUSTUS ══════ -->
+<div id="tab-strategi-agustus" class="tab-page">
+  <div class="alert-banner alert-merah">
     <i class="fa-solid fa-rocket"></i>
-    <div><strong>Taste of Taro — Peluncuran Line Produk Juli 2026.</strong> 6 produk baru dirancang untuk mendominasi momentum Breakout kata kunci "taro" di Jawa Tengah, memakai formula hero-product ala Delizia, dan diproduksi lintas 5 platform sekaligus.</div>
+    <div><strong>Agustus 2026 — Dua Jalur Strategi Paralel.</strong> (1) Momentum musiman "Kemerdekaan" & MPLS yang jendela waktunya sempit (s/d 17 Agustus), dan (2) melanjutkan Taste of Taro dengan fokus niat-beli (lokasi, harga, cara order) karena tahap edukasi sudah lewat.</div>
   </div>
 
-  <div class="sec-hdr"><div class="sec-title">🍠 Lineup Produk Taste of Taro</div></div>
+  <div class="sec-hdr"><div class="sec-title">🇮🇩 Lineup Produk "Onty Merdeka" — Edisi Terbatas Agustus</div></div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-bottom:24px">
-    <div class="product-card"><div class="product-emoji">🥐</div><div class="product-name">Taro Bun</div><div class="product-desc">Hero product utama — selaras dengan keyword volume tertinggi (SI 100 nasional, Breakout Jateng). Format reveal belah dua ala Delizia Dubai Chewy.</div><div class="badge b-taro">SI Breakout Jateng</div></div>
-    <div class="product-card"><div class="product-emoji">🍰</div><div class="product-name">Bolu Gulung Taro</div><div class="product-desc">Menggabungkan dua tren sukses: bolu gulung (produk andalan Onty selama ini) + rasa taro yang sedang naik. Rendah risiko, tinggi familiaritas.</div><div class="badge b-taro">Kombinasi tren ganda</div></div>
-    <div class="product-card"><div class="product-emoji">🍮</div><div class="product-name">Egg Claire Taro</div><div class="product-desc">Format premium/unik — cocok untuk konten "reveal isian" yang secara konsisten viral di niche kuliner Indonesia.</div><div class="badge b-purple">Konten visual kuat</div></div>
-    <div class="product-card"><div class="product-emoji">🧁</div><div class="product-name">Bolu Taro Keju</div><div class="product-desc">Perpaduan gurih-manis. Menyasar keyword "taro terbuat dari" & edukasi bahan — cocok untuk konten storytelling proses produksi.</div><div class="badge b-blue">Cocok edukasi</div></div>
-    <div class="product-card"><div class="product-emoji">🥤</div><div class="product-name">Taro Latte</div><div class="product-desc">Minuman — menyasar keyword "taro latte" (Breakout Jateng, SI 5) dan "minuman taro" (+30% nasional). Produk entry-level harga terjangkau untuk trial pertama.</div><div class="badge b-taro">Breakout Jateng</div></div>
-    <div class="product-card"><div class="product-emoji">🍥</div><div class="product-name">Taro Soes Retak</div><div class="product-desc">Twist dari produk soes retak yang sudah dikenal — memudahkan transisi pelanggan lama mencoba rasa baru tanpa risiko besar.</div><div class="badge b-green">Low-risk trial</div></div>
+    <div class="product-card"><div class="product-emoji merah">🍞</div><div class="product-name">Roti Merdeka</div><div class="product-desc">Roti tema merah-putih — sasar keyword "roti merdeka" (+400% nasional). Bisa berupa roti sobek dengan lapisan merah-putih atau dekorasi bendera.</div><div class="badge b-merah">SI Breakout · +400%</div></div>
+    <div class="product-card"><div class="product-emoji merah">😄</div><div class="product-name">Roti Ketawa Onty</div><div class="product-desc">Snack tradisional yang sedang viral pencarian (+700-750%). Cocok untuk bekal MPLS, arisan, dan oleh-oleh — low cost, high search-demand.</div><div class="badge b-merah">SI +700% · Breakout MPLS</div></div>
+    <div class="product-card"><div class="product-emoji merah">🎒</div><div class="product-name">Snack Box MPLS</div><div class="product-desc">Bundel bekal tahun ajaran baru berisi roti ketawa, roti bantal, dan produk mini lain — sasar orang tua yang mencari ide bekal anak sekolah.</div><div class="badge b-merah">Musim MPLS</div></div>
+    <div class="product-card"><div class="product-emoji">🥯</div><div class="product-name">Taro Bun Merdeka (Kombinasi)</div><div class="product-desc">Menggabungkan 2 momentum: isian taro ungu dengan kemasan/topping merah-putih edisi kemerdekaan — produk unik yang belum ada di kompetitor manapun.</div><div class="badge b-taro">Kombinasi 2 tren</div></div>
+    <div class="product-card"><div class="product-emoji merah">🎂</div><div class="product-name">Cake Dekor Kemerdekaan</div><div class="product-desc">Cake custom tema 17 Agustus untuk acara kantor/sekolah/komunitas — memanfaatkan kekuatan Onty di custom cake (wedding cake jadi top performer Juli).</div><div class="badge b-green">Custom order tinggi nilai</div></div>
+    <div class="product-card"><div class="product-emoji">🍰</div><div class="product-name">Lanjutan Line Taro (Susulan)</div><div class="product-desc">Bolu Gulung Taro, Egg Claire Taro, Bolu Taro Keju, Taro Latte, Taro Soes Retak — lanjutkan rilis dengan fokus konten niat-beli (lokasi/harga/cara order).</div><div class="badge b-taro">Niat beli naik +30-40%</div></div>
   </div>
 
   <div class="panel" style="margin-bottom:20px">
-    <div class="panel-hdr"><i class="fa-solid fa-calendar-days"></i> Master Content Plan Juli 2026 — Taste of Taro</div>
+    <div class="panel-hdr"><i class="fa-solid fa-calendar-days"></i> Master Content Plan Agustus 2026</div>
     <div style="overflow-x:auto">
     <table class="cp-table">
       <thead><tr><th>Minggu</th><th>Platform</th><th>Format</th><th>Ide Konten</th><th>Berbasis Data</th></tr></thead>
       <tbody>
-        <tr><td><span class="w-tag wk1">M1</span></td><td>IG @ontycake</td><td>Feed + Reels</td><td>Teaser "Something Purple is Coming" 3 hari sebelum launch, lalu reveal Taro Bun (hero product) dengan foto belah dua</td><td>Format hero-product Delizia (811K views)</td></tr>
-        <tr><td><span class="w-tag wk1">M1</span></td><td>TikTok @ontycake</td><td>Video 60-90s</td><td>"Taro itu rasa apa sih?" edukasi + reveal Taro Bun, hook 3 detik pertama</td><td>Keyword "taro adalah/apa itu taro" SI 21-23</td></tr>
-        <tr><td><span class="w-tag wk1">M1</span></td><td>YouTube</td><td>Tutorial 10-15 mnt</td><td>"Rahasia Taro Bun Anti Gagal" — SEO judul mengikuti pola video terpopuler channel</td><td>Pola "Rahasia Bolu Gulung" = 8,7rb views terbaik</td></tr>
-        <tr><td><span class="w-tag wk1">M1</span></td><td>IG @ontycake</td><td>Story</td><td>Kode promo eksklusif "TAROWEEK" — diskon minggu pertama, ala kode diskon Delizia</td><td>Strategi urgency Delizia</td></tr>
-        <tr><td><span class="w-tag wk2">M2</span></td><td>TikTok @ontycake</td><td>Video 90s</td><td>Reveal Bolu Gulung Taro — gabungkan 2 produk sukses (bolu gulung + taro)</td><td>Kombinasi tren ganda, risiko rendah</td></tr>
-        <tr><td><span class="w-tag wk2">M2</span></td><td>IG Baking Class</td><td>Reel + Story</td><td>"Belajar bikin Taro Bun sendiri" — cross-promo dari @ontycake mengarahkan follower ke kelas</td><td>Cross-sell dua arah</td></tr>
-        <tr><td><span class="w-tag wk2">M2</span></td><td>TikTok Baking Class</td><td>Video 60-90s</td><td>Konten reset pasca-kolaps: proses kelas membuat Taro Bun, format baru & caption unik</td><td>Reset sinyal algoritma pasca-kolaps Juni</td></tr>
-        <tr><td><span class="w-tag wk2">M2</span></td><td>YouTube</td><td>Shorts</td><td>Potong video M1 jadi 5 Shorts untuk distribusi tambahan</td><td>1 produksi = 5+ konten</td></tr>
-        <tr><td><span class="w-tag wk3">M3</span></td><td>IG @ontycake + TikTok</td><td>Reveal produk</td><td>Launch Egg Claire Taro & Bolu Taro Keju — format "reveal isian" close-up</td><td>Format visual terbukti viral niche kuliner</td></tr>
-        <tr><td><span class="w-tag wk3">M3</span></td><td>TikTok @ontycake</td><td>Video 90s</td><td>"Dubai Chewy rasa Taro?" — eksperimen menggabungkan format Dubai Chewy viral dengan rasa Taro</td><td>White space: belum ada kompetitor Jateng</td></tr>
-        <tr><td><span class="w-tag wk3">M3</span></td><td>IG @ontycake</td><td>Story Poll</td><td>Polling rasa favorit dari 6 produk Taro — riset produk sekaligus engagement</td><td>Interaksi boost ER</td></tr>
-        <tr><td><span class="w-tag wk4">M4</span></td><td>Semua platform</td><td>Launch terakhir</td><td>Taro Latte & Taro Soes Retak — penutup line, harga entry-level untuk trial baru</td><td>Produk terjangkau untuk pelanggan baru</td></tr>
-        <tr><td><span class="w-tag wk4">M4</span></td><td>YouTube</td><td>Tutorial</td><td>"Taste of Taro Full Lineup" — video rekap semua 6 produk, cocok untuk SEO evergreen</td><td>Konten evergreen jangka panjang</td></tr>
-        <tr><td><span class="w-tag wk4">M4</span></td><td>IG @ontycake</td><td>Feed Recap</td><td>"Bulan Purple Sudah Berakhir — Terima Kasih Sudah Coba Taste of Taro!" + data penjualan/testimoni</td><td>Community building & social proof</td></tr>
+        <tr><td><span class="w-tag wk1">M1</span></td><td>IG @ontycake</td><td>Reels (bukan Stories)</td><td>Reveal "Roti Merdeka" & "Roti Ketawa Onty" — format reveal produk yang terbukti unggul dari konten mood/lifestyle</td><td>Reels = 80,8% interaksi IG; SI roti merdeka +400%</td></tr>
+        <tr><td><span class="w-tag wk1">M1</span></td><td>TikTok @ontycake</td><td>Video reveal produk</td><td>"Roti Ketawa balik lagi!" — video produk konkret dengan urgency, hindari format mood/relate yang underperform bulan lalu</td><td>Video produk konkret >2× outperform video mood Juli</td></tr>
+        <tr><td><span class="w-tag wk1">M1</span></td><td>IG @ontycake</td><td>Commentary/Humor</td><td>1 video ringan ala Delizia: "Serba-serbi jualan kue jelang 17 Agustus" — observasi humor UMKM, bukan produk</td><td>Formula viral Delizia 998K views</td></tr>
+        <tr><td><span class="w-tag wk1">M1</span></td><td>TikTok Baking Class</td><td>Video reset</td><td>Kelas "Bikin Roti Merdeka Sendiri" — konten musiman segar untuk sinyal algoritma baru</td><td>Reset konten pasca-kolaps 3 bulan berturut</td></tr>
+        <tr><td><span class="w-tag wk2">M2</span></td><td>YouTube</td><td>Video panjang (WAJIB)</td><td>"Rahasia Roti Merdeka/Ketawa Anti Gagal" — mengisi kekosongan video reguler (0 video Juli)</td><td>Pola SEO evergreen terbaik channel; 79,8% masih dari search</td></tr>
+        <tr><td><span class="w-tag wk2">M2</span></td><td>IG Baking Class</td><td>Reel + Story</td><td>Kelas tema "Dekor Cake Kemerdekaan" — replikasi sukses format kolaborasi "Mom & Me" (9,7rb views)</td><td>Kelas premium/tematik = top performer Juli</td></tr>
+        <tr><td><span class="w-tag wk2">M2</span></td><td>TikTok @ontycake</td><td>Video urgency</td><td>Countdown "H-berapa 17 Agustus" untuk Roti Merdeka — ciptakan FOMO sebelum jendela momentum tutup</td><td>Jendela sempit musiman s/d 17 Ags</td></tr>
+        <tr><td><span class="w-tag wk3">M3</span></td><td>Semua platform</td><td>Puncak launching</td><td>"Taro Bun Merdeka" — produk kombinasi 2 tren sekaligus, dorong sebagai centerpiece minggu 17 Agustus</td><td>Kombinasi Taro (niat beli naik) + Merdeka (momentum tinggi)</td></tr>
+        <tr><td><span class="w-tag wk3">M3</span></td><td>IG @ontycake</td><td>Reels lokasi/harga</td><td>Konten fokus niat-beli line Taro susulan: harga, lokasi toko, cara order — bukan lagi edukasi "apa itu taro"</td><td>Pencarian edukasi taro turun -70%, niat beli naik</td></tr>
+        <tr><td><span class="w-tag wk4">M4</span></td><td>Semua platform</td><td>Evaluasi & recap</td><td>Recap performa Agustus, testimoni pelanggan produk Merdeka & Taro, persiapan konten September</td><td>Community building & data untuk bulan depan</td></tr>
+        <tr><td><span class="w-tag wk4">M4</span></td><td>TikTok Baking Class</td><td>Checkpoint evaluasi</td><td>Tinjau apakah reset konten 2 bulan berhasil; jika belum, pertimbangkan opsi akun baru</td><td>Target checkpoint 31 Agustus dari analisis TT Class</td></tr>
       </tbody>
     </table>
     </div>
   </div>
 
-  <div class="sec-hdr"><div class="sec-title">🎯 Target KPI Juli 2026 — Taste of Taro</div></div>
+  <div class="sec-hdr"><div class="sec-title">🎯 Target KPI Agustus 2026</div></div>
   <div class="grid3">
-    <div class="kpi" style="--kpi-color:var(--taro);--kpi-bg:rgba(155,127,212,.14)"><div class="kpi-icon"><i class="fa-solid fa-video"></i></div><div class="kpi-val">200K+</div><div class="kpi-lbl">Target Views Video Hero Launch</div><div class="kpi-tag t-taro">Setara/melebihi Delizia (811K IG total)</div></div>
-    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-share-nodes"></i></div><div class="kpi-val">+50%</div><div class="kpi-lbl">Target Recovery Shares TikTok</div><div class="kpi-tag t-up">Dari -56,9% Juni ke positif</div></div>
-    <div class="kpi" style="--kpi-color:var(--red);--kpi-bg:rgba(239,68,68,.1)"><div class="kpi-icon"><i class="fa-solid fa-heart-pulse"></i></div><div class="kpi-val">5K+</div><div class="kpi-lbl">Target Views/Video TT Baking Class</div><div class="kpi-tag t-red">Dari 830 total Juni</div></div>
+    <div class="kpi" style="--kpi-color:var(--merah);--kpi-bg:rgba(232,69,69,.14)"><div class="kpi-icon"><i class="fa-solid fa-flag"></i></div><div class="kpi-val">50K+</div><div class="kpi-lbl">Target Views Reveal Roti Merdeka</div><div class="kpi-tag t-red">Manfaatkan jendela sempit maksimal</div></div>
+    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-arrow-trend-up"></i></div><div class="kpi-val">Pulihkan</div><div class="kpi-lbl">Target Reach IG ke Level Juni</div><div class="kpi-tag t-up">Dari 43,2K kembali ke ~56K</div></div>
+    <div class="kpi" style="--kpi-color:var(--red);--kpi-bg:rgba(239,68,68,.1)"><div class="kpi-icon"><i class="fa-solid fa-heart-pulse"></i></div><div class="kpi-val">1.500+</div><div class="kpi-lbl">Target Views TT Baking Class/bulan</div><div class="kpi-tag t-red">Dari 571 total Juli — checkpoint keras</div></div>
   </div>
 
   <div class="panel">
-    <div class="panel-hdr"><i class="fa-solid fa-diagram-project"></i> Alur Cross-Promosi Taste of Taro Antar Akun</div>
+    <div class="panel-hdr"><i class="fa-solid fa-diagram-project"></i> Dua Jalur Momentum Agustus — Ringkasan Visual</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:4px">
-      <div class="tcard" style="border-color:rgba(155,127,212,.3)"><div class="tc-tag" style="color:var(--taro2)">Sumber Utama</div><div class="tc-title">IG @ontycake (47K)</div><div class="tc-text">Titik awal reveal & teaser semua produk taro. Reach organik 56K/bulan menjadi mesin distribusi utama.</div></div>
-      <div class="tcard" style="border-color:rgba(69,208,216,.3)"><div class="tc-tag" style="color:var(--tt)">Amplifikasi</div><div class="tc-title">TikTok @ontycake (9,1K)</div><div class="tc-text">Versi video pendek dari setiap reveal, fokus pada format 60-180 detik dengan hook & save-worthy value.</div></div>
-      <div class="tcard" style="border-color:rgba(255,59,59,.3)"><div class="tc-tag" style="color:var(--yt2)">Evergreen</div><div class="tc-title">YouTube (7,7K)</div><div class="tc-text">Tutorial lengkap tiap produk, judul SEO "Rahasia [Nama Produk] Taro" — jangka panjang mendatangkan views baru.</div></div>
-      <div class="tcard" style="border-color:rgba(62,203,130,.3)"><div class="tc-tag" style="color:var(--green)">Konversi Kelas</div><div class="tc-title">IG + TT Baking Class</div><div class="tc-text">"Belajar bikin sendiri" — konversi pembeli produk taro menjadi pendaftar kelas, sekaligus reset konten TikTok yang kolaps.</div></div>
+      <div class="tcard" style="border-color:rgba(232,69,69,.3)"><div class="tc-tag" style="color:#ff8080">Jalur 1 — Musiman (Jendela Sempit)</div><div class="tc-title">Roti Merdeka + Roti Ketawa + MPLS</div><div class="tc-text">Eksekusi cepat minggu 1-3, momentum berakhir setelah 17 Agustus. Prioritas tertinggi karena time-sensitive.</div></div>
+      <div class="tcard" style="border-color:rgba(155,127,212,.3)"><div class="tc-tag" style="color:var(--taro2)">Jalur 2 — Berkelanjutan</div><div class="tc-title">Lanjutan Taste of Taro (Niat Beli)</div><div class="tc-text">Tidak ada batas waktu ketat, fokus pada konversi: lokasi, harga, cara order. Bisa berjalan sepanjang bulan bersamaan jalur 1.</div></div>
+      <div class="tcard" style="border-color:rgba(255,143,179,.3)"><div class="tc-tag" style="color:#ff8fb3">Titik Temu — Taro Bun Merdeka</div><div class="tc-title">Produk Crossover Unik</div><div class="tc-text">Gabungkan kedua momentum dalam satu produk centerpiece di minggu ke-3, sebagai puncak kampanye Agustus.</div></div>
     </div>
   </div>
 </div>
@@ -946,17 +969,17 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 <!-- ══════ TAB: ANALISIS AI ══════ -->
 <div id="tab-ai" class="tab-page">
   <div style="margin-bottom:18px">
-    <div class="sec-title" style="margin-bottom:6px">Analisis Cerdas · Claude AI · Data Juni 2026 → Strategi Juli</div>
-    <div style="font-size:12px;color:var(--text3)">Analisis real-time berbasis data aktual Juni + peluncuran Taste of Taro. Pilih topik di bawah untuk insight mendalam.</div>
+    <div class="sec-title" style="margin-bottom:6px">Analisis Cerdas · Claude AI · Data Juli 2026 → Strategi Agustus</div>
+    <div style="font-size:12px;color:var(--text3)">Analisis real-time berbasis data aktual Juli + momentum Kemerdekaan & lanjutan Taro. Pilih topik di bawah untuk insight mendalam.</div>
   </div>
 
   <div class="ai-btns" style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px">
-    <button class="ai-btn" onclick="runAI('full')" style="background:var(--surface);border:1px solid var(--border2);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:11.5px;padding:7px 14px;border-radius:20px;cursor:pointer;display:flex;align-items:center;gap:5px"><i class="fa-solid fa-magnifying-glass-chart"></i> Analisis Komprehensif Juli</button>
-    <button class="ai-btn" onclick="runAI('taro')" style="background:var(--surface);border:1px solid var(--border2);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:11.5px;padding:7px 14px;border-radius:20px;cursor:pointer;display:flex;align-items:center;gap:5px"><i class="fa-solid fa-seedling"></i> Strategi Peluncuran Taro</button>
-    <button class="ai-btn" onclick="runAI('ttcrisis')" style="background:var(--surface);border:1px solid var(--border2);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:11.5px;padding:7px 14px;border-radius:20px;cursor:pointer;display:flex;align-items:center;gap:5px"><i class="fa-solid fa-triangle-exclamation"></i> Pemulihan TT Baking Class</button>
-    <button class="ai-btn" onclick="runAI('competitor')" style="background:var(--surface);border:1px solid var(--border2);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:11.5px;padding:7px 14px;border-radius:20px;cursor:pointer;display:flex;align-items:center;gap:5px"><i class="fa-solid fa-chess"></i> Strategi vs Delizia</button>
-    <button class="ai-btn" onclick="runAI('content')" style="background:var(--surface);border:1px solid var(--border2);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:11.5px;padding:7px 14px;border-radius:20px;cursor:pointer;display:flex;align-items:center;gap:5px"><i class="fa-solid fa-pen-fancy"></i> Ide Konten Viral Taro</button>
-    <button class="ai-btn" onclick="runAI('monetize')" style="background:var(--surface);border:1px solid var(--border2);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:11.5px;padding:7px 14px;border-radius:20px;cursor:pointer;display:flex;align-items:center;gap:5px"><i class="fa-solid fa-coins"></i> Proyeksi Monetisasi</button>
+    <button class="ai-btn" onclick="runAI('full')" style="background:var(--surface);border:1px solid var(--border2);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:11.5px;padding:7px 14px;border-radius:20px;cursor:pointer;display:flex;align-items:center;gap:5px"><i class="fa-solid fa-magnifying-glass-chart"></i> Analisis Komprehensif Agustus</button>
+    <button class="ai-btn" onclick="runAI('merdeka')" style="background:var(--surface);border:1px solid var(--border2);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:11.5px;padding:7px 14px;border-radius:20px;cursor:pointer;display:flex;align-items:center;gap:5px"><i class="fa-solid fa-flag"></i> Strategi Roti Merdeka</button>
+    <button class="ai-btn" onclick="runAI('igdrop')" style="background:var(--surface);border:1px solid var(--border2);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:11.5px;padding:7px 14px;border-radius:20px;cursor:pointer;display:flex;align-items:center;gap:5px"><i class="fa-solid fa-arrow-trend-down"></i> Kenapa Engagement IG/TT Turun?</button>
+    <button class="ai-btn" onclick="runAI('ttcrisis2')" style="background:var(--surface);border:1px solid var(--border2);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:11.5px;padding:7px 14px;border-radius:20px;cursor:pointer;display:flex;align-items:center;gap:5px"><i class="fa-solid fa-triangle-exclamation"></i> TT Baking Class — Evaluasi Bulan Ke-2</button>
+    <button class="ai-btn" onclick="runAI('viral')" style="background:var(--surface);border:1px solid var(--border2);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:11.5px;padding:7px 14px;border-radius:20px;cursor:pointer;display:flex;align-items:center;gap:5px"><i class="fa-solid fa-bolt"></i> Replikasi Formula Viral Delizia</button>
+    <button class="ai-btn" onclick="runAI('taro2')" style="background:var(--surface);border:1px solid var(--border2);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:11.5px;padding:7px 14px;border-radius:20px;cursor:pointer;display:flex;align-items:center;gap:5px"><i class="fa-solid fa-seedling"></i> Lanjutan Taro — Fokus Niat Beli</button>
   </div>
 
   <div class="ai-box" style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:18px;margin-bottom:14px;min-height:90px">
@@ -970,17 +993,17 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 
   <div class="grid2">
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-chart-radar"></i> Skor Kesehatan Ekosistem — Juni Aktual</div>
+      <div class="panel-hdr"><i class="fa-solid fa-chart-radar"></i> Skor Kesehatan Ekosistem — Juli Aktual</div>
       <div class="chart-wrap h260"><canvas id="chartRadarAi"></canvas></div>
     </div>
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-ranking-star"></i> Top 5 Prioritas Aksi Juli 2026</div>
+      <div class="panel-hdr"><i class="fa-solid fa-ranking-star"></i> Top 5 Prioritas Aksi Agustus 2026</div>
       <div class="rec-grid" style="display:grid;grid-template-columns:1fr;gap:10px">
-        <div class="rec-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:15px"><div style="font-size:9px;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;color:var(--red);font-weight:600">🚨 Paling Mendesak</div><div style="font-size:13px;font-weight:600;margin-bottom:5px">Reset Total TikTok Baking Class</div><div style="font-size:11.5px;color:var(--text2);line-height:1.65">Views anjlok -97,67%. Hentikan caption template berulang, kembali ke formula konten 3-1-1, manfaatkan launch Taro untuk sinyal baru ke algoritma.</div></div>
-        <div class="rec-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:15px"><div style="font-size:9px;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;color:var(--taro2);font-weight:600">🍠 Prioritas Utama</div><div style="font-size:13px;font-weight:600;margin-bottom:5px">Eksekusi Launch Taste of Taro Ala Hero-Product</div><div style="font-size:11.5px;color:var(--text2);line-height:1.65">Tiru formula Delizia (811K views): 1 hero product (Taro Bun), foto reveal belah dua, urgency, kode promo eksklusif minggu pertama.</div></div>
-        <div class="rec-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:15px"><div style="font-size:9px;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;color:var(--amber);font-weight:600">📉 Prioritas Tinggi</div><div style="font-size:13px;font-weight:600;margin-bottom:5px">Kembalikan Ritme Upload YouTube</div><div style="font-size:11.5px;color:var(--text2);line-height:1.65">Views -28% akibat minim publikasi. Target 1-2 video panjang/minggu dengan judul SEO pola "Rahasia [Produk] Taro".</div></div>
-        <div class="rec-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:15px"><div style="font-size:9px;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;color:var(--tt);font-weight:600">🔄 Prioritas Sedang</div><div style="font-size:13px;font-weight:600;margin-bottom:5px">Perbaiki Save/Share Rate TikTok @ontycake</div><div style="font-size:11.5px;color:var(--text2);line-height:1.65">Shares -56,9% meski reach naik. Setiap video Taro harus punya 1 "reason to share" eksplisit: resep, promo, atau reveal unik.</div></div>
-        <div class="rec-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:15px"><div style="font-size:9px;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;color:var(--green);font-weight:600">🎓 Jangka Menengah</div><div style="font-size:13px;font-weight:600;margin-bottom:5px">Cross-Sell Taro ke Baking Class</div><div style="font-size:11.5px;color:var(--text2);line-height:1.65">Konten "belajar bikin Taro Bun sendiri" mengkonversi pembeli produk jadi pendaftar kelas — dua arah, dua akun diuntungkan.</div></div>
+        <div class="rec-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:15px"><div style="font-size:9px;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;color:#ff8080;font-weight:600">🇮🇩 Jendela Sempit</div><div style="font-size:13px;font-weight:600;margin-bottom:5px">Eksekusi Roti Merdeka Sebelum 17 Agustus</div><div style="font-size:11.5px;color:var(--text2);line-height:1.65">SI +400% nasional untuk "roti merdeka" — momentum ini hilang setelah 17 Agustus. Segera desain & luncurkan minggu pertama.</div></div>
+        <div class="rec-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:15px"><div style="font-size:9px;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;color:var(--red);font-weight:600">🚨 Paling Mendesak</div><div style="font-size:13px;font-weight:600;margin-bottom:5px">TT Baking Class — Bulan Ke-2 Belum Pulih</div><div style="font-size:11.5px;color:var(--text2);line-height:1.65">Views turun lagi -31% (830→571). Rencana Juli sepertinya belum dieksekusi. Perlu audit eksekusi + checkpoint keras akhir Agustus.</div></div>
+        <div class="rec-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:15px"><div style="font-size:9px;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;color:var(--amber);font-weight:600">📉 Prioritas Tinggi</div><div style="font-size:13px;font-weight:600;margin-bottom:5px">Investigasi Penurunan Engagement IG & TikTok</div><div style="font-size:11.5px;color:var(--text2);line-height:1.65">Semua metrik engagement turun 10-49% meski followers naik & Taro launching. Audit format konten (Stories vs Reels) dan kualitas hook TikTok.</div></div>
+        <div class="rec-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:15px"><div style="font-size:9px;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;color:#ff8fb3;font-weight:600">🔥 Peluang Baru</div><div style="font-size:13px;font-weight:600;margin-bottom:5px">Coba Format Commentary/Humor ala Delizia</div><div style="font-size:11.5px;color:var(--text2);line-height:1.65">Video "AI gantikan pekerjaan baker" Delizia dapat 998K views tanpa fokus produk sama sekali — buka jalur konten baru di luar foto produk.</div></div>
+        <div class="rec-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:15px"><div style="font-size:9px;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;color:var(--green);font-weight:600">✅ Lanjutkan yang Berhasil</div><div style="font-size:13px;font-weight:600;margin-bottom:5px">Perbanyak Kelas Premium/Tematik di IG Baking Class</div><div style="font-size:11.5px;color:var(--text2);line-height:1.65">"Mom & Me" & "Hands On Sourdough" jadi top performer Juli (views +11,1%). Format kolaborasi tematik terbukti efektif — replikasi dengan tema Kemerdekaan.</div></div>
       </div>
     </div>
   </div>
@@ -989,7 +1012,7 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 <!-- FOOTER -->
 <div class="footer">
   <i class="fa-solid fa-circle-info"></i>
-  <div>Sumber data: Instagram Professional Dashboard, TikTok Studio Analytics, dan YouTube Studio Analytics @ontycake / @ontyfarahbakingclass / @ontycakebakery (periode 1–29 Juni 2026). Data kompetitor: profil publik Instagram & TikTok Delizia Bakery & Cake (@deliziabakery), Batang, Jawa Tengah (screenshot Juni 2026). Data tren pencarian: Google Trends — kata kunci "Taro" dan "Dubai Chewy" untuk wilayah Indonesia dan Jawa Tengah. Data followers/subscriber merupakan angka aktual dari dashboard masing-masing platform pada waktu pengambilan data; metrik engagement rate lain merupakan estimasi berbasis benchmark industri Indonesia 2026. Untuk data real-time terkini, selalu rujuk langsung ke Meta Business Suite, TikTok Analytics, dan YouTube Studio.</div>
+  <div>Sumber data: Instagram Professional Dashboard, TikTok Studio Analytics (termasuk export XLSX resmi: Overview, Audience, Video — periode 1–30 Juli 2026), dan YouTube Studio Analytics @ontycake / @ontyfarahbakingclass / @ontycakebakery. Data kompetitor: profil publik Instagram Delizia Bakery & Cake (@deliziabakery), Batang, Jawa Tengah (screenshot Juli/Agustus 2026). Data tren pencarian: Google Trends — kata kunci "Taro" dan "Roti" untuk wilayah Indonesia dan Jawa Tengah, periode 1 Juli – 1 Agustus 2026. Data followers/subscriber/views merupakan angka aktual dari dashboard & file export masing-masing platform; metrik lain yang diberi label "estimasi" atau "target" merupakan proyeksi berbasis tren historis. Untuk data real-time terkini, selalu rujuk langsung ke Meta Business Suite, TikTok Analytics, dan YouTube Studio.</div>
 </div>
 
 </div><!-- end .main -->
@@ -1015,133 +1038,150 @@ const TT={backgroundColor:'#1a1612',titleColor:'#f2ead8',bodyColor:'#aa9878',bor
 const charts={};
 function mk(id,cfg){if(charts[id])charts[id].destroy();const el=document.getElementById(id);if(el)charts[id]=new Chart(el,cfg);}
 function baseOpt(x={}){return{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:TT},scales:{x:{ticks:{color:T,font:{size:10}},grid:{color:G}},y:{ticks:{color:T,font:{size:10}},grid:{color:G}}},...x};}
-function months6(){const m=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Ags','Sep','Okt','Nov','Des'];const s=new Date().getMonth();return Array.from({length:6},(_,i)=>m[(s+i)%12]);}
 
 function initCharts(){
-  const L=months6();
 
-  // RINGKASAN: All followers
+  // RINGKASAN: All followers Juni vs Juli
   mk('chartAllFollowers',{type:'bar',data:{
     labels:['IG @ontycake','TT @ontycake','YouTube','IG BC','TT BC'],
-    datasets:[{data:[47018,9119,7661,2554,396],backgroundColor:['#e1306c','#45d0d8','#ff8080','#3ecb82','#ef4444'],borderRadius:6}]
-  },options:{...baseOpt(),plugins:{legend:{display:false},tooltip:{...TT,callbacks:{label:c=>' '+c.raw.toLocaleString('id-ID')+' followers/subs'}}},scales:{x:{ticks:{color:T,font:{size:9}},grid:{color:G}},y:{ticks:{color:T,callback:v=>v>=1000?(v/1000).toFixed(0)+'K':v,font:{size:10}},grid:{color:G}}}}});
+    datasets:[
+      {label:'Juni',data:[47018,9119,7661,2554,396],backgroundColor:'rgba(232,184,109,.35)',borderRadius:5},
+      {label:'Juli',data:[47151,9132,7655,2664,391],backgroundColor:['#e1306c','#45d0d8','#ff8080','#3ecb82','#ef4444'],borderRadius:5}
+    ]
+  },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:{...TT,callbacks:{label:c=>' '+c.dataset.label+': '+c.raw.toLocaleString('id-ID')}}},scales:{x:{ticks:{color:T,font:{size:9}},grid:{color:G}},y:{ticks:{color:T,callback:v=>v>=1000?(v/1000).toFixed(0)+'K':v,font:{size:10}},grid:{color:G}}}}});
 
-  // RINGKASAN: radar overview
+  // RINGKASAN: radar Juni vs Juli vs Target Agustus
   const radarCfg={type:'radar',data:{
     labels:['IG @ontycake','TT @ontycake','YouTube','IG BakingClass','TT BakingClass'],
     datasets:[
-      {label:'Skor Juni (Aktual)',data:[86,38,40,55,10],backgroundColor:'rgba(232,184,109,.08)',borderColor:'#e8b86d',pointBackgroundColor:'#e8b86d',pointRadius:4},
-      {label:'Target Juli (dgn Taro)',data:[92,65,60,68,45],backgroundColor:'rgba(155,127,212,.12)',borderColor:'#9b7fd4',pointBackgroundColor:'#9b7fd4',pointRadius:4}
+      {label:'Juni',data:[86,38,40,55,10],backgroundColor:'rgba(232,184,109,.05)',borderColor:'#6a5a40',borderDash:[4,3],pointBackgroundColor:'#6a5a40',pointRadius:3},
+      {label:'Juli (Aktual)',data:[68,25,36,65,4],backgroundColor:'rgba(239,68,68,.08)',borderColor:'#ef4444',pointBackgroundColor:'#ef4444',pointRadius:4},
+      {label:'Target Agustus',data:[85,55,60,75,25],backgroundColor:'rgba(155,127,212,.12)',borderColor:'#9b7fd4',pointBackgroundColor:'#9b7fd4',pointRadius:4}
     ]
   },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:TT},scales:{r:{ticks:{color:T,font:{size:9},backdropColor:'transparent',stepSize:20},grid:{color:G},pointLabels:{color:T2,font:{size:10}},angleLines:{color:G},suggestedMin:0,suggestedMax:100}}}};
   mk('chartRadarOverview',radarCfg);
   mk('chartRadarAi',JSON.parse(JSON.stringify(radarCfg)));
 
-  // IG ontycake: content type breakdown (views)
-  mk('chartIgContentType',{type:'doughnut',data:{
-    labels:['Cerita (Stories) 42,1%','Reel 38,8%','Postingan 19,1%'],
-    datasets:[{data:[42.1,38.8,19.1],backgroundColor:['#e1306c','#f09433','#e8b86d'],borderWidth:0,hoverOffset:6}]
-  },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:8}},tooltip:{...TT,callbacks:{label:c=>' '+c.label}}}}});
+  // IG ontycake: content type Juni vs Juli
+  mk('chartIgContentType',{type:'bar',data:{
+    labels:['Cerita','Reel','Postingan'],
+    datasets:[
+      {label:'Juni (% views)',data:[73.9,25.3,0.8],backgroundColor:'rgba(232,184,109,.4)',borderRadius:5},
+      {label:'Juli (% views)',data:[68.7,30.3,1.1],backgroundColor:'#e1306c',borderRadius:5}
+    ]
+  },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:{...TT,callbacks:{label:c=>' '+c.dataset.label+': '+c.raw+'%'}}},scales:{x:{ticks:{color:T,font:{size:10}},grid:{color:G}},y:{ticks:{color:T,callback:v=>v+'%',font:{size:10}},grid:{color:G}}}}});
 
-  // IG ontycake growth projection
-  mk('chartIgBrandGrowth',{type:'line',data:{labels:L,datasets:[
-    {label:'Organik saja',data:[47018,48200,49400,50600,51800,53000],borderColor:'#6a5a40',borderDash:[5,4],tension:.4,pointRadius:3,pointBackgroundColor:'#6a5a40'},
-    {label:'Dengan Taste of Taro',data:[47018,49500,52500,55800,59200,63000],borderColor:'#9b7fd4',backgroundColor:'rgba(155,127,212,.07)',tension:.4,pointRadius:4,pointBackgroundColor:'#9b7fd4',fill:true}
-  ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:{...TT,callbacks:{label:c=>' '+c.dataset.label+': '+c.raw.toLocaleString('id-ID')}}},scales:{x:{ticks:{color:T,font:{size:10}},grid:{color:G}},y:{ticks:{color:T,callback:v=>(v/1000).toFixed(0)+'K',font:{size:10}},grid:{color:G},min:44000}}}});
+  // IG ontycake 3-month trend
+  mk('chartIgTrend3M',{type:'line',data:{labels:['Juni','Juli','Agustus (target)'],datasets:[
+    {label:'Views',data:[697137,623975,720000],borderColor:'#e1306c',backgroundColor:'rgba(225,48,108,.08)',tension:.35,pointRadius:5,pointBackgroundColor:'#e1306c',fill:true},
+    {label:'Reach',data:[56291,43241,58000],borderColor:'#f09433',backgroundColor:'rgba(240,148,51,.06)',tension:.35,pointRadius:5,pointBackgroundColor:'#f09433',fill:true}
+  ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:{...TT,callbacks:{label:c=>' '+c.dataset.label+': '+c.raw.toLocaleString('id-ID')}}},scales:{x:{ticks:{color:T,font:{size:10}},grid:{color:G}},y:{ticks:{color:T,callback:v=>(v/1000).toFixed(0)+'K',font:{size:10}},grid:{color:G}}}}});
 
-  // TT ontycake recovery
-  mk('chartTtRecovery',{type:'line',data:{labels:L,datasets:[
-    {label:'Status quo (shares rendah)',data:[9119,9250,9400,9550,9700,9900],borderColor:'#6a5a40',borderDash:[5,4],tension:.4,pointRadius:3,pointBackgroundColor:'#6a5a40'},
-    {label:'Format baru + Taro launch',data:[9119,11500,15000,20000,27000,36000],borderColor:'#45d0d8',backgroundColor:'rgba(69,208,216,.06)',tension:.4,pointRadius:4,pointBackgroundColor:'#45d0d8',fill:true}
-  ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:{...TT,callbacks:{label:c=>' '+c.dataset.label+': '+c.raw.toLocaleString('id-ID')}}},scales:{x:{ticks:{color:T,font:{size:10}},grid:{color:G}},y:{ticks:{color:T,callback:v=>v>=1000?(v/1000).toFixed(0)+'K':v,font:{size:10}},grid:{color:G}}}}});
+  // TT ontycake daily views/reach Juli
+  mk('chartTtDaily',{type:'line',data:{labels:['1','3','5','7','9','11','13','15','17','19','21','23','25','27','29'],datasets:[
+    {label:'Video Views',data:[1004,1541,1395,1244,1269,958,1020,1190,1032,949,941,1033,1018,1215,1230],borderColor:'#45d0d8',backgroundColor:'rgba(69,208,216,.08)',tension:.35,pointRadius:2,fill:true},
+    {label:'Reached Audience',data:[408,802,644,620,462,380,436,546,457,240,310,422,460,523,657],borderColor:'#e8b86d',backgroundColor:'rgba(232,184,109,.05)',tension:.35,pointRadius:2,fill:true}
+  ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:{...TT,callbacks:{label:c=>' '+c.dataset.label+': '+c.raw.toLocaleString('id-ID')}}},scales:{x:{ticks:{color:T,font:{size:9}},grid:{color:G}},y:{ticks:{color:T,font:{size:10}},grid:{color:G}}}}});
 
-  // YouTube growth
-  mk('chartYtGrowth',{type:'line',data:{labels:L,datasets:[
-    {label:'Status quo (minim upload)',data:[7661,7640,7620,7610,7605,7600],borderColor:'#6a5a40',borderDash:[5,4],tension:.4,pointRadius:3,pointBackgroundColor:'#6a5a40'},
-    {label:'Push Juli (1-2 video/minggu)',data:[7661,7900,8300,8900,9700,10800],borderColor:'#ff8080',backgroundColor:'rgba(255,128,128,.06)',tension:.4,pointRadius:4,pointBackgroundColor:'#ff8080',fill:true}
-  ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:{...TT,callbacks:{label:c=>' '+c.dataset.label+': '+c.raw.toLocaleString('id-ID')}}},scales:{x:{ticks:{color:T,font:{size:10}},grid:{color:G}},y:{ticks:{color:T,callback:v=>v>=1000?(v/1000).toFixed(1)+'K':v,font:{size:10}},grid:{color:G}}}}});
+  // YouTube 3-month
+  mk('chartYtTrend3M',{type:'line',data:{labels:['Juni','Juli','Agustus (target)'],datasets:[
+    {label:'Penayangan',data:[17800,17006,20000],borderColor:'#ff8080',backgroundColor:'rgba(255,128,128,.08)',tension:.35,pointRadius:5,pointBackgroundColor:'#ff8080',fill:true},
+    {label:'Waktu Tonton (jam)',data:[83.0,72.9,90],borderColor:'#e8b86d',backgroundColor:'rgba(232,184,109,.05)',tension:.35,pointRadius:5,pointBackgroundColor:'#e8b86d',fill:true,yAxisID:'y1'}
+  ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:TT},scales:{x:{ticks:{color:T,font:{size:10}},grid:{color:G}},y:{ticks:{color:T,callback:v=>(v/1000).toFixed(0)+'K',font:{size:10}},grid:{color:G}},y1:{position:'right',ticks:{color:T,font:{size:10}},grid:{display:false}}}}});
 
-  // IG Class content type
+  // YT discovery Juni vs Juli
+  mk('chartYtDiscovery',{type:'bar',data:{
+    labels:['Penelusuran YT','Feed Shorts','Halaman channel','Fitur jelajah'],
+    datasets:[
+      {label:'Juni %',data:[87.5,7.2,1.9,1.2],backgroundColor:'rgba(232,184,109,.4)',borderRadius:5},
+      {label:'Juli %',data:[79.8,15.7,1.5,1.0],backgroundColor:'#ff8080',borderRadius:5}
+    ]
+  },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:{...TT,callbacks:{label:c=>' '+c.dataset.label+': '+c.raw+'%'}}},scales:{x:{ticks:{color:T,font:{size:9}},grid:{color:G}},y:{ticks:{color:T,callback:v=>v+'%',font:{size:10}},grid:{color:G}}}}});
+
+  // IG Class content type Juni vs Juli
   mk('chartIgClassContentType',{type:'bar',data:{
-    labels:['Reel','Postingan','Cerita'],
+    labels:['Cerita','Reel','Postingan'],
     datasets:[
-      {label:'% Tayangan',data:[38.8,19.1,42.1],backgroundColor:'#4eca8b',borderRadius:5},
-      {label:'% Interaksi',data:[68.9,17.5,13.6],backgroundColor:'#e8b86d',borderRadius:5}
+      {label:'Juni % views',data:[42.1,38.8,19.1],backgroundColor:'rgba(232,184,109,.35)',borderRadius:5},
+      {label:'Juli % views',data:[51.2,28.6,20.2],backgroundColor:'#4eca8b',borderRadius:5}
     ]
-  },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:{...TT,callbacks:{label:c=>' '+c.dataset.label+': '+c.raw+'%'}}},scales:{x:{ticks:{color:T,font:{size:10}},grid:{color:G}},y:{ticks:{color:T,callback:v=>v+'%',font:{size:10}},grid:{color:G},max:80}}}});
+  },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:{...TT,callbacks:{label:c=>' '+c.dataset.label+': '+c.raw+'%'}}},scales:{x:{ticks:{color:T,font:{size:10}},grid:{color:G}},y:{ticks:{color:T,callback:v=>v+'%',font:{size:10}},grid:{color:G}}}}});
 
-  // TT Class collapse May vs June
-  mk('chartTtClassCollapse',{type:'bar',data:{
-    labels:['Video Views','Reached Audience','Profile Views','Likes'],
+  // TT Class 3-month trend Mei-Juni-Juli
+  mk('chartTtClassTrend3M',{type:'bar',data:{
+    labels:['Video Views','Profile Views','Likes','Shares'],
     datasets:[
-      {label:'Mei 2026',data:[38260,31730,3269,751],backgroundColor:'rgba(62,203,130,.5)',borderRadius:5},
-      {label:'Juni 2026',data:[830,99,72,16],backgroundColor:'#ef4444',borderRadius:5}
+      {label:'Mei',data:[38260,3269,751,null],backgroundColor:'rgba(62,203,130,.4)',borderRadius:5},
+      {label:'Juni',data:[830,72,16,8],backgroundColor:'rgba(245,158,11,.5)',borderRadius:5},
+      {label:'Juli',data:[571,46,2,1],backgroundColor:'#ef4444',borderRadius:5}
     ]
-  },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:{...TT,callbacks:{label:c=>' '+c.dataset.label+': '+c.raw.toLocaleString('id-ID')}}},scales:{x:{ticks:{color:T,font:{size:9}},grid:{color:G}},y:{type:'logarithmic',ticks:{color:T,font:{size:10}},grid:{color:G}}}}});
+  },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:{...TT,callbacks:{label:c=>' '+c.dataset.label+': '+(c.raw??'—')}}},scales:{x:{ticks:{color:T,font:{size:9}},grid:{color:G}},y:{type:'logarithmic',ticks:{color:T,font:{size:10}},grid:{color:G}}}}});
 
-  // Competitor followers comparison
-  mk('chartCompFollowers',{type:'bar',data:{
-    labels:['IG Followers','TikTok Followers','TikTok Likes (÷100)'],
-    datasets:[
-      {label:'Onty Cake',data:[47018,9119,5073],backgroundColor:'#e8b86d',borderRadius:5},
-      {label:'Delizia Bakery',data:[15800,2742,1332],backgroundColor:'#ff8fb3',borderRadius:5}
-    ]
-  },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:{...TT,callbacks:{label:c=>' '+c.dataset.label+': '+c.raw.toLocaleString('id-ID')}}},scales:{x:{ticks:{color:T,font:{size:10}},grid:{color:G}},y:{ticks:{color:T,callback:v=>v>=1000?(v/1000).toFixed(0)+'K':v,font:{size:10}},grid:{color:G}}}}});
+  // Competitor viral comparison
+  mk('chartCompViral',{type:'bar',data:{
+    labels:['Onty: Taste of Taro','Delizia: Video Humor AI','Delizia: Mood Baker'],
+    datasets:[{data:[11900,998000,195000],backgroundColor:['#e8b86d','#ff8fb3','#f77737'],borderRadius:6}]
+  },options:{...baseOpt(),plugins:{legend:{display:false},tooltip:{...TT,callbacks:{label:c=>' '+c.raw.toLocaleString('id-ID')+' views'}}},scales:{x:{ticks:{color:T,font:{size:9}},grid:{color:G}},y:{type:'logarithmic',ticks:{color:T,font:{size:10}},grid:{color:G}}}}});
 
-  // Trend comparison Taro vs Dubai Chewy
-  mk('chartTrendComp',{type:'bar',data:{
-    labels:['Taro Bun\n(ID)','Taro Snack\n(Jateng)','Dubai Chewy\nCookie (ID)','Dubai Chewy\n(Jateng)'],
-    datasets:[
-      {label:'Search Interest',data:[100,19,100,98],backgroundColor:['#9b7fd4','#c4aeed','#e1306c','#f77737'],borderRadius:6}
-    ]
-  },options:{...baseOpt(),plugins:{legend:{display:false},tooltip:{...TT,callbacks:{label:c=>' SI: '+c.raw}}},scales:{x:{ticks:{color:T,font:{size:9}},grid:{color:G}},y:{ticks:{color:T,font:{size:10}},grid:{color:G},max:110}}}});
+  // Taro Bun growth Jateng
+  mk('chartTaroBunGrowth',{type:'line',data:{labels:['Juni','Juli'],datasets:[
+    {label:'SI "taro bun" Jateng',data:[16,52],borderColor:'#9b7fd4',backgroundColor:'rgba(155,127,212,.15)',tension:.3,pointRadius:6,pointBackgroundColor:'#9b7fd4',fill:true}
+  ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{...TT,callbacks:{label:c=>' SI: '+c.raw+' (+130% MoM)'}}},scales:{x:{ticks:{color:T,font:{size:11}},grid:{color:G}},y:{ticks:{color:T,font:{size:10}},grid:{color:G},min:0,max:60}}}});
 }
 
 // ── AI PROMPTS ──
 const aiPrompts={
-  full:`Anda adalah analis social media profesional Indonesia. Analisis KOMPREHENSIF ekosistem digital brand kue Onty dari Pekalongan untuk JULI 2026 berdasarkan data aktual Juni 2026.
+  full:`Anda adalah analis social media profesional Indonesia. Analisis KOMPREHENSIF ekosistem digital brand kue Onty dari Pekalongan untuk AGUSTUS 2026 berdasarkan data aktual Juli 2026.
 
-Data akun (Juni 2026, aktual):
-• Instagram @ontycake: 47.018 followers, 2.885 posts, reach 56.291 akun/bulan, 697.137 views 30 hari
-• TikTok @ontycake: 9.119 followers, 507.300 likes, reach +4,36% tapi shares -56,94%
-• Instagram @ontyfarahbakingclass: 2.554 followers, tayangan 100.587, interaksi 1.192
-• TikTok @ontyfarahbakingclass: 396 followers, KOLAPS -97,67% views vs Mei (dari 38.260 ke 830)
-• YouTube @ontycakebakery: 7.661 subscribers, views -28% vs Mei akibat minim publikasi
+Data akun Juli 2026 (aktual, dibanding Juni):
+• Instagram @ontycake: 47.151 followers (+133), views 623.975 (-10,6%), reach 43.241 (-23,2%), interaksi 3.630 (-26,8%)
+• TikTok @ontycake: 9.132 followers, video views 34.840 (-49,24%), likes 341 (-46,13%)
+• Instagram @ontyfarahbakingclass: 2.664 followers (+110, +4,3%), tayangan 111.774 (+11,1%) — kelas premium "Mom & Me" & "Hands On Sourdough" jadi top performer
+• TikTok @ontyfarahbakingclass: 391 followers, views 571 (turun lagi -31% dari Juni 830) — krisis berlanjut bulan ke-2
+• YouTube @ontycakebakery: 7.655 subscribers (-6), views 17.006 (-7%), 1 video diblokir di beberapa wilayah, hanya 2 Shorts diunggah
 
-Konteks Juli 2026: Peluncuran line produk baru "Taste of Taro" (Taro Bun, Bolu Gulung Taro, Egg Claire Taro, Bolu Taro Keju, Taro Latte, Taro Soes Retak). Data Google Trends menunjukkan "taro bun", "taro snack", "taro latte" berstatus Breakout di Jawa Tengah. Kompetitor Delizia Bakery (15,8K IG, 2,7K TikTok) berhasil capai 811K views IG dengan strategi hero-product single launch (Dubai Chewy Mochi).
+Konteks Agustus: momentum musiman "roti merdeka" (+400% SI nasional) dan "roti ketawa" (+700%) menjelang 17 Agustus & musim MPLS. Line Taro sudah launching Juli, SI "taro bun" Jateng naik dari 16→52 (+130%). Kompetitor Delizia dapat video viral 998.000 views dengan konten humor/relatable (BUKAN produk).
 
-Berikan analisis dalam Bahasa Indonesia: (1) Posisi ekosistem saat ini, (2) Risiko terbesar yang perlu ditangani segera, (3) Peluang terbesar dari peluncuran Taro, (4) Bagaimana memanfaatkan insight kompetitor Delizia. Gaya profesional, padat, actionable. Maksimal 380 kata.`,
+Berikan analisis dalam Bahasa Indonesia: (1) Mengapa engagement IG & TikTok turun signifikan meski followers naik, (2) Prioritas mendesak Agustus, (3) Bagaimana memanfaatkan jendela sempit momentum Kemerdekaan, (4) Insight dari kesuksesan konten non-produk Delizia. Gaya profesional, padat, actionable. Maksimal 400 kata.`,
 
-  taro:`Growth & product launch strategist untuk brand kue Onty Pekalongan. Juli 2026 akan meluncurkan line "Taste of Taro": Taro Bun, Bolu Gulung Taro, Egg Claire Taro, Bolu Taro Keju, Taro Latte, Taro Soes Retak.
+  merdeka:`Growth & seasonal campaign strategist untuk brand kue Onty Pekalongan. Data Google Trends menunjukkan lonjakan pencarian "roti merdeka" (+400% Indonesia), "roti ketawa" (+700% Indonesia, +750% Jawa Tengah), dan status Breakout untuk "roti ketawa mpls"/"roti bantal mpls" (terkait musim tahun ajaran baru).
 
-Data pendukung: kata kunci "taro bun", "taro snack", "taro latte" berstatus Breakout di Jawa Tengah (Google Trends). "ubi ungu" naik +110% nasional. Kompetitor Delizia Bakery berhasil 811K views IG dengan format hero-product single launch (foto reveal belah dua, urgency "sold out", kode diskon).
+Jendela waktu sangat sempit: momentum ini akan berakhir setelah 17 Agustus 2026 (Hari Kemerdekaan Indonesia). Onty perlu merancang dan meluncurkan produk edisi terbatas dalam 1-2 minggu.
 
-Susun STRATEGI PELUNCURAN 4 MINGGU untuk Taste of Taro dalam Bahasa Indonesia, mencakup: urutan launching 6 produk, produk mana yang jadi hero, taktik urgency/FOMO, dan bagaimana platform IG/TikTok/YouTube saling melengkapi. Maksimal 400 kata.`,
+Susun STRATEGI KAMPANYE MUSIMAN dalam Bahasa Indonesia untuk 3 minggu (bukan 4, karena momentum berakhir di 17 Agustus), mencakup: ide produk konkret (Roti Merdeka, Roti Ketawa, bundel MPLS), taktik urgency mengingat jendela waktu sempit, dan bagaimana kampanye ini bisa berjalan paralel dengan kelanjutan line Taro. Maksimal 400 kata.`,
 
-  ttcrisis:`Anda adalah spesialis pemulihan akun TikTok. Data akun @ontyfarahbakingclass TikTok Juni 2026: Video views 830 (turun -97,67% dari 38.260 di Mei), Reached audience 99 (turun -99,66% dari 31.730), Profile views 72 (turun -90,80%), Likes 16 (turun -97,73% dari 751). Jumlah video justru NAIK dari 15 ke 30 posting, tapi hampir semua memakai caption template hampir identik "Informasi pendaftaran dm atau klik link di bio yaa!".
+  igdrop:`Anda adalah analis data social media. Data Instagram @ontycake (brand kue Pekalongan) Juli 2026 dibanding Juni 2026: Views 623.975 turun -10,6% (dari 697.137), Reach 43.241 turun -23,2% (dari 56.291), Interaksi 3.630 turun -26,8% (dari 4.961), Akun terlibat turun -37%. Followers justru naik +133 (47.018→47.151).
 
-Analisis kemungkinan penyebab kolaps ini dan susun RENCANA PEMULIHAN dalam Bahasa Indonesia untuk Juli 2026, mencakup: diagnosis kemungkinan (shadowban vs algoritma anti-repetisi vs kualitas konten), langkah konkret minggu per minggu, dan cara memanfaatkan momentum launching produk Taro sebagai "reset" sinyal konten. Maksimal 380 kata.`,
+Detail tambahan: rasio konten Stories naik dari 73,9%→68,7% dari total views (sedikit turun), Reels naik dari 25,3%→30,3%. Rasio followers vs non-followers pada interaksi BERBALIK: Juni non-followers dominan (62,9%), Juli followers dominan (62,3%) — jangkauan ke audiens baru melemah.
 
-  competitor:`Analis kompetitif social media Indonesia. Onty Cake (Pekalongan): IG 47.018 followers, TikTok 9.119 followers/507K likes. Delizia Bakery & Cake (Batang, kompetitor terdekat): IG 15.800 followers namun capai 811.000 views pada satu produk (Dubai Chewy Mochi), TikTok 2.742 followers/133K likes dengan video terbaik 165,7K views. Delizia menggunakan caption "250 PCS SOLD OUT", kode diskon "YUU10", dan foto reveal produk belah dua secara konsisten.
+TikTok @ontycake juga turun tajam: video views -49,24%, likes -46,13%, meski followers hampir stabil.
 
-Meski followers Onty 3x lebih besar dari Delizia, video terbaik Delizia jauh melampaui performa historis Onty. Buat ANALISIS KOMPETITIF dan STRATEGI dalam Bahasa Indonesia: (1) mengapa Delizia bisa unggul di reach meski follower lebih kecil, (2) elemen spesifik yang bisa langsung ditiru Onty untuk peluncuran Taste of Taro Juli 2026, (3) diferensiasi yang membuat Onty tetap unggul dari Delizia. Maksimal 380 kata.`,
+Analisis dalam Bahasa Indonesia: (1) apa penyebab paling mungkin dari penurunan reach/engagement bersamaan di 2 platform ini meski followers stabil/naik, (2) apakah ini terkait dengan perubahan algoritma, kelelahan konten, atau kualitas konten launching Taro yang kurang optimal, (3) langkah diagnostik dan perbaikan konkret untuk Agustus. Maksimal 380 kata.`,
 
-  content:`Content strategist kuliner Indonesia untuk brand kue Onty Pekalongan, Juli 2026. Line produk baru "Taste of Taro": Taro Bun, Bolu Gulung Taro, Egg Claire Taro, Bolu Taro Keju, Taro Latte, Taro Soes Retak.
+  ttcrisis2:`Anda adalah spesialis pemulihan akun TikTok, melakukan evaluasi BULAN KE-2 setelah rencana pemulihan sebelumnya. Data akun @ontyfarahbakingclass TikTok: Mei 2026 views 38.260 (normal) → Juni 2026 views 830 (kolaps -97,7%) → Juli 2026 views 571 (turun LAGI -31% dari Juni). Likes juga terus turun: Juni 16 → Juli hanya 2 (-92%). Comments 0, Shares tinggal 1. Followers turun -5 net.
 
-Konteks tren: kata kunci taro (bun/snack/latte) Breakout di Jawa Tengah, "ubi ungu" +110% nasional, tren "Dubai Chewy" varian rasa spesifik (pistachio, kunafa) sedang naik sementara versi generik jenuh — membuka white space "Dubai Chewy rasa Taro". TikTok 2026 memprioritaskan durasi 60-180 detik, completion rate ≥70%, save/share lebih dari like.
+Bulan lalu direkomendasikan: hentikan caption template berulang, terapkan formula konten 3-1-1 (edukasi-testimoni-promosi), manfaatkan momentum produk baru untuk reset sinyal algoritma. Namun data Juli menunjukkan kondisi memburuk, bukan membaik — mengindikasikan rencana mungkin belum dieksekusi, atau masalahnya lebih dalam dari sekadar konten.
 
-Buat 8 ide konten viral SPESIFIK untuk Juli 2026 dalam Bahasa Indonesia, format: [Judul Konten] | Platform | Format | Hook 1 kalimat | Alasan berpotensi viral. Fokus mendorong penjualan produk taro DAN pendaftaran baking class. Maksimal 420 kata.`,
+Berikan EVALUASI KERAS dan RENCANA ESKALASI dalam Bahasa Indonesia untuk Agustus 2026: (1) diagnosis kenapa rencana bulan lalu tidak berhasil, (2) opsi-opsi konkret termasuk kemungkinan drastis (akun baru, alihkan fokus ke platform lain), (3) kriteria checkpoint yang jelas untuk keputusan akhir Agustus. Bersikap jujur dan tegas, jangan hanya optimis. Maksimal 380 kata.`,
 
-  monetize:`Konsultan monetisasi UMKM kuliner Indonesia. Onty Cake: 47K IG followers, TikTok 9,1K followers, YouTube 7,7K subs, baking class aktif dengan kolaborasi brand. Juli 2026 meluncurkan 6 produk baru line "Taste of Taro" dengan harga bervariasi (Taro Bun harga terjangkau hingga Egg Claire Taro premium).
+  viral:`Content strategist yang menganalisis kesuksesan viral kompetitor untuk direplikasi. Kompetitor Delizia Bakery & Cake (Batang, Jawa Tengah, 16.100 followers IG) mendapat video viral 998.000 views di Juli 2026 berjudul "suatu saat pekerjaanmu akan digantikan oleh AI" — konten humor/komentar sosial tentang kekhawatiran AI menggantikan pekerjaan baker, SAMA SEKALI BUKAN tentang produk kue. Video kedua terpopuler mereka, "Dua mood seorang baker" (195.000 views), juga bertema humor/relatable, bukan produk.
 
-Susun PROYEKSI MONETISASI Juli 2026 dalam Bahasa Indonesia mencakup: (1) estimasi revenue tambahan dari penjualan line Taro berdasarkan basis follower & reach saat ini, (2) strategi bundling/paket untuk menaikkan average order value, (3) peluang baking class "belajar bikin Taro Bun" sebagai revenue stream tambahan, (4) potensi kolaborasi/endorsement dengan brand lokal Pekalongan memanfaatkan momentum launch. Maksimal 400 kata.`
+Sebagai perbandingan, brand kue Onty (47.151 followers IG, 2,9× lebih besar dari Delizia) konten terpopuler Juli hanya 11.900 views (reveal produk Taste of Taro) — dan hampir 100% konten Onty berfokus pada foto/reveal produk.
+
+Buat STRATEGI ADOPSI FORMAT KONTEN BARU dalam Bahasa Indonesia untuk Onty di Agustus 2026: (1) analisis mengapa konten non-produk bisa jauh lebih viral, (2) 5 ide konkret konten humor/relatable/commentary yang relevan untuk brand kue rumahan di Indonesia (bisa terkait musim Kemerdekaan Agustus), (3) bagaimana menyeimbangkan konten produk vs konten non-produk tanpa kehilangan identitas brand. Maksimal 400 kata.`,
+
+  taro2:`Growth strategist untuk line produk "Taste of Taro" milik brand kue Onty, memasuki bulan ke-2 sejak launching Juli 2026. Data Google Trends Juli menunjukkan pergeseran penting: pencarian TAHAP EDUKASI seperti "apa itu taro"/"taro itu apa" turun -70% di Jawa Tengah, "taro terbuat dari" turun -50% — sementara pencarian TAHAP NIAT BELI seperti "taro bun terdekat" naik +40% (nasional), "taro bun menu" naik +30%, dan "harga taro bun" muncul sebagai keyword baru. SI "taro bun" Jawa Tengah sendiri naik dari 16 (Juni) ke 52 (Juli), +130%.
+
+Namun performa konten Juli belum optimal: post Instagram Taste of Taro hanya di posisi ke-3 top content (11.900 views, kalah dari wedding cake custom order 14.100 views), dan video TikTok bertema Taro (Taro Bun, teaser launching) tampil DI BAWAH rata-rata performa akun (480 dan 346 views vs rata-rata 408).
+
+Susun STRATEGI LANJUTAN TARO AGUSTUS dalam Bahasa Indonesia yang fokus pada TAHAP NIAT BELI (bukan lagi edukasi): (1) jenis konten yang tepat untuk mendorong konversi (lokasi, harga, cara order), (2) bagaimana memperbaiki performa konten Taro yang selama ini di bawah rata-rata, (3) ide kombinasi Taro dengan momentum Kemerdekaan Agustus. Maksimal 380 kata.`
 };
 
 async function runAI(type){
   const loading=document.getElementById('aiLoading');
   const result=document.getElementById('aiResult');
   loading.style.display='flex';
-  loading.innerHTML='<div class="pulse"><span></span><span></span><span></span></div> Menganalisis dengan Claude AI — data Juni & strategi Juli 2026...';
+  loading.innerHTML='<div class="pulse"><span></span><span></span><span></span></div> Menganalisis dengan Claude AI — data Juli & strategi Agustus 2026...';
   result.style.display='none';
   try{
     const resp=await fetch('https://api.anthropic.com/v1/messages',{
