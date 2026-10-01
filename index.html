@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Onty Analytics Dashboard — September 2026 · Peluncuran Roti Geloong</title>
+<title>Onty Analytics Dashboard — Oktober 2026 · Peluncuran Roti Kasur</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
@@ -211,6 +211,7 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 
 .footer{margin-top:36px;padding:18px 0;border-top:1px solid var(--border);font-size:10.5px;color:var(--text3);line-height:1.8;display:flex;align-items:flex-start;gap:7px}
 </style>
+
 </head>
 <body>
 
@@ -223,9 +224,8 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
     </div>
   </div>
   <div class="topbar-right">
-    <div class="pill pill-raisin"><i class="fa-solid fa-bread-slice"></i> Roti Geloong — Launching</div>
-    <div class="pill pill-green"><i class="fa-solid fa-arrow-trend-up"></i> Pemulihan Besar Agustus</div>
-    <div class="pill pill-gold"><i class="fa-solid fa-calendar-days"></i> September 2026</div>
+    <div class="pill pill-raisin"><i class="fa-solid fa-bread-slice"></i> Roti Kasur — Launching</div>
+    <div class="pill pill-gold"><i class="fa-solid fa-calendar-days"></i> Oktober 2026</div>
     <div class="live-dot" id="timestamp">Memuat...</div>
   </div>
 </div>
@@ -236,184 +236,181 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
   <div class="pnav-tab" onclick="showTab('tt-ontycake')" data-tab="tt-ontycake" style="--tab-color:var(--tt)"><div class="pnav-icon" style="background:#000;border:1px solid #333"><i class="fa-brands fa-tiktok" style="color:#fff;font-size:9px"></i></div> TT @ontycake</div>
   <div class="pnav-tab" onclick="showTab('yt')" data-tab="yt" style="--tab-color:var(--yt)"><div class="pnav-icon" style="background:var(--yt)"><i class="fa-brands fa-youtube" style="color:#fff;font-size:9px"></i></div> YouTube</div>
   <div class="pnav-tab" onclick="showTab('ig-class')" data-tab="ig-class" style="--tab-color:var(--green)"><div class="pnav-icon" style="background:linear-gradient(135deg,#1D9E75,#4eca8b)"><i class="fa-brands fa-instagram" style="color:#fff;font-size:9px"></i></div> IG Baking Class</div>
-  <div class="pnav-tab" onclick="showTab('tt-class')" data-tab="tt-class" style="--tab-color:var(--green)"><div class="pnav-icon" style="background:linear-gradient(135deg,#1D9E75,#4eca8b)">🚀</div> TT Baking Class</div>
+  <div class="pnav-tab" onclick="showTab('tt-class')" data-tab="tt-class" style="--tab-color:var(--green)"><div class="pnav-icon" style="background:linear-gradient(135deg,#1D9E75,#4eca8b)">🎓</div> TT Baking Class</div>
   <div class="pnav-tab" onclick="showTab('kompetitor')" data-tab="kompetitor" style="--tab-color:#ff8fb3"><div class="pnav-icon" style="background:linear-gradient(135deg,#ff8fb3,#e1306c)">⚔️</div> Kompetitor</div>
-  <div class="pnav-tab" onclick="showTab('tren')" data-tab="tren" style="--tab-color:var(--raisin2)"><div class="pnav-icon" style="background:linear-gradient(135deg,var(--raisin2),var(--raisin))">🍇</div> Tren Raisin & Roti</div>
-  <div class="pnav-tab" onclick="showTab('strategi-september')" data-tab="strategi-september" style="--tab-color:var(--raisin2)"><div class="pnav-icon" style="background:linear-gradient(135deg,var(--raisin2),var(--raisin))">🥐</div> Strategi September</div>
+  <div class="pnav-tab" onclick="showTab('tren')" data-tab="tren" style="--tab-color:var(--raisin2)"><div class="pnav-icon" style="background:linear-gradient(135deg,var(--raisin2),var(--raisin))">🛏️</div> Tren Roti Kasur</div>
+  <div class="pnav-tab" onclick="showTab('strategi-oktober')" data-tab="strategi-oktober" style="--tab-color:var(--raisin2)"><div class="pnav-icon" style="background:linear-gradient(135deg,var(--raisin2),var(--raisin))">🍞</div> Strategi Oktober</div>
   <div class="pnav-tab" onclick="showTab('ai')" data-tab="ai" style="--tab-color:var(--gold)"><div class="pnav-icon" style="background:linear-gradient(135deg,#c89040,#e8b86d)">✦</div> Analisis AI</div>
 </nav>
 
 <div class="main">
-
 <!-- ══════ TAB: RINGKASAN ══════ -->
 <div id="tab-ringkasan" class="tab-page active">
 
-  <div class="alert-banner alert-green">
-    <i class="fa-solid fa-arrow-trend-up"></i>
-    <div><strong>Pemulihan besar di Agustus 2026!</strong> Strategi kampanye "Roti Merdeka" & "Taro Bun Merdeka" (promo bundling) yang direkomendasikan bulan lalu berhasil luar biasa: TikTok @ontycake views naik <strong>+143,5%</strong> (34.840→84.837), TikTok Baking Class melonjak <strong>+11.262%</strong> (571→64.859), dan IG @ontycake interaksi naik <strong>+42,4%</strong>. Konten guerrilla "Merdeka = Bebas Bermimpi" (bagi roti gratis untuk siapa saja yang mengucap mimpinya) jadi pendorong utama viralitas.</div>
+  <div class="alert-banner alert-warn">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div><strong>Perhatian — Teguran Pedoman Komunitas YouTube (16 Sep 2026):</strong> Channel @ontycakebakery menerima peringatan aktif setelah salah satu konten dihapus karena dianggap melanggar kebijakan (judul/thumbnail dinilai alarming/clickbait terkait "anak tantrum"). Channel saat ini berstatus 1 teguran — teguran kedua dalam 90 hari dapat membatasi fitur upload. Perlu audit judul & thumbnail segera sebelum konten baru diunggah.</div>
   </div>
 
   <div class="alert-banner alert-raisin">
     <i class="fa-solid fa-bread-slice"></i>
-    <div><strong>Fokus September 2026: Peluncuran "Roti Geloong"</strong> — nama lokal untuk Pain aux Raisins (Raisin Roll / Danish Kismis). Data Google Trends menunjukkan "raisin roll", "danish raisin", dan "pain au raisin" berstatus <strong>Breakout</strong> secara nasional — momentum sempurna untuk produk baru bergaya pastry Eropa dengan sentuhan nama lokal yang unik & mudah diingat.</div>
+    <div><strong>Fokus Oktober 2026: Peluncuran "Roti Kasur"</strong> — roti tawar lembut gaya "mattress bread" yang sedang jadi perbincangan nasional lewat produk Sari Roti. Data Google Trends: "sari roti" (SI 100, +10%), "sari roti kasur" (SI 90, -20%), "roti kasur sari roti" (SI 73, -30%) — minat tetap sangat tinggi meski mulai melandai dari puncaknya. Sinyal baru yang Breakout: <strong>"roti sobek sari roti"</strong> — format pull-apart/sobek sedang naik daun. Secara regional, Jawa Tengah (wilayah utama Onty) berada di peringkat <strong>#3 nasional</strong> untuk pencarian umum "roti" (SI 90) — basis permintaan lokal sangat kuat.</div>
   </div>
 
   <div class="kpi-grid">
     <div class="kpi" style="--kpi-color:var(--gold)">
       <div class="kpi-icon"><i class="fa-solid fa-users"></i></div>
-      <div class="kpi-val">67.6K</div>
+      <div class="kpi-val">67,7K</div>
       <div class="kpi-lbl">Total Ekosistem</div>
-      <div class="kpi-tag t-up">↑ +525 vs Juli · Data Aktual Agustus</div>
+      <div class="kpi-tag t-info">+103 vs Agustus · Data Aktual September</div>
     </div>
     <div class="kpi" style="--kpi-color:var(--ig);--kpi-bg:rgba(225,48,108,.1)">
       <div class="kpi-icon"><i class="fa-brands fa-instagram"></i></div>
-      <div class="kpi-val">50.1K</div>
+      <div class="kpi-val">50,2K</div>
       <div class="kpi-lbl">Total IG Followers</div>
-      <div class="kpi-tag t-up">+240 followers vs Juli</div>
+      <div class="kpi-tag t-up">+153 followers vs Agustus</div>
     </div>
     <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.14)">
       <div class="kpi-icon"><i class="fa-brands fa-tiktok"></i></div>
-      <div class="kpi-val">9.727</div>
-      <div class="kpi-lbl">Total TikTok</div>
-      <div class="kpi-tag t-up">Views melonjak di kedua akun</div>
+      <div class="kpi-val">9.891</div>
+      <div class="kpi-lbl">Total TikTok Followers</div>
+      <div class="kpi-tag t-up">+164 vs Agustus · BC +18%</div>
     </div>
     <div class="kpi" style="--kpi-color:var(--yt);--kpi-bg:rgba(255,59,59,.1)">
       <div class="kpi-icon"><i class="fa-brands fa-youtube"></i></div>
-      <div class="kpi-val">7.643</div>
+      <div class="kpi-val">7.647</div>
       <div class="kpi-lbl">YouTube Subs</div>
-      <div class="kpi-tag t-info">Views +8,5% · 1 video reguler terbit</div>
+      <div class="kpi-tag t-warn">⚠️ Ada teguran komunitas aktif</div>
     </div>
-    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)">
-      <div class="kpi-icon"><i class="fa-solid fa-heart-circle-check"></i></div>
-      <div class="kpi-val">+11.262%</div>
-      <div class="kpi-lbl">TT Baking Class Views MoM</div>
-      <div class="kpi-tag t-up">571 → 64.859 views</div>
+    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.14)">
+      <div class="kpi-icon"><i class="fa-solid fa-arrow-trend-down"></i></div>
+      <div class="kpi-val">-14,3%</div>
+      <div class="kpi-lbl">IG @ontycake Views MoM</div>
+      <div class="kpi-tag t-warn">Normalisasi setelah lonjakan Agustus</div>
     </div>
     <div class="kpi" style="--kpi-color:var(--raisin2);--kpi-bg:rgba(139,74,43,.2)">
       <div class="kpi-icon"><i class="fa-solid fa-fire"></i></div>
-      <div class="kpi-val">Breakout</div>
-      <div class="kpi-lbl">"raisin roll" & "pain au raisin"</div>
-      <div class="kpi-tag t-raisin">Momentum baru untuk Roti Geloong</div>
+      <div class="kpi-val">SI 90-100</div>
+      <div class="kpi-lbl">"Sari Roti" & "Roti Kasur"</div>
+      <div class="kpi-tag t-raisin">Momentum kategori roti nasional</div>
     </div>
   </div>
 
   <div class="sec-hdr">
-    <div class="sec-title">Performa Per Platform — Update Data Agustus 2026</div>
+    <div class="sec-title">Performa Per Platform — Update Data September 2026</div>
     <div class="real-badge"><i class="fa-solid fa-chart-bar"></i> Meta Business Suite · TikTok Studio (XLSX Export) · YouTube Studio</div>
   </div>
 
   <div class="pc-row">
-    <div class="pc" onclick="showTab('ig-ontycake')" style="border-color:rgba(62,203,130,.3)">
+    <div class="pc" onclick="showTab('ig-ontycake')">
       <div class="pc-hdr">
         <div class="pc-icon" style="background:linear-gradient(135deg,#f09433,#dc2743,#cc2366)">📸</div>
         <div><div style="font-size:13px;font-weight:600">@ontycake</div><div style="font-size:10px;color:var(--text3)">Instagram · Brand Utama</div></div>
-        <div class="tag tag-green" style="margin-left:auto">✅ Pulih Kuat</div>
+        <div class="tag" style="margin-left:auto;background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.25);color:var(--amber)">📉 Normalisasi</div>
       </div>
       <div class="pc-stats">
-        <div><div class="pv" style="color:var(--ig)">47,3K</div><div class="pl">Followers</div></div>
-        <div><div class="pv">676K</div><div class="pl">Views (+8,3%)</div></div>
-        <div><div class="pv">5.169</div><div class="pl">Interaksi (+42%)</div></div>
+        <div><div class="pv" style="color:var(--ig)">47,4K</div><div class="pl">Followers</div></div>
+        <div><div class="pv">579K</div><div class="pl">Views (-14,3%)</div></div>
+        <div><div class="pv">3.846</div><div class="pl">Interaksi (-25,6%)</div></div>
       </div>
-      <div class="progbar"><div class="progfill" style="width:88%;background:linear-gradient(90deg,#dc2743,#f09433)"></div></div>
-      <div class="progmeta"><span>Skor ekosistem</span><span>88/100 (naik dari 68)</span></div>
+      <div class="progbar"><div class="progfill" style="width:74%;background:linear-gradient(90deg,#dc2743,#f09433)"></div></div>
+      <div class="progmeta"><span>Skor ekosistem</span><span>74/100 (turun dari 88)</span></div>
     </div>
     <div class="pc" onclick="showTab('tt-ontycake')" style="border-color:rgba(69,208,216,.35)">
       <div class="pc-hdr">
         <div class="pc-icon" style="background:#000;border:1px solid #333">🎵</div>
         <div><div style="font-size:13px;font-weight:600">@ontycake</div><div style="font-size:10px;color:var(--text3)">TikTok · Brand Utama</div></div>
-        <div class="tag tag-green" style="margin-left:auto">🚀 Views +143,5%</div>
+        <div class="tag" style="margin-left:auto;background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.25);color:var(--amber)">📉 Views -12,9%</div>
       </div>
       <div class="pc-stats">
-        <div><div class="pv" style="color:var(--tt)">9.189</div><div class="pl">Followers</div></div>
-        <div><div class="pv">508,7K</div><div class="pl">Likes</div></div>
-        <div><div class="pv">84,8K</div><div class="pl">Video Views</div></div>
+        <div><div class="pv" style="color:var(--tt)">9.256</div><div class="pl">Followers (+67)</div></div>
+        <div><div class="pv">73,9K</div><div class="pl">Video Views</div></div>
+        <div><div class="pv">+55</div><div class="pl">Net Growth (+52,8%)</div></div>
       </div>
-      <div class="progbar"><div class="progfill" style="width:82%;background:linear-gradient(90deg,var(--tt),#45d0d8cc)"></div></div>
-      <div class="progmeta"><span>Skor ekosistem</span><span>82/100 (naik dari 25)</span></div>
+      <div class="progbar"><div class="progfill" style="width:70%;background:linear-gradient(90deg,var(--tt),#45d0d8cc)"></div></div>
+      <div class="progmeta"><span>Skor ekosistem</span><span>70/100 (turun dari 82)</span></div>
     </div>
-    <div class="pc" onclick="showTab('yt')">
+    <div class="pc" onclick="showTab('yt')" style="border-color:rgba(245,158,11,.4)">
       <div class="pc-hdr">
         <div class="pc-icon" style="background:var(--yt)">▶️</div>
         <div><div style="font-size:13px;font-weight:600">@ontycakebakery</div><div style="font-size:10px;color:var(--text3)">YouTube · Tutorial</div></div>
-        <div class="tag" style="margin-left:auto;background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.25);color:var(--amber)">📈 Sedikit Membaik</div>
+        <div class="tag" style="margin-left:auto;background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.25);color:var(--red)">⚠️ Ada Teguran</div>
       </div>
       <div class="pc-stats">
-        <div><div class="pv" style="color:var(--yt2)">7.643</div><div class="pl">Subs</div></div>
-        <div><div class="pv">18,4K</div><div class="pl">Views (+8,5%)</div></div>
-        <div><div class="pv">1</div><div class="pl">Video Reguler Terbit</div></div>
+        <div><div class="pv" style="color:var(--yt2)">7.647</div><div class="pl">Subs (+4)</div></div>
+        <div><div class="pv">13,0K</div><div class="pl">Views (-29,3%)</div></div>
+        <div><div class="pv">1</div><div class="pl">Teguran Aktif</div></div>
       </div>
-      <div class="progbar"><div class="progfill" style="width:42%;background:linear-gradient(90deg,var(--yt),var(--yt2))"></div></div>
-      <div class="progmeta"><span>Skor ekosistem</span><span>42/100 (naik dari 36)</span></div>
+      <div class="progbar"><div class="progfill" style="width:34%;background:linear-gradient(90deg,var(--yt),var(--yt2))"></div></div>
+      <div class="progmeta"><span>Skor ekosistem</span><span>34/100 (turun dari 42)</span></div>
     </div>
     <div class="pc" onclick="showTab('ig-class')">
       <div class="pc-hdr">
         <div class="pc-icon" style="background:linear-gradient(135deg,#1D9E75,#4eca8b)">📚</div>
         <div><div style="font-size:13px;font-weight:600">@ontyfarahbakingclass</div><div style="font-size:10px;color:var(--text3)">Instagram · Edukatif</div></div>
-        <div class="tag" style="margin-left:auto;background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.25);color:var(--amber)">📉 Views Turun -24%</div>
+        <div class="tag tag-green" style="margin-left:auto">✅ Membaik</div>
       </div>
       <div class="pc-stats">
-        <div><div class="pv" style="color:var(--green)">2.733</div><div class="pl">Followers (+69)</div></div>
-        <div><div class="pv">84,7K</div><div class="pl">Tayangan (-24,2%)</div></div>
-        <div><div class="pv">402</div><div class="pl">Akun Interaksi</div></div>
+        <div><div class="pv" style="color:var(--green)">2.806</div><div class="pl">Followers (+73)</div></div>
+        <div><div class="pv">87,1K</div><div class="pl">Tayangan (+2,8%)</div></div>
+        <div><div class="pv">485</div><div class="pl">Akun Interaksi (+20,6%)</div></div>
       </div>
-      <div class="progbar"><div class="progfill" style="width:55%;background:linear-gradient(90deg,var(--green),#3ecb82aa)"></div></div>
-      <div class="progmeta"><span>Skor ekosistem</span><span>55/100 (turun dari 65)</span></div>
+      <div class="progbar"><div class="progfill" style="width:62%;background:linear-gradient(90deg,var(--green),#3ecb82aa)"></div></div>
+      <div class="progmeta"><span>Skor ekosistem</span><span>62/100 (naik dari 55)</span></div>
     </div>
-    <div class="pc" onclick="showTab('tt-class')" style="border-color:rgba(62,203,130,.5)">
+    <div class="pc" onclick="showTab('tt-class')" style="border-color:rgba(62,203,130,.4)">
       <div class="pc-hdr">
-        <div class="pc-icon" style="background:linear-gradient(135deg,#1D9E75,#4eca8b)">🚀</div>
+        <div class="pc-icon" style="background:linear-gradient(135deg,#1D9E75,#4eca8b)">🎓</div>
         <div><div style="font-size:13px;font-weight:600">@ontyfarahbakingclass</div><div style="font-size:10px;color:var(--text3)">TikTok · Edukatif</div></div>
-        <div class="tag tag-green" style="margin-left:auto">Pulih Total +11.262%</div>
+        <div class="tag tag-green" style="margin-left:auto">Followers +18%</div>
       </div>
       <div class="pc-stats">
-        <div><div class="pv" style="color:var(--green)">538</div><div class="pl">Followers (+147)</div></div>
-        <div><div class="pv">64,9K</div><div class="pl">Views Agustus</div></div>
-        <div><div class="pv">808</div><div class="pl">Likes</div></div>
+        <div><div class="pv" style="color:var(--green)">635</div><div class="pl">Followers (+97)</div></div>
+        <div><div class="pv">40,4K</div><div class="pl">Views (-37,7%)</div></div>
+        <div><div class="pv">601</div><div class="pl">Likes</div></div>
       </div>
-      <div class="progbar"><div class="progfill" style="width:72%;background:linear-gradient(90deg,var(--green),#4eca8bcc)"></div></div>
-      <div class="progmeta"><span>Skor ekosistem</span><span>72/100 (naik dari 4!)</span></div>
+      <div class="progbar"><div class="progfill" style="width:58%;background:linear-gradient(90deg,var(--green),#4eca8bcc)"></div></div>
+      <div class="progmeta"><span>Skor ekosistem</span><span>58/100 (turun dari 72, tapi masih jauh di atas krisis)</span></div>
     </div>
     <div class="pc" onclick="showTab('kompetitor')">
       <div class="pc-hdr">
         <div class="pc-icon" style="background:linear-gradient(135deg,#ff8fb3,#e1306c)">⚔️</div>
-        <div><div style="font-size:13px;font-weight:600">@deliziabakery</div><div style="font-size:10px;color:var(--text3)">Kompetitor · Batang</div></div>
-        <div class="tag" style="margin-left:auto;background:rgba(255,143,179,.1);border-color:rgba(255,143,179,.3);color:#ff8fb3">📋 Data Belum Update</div>
+        <div><div style="font-size:13px;font-weight:600">Sari Roti · Harvest · Holland</div><div style="font-size:10px;color:var(--text3)">Kompetitor kategori roti — baru</div></div>
+        <div class="tag" style="margin-left:auto;background:rgba(255,143,179,.1);border-color:rgba(255,143,179,.3);color:#ff8fb3">🆕 Benchmark Baru</div>
       </div>
       <div class="pc-stats">
-        <div><div class="pv" style="color:#ff8fb3">16,1K</div><div class="pl">IG Followers (Juli)</div></div>
-        <div><div class="pv">998K</div><div class="pl">Video Terviral (Juli)</div></div>
-        <div><div class="pv">—</div><div class="pl">Belum ada data Agustus</div></div>
+        <div><div class="pv" style="color:#ff8fb3">439K</div><div class="pl">Sari Roti Followers</div></div>
+        <div><div class="pv">750K</div><div class="pl">Harvest Followers</div></div>
+        <div><div class="pv">504K</div><div class="pl">Holland Followers</div></div>
       </div>
-      <div class="progbar"><div class="progfill" style="width:60%;background:linear-gradient(90deg,#ff8fb3,#e1306c)"></div></div>
-      <div class="progmeta"><span>Catatan</span><span>Perlu screenshot terbaru</span></div>
+      <div class="progbar"><div class="progfill" style="width:35%;background:linear-gradient(90deg,#ff8fb3,#e1306c)"></div></div>
+      <div class="progmeta"><span>Catatan</span><span>Skala nasional — pemilik istilah "Roti Kasur"</span></div>
     </div>
   </div>
 
   <div class="grid2">
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-chart-bar"></i> Followers Semua Akun — Juli vs Agustus (Aktual)</div>
+      <div class="panel-hdr"><i class="fa-solid fa-chart-bar"></i> Followers Semua Akun — Agustus vs September (Aktual)</div>
       <div class="chart-wrap h240"><canvas id="chartAllFollowers"></canvas></div>
     </div>
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-chart-radar"></i> Skor Kesehatan Ekosistem — Juli vs Agustus vs Target September</div>
+      <div class="panel-hdr"><i class="fa-solid fa-chart-radar"></i> Skor Kesehatan Ekosistem — Agustus vs September vs Target Oktober</div>
       <div class="chart-wrap h240"><canvas id="chartRadarOverview"></canvas></div>
     </div>
   </div>
 
   <div class="panel" style="margin-bottom:22px">
-    <div class="panel-hdr"><i class="fa-solid fa-bullseye"></i> 5 Prioritas September 2026 — Ringkasan Eksekutif</div>
+    <div class="panel-hdr"><i class="fa-solid fa-bullseye"></i> 5 Prioritas Oktober 2026 — Ringkasan Eksekutif</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin-top:4px">
-      <div class="tcard" style="border-color:rgba(201,145,95,.35)"><div class="tc-tag" style="color:var(--raisin2)">① Launch Utama</div><div class="tc-title">Peluncuran Roti Geloong</div><div class="tc-text">Manfaatkan status Breakout "raisin roll"/"pain au raisin" dan replikasi formula sukses reveal produk yang terbukti bekerja bulan lalu (foto reveal + urgency + bundling).</div></div>
-      <div class="tcard" style="border-color:rgba(62,203,130,.3)"><div class="tc-tag" style="color:var(--green)">② Pertahankan Momentum</div><div class="tc-title">Lanjutkan Format yang Terbukti di TikTok</div><div class="tc-text">Kedua akun TikTok pulih drastis di Agustus — identifikasi & replikasi pola konten yang memicu lonjakan (17 & 23-29 Agustus) untuk konten Roti Geloong.</div></div>
-      <div class="tcard" style="border-color:rgba(245,158,11,.3)"><div class="tc-tag" style="color:var(--amber)">③ Investigasi</div><div class="tc-title">Kenapa Views IG Baking Class Turun -24%?</div><div class="tc-text">Meski followers naik +69, tayangan turun signifikan dari 111.774 ke 84.726 — perlu ditelusuri format & frekuensi konten kelas bulan ini.</div></div>
-      <div class="tcard" style="border-color:rgba(255,59,59,.3)"><div class="tc-tag" style="color:var(--yt2)">④ Konsistensi</div><div class="tc-title">Pertahankan Ritme Video Reguler YouTube</div><div class="tc-text">Agustus akhirnya ada 1 video reguler terbit (setelah 2 bulan nihil) — jangan putus, targetkan minimal 1 video/bulan berlanjut di September.</div></div>
-      <div class="tcard" style="border-color:rgba(255,143,179,.3)"><div class="tc-tag" style="color:#ff8fb3">⑤ Data Gap</div><div class="tc-title">Perbarui Data Kompetitor Delizia</div><div class="tc-text">Belum ada screenshot Delizia untuk Agustus — perlu update di siklus berikutnya untuk menjaga akurasi perbandingan kompetitif.</div></div>
+      <div class="tcard" style="border-color:rgba(201,145,95,.35)"><div class="tc-tag" style="color:var(--raisin2)">① Launch Utama</div><div class="tc-title">Peluncuran "Roti Kasur" ala Onty</div><div class="tc-text">Manfaatkan gelombang perbincangan nasional soal Sari Roti Kasur (SI 90-100) tanpa berebut awareness head-to-head — posisikan sebagai versi homemade/artisan dengan tekstur lebih lembut & segar harian.</div></div>
+      <div class="tcard" style="border-color:rgba(239,68,68,.35)"><div class="tc-tag" style="color:var(--red)">② Mendesak</div><div class="tc-title">Audit Kepatuhan Konten YouTube</div><div class="tc-text">1 teguran pedoman komunitas aktif sejak 16 Sep. Review seluruh judul/thumbnail yang berpotensi dianggap alarming/clickbait sebelum upload berikutnya — teguran kedua berisiko membatasi fitur channel.</div></div>
+      <div class="tcard" style="border-color:rgba(245,158,11,.3)"><div class="tc-tag" style="color:var(--amber)">③ Investigasi</div><div class="tc-title">Kenapa Views IG & TikTok @ontycake Turun?</div><div class="tc-text">Setelah lonjakan Agustus (+143,5% TikTok, +42,4% interaksi IG), September menurun -12,9% hingga -25,6% — normal pasca-viral, namun perlu konten pendorong baru agar tidak terus menurun di Oktober.</div></div>
+      <div class="tcard" style="border-color:rgba(62,203,130,.3)"><div class="tc-tag" style="color:var(--green)">④ Pertahankan</div><div class="tc-title">Jaga Momentum TikTok Baking Class</div><div class="tc-text">Followers naik +18% (538→635) meski views turun dari puncak viral Agustus — tanda audiens loyal baru terbentuk. Jaga ritme posting kelas rutin agar tidak kembali ke level krisis Juni-Juli.</div></div>
+      <div class="tcard" style="border-color:rgba(255,143,179,.3)"><div class="tc-tag" style="color:#ff8fb3">⑤ Riset Kompetitif</div><div class="tc-title">Pelajari 3 Pemain Besar Kategori Roti</div><div class="tc-text">Sari Roti, The Harvest, dan Holland Bakery kini masuk radar kompetitif — pelajari gaya konten UGC/relatable Harvest (engagement tinggi) sebagai referensi realistis untuk skala Onty.</div></div>
     </div>
   </div>
 
 </div>
-
-
 <!-- ══════ TAB: IG ONTYCAKE ══════ -->
 <div id="tab-ig-ontycake" class="tab-page">
   <div class="acct-hero">
@@ -423,109 +420,111 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
       <div class="handle"><i class="fa-brands fa-instagram" style="color:var(--ig)"></i><a href="https://www.instagram.com/ontycake/" target="_blank">instagram.com/ontycake</a></div>
       <div class="tags">
         <div class="tag tag-brand">⭐ Brand Utama</div>
-        <div class="tag tag-green">✅ Semua Metrik Pulih Kuat</div>
-        <div class="real-badge"><i class="fa-solid fa-chart-bar"></i> Insights 30 Hari Agustus 2026</div>
+        <div class="tag" style="background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.25);color:var(--amber)">📉 Normalisasi Pasca-Viral Agustus</div>
+        <div class="real-badge"><i class="fa-solid fa-chart-bar"></i> Insights 30 Hari September 2026</div>
       </div>
     </div>
-    <div class="acct-score"><div class="score-n" style="color:var(--green)">88</div><div class="score-l">Skor Platform</div><div class="score-s" style="color:var(--green)">● Naik dari 68</div></div>
+    <div class="acct-score"><div class="score-n" style="color:var(--amber)">74</div><div class="score-l">Skor Platform</div><div class="score-s" style="color:var(--amber)">● Turun dari 88</div></div>
   </div>
   <div class="grid3">
-    <div class="kpi" style="--kpi-color:var(--ig);--kpi-bg:rgba(225,48,108,.1)"><div class="kpi-icon"><i class="fa-solid fa-users"></i></div><div class="kpi-val">47.322</div><div class="kpi-lbl">Followers</div><div class="kpi-tag t-up">+171 vs Juli (47.151)</div></div>
-    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-eye"></i></div><div class="kpi-val">675.615</div><div class="kpi-lbl">Views (30 hari)</div><div class="kpi-tag t-up">+8,3% dari Juli (623.975)</div></div>
-    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-arrows-to-circle"></i></div><div class="kpi-val">45.223</div><div class="kpi-lbl">Viewers (Reach)</div><div class="kpi-tag t-up">+4,6% dari Juli (43.241)</div></div>
+    <div class="kpi" style="--kpi-color:var(--ig);--kpi-bg:rgba(225,48,108,.1)"><div class="kpi-icon"><i class="fa-solid fa-users"></i></div><div class="kpi-val">47.402</div><div class="kpi-lbl">Followers</div><div class="kpi-tag t-up">+80 vs Agustus (47.322)</div></div>
+    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-eye"></i></div><div class="kpi-val">578.994</div><div class="kpi-lbl">Views (30 hari)</div><div class="kpi-tag t-warn">-14,3% dari Agustus (675.615)</div></div>
+    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-arrows-to-circle"></i></div><div class="kpi-val">47.645</div><div class="kpi-lbl">Viewers (Pemirsa)</div><div class="kpi-tag t-info">72,4% Followers · 27,6% Non-followers</div></div>
   </div>
   <div class="grid3">
-    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-hand-pointer"></i></div><div class="kpi-val">5.169</div><div class="kpi-lbl">Interaksi (30 hari)</div><div class="kpi-tag t-up">+42,4% dari Juli (3.630)</div></div>
-    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-users-viewfinder"></i></div><div class="kpi-val">2.784</div><div class="kpi-lbl">Akun Terlibat</div><div class="kpi-tag t-up">+34,9% dari Juli (2.063)</div></div>
-    <div class="kpi" style="--kpi-color:var(--gold)"><div class="kpi-icon"><i class="fa-solid fa-link"></i></div><div class="kpi-val">2.340</div><div class="kpi-lbl">External Link Taps</div><div class="kpi-tag t-info">+2,1% dari Juli (2.291)</div></div>
+    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-hand-pointer"></i></div><div class="kpi-val">3.846</div><div class="kpi-lbl">Interaksi (30 hari)</div><div class="kpi-tag t-warn">-25,6% dari Agustus (5.169)</div></div>
+    <div class="kpi" style="--kpi-color:var(--gold)"><div class="kpi-icon"><i class="fa-solid fa-users-viewfinder"></i></div><div class="kpi-val">2.027</div><div class="kpi-lbl">Akun Terlibat</div><div class="kpi-tag t-info">57,2% Followers · 42,8% Non-followers</div></div>
+    <div class="kpi" style="--kpi-color:var(--gold)"><div class="kpi-icon"><i class="fa-solid fa-link"></i></div><div class="kpi-val">2.006</div><div class="kpi-lbl">External Link Taps</div><div class="kpi-tag t-info">Profile visits 8.686 · Aktivitas 10.692</div></div>
   </div>
 
   <div class="alert-banner alert-green">
     <i class="fa-solid fa-trophy"></i>
-    <div><strong>Konten terviral bulan ini — kampanye guerrilla "Merdeka = Bebas Bermimpi":</strong> video ajakan warga mengucapkan mimpi mereka ke mic untuk mendapat roti gratis meraih <strong>29.100 views</strong> dan <strong>1.000 interaksi</strong> — jauh di atas rata-rata konten biasa. Diikuti "Promo Kemerdekaan" (belanja 81rb gratis 1 Taro Bun) dengan 15.100 views — validasi konsep "Taro Bun Merdeka" berhasil dieksekusi dengan baik.</div>
+    <div><strong>Konten terkuat bulan ini — "Baking & Public Speaking Class":</strong> flyer promosi kelas gabungan baking + public speaking (feat. Dubai Chewy) meraih <strong>449 interaksi</strong> dan jadi konten dengan views tertinggi (29,9K, 31 Agu). "Roti Geloong" (produk bulan lalu) masih tampil solid di posisi ke-3 (119 interaksi) — tanda produk ini punya daya tahan jangka menengah, bukan hanya hype peluncuran sesaat.</div>
   </div>
   <div class="grid2">
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-chart-pie"></i> Sumber Tayangan by Jenis Konten (Juli → Agustus)</div>
+      <div class="panel-hdr"><i class="fa-solid fa-chart-pie"></i> Sumber Tayangan by Jenis Konten (Agustus → September)</div>
       <div class="chart-wrap h220"><canvas id="chartIgContentType"></canvas></div>
     </div>
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-trophy"></i> Konten Terpopuler Agustus (Berdasarkan Views)</div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-microphone" style="color:var(--green)"></i>"Merdeka = Bebas Bermimpi"</div><div class="mrow-r" style="color:var(--green)">29,1K views · 1.000 interaksi</div></div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-bread-slice"></i>Distribusi roti gratis</div><div class="mrow-r">23,8K views · 379 interaksi</div></div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-gift" style="color:var(--taro2)"></i>Promo Kemerdekaan (Taro Bun Gratis)</div><div class="mrow-r" style="color:var(--taro2)">15,1K views · 114 interaksi</div></div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-cake-candles"></i>Adonan cake putih (custom order)</div><div class="mrow-r">10,3K views · 137 interaksi</div></div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-box"></i>Distribusi Roti Onty (box)</div><div class="mrow-r">101 interaksi</div></div>
+      <div class="panel-hdr"><i class="fa-solid fa-trophy"></i> Konten Terpopuler September (Berdasarkan Interaksi)</div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-chalkboard-user" style="color:var(--green)"></i>Baking & Public Speaking Class</div><div class="mrow-r" style="color:var(--green)">29,9K views · 504 interaksi</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-cake-candles"></i>Foto cake custom order</div><div class="mrow-r">9,4K views · 260 interaksi</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-bread-slice" style="color:var(--raisin2)"></i>"ROTI GELOONG" (produk bulan lalu)</div><div class="mrow-r" style="color:var(--raisin2)">131 interaksi · 13 Sep</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-circle-notch"></i>Konten bread rolls</div><div class="mrow-r">124 interaksi · 11 Sep</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-cookie"></i>Konten cookies</div><div class="mrow-r">114 interaksi · 12 Sep</div></div>
       <div style="margin-top:10px;background:var(--bg4);border-radius:8px;padding:12px;font-size:11.5px;color:var(--text2);line-height:1.6">
-        💡 <strong>Formula yang terbukti bekerja:</strong> konten interaktif/guerrilla (ajak warga terlibat langsung) + promo bundling dengan urgency mengalahkan konten reveal produk biasa. Pola ini layak direplikasi untuk peluncuran Roti Geloong September.
+        💡 <strong>Pelajaran kunci:</strong> konten event/kelas (bukan produk) kembali jadi pendorong utama interaksi — pola ini konsisten dengan Agustus. Untuk peluncuran Roti Kasur, pertimbangkan membungkusnya dalam format event/demo langsung, bukan sekadar foto produk statis.
       </div>
     </div>
   </div>
   <div class="grid2">
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-chart-line"></i> Tren Views & Interaksi 3 Bulan (Juli-September Proyeksi)</div>
+      <div class="panel-hdr"><i class="fa-solid fa-chart-line"></i> Tren Views & Interaksi 3 Bulan (Agustus-Oktober Proyeksi)</div>
       <div class="chart-wrap h220"><canvas id="chartIgTrend3M"></canvas></div>
     </div>
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-lightbulb"></i> Insight & Rekomendasi September</div>
-      <div class="ins"><div class="dot d-g"></div><div><strong>Semua metrik pulih kuat bersamaan</strong> (views +8,3%, reach +4,6%, interaksi +42,4%, akun terlibat +34,9%) — strategi kampanye tematik & interaktif Agustus terbukti jauh lebih efektif daripada konten reveal produk biasa.</div></div>
-      <div class="ins"><div class="dot d-a"></div><div>Rasio Reels turun sedikit di interaksi (80,8%→75,6%) tapi Posts naik (9,3%→11,4%) — kemungkinan dari konten karusel promo/bundling yang mulai diproduksi lebih rutin.</div></div>
-      <div class="ins"><div class="dot d-rz"></div><div><strong>Untuk Roti Geloong:</strong> pertimbangkan format serupa "Merdeka = Bebas Bermimpi" — konten interaktif/challenge yang melibatkan warga langsung, misalnya "Tebak nama produk baru ini, menang gratis!" untuk memperkenalkan nama unik "Roti Geloong".</div></div>
-      <div class="ins"><div class="dot d-g"></div><div>Family Gathering Onty Group 2026 juga tampil di top content (86 & 82 interaksi) — konten budaya internal perusahaan turut menarik engagement, baik untuk dilanjutkan sesekali sebagai variasi konten.</div></div>
+      <div class="panel-hdr"><i class="fa-solid fa-lightbulb"></i> Insight & Rekomendasi Oktober</div>
+      <div class="ins"><div class="dot d-a"></div><div><strong>Penurunan -14,3% (views) & -25,6% (interaksi) adalah normalisasi</strong> setelah lonjakan luar biasa Agustus yang didorong konten guerrilla "Merdeka = Bebas Bermimpi" (29,1K views) — bukan tanda masalah struktural, tapi kesempatan untuk mencari "viral hook" baru di Oktober.</div></div>
+      <div class="ins"><div class="dot d-g"></div><div>Rasio Reels (28,2%) & Stories (63,8%) relatif stabil — konten tetap didominasi Stories untuk jangkauan harian, Reels untuk jangkauan non-follower.</div></div>
+      <div class="ins"><div class="dot d-rz"></div><div><strong>Untuk Roti Kasur:</strong> replikasi formula "Baking & Public Speaking Class" — bungkus peluncuran dalam event/demo interaktif (misal "Kelas Bikin Roti Kasur Sendiri") alih-alih sekadar posting foto produk, karena format event terbukti 2x lebih kuat dari produk biasa bulan ini.</div></div>
+      <div class="ins"><div class="dot d-b"></div><div>Non-followers menyumbang 27,6% views dan 42,8% interaksi — reach di luar basis follower masih sehat, penting dipertahankan untuk memperkenalkan Roti Kasur ke audiens baru.</div></div>
     </div>
   </div>
 </div>
-
 <!-- ══════ TAB: TT ONTYCAKE ══════ -->
 <div id="tab-tt-ontycake" class="tab-page">
   <div class="acct-hero">
-    <div class="acct-avatar" style="background:#0a0a0a;border:2px solid #1a1a1a;--av-ring:var(--tt)">🎵</div>
+    <div class="acct-avatar" style="background:#000;border:1px solid #333;--av-ring:var(--tt)">🎵</div>
     <div class="acct-info">
       <h2>@ontycake</h2>
       <div class="handle"><i class="fa-brands fa-tiktok" style="color:var(--tt)"></i><a href="https://www.tiktok.com/@ontycake" target="_blank">tiktok.com/@ontycake</a></div>
       <div class="tags">
-        <div class="tag tag-green">🚀 Views +143,5%</div>
-        <div class="tag tag-green">Likes +168,2%</div>
-        <div class="real-badge"><i class="fa-solid fa-chart-bar"></i> TikTok Studio Export XLSX Agustus 2026</div>
+        <div class="tag tag-brand">⭐ Brand Utama</div>
+        <div class="tag" style="background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.25);color:var(--amber)">📉 Views -12,85% (normalisasi)</div>
+        <div class="real-badge"><i class="fa-solid fa-chart-bar"></i> TikTok Studio · Export XLSX 1-29 Sep + Overview 30 hari</div>
       </div>
     </div>
-    <div class="acct-score"><div class="score-n" style="color:var(--green)">82</div><div class="score-l">Skor Platform</div><div class="score-s" style="color:var(--green)">● Pulih dari 25</div></div>
+    <div class="acct-score"><div class="score-n" style="color:var(--amber)">70</div><div class="score-l">Skor Platform</div><div class="score-s" style="color:var(--amber)">● Turun dari 82</div></div>
   </div>
   <div class="grid3">
-    <div class="kpi" style="--kpi-color:var(--tt);--kpi-bg:rgba(69,208,216,.1)"><div class="kpi-icon"><i class="fa-solid fa-users"></i></div><div class="kpi-val">9.189</div><div class="kpi-lbl">Followers</div><div class="kpi-tag t-up">508,7K total likes</div></div>
-    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-eye"></i></div><div class="kpi-val">84.837</div><div class="kpi-lbl">Video Views Agustus</div><div class="kpi-tag t-up">+143,5% dari Juli (34.840)</div></div>
-    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-heart"></i></div><div class="kpi-val">960</div><div class="kpi-lbl">New Likes</div><div class="kpi-tag t-up">+181,5% dari Juli (341)</div></div>
+    <div class="kpi" style="--kpi-color:var(--tt);--kpi-bg:rgba(69,208,216,.1)"><div class="kpi-icon"><i class="fa-solid fa-users"></i></div><div class="kpi-val">9.256</div><div class="kpi-lbl">Followers</div><div class="kpi-tag t-up">+67 vs Agustus (9.189)</div></div>
+    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-eye"></i></div><div class="kpi-val">73.939</div><div class="kpi-lbl">Video Views (30 hari)</div><div class="kpi-tag t-warn">-12,85% dari Agustus (84.837)</div></div>
+    <div class="kpi" style="--kpi-color:var(--gold)"><div class="kpi-icon"><i class="fa-solid fa-heart"></i></div><div class="kpi-val">509,4K</div><div class="kpi-lbl">Total Likes (Akumulasi)</div><div class="kpi-tag t-info">720 likes baru (-25% vs Agustus)</div></div>
+  </div>
+  <div class="grid3">
+    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-user-check"></i></div><div class="kpi-val">1.136</div><div class="kpi-lbl">Profile Visits (30 hari)</div><div class="kpi-tag t-warn">-30,14% dari Agustus (1.626)</div></div>
+    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-share-nodes"></i></div><div class="kpi-val">123</div><div class="kpi-lbl">Shares (1-29 Sep)</div><div class="kpi-tag t-up">+53,75% dari Agustus (80)</div></div>
+    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-arrow-trend-up"></i></div><div class="kpi-val">+55</div><div class="kpi-lbl">Net Growth (1-29 Sep)</div><div class="kpi-tag t-up">+52,8% dari Agustus (+36)</div></div>
   </div>
 
   <div class="alert-banner alert-green">
-    <i class="fa-solid fa-rocket"></i>
-    <div><strong>Overview Agustus 2026:</strong> Video views 84.837 (<strong>+143,5%</strong>) · Reached audience 57.689 · Profile views 1.626 (<strong>+87,8%</strong>) · Likes 960 · Shares 80 · Comments 42 · Website clicks 19 · Net follower growth <strong>+36</strong> (New followers 95, Lost followers 59). Ada 2 lonjakan besar: <strong>17 Agustus (Hari Kemerdekaan, 5.381 views)</strong> dan rentetan <strong>23-29 Agustus (3.664-8.926 views/hari)</strong> — jauh di atas rata-rata harian ~1.500-2.000 views.</div>
+    <i class="fa-solid fa-lightbulb"></i>
+    <div><strong>Shares & net growth justru naik meski views turun</strong> — shares +53,75% (80→123) dan net growth followers +52,8% (36→55) menunjukkan konten September lebih "layak dibagikan" dan efektif mengonversi penonton jadi follower, walau volume penonton totalnya lebih kecil dari puncak viral Agustus. Kualitas audiens membaik meski kuantitas menurun.</div>
   </div>
+
   <div class="grid2">
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-chart-line"></i> Video Views & Reach Harian Agustus 2026</div>
+      <div class="panel-hdr"><i class="fa-solid fa-chart-line"></i> Video Views & Reach Harian — September 2026 (1-29 Sep)</div>
       <div class="chart-wrap h240"><canvas id="chartTtDaily"></canvas></div>
     </div>
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-magnifying-glass-chart"></i> Diagnosa: Apa Pemicu Lonjakan 23-29 Agustus?</div>
-      <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px">
-        <div style="background:rgba(62,203,130,.06);border:1px solid rgba(62,203,130,.18);border-radius:10px;padding:12px">
-          <div style="font-size:10px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">✅ 17 Agustus — Momentum Kemerdekaan</div>
-          <div style="font-size:12px;color:var(--text2);line-height:1.6">Lonjakan tunggal tertinggi periode awal (5.381 views, 4.556 reach) — bertepatan dengan Hari Kemerdekaan, selaras dengan konten "Roti Merdeka" yang direncanakan bulan lalu.</div>
-        </div>
-        <div style="background:rgba(62,203,130,.06);border:1px solid rgba(62,203,130,.18);border-radius:10px;padding:12px">
-          <div style="font-size:10px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">🚀 23-29 Agustus — Lonjakan Berkelanjutan</div>
-          <div style="font-size:12px;color:var(--text2);line-height:1.6">6 hari berturut-turut di atas 3.600 views (puncak 8.926 pada 23 Agu & 8.479 pada 28 Agu) — pola ini menunjukkan sebuah video/tren tertentu mendapat distribusi algoritma luar biasa dan bertahan lama, bukan sekadar 1 hari viral.</div>
-        </div>
-        <div style="background:rgba(96,165,250,.06);border:1px solid rgba(96,165,250,.18);border-radius:10px;padding:12px">
-          <div style="font-size:10px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">🎯 Rekomendasi September</div>
-          <div style="font-size:12px;color:var(--text2);line-height:1.6">Identifikasi video spesifik yang diposting pada 22-23 Agustus (pemicu lonjakan berkelanjutan) dan analisis formatnya untuk direplikasi pada konten peluncuran Roti Geloong.</div>
-        </div>
-      </div>
+      <div class="panel-hdr"><i class="fa-solid fa-lightbulb"></i> Insight & Rekomendasi Oktober</div>
+      <div class="ins"><div class="dot d-a"></div><div>Views harian relatif stabil di kisaran 1.500-4.000 sepanjang bulan (tanpa lonjakan ekstrem seperti 17 & 23-29 Agustus) — pola "slow & steady" tanpa viral spike besar.</div></div>
+      <div class="ins"><div class="dot d-g"></div><div>Konten yang dijadwalkan di awal Oktober (pipeline terlihat di Business Suite) sudah mulai menguji konten bertema roti: "packing time Roti Geloong" (1,6K views), konten roti umum "wajib dibawa" (660 views) — basis untuk uji coba konten Roti Kasur.</div></div>
+      <div class="ins"><div class="dot d-rz"></div><div><strong>Untuk Roti Kasur:</strong> manfaatkan tren "roti sobek sari roti" (Breakout) — buat konten format "sobek/pull-apart" saat membuka kemasan Roti Kasur Onty, visual yang sangat cocok untuk short-form video TikTok.</div></div>
+      <div class="ins"><div class="dot d-b"></div><div>Audiens TikTok 97,5% laki-laki, usia dominan 25-34 (43,2%) — pertimbangkan angle konten yang relevan untuk segmen ini (misal: "roti kasur buat sarapan sebelum kerja").</div></div>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-bottom:22px">
+    <div class="panel-hdr"><i class="fa-solid fa-globe"></i> Audiens: Top Kota & Negara (Data Agustus, Asumsi Stabil)</div>
+    <div class="grid2" style="margin-bottom:0">
+      <div><div class="mrow"><div class="mrow-l">🇮🇩 Indonesia</div><div class="mrow-r">36,6%</div></div><div class="mrow"><div class="mrow-l">🇸🇬 Singapura</div><div class="mrow-r">9,9%</div></div><div class="mrow"><div class="mrow-l">🇹🇼 Taiwan</div><div class="mrow-r">8,9%</div></div></div>
+      <div><div class="mrow"><div class="mrow-l">📍 Pekalongan</div><div class="mrow-r">10,5%</div></div><div class="mrow"><div class="mrow-l">📍 Semarang</div><div class="mrow-r">7,9%</div></div><div class="mrow"><div class="mrow-l">📍 Surabaya</div><div class="mrow-r">7,9%</div></div></div>
     </div>
   </div>
 </div>
-
 <!-- ══════ TAB: YOUTUBE ══════ -->
 <div id="tab-yt" class="tab-page">
   <div class="acct-hero">
@@ -534,48 +533,51 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
       <h2>@ontycakebakery</h2>
       <div class="handle"><i class="fa-brands fa-youtube" style="color:var(--yt)"></i><a href="https://www.youtube.com/@ontycakebakery" target="_blank">youtube.com/@ontycakebakery</a></div>
       <div class="tags">
-        <div class="tag tag-green">📈 Views +8,5%</div>
-        <div class="tag tag-green">🎬 1 Video Reguler Terbit (Pertama Sejak Juni)</div>
-        <div class="real-badge"><i class="fa-solid fa-chart-bar"></i> YouTube Studio 1–30 Agu 2026</div>
+        <div class="tag tag-yt">🎬 Tutorial / Dokumentasi</div>
+        <div class="tag tag-red">⚠️ Teguran Pedoman Komunitas Aktif</div>
+        <div class="real-badge"><i class="fa-solid fa-chart-bar"></i> YouTube Studio · Analisis Channel September 2026</div>
       </div>
     </div>
-    <div class="acct-score"><div class="score-n" style="color:var(--amber)">42</div><div class="score-l">Skor Platform</div><div class="score-s" style="color:var(--amber)">● Naik dari 36</div></div>
-  </div>
-  <div class="grid3">
-    <div class="kpi" style="--kpi-color:var(--yt);--kpi-bg:rgba(255,59,59,.1)"><div class="kpi-icon"><i class="fa-solid fa-users"></i></div><div class="kpi-val">7.643</div><div class="kpi-lbl">Subscribers (realtime)</div><div class="kpi-tag t-warn">-9 subs bulan ini</div></div>
-    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-eye"></i></div><div class="kpi-val">18.446</div><div class="kpi-lbl">Penayangan Agustus</div><div class="kpi-tag t-up">+9% dari Juli (17.006)</div></div>
-    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-clock"></i></div><div class="kpi-val">72,1</div><div class="kpi-lbl">Waktu Tonton (jam)</div><div class="kpi-tag t-warn">Kurang lebih sama dgn Juli (72,9)</div></div>
+    <div class="acct-score"><div class="score-n" style="color:var(--red)">34</div><div class="score-l">Skor Platform</div><div class="score-s" style="color:var(--red)">● Turun dari 42</div></div>
   </div>
 
-  <div class="alert-banner alert-green">
-    <i class="fa-solid fa-video"></i>
-    <div><strong>Akhirnya 1 video reguler terbit lagi!</strong> Setelah 2 bulan berturut-turut nihil publikasi video panjang, Agustus mencatat 5 Shorts + 1 video reguler. Seri konten bertema Kemerdekaan tampil solid: "Merdeka itu ketika mereka berani bermimpi" (1.474 views, AVD 40,5%), "Beli Americano GRATIS Bolu Gulung Strawberry" (1.273 views), "Serunya Teman Onty Borong Promo Kemerdekaan" (1.169 views).</div>
+  <div class="alert-banner alert-red">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <div><strong>Teguran Pedoman Komunitas — 16 September 2026:</strong> Salah satu konten dihapus YouTube karena dianggap melanggar kebijakan, dengan judul/thumbnail yang dinilai alarming (terkait tema "anak tantrum"). Channel kini memiliki 1 teguran aktif. <strong>Tindakan wajib sebelum upload berikutnya:</strong> audit seluruh judul & thumbnail yang mengandung unsur clickbait/alarming, hindari framing dramatis yang tidak sesuai isi konten, dan hindari konten yang menampilkan anak dalam situasi sensitif tanpa konteks edukatif yang jelas.</div>
   </div>
+
+  <div class="grid3">
+    <div class="kpi" style="--kpi-color:var(--yt2);--kpi-bg:rgba(255,59,59,.1)"><div class="kpi-icon"><i class="fa-solid fa-users"></i></div><div class="kpi-val">7.647</div><div class="kpi-lbl">Subscribers</div><div class="kpi-tag t-up">+4 (28 hari) · +157% lebih tinggi dari Agustus</div></div>
+    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-eye"></i></div><div class="kpi-val">13.042</div><div class="kpi-lbl">Views (September)</div><div class="kpi-tag t-warn">-29,3% dari Agustus (18.446)</div></div>
+    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-clock"></i></div><div class="kpi-val">47,2 jam</div><div class="kpi-lbl">Waktu Tonton</div><div class="kpi-tag t-warn">-33% dari periode Agustus</div></div>
+  </div>
+
   <div class="grid2">
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-chart-line"></i> Penayangan 3 Bulan (Juli-September)</div>
-      <div class="chart-wrap h240"><canvas id="chartYtTrend3M"></canvas></div>
+      <div class="panel-hdr"><i class="fa-solid fa-chart-line"></i> Tren Views & Subscriber 3 Bulan</div>
+      <div class="chart-wrap h220"><canvas id="chartYtTrend3M"></canvas></div>
     </div>
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-trophy"></i> Konten Baru Agustus — Performa</div>
-      <div class="mrow"><div class="mrow-l">🇮🇩 "Merdeka itu ketika mereka berani bermimpi"</div><div class="mrow-r">1.474 views · AVD 40,5%</div></div>
-      <div class="mrow"><div class="mrow-l">☕ "Beli Americano GRATIS Bolu Gulung..."</div><div class="mrow-r">1.273 views · AVD 55,4%</div></div>
-      <div class="mrow"><div class="mrow-l">🎉 "Serunya Teman Onty Borong Promo Kem..."</div><div class="mrow-r">1.169 views · AVD 30,5%</div></div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-star" style="color:var(--gold)"></i>Rahasia Bolu Gulung (evergreen)</div><div class="mrow-r" style="color:var(--green)">4.656 views · AVD 85,4%</div></div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-star" style="color:var(--gold)"></i>Pizza Roll Onty Cake (evergreen)</div><div class="mrow-r" style="color:var(--green)">1.928 views · AVD 83,9%</div></div>
+      <div class="panel-hdr"><i class="fa-solid fa-trophy"></i> Konten Terpopuler September</div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-bowl-food"></i>"Nikmati Bongko Roti Onty Saat Ngabuburit"</div><div class="mrow-r">119 views</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-pizza-slice"></i>"Pizza Roll Onty Cake: Roti Favorit untuk Sahur"</div><div class="mrow-r">82 views</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-circle"></i>"Donat Keju Onty: Full Topping, Tanpa Peli..."</div><div class="mrow-r">65 views</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-people-group" style="color:var(--amber)"></i>"Gathering Onty Group 2026 | Sporty" (baru)</div><div class="mrow-r" style="color:var(--amber)">10 views · 21 hari</div></div>
       <div style="margin-top:10px;background:var(--bg4);border-radius:8px;padding:12px;font-size:11.5px;color:var(--text2);line-height:1.6">
-        📌 Konten baru Agustus punya AVD lebih rendah (30-55%) dibanding konten evergreen (80-92%) — normal untuk konten musiman/campaign, tapi tetap layak ditingkatkan hook & durasi videonya di September.
+        ⚠️ Video terbaru "Gathering Onty Group 2026" (konten internal tim, non-produk) sangat underperform — hanya 10 views dalam 21 hari. Konten tutorial/produk makanan (Bongko, Pizza Roll, Donat) jauh lebih kuat menarik penonton organik dibanding konten event internal.
       </div>
     </div>
   </div>
 
-  <div class="panel">
-    <div class="panel-hdr"><i class="fa-solid fa-lightbulb"></i> Insight & Rencana September</div>
-    <div class="ins"><div class="dot d-g"></div><div>Rasio klik-tayang thumbnail naik dari 3,6% (Juli) ke <strong>4,2%</strong> (Agustus) — thumbnail/judul konten Kemerdekaan cukup menarik perhatian.</div></div>
-    <div class="ins"><div class="dot d-a"></div><div>Feed Shorts sebagai sumber discovery naik dari 15,7% ke <strong>29,8%</strong> — makin bergantung pada distribusi Shorts, Penelusuran YouTube turun dari 79,8% ke 64,1%.</div></div>
-    <div class="ins"><div class="dot d-rz"></div><div><strong>Untuk September:</strong> lanjutkan ritme publikasi video reguler (minimal 1/bulan, idealnya 1/minggu) dengan tema "Rahasia Roti Geloong Anti Gagal" mengikuti pola SEO evergreen terbaik channel.</div></div>
+  <div class="panel" style="margin-bottom:22px">
+    <div class="panel-hdr"><i class="fa-solid fa-lightbulb"></i> Insight & Rekomendasi Oktober</div>
+    <div class="ins"><div class="dot d-r"></div><div><strong>Prioritas #1 — Kepatuhan konten:</strong> sebelum mengunggah konten Roti Kasur apa pun, pastikan judul & thumbnail bersifat informatif dan tidak dramatis/alarming. Hindari pola klik-umpan yang memicu moderasi otomatis YouTube.</div></div>
+    <div class="ins"><div class="dot d-a"></div><div>Subscriber growth rate naik +157% meski angka absolut kecil (+4) — menunjukkan ada sinyal minat baru, kemungkinan dari video tutorial resep yang stabil tampil di "konten populer".</div></div>
+    <div class="ins"><div class="dot d-g"></div><div>Format resep/tutorial singkat ("Nikmati X Saat Y", "Z: Full Topping") terbukti konsisten menarik views dibanding konten event — pertahankan format ini untuk video tutorial "Cara Bikin Roti Kasur ala Onty di Rumah".</div></div>
+    <div class="ins"><div class="dot d-b"></div><div>Target Oktober: minimal 1 video reguler dengan judul netral & edukatif bertema Roti Kasur, plus perbaikan 1 video lama yang berisiko (jika ada) untuk mengurangi risiko teguran kedua.</div></div>
   </div>
 </div>
+
 
 <!-- ══════ TAB: IG BAKING CLASS ══════ -->
 <div id="tab-ig-class" class="tab-page">
@@ -583,444 +585,327 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
     <div class="acct-avatar" style="background:linear-gradient(135deg,#1D9E75,#4eca8b);--av-ring:var(--green)">📚</div>
     <div class="acct-info">
       <h2>@ontyfarahbakingclass</h2>
-      <div class="handle"><i class="fa-brands fa-instagram" style="color:var(--ig)"></i><a href="https://www.instagram.com/ontyfarahbakingclass/" target="_blank">instagram.com/ontyfarahbakingclass</a></div>
+      <div class="handle"><i class="fa-brands fa-instagram" style="color:var(--green)"></i><a href="https://www.instagram.com/ontyfarahbakingclass/" target="_blank">instagram.com/ontyfarahbakingclass</a></div>
       <div class="tags">
-        <div class="tag" style="background:rgba(245,158,11,.07);border-color:rgba(245,158,11,.22);color:var(--amber)">📉 Tayangan -24,2%</div>
-        <div class="tag tag-green">Followers +69</div>
-        <div class="tag tag-brand">🏷️ Bio: "Toko Roti" (baru)</div>
-        <div class="real-badge"><i class="fa-solid fa-chart-bar"></i> Dasbor Profesional 30 Hari Agustus</div>
+        <div class="tag tag-edu">🎓 Edukatif / Kelas Baking</div>
+        <div class="tag tag-green">✅ Membaik di Semua Metrik</div>
+        <div class="real-badge"><i class="fa-solid fa-chart-bar"></i> Insights 30 Hari September 2026</div>
       </div>
     </div>
-    <div class="acct-score"><div class="score-n" style="color:var(--amber)">55</div><div class="score-l">Skor Platform</div><div class="score-s" style="color:var(--amber)">● Turun dari 65</div></div>
+    <div class="acct-score"><div class="score-n" style="color:var(--green)">62</div><div class="score-l">Skor Platform</div><div class="score-s" style="color:var(--green)">● Naik dari 55</div></div>
   </div>
   <div class="grid3">
-    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-users"></i></div><div class="kpi-val">2.733</div><div class="kpi-lbl">Followers</div><div class="kpi-tag t-up">+69 vs Juli (2.664), +2,6%</div></div>
-    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-eye"></i></div><div class="kpi-val">84.726</div><div class="kpi-lbl">Tayangan 30 Hari</div><div class="kpi-tag t-warn">-24,2% dari Juli (111.774)</div></div>
-    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-hand-pointer"></i></div><div class="kpi-val">944</div><div class="kpi-lbl">Interaksi 30 Hari</div><div class="kpi-tag t-warn">-16% dari Juli (1.124)</div></div>
+    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-users"></i></div><div class="kpi-val">2.806</div><div class="kpi-lbl">Followers</div><div class="kpi-tag t-up">+73 vs Agustus (2.733)</div></div>
+    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-eye"></i></div><div class="kpi-val">87.134</div><div class="kpi-lbl">Tayangan (30 hari)</div><div class="kpi-tag t-up">+2,8% dari Agustus (84.726)</div></div>
+    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-users-viewfinder"></i></div><div class="kpi-val">485</div><div class="kpi-lbl">Akun Berinteraksi</div><div class="kpi-tag t-up">+20,6% dari Agustus (402)</div></div>
+  </div>
+  <div class="grid3">
+    <div class="kpi" style="--kpi-color:var(--gold)"><div class="kpi-icon"><i class="fa-solid fa-hand-pointer"></i></div><div class="kpi-val">940</div><div class="kpi-lbl">Interaksi (30 hari)</div><div class="kpi-tag t-info">-0,4% dari Agustus (944) · stabil</div></div>
+    <div class="kpi" style="--kpi-color:var(--gold)"><div class="kpi-icon"><i class="fa-solid fa-user-check"></i></div><div class="kpi-val">1.015</div><div class="kpi-lbl">Aktivitas Profil</div><div class="kpi-tag t-info">Kunjungan profil 1.011</div></div>
+    <div class="kpi" style="--kpi-color:var(--gold)"><div class="kpi-icon"><i class="fa-solid fa-calendar-check"></i></div><div class="kpi-val">11 Okt</div><div class="kpi-lbl">Kelas Berikutnya Terjadwal</div><div class="kpi-tag t-info">Hands On Class Cookies Batch 8</div></div>
   </div>
 
-  <div class="alert-banner alert-warn">
-    <i class="fa-solid fa-triangle-exclamation"></i>
-    <div><strong>Views & interaksi turun</strong> meski followers tetap tumbuh. Kelas premium bulan ini ("Hands On Class Bolu Gulung Batch 6" Rp350K, "Hands On Soft Cookies Batch 5" Rp300K) tidak mereplikasi kesuksesan "Mom & Me" Juli — top content bulan ini hanya di kisaran 2-3rb views, jauh di bawah 9,7rb views bulan lalu. Pemirsa unik turun jadi 16.737 dari sebelumnya 20.140.</div>
-  </div>
-  <div class="grid2">
-    <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-chart-pie"></i> Tayangan & Interaksi by Jenis Konten (Juli → Agustus)</div>
-      <div class="chart-wrap h240"><canvas id="chartIgClassContentType"></canvas></div>
-    </div>
-    <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-trophy"></i> Top Konten Agustus (Berdasarkan Views)</div>
-      <div class="mrow"><div class="mrow-l">🥐 Hands On Class Bolu Gulung Batch 6</div><div class="mrow-r" style="color:var(--green)">3,2rb views (2 Agu)</div></div>
-      <div class="mrow"><div class="mrow-l">🤝 Baking Class X Komunitas Seru</div><div class="mrow-r" style="color:var(--green)">2,5rb views · 73 interaksi (12 Agu)</div></div>
-      <div class="mrow"><div class="mrow-l">🍪 Hands On Soft Cookies Batch 5</div><div class="mrow-r">2,2rb views (4 Agu)</div></div>
-      <div class="mrow"><div class="mrow-l">💰 Kelas 185k Dapet Apa Aja?</div><div class="mrow-r">1,8rb views (18 Agu)</div></div>
-      <div class="mrow"><div class="mrow-l">🇮🇩 Merdeka Tim Onty Baking Class Edition</div><div class="mrow-r">17 interaksi</div></div>
-    </div>
-  </div>
-  <div class="grid2">
-    <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-circle-info"></i> Info & Kelas Mendatang</div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-bread-slice"></i>Kelas Terjadwal Berikutnya</div><div class="mrow-r" style="font-size:11px">Salt Bread (19 Sep, 350K), Cupcake Kids (13 Sep, 100K)</div></div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-tag"></i>Bio Berubah</div><div class="mrow-r" style="font-size:11px">Kategori kini "Toko Roti" (sebelumnya "Bakery")</div></div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-user-check"></i>Kunjungan Profil</div><div class="mrow-r">927 (turun dari 1.350)</div></div>
-      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-users-between-lines"></i>Akun Berinteraksi</div><div class="mrow-r">402 (turun dari 468)</div></div>
-    </div>
-    <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-lightbulb"></i> Insight & Rekomendasi September</div>
-      <div class="ins"><div class="dot d-a"></div><div>Penurunan tayangan -24,2% terjadi meski jumlah kelas terjadwal cukup padat (Bolu Gulung, Soft Cookies, Salt Bread) — kemungkinan konten kurang punya "hook" sekuat kolaborasi psikologi "Mom & Me" bulan lalu.</div></div>
-      <div class="ins"><div class="dot d-g"></div><div>Followers tetap tumbuh +2,6% — menandakan reputasi kelas masih solid, hanya distribusi konten yang melemah.</div></div>
-      <div class="ins"><div class="dot d-rz"></div><div><strong>Untuk September:</strong> buka kelas "Belajar Bikin Roti Geloong Sendiri" sebagai konten kolaboratif baru — replikasi formula "Mom & Me" dengan tema produk baru yang sedang trending secara pencarian.</div></div>
-      <div class="ins"><div class="dot d-o"></div><div>Pertimbangkan kembali format kolaborasi tematik (psikologi, komunitas) yang terbukti efektif Juli lalu, bukan sekadar kelas reguler berbayar.</div></div>
-    </div>
-  </div>
-</div>
-
-<!-- ══════ TAB: TT BAKING CLASS (PEMULIHAN BESAR) ══════ -->
-<div id="tab-tt-class" class="tab-page">
-  <div class="acct-hero">
-    <div class="acct-avatar" style="background:linear-gradient(135deg,#1D9E75,#4eca8b);--av-ring:var(--green)">🚀</div>
-    <div class="acct-info">
-      <h2>@ontyfarahbakingclass</h2>
-      <div class="handle"><i class="fa-brands fa-tiktok" style="color:var(--tt)"></i><a href="https://www.tiktok.com/@ontyfarahbakingclass" target="_blank">tiktok.com/@ontyfarahbakingclass</a></div>
-      <div class="tags">
-        <div class="tag tag-green">🚀 Pulih Total: +11.262% Views</div>
-        <div class="tag tag-green">Followers +37,6%</div>
-        <div class="real-badge"><i class="fa-solid fa-chart-bar"></i> TikTok Studio Overview 3–30 Agustus 2026</div>
-      </div>
-    </div>
-    <div class="acct-score"><div class="score-n" style="color:var(--green)">72</div><div class="score-l">Skor Platform</div><div class="score-s" style="color:var(--green)">● Naik dari 4!</div></div>
-  </div>
-  <div style="background:linear-gradient(135deg,rgba(62,203,130,.12),rgba(62,203,130,.04));border:1.5px solid rgba(62,203,130,.4);border-radius:14px;padding:18px 20px;margin-bottom:18px">
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
-      <div style="width:32px;height:32px;background:rgba(62,203,130,.18);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">🎉</div>
-      <div>
-        <div style="font-size:14px;font-weight:700;color:var(--green)">DARI DARURAT KE THRIVING — Pemulihan Terbesar di Seluruh Ekosistem Onty</div>
-        <div style="font-size:11px;color:var(--text3);margin-top:1px">3 bulan berturut-turut kolaps (Mei→Juni→Juli), lalu pemulihan dramatis di Agustus setelah eksekusi konten musiman "Merdeka"</div>
-      </div>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
-      <div style="background:rgba(62,203,130,.08);border:1px solid rgba(62,203,130,.25);border-radius:10px;padding:12px;text-align:center">
-        <div style="font-family:'DM Serif Display',serif;font-size:30px;color:var(--green)">64.859</div>
-        <div style="font-size:10px;color:var(--text3);margin-top:2px">Video Views (dari 571 Juli, +11.262%)</div>
-      </div>
-      <div style="background:rgba(62,203,130,.08);border:1px solid rgba(62,203,130,.25);border-radius:10px;padding:12px;text-align:center">
-        <div style="font-family:'DM Serif Display',serif;font-size:30px;color:var(--green)">808</div>
-        <div style="font-size:10px;color:var(--text3);margin-top:2px">Suka (dari 2 Juli)</div>
-      </div>
-      <div style="background:rgba(62,203,130,.08);border:1px solid rgba(62,203,130,.25);border-radius:10px;padding:12px;text-align:center">
-        <div style="font-family:'DM Serif Display',serif;font-size:30px;color:var(--green)">538</div>
-        <div style="font-size:10px;color:var(--text3);margin-top:2px">Followers (dari 391, +37,6%)</div>
-      </div>
-    </div>
-    <div style="margin-top:10px;background:rgba(62,203,130,.08);border-radius:8px;padding:12px;font-size:12.5px;color:var(--text2);line-height:1.7;border-left:3px solid var(--green)">
-      <strong style="color:var(--green)">Rincian tambahan:</strong> Profile Views 798 (dari 46), Comments 78 (dari 0), Shares 113 (dari 1). Total suka akun (all-time) juga naik dari 2.841 ke <strong>3.614</strong>. Ini membuktikan bahwa krisis 3 bulan bukan disebabkan oleh shadowban permanen — konten musiman & segar (Merdeka, Salt Bread) berhasil mereset sinyal algoritma sepenuhnya.
-    </div>
-  </div>
-  <div class="grid2" style="margin-bottom:18px">
-    <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-chart-line"></i> Tren 4 Bulan: Mei → Juni → Juli → Agustus</div>
-      <div class="chart-wrap h260"><canvas id="chartTtClassTrend4M"></canvas></div>
-    </div>
-    <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-magnifying-glass-chart"></i> Apa yang Berhasil?</div>
-      <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px">
-        <div style="background:rgba(62,203,130,.06);border:1px solid rgba(62,203,130,.18);border-radius:10px;padding:12px">
-          <div style="font-size:10px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">✅ Konten Musiman Segar</div>
-          <div style="font-size:12px;color:var(--text2);line-height:1.6">"Merdeka Tim Onty Baking Class Edition" dan promo Salt Bread memberi sinyal baru ke algoritma — persis rekomendasi bulan lalu untuk keluar dari pola caption berulang.</div>
-        </div>
-        <div style="background:rgba(62,203,130,.06);border:1px solid rgba(62,203,130,.18);border-radius:10px;padding:12px">
-          <div style="font-size:10px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">📈 Momentum Bertahan Lama</div>
-          <div style="font-size:12px;color:var(--text2);line-height:1.6">Lonjakan tak hanya 1 hari — rentang 6-15 Agustus konsisten di 2.000-5.000 views/hari, dan puncak 8.015 views pada 19 Agustus. Ini pola engagement yang sehat, bukan spike sesaat.</div>
-        </div>
-        <div style="background:rgba(96,165,250,.06);border:1px solid rgba(96,165,250,.18);border-radius:10px;padding:12px">
-          <div style="font-size:10px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">🎯 Untuk September</div>
-          <div style="font-size:12px;color:var(--text2);line-height:1.6">Jangan kembali ke pola caption template lama! Pertahankan variasi konten dengan tema baru "Belajar Bikin Roti Geloong" untuk menjaga momentum pemulihan ini.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="panel">
-    <div class="panel-hdr"><i class="fa-solid fa-list-check"></i> Rencana September — Jaga Momentum, Jangan Ulangi Kesalahan Lama</div>
-    <div class="ins"><div class="dot d-g"></div><div>Lanjutkan variasi caption & tema — hindari kembali ke template "informasi pendaftaran dm atau klik link di bio" yang jadi penyebab kolaps sebelumnya.</div></div>
-    <div class="ins"><div class="dot d-rz"></div><div>Buat seri "Bikin Roti Geloong Sendiri di Kelas Onty" sebagai konten baru bertema launching produk — kombinasikan edukasi proses dengan reveal produk final.</div></div>
-    <div class="ins"><div class="dot d-b"></div><div>Analisis video spesifik tanggal 6, 9, dan 19 Agustus (puncak performa) untuk memahami pola format yang paling disukai algoritma & audiens saat ini.</div></div>
-  </div>
-</div>
-
-<!-- ══════ TAB: KOMPETITOR ══════ -->
-<div id="tab-kompetitor" class="tab-page">
-  <div class="alert-banner alert-raisin">
-    <i class="fa-solid fa-chess"></i>
-    <div><strong>Update: Data Delizia diperbarui + 3 kompetitor benchmark nasional baru ditambahkan.</strong> Selain Delizia (kompetitor lokal terdekat), dashboard kini memantau 3 brand bolu gulung/oleh-oleh skala nasional-regional — Surabaya Roll Cake, Bolu Susu Lembang, dan Bolu Meranti — sebagai tolok ukur ambisi jangka panjang di kategori yang sama.</div>
-  </div>
-
-  <div class="sec-hdr"><div class="sec-title">⚔️ Kompetitor Lokal Terdekat</div></div>
-
-  <div class="acct-hero">
-    <div class="acct-avatar" style="background:linear-gradient(135deg,#7a1830,#4a0d1c);--av-ring:#ff8fb3">🏪</div>
-    <div class="acct-info">
-      <h2>Delizia Bakery & Cake</h2>
-      <div class="handle"><i class="fa-brands fa-instagram" style="color:var(--ig)"></i>@deliziabakery · Jl. Jenderal Sudirman 275-277, Batang, Jawa Tengah</div>
-      <div class="tags">
-        <div class="tag" style="background:rgba(255,143,179,.08);border-color:rgba(255,143,179,.25);color:#ff8fb3">⚔️ Kompetitor Terdekat</div>
-        <div class="tag tag-green">📈 Followers +300 (16,1K→16,4K)</div>
-        <div class="tag" style="background:rgba(155,127,212,.1);border-color:rgba(155,127,212,.3);color:var(--taro2)">🔥 Video Viral Tembus 1 Juta Views</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="grid2" style="margin-bottom:14px">
-    <div class="panel">
-      <div class="panel-hdr"><i class="fa-brands fa-instagram"></i> Delizia Instagram — Update Terbaru</div>
-      <div class="mrow"><div class="mrow-l">Followers</div><div class="mrow-r" style="color:var(--green)">16.400 (+300 dari 16.100)</div></div>
-      <div class="mrow"><div class="mrow-l">Posts</div><div class="mrow-r">1.343 (+26)</div></div>
-      <div class="mrow"><div class="mrow-l">Following</div><div class="mrow-r">409 (turun dari 412)</div></div>
-      <div class="mrow"><div class="mrow-l">Video "AI Gantikan Baker"</div><div class="mrow-r" style="color:var(--taro2);font-weight:700">1.000.000 views 🔥</div></div>
-      <div class="mrow"><div class="mrow-l">Video "Dua Mood Seorang Baker"</div><div class="mrow-r" style="color:var(--green)">197.000 views</div></div>
-      <div class="mrow"><div class="mrow-l">Dubai Chewy Mochi</div><div class="mrow-r">72.300 views</div></div>
-    </div>
-    <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-lightbulb"></i> Insight Terbaru</div>
-      <div class="ins"><div class="dot d-g"></div><div>Video "pekerjaanmu digantikan AI" resmi tembus <strong>1 juta views</strong> — naik dari 998rb bulan lalu, membuktikan video ini masih terus didistribusikan algoritma berbulan-bulan setelah publikasi (evergreen viral).</div></div>
-      <div class="ins"><div class="dot d-rz"></div><div>Konten baru: "Dirgahayu Republik Indonesia" (tema Kemerdekaan, 2.425 views) dan "AI Photobooth" — Delizia juga eksperimen format AI/teknologi untuk menarik interaksi.</div></div>
-      <div class="ins"><div class="dot d-a"></div><div>Onty tetap unggul basis followers (2,9× IG), tapi gap engagement rate makin lebar karena video viral Delizia terus tumbuh.</div></div>
-    </div>
-  </div>
-
-  <div class="sec-hdr" style="margin-top:8px"><div class="sec-title">🏆 Benchmark Nasional — Brand Bolu Gulung/Oleh-oleh Skala Besar</div><div class="real-badge"><i class="fa-solid fa-chart-simple"></i> Screenshot Instagram Terbaru</div></div>
-
-  <div class="pc-row">
-    <div class="pc">
-      <div class="pc-hdr">
-        <div class="pc-icon" style="background:linear-gradient(135deg,#4a3f2a,#2a2418)">🍫</div>
-        <div><div style="font-size:13px;font-weight:600">Surabaya Roll Cake</div><div style="font-size:10px;color:var(--text3)">@surabayarollcake · Surabaya</div></div>
-        <div class="tag" style="margin-left:auto;background:rgba(96,165,250,.1);border-color:rgba(96,165,250,.3);color:var(--blue)">Regional</div>
-      </div>
-      <div class="pc-stats">
-        <div><div class="pv" style="color:var(--blue)">38,4K</div><div class="pl">Followers</div></div>
-        <div><div class="pv">804</div><div class="pl">Posts</div></div>
-        <div><div class="pv">51,4K</div><div class="pl">Video Terbaik</div></div>
-      </div>
-      <div class="progbar"><div class="progfill" style="width:29%;background:linear-gradient(90deg,var(--blue),#60a5faaa)"></div></div>
-      <div class="progmeta"><span>vs Onty IG (47,3K)</span><span>81% dari basis Onty</span></div>
-    </div>
-    <div class="pc">
-      <div class="pc-hdr">
-        <div class="pc-icon" style="background:linear-gradient(135deg,#1e88e5,#e91e8c)">🥛</div>
-        <div><div style="font-size:13px;font-weight:600">Bolu Susu Lembang</div><div style="font-size:10px;color:var(--text3)">@bolulembang ✓ · Bandung</div></div>
-        <div class="tag" style="margin-left:auto;background:rgba(239,68,68,.1);border-color:rgba(239,68,68,.3);color:var(--red)">Nasional</div>
-      </div>
-      <div class="pc-stats">
-        <div><div class="pv" style="color:var(--red)">133K</div><div class="pl">Followers</div></div>
-        <div><div class="pv">2.645</div><div class="pl">Posts</div></div>
-        <div><div class="pv">345K</div><div class="pl">Video Terbaik</div></div>
-      </div>
-      <div class="progbar"><div class="progfill" style="width:100%;background:linear-gradient(90deg,var(--red),#ef4444aa)"></div></div>
-      <div class="progmeta"><span>vs Onty IG (47,3K)</span><span>2,8× lebih besar</span></div>
-    </div>
-    <div class="pc">
-      <div class="pc-hdr">
-        <div class="pc-icon" style="background:linear-gradient(135deg,#f5c518,#e8b86d)">🍰</div>
-        <div><div style="font-size:13px;font-weight:600">Bolu Meranti</div><div style="font-size:10px;color:var(--text3)">@bolumeranti.official ✓ · Medan</div></div>
-        <div class="tag" style="margin-left:auto;background:rgba(239,68,68,.1);border-color:rgba(239,68,68,.3);color:var(--red)">Nasional</div>
-      </div>
-      <div class="pc-stats">
-        <div><div class="pv" style="color:var(--red)">32,9K</div><div class="pl">Followers</div></div>
-        <div><div class="pv">1.755</div><div class="pl">Posts</div></div>
-        <div><div class="pv">31,3K</div><div class="pl">Video Terbaik</div></div>
-      </div>
-      <div class="progbar"><div class="progfill" style="width:70%;background:linear-gradient(90deg,var(--red),#ef4444aa)"></div></div>
-      <div class="progmeta"><span>vs Onty IG (47,3K)</span><span>70% dari basis Onty</span></div>
-    </div>
-  </div>
-
-  <div class="panel" style="margin-bottom:18px">
-    <div class="panel-hdr"><i class="fa-solid fa-scale-balanced"></i> Perbandingan Lengkap — Onty vs Semua Kompetitor</div>
-    <table class="vs-table">
-      <thead><tr><th>Brand</th><th>Followers IG</th><th>Posts</th><th>Video Terbaik</th><th>Skala</th></tr></thead>
-      <tbody>
-        <tr><td class="vs-onty">Onty Cake</td><td class="vs-onty">47.322</td><td class="vs-onty">2.957</td><td class="vs-onty">29,1K (organik)</td><td>Lokal Pekalongan</td></tr>
-        <tr><td>Bolu Susu Lembang</td><td style="color:var(--red);font-weight:700">133.000</td><td>2.645</td><td style="color:var(--red);font-weight:700">345.000</td><td>Nasional (Bandung)</td></tr>
-        <tr><td>Surabaya Roll Cake</td><td>38.400</td><td>804</td><td>51.400</td><td>Regional (Surabaya)</td></tr>
-        <tr><td>Bolu Meranti</td><td>32.900</td><td>1.755</td><td>31.300</td><td>Nasional (Medan)</td></tr>
-        <tr><td class="vs-delizia">Delizia Bakery</td><td class="vs-delizia">16.400</td><td class="vs-delizia">1.343</td><td class="vs-delizia">1.000.000 🔥</td><td>Lokal Batang</td></tr>
-      </tbody>
-    </table>
+  <div class="alert-banner alert-green">
+    <i class="fa-solid fa-arrow-trend-up"></i>
+    <div><strong>Semua metrik utama membaik bersamaan</strong> — followers, tayangan, dan akun interaksi semuanya naik dibanding Agustus, membalikkan tren penurunan bulan lalu (-24,2% views). Konten flyer promosi kelas ("Hands On Class Cookies Batch 8") jadi pendorong views tertinggi (6,8rb) dan interaksi tertinggi (61).</div>
   </div>
 
   <div class="grid2">
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-chart-bar"></i> Followers: Onty vs Semua Kompetitor</div>
-      <div class="chart-wrap h240"><canvas id="chartCompAllFollowers"></canvas></div>
+      <div class="panel-hdr"><i class="fa-solid fa-chart-pie"></i> Sumber Tayangan by Jenis Konten</div>
+      <div class="chart-wrap h220"><canvas id="chartIgClassContentType"></canvas></div>
     </div>
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-lightbulb"></i> Apa yang Bisa Dipelajari dari Brand Skala Besar?</div>
-      <div class="ins"><div class="dot d-r"></div><div><strong>Bolu Susu Lembang (133K followers) adalah pemain kelas berbeda</strong> — 2,8× lebih besar dari Onty. Video terbaik mereka (345K views) menggunakan meme budaya pop ("Gacoan" — referensi kuliner viral) dan event komunitas nyata (lomba makan kerupuk, lomba 17-an) dengan hadiah & keterlibatan massa.</div></div>
-      <div class="ins"><div class="dot d-a"></div><div><strong>Bolu Meranti & Surabaya Roll Cake konsisten mengandalkan "reveal produk"</strong> (belah kue, tekstur lembut, isian) sebagai konten utama — mirip pendekatan Onty, tapi dengan kualitas produksi visual (lighting, styling) yang lebih matang.</div></div>
-      <div class="ins"><div class="dot d-g"></div><div><strong>Pola sama di semua brand besar:</strong> mereka juga menjalankan campaign musiman Kemerdekaan (Bolu Susu Lembang: "Lomba 17-an", Delizia: "Dirgahayu Republik Indonesia") — validasi bahwa strategi musiman Onty Agustus sudah on-trend dengan kompetitor besar.</div></div>
-      <div class="ins"><div class="dot d-rz"></div><div><strong>Untuk Roti Geloong:</strong> pertimbangkan meniru elemen "community event" ala Bolu Susu Lembang (lomba/challenge fisik yang melibatkan banyak orang) — bukan cuma konten digital, tapi aktivasi offline yang direkam & dibagikan.</div></div>
-    </div>
-  </div>
-</div>
-
-<!-- ══════ TAB: TREN RAISIN & ROTI ══════ -->
-<div id="tab-tren" class="tab-page">
-  <div class="alert-banner alert-raisin">
-    <i class="fa-solid fa-magnifying-glass-chart"></i>
-    <div><strong>Sumber: Google Trends terbaru — Indonesia vs Jawa Tengah.</strong> Pencarian bulan ini fokus pada "Raisin" (kismis) — bahan utama produk baru Roti Geloong (Pain aux Raisins) — dan lanjutan pemantauan "Roti" secara umum.</div>
-  </div>
-
-  <div class="sec-hdr"><div class="sec-title">🍇 Tren Kata Kunci "Raisin" — Momentum Peluncuran Roti Geloong</div><div class="real-badge">Google Trends — Data Terbaru</div></div>
-
-  <div class="kpi-grid">
-    <div class="kpi" style="--kpi-color:var(--raisin2);--kpi-bg:rgba(139,74,43,.2)"><div class="kpi-icon"><i class="fa-solid fa-bolt"></i></div><div class="kpi-val">Breakout</div><div class="kpi-lbl">"raisin roll"</div><div class="kpi-tag t-raisin">SI 10 · Nama produk internasional pas</div></div>
-    <div class="kpi" style="--kpi-color:var(--raisin2);--kpi-bg:rgba(139,74,43,.2)"><div class="kpi-icon"><i class="fa-solid fa-bolt"></i></div><div class="kpi-val">Breakout</div><div class="kpi-lbl">"pain au raisin"</div><div class="kpi-tag t-raisin">SI 4 · Istilah teknis pastry</div></div>
-    <div class="kpi" style="--kpi-color:var(--raisin2);--kpi-bg:rgba(139,74,43,.2)"><div class="kpi-icon"><i class="fa-solid fa-bolt"></i></div><div class="kpi-val">Breakout</div><div class="kpi-lbl">"danish raisin"</div><div class="kpi-tag t-raisin">SI 9 · Istilah alternatif dikenal</div></div>
-    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-chart-simple"></i></div><div class="kpi-val">100</div><div class="kpi-lbl">SI "raisin adalah" Jateng</div><div class="kpi-tag t-warn">Breakout — tahap edukasi tinggi lokal</div></div>
-  </div>
-
-  <div class="grid2">
-    <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-bolt"></i> Breakout — Indonesia (Raisin)</div>
-      <table class="kw-table">
-        <thead><tr><th>Keyword</th><th>SI</th><th>Status</th></tr></thead>
-        <tbody>
-          <tr><td>chomp mallow raisin</td><td class="kw-si">100</td><td><span class="badge b-raisin">Breakout</span></td></tr>
-          <tr><td>raisin roll</td><td class="kw-si">10</td><td><span class="badge b-raisin">Breakout</span></td></tr>
-          <tr><td>danish raisin</td><td class="kw-si">9</td><td><span class="badge b-raisin">Breakout</span></td></tr>
-          <tr><td>golden raisin</td><td class="kw-si">8</td><td><span class="badge b-raisin">Breakout</span></td></tr>
-          <tr><td>raisin cake</td><td class="kw-si">7</td><td><span class="badge b-raisin">Breakout</span></td></tr>
-          <tr><td>oatmeal raisin cookies</td><td class="kw-si">6</td><td><span class="badge b-raisin">Breakout</span></td></tr>
-          <tr><td>pain au raisin</td><td class="kw-si">4</td><td><span class="badge b-raisin">Breakout</span></td></tr>
-          <tr><td>rum raisin</td><td class="kw-si">58</td><td><span class="badge b-red">-50%</span></td></tr>
-          <tr><td>raisin adalah</td><td class="kw-si">52</td><td><span class="badge b-red">-60%</span></td></tr>
-          <tr><td>raisin toast</td><td class="kw-si">32</td><td><span class="badge b-red">-20%</span></td></tr>
-        </tbody>
-      </table>
-      <div style="margin-top:10px;background:var(--bg4);border-radius:8px;padding:12px;font-size:12px;color:var(--text2);line-height:1.6">
-        💡 <strong>"Raisin roll" dan "pain au raisin" — persis nama produk yang akan diluncurkan Onty — berstatus Breakout.</strong> "Chomp mallow raisin" (SI 100) adalah produk snack kemasan populer, bukan pesaing langsung, tapi menandakan kata "raisin" sedang ramai dicari secara umum.
-      </div>
-    </div>
-    <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-map-location-dot"></i> Raisin — Jawa Tengah (Data Terbatas)</div>
-      <table class="kw-table">
-        <thead><tr><th>Keyword</th><th>SI</th><th>Status</th></tr></thead>
-        <tbody>
-          <tr><td>raisin adalah</td><td class="kw-si">100</td><td><span class="badge b-raisin">Breakout</span></td></tr>
-          <tr><td>chomp mallow raisin</td><td class="kw-si">0</td><td><span class="badge b-red">-100%</span></td></tr>
-          <tr><td>rhum raisin</td><td class="kw-si">0</td><td><span class="badge b-red">-100%</span></td></tr>
-        </tbody>
-      </table>
-      <div style="margin-top:10px;background:var(--bg4);border-radius:8px;padding:12px;font-size:12px;color:var(--text2);line-height:1.6">
-        ⚠️ <strong>Data pencarian "raisin" di Jawa Tengah masih sangat terbatas</strong> (hanya 3 kata kunci tercatat) — kata "raisin" belum familiar di level lokal. "Raisin adalah" (apa itu raisin) Breakout dengan SI 100 menandakan audiens Jateng baru dalam tahap mengenal istilah ini.
-      </div>
+      <div class="panel-hdr"><i class="fa-solid fa-trophy"></i> Konten Terpopuler September</div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-cookie-bite" style="color:var(--green)"></i>Flyer "Hands On Class Cookies Batch 8"</div><div class="mrow-r" style="color:var(--green)">6,8rb views · 61 interaksi</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-bread-slice"></i>"Hands On Class: Salt Bread"</div><div class="mrow-r">1,7rb views · 33 interaksi</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-mosque"></i>"Teman-Teman Arobithoh Pekalongan"</div><div class="mrow-r">31 interaksi</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-location-dot"></i>"Baking Class — 1 Menit dari Simpang Lima"</div><div class="mrow-r">28 interaksi</div></div>
+      <div class="mrow"><div class="mrow-l"><i class="fa-solid fa-video"></i>"POV dibalik kelas salt bread"</div><div class="mrow-r">1,2rb views · 18 interaksi</div></div>
     </div>
   </div>
 
   <div class="panel" style="margin-bottom:22px">
-    <div class="panel-hdr"><i class="fa-solid fa-lightbulb"></i> Implikasi Penting untuk Nama "Roti Geloong"</div>
-    <div class="ins"><div class="dot d-rz"></div><div><strong>Kata "raisin" masih asing di Jawa Tengah</strong> (data lokal minim, dominasi pencarian edukasi "apa itu raisin"). Nama lokal "Roti Geloong" menjadi strategi tepat — lebih mudah diingat & diucapkan dibanding istilah asing "pain au raisin" atau "raisin roll" untuk pasar lokal Pekalongan.</div></div>
-    <div class="ins"><div class="dot d-a"></div><div>Tetap sertakan istilah internasional (Raisin Roll / Danish Kismis / Pain aux Raisins) di caption & SEO sebagai kata kunci pendukung, karena istilah ini sedang Breakout secara nasional dan bisa menjangkau audiens yang mencari dengan istilah global.</div></div>
-    <div class="ins"><div class="dot d-g"></div><div>Gunakan istilah "kismis" (versi Bahasa Indonesia yang sudah dikenal luas) sebagai jembatan edukasi di konten awal — sebelum memperkenalkan nama "Roti Geloong" sebagai identitas unik produk.</div></div>
+    <div class="panel-hdr"><i class="fa-solid fa-lightbulb"></i> Insight & Rekomendasi Oktober</div>
+    <div class="ins"><div class="dot d-g"></div><div>Flyer promosi kelas dengan info jelas (harga, tanggal, lokasi) konsisten jadi konten terkuat — pertahankan format ini untuk kelas Oktober.</div></div>
+    <div class="ins"><div class="dot d-g"></div><div>Lokasi "1 menit dari Simpang Lima" sebagai angle konten (kemudahan akses) terbukti menarik interaksi — bisa direplikasi untuk promosi kelas baru.</div></div>
+    <div class="ins"><div class="dot d-rz"></div><div><strong>Peluang Roti Kasur:</strong> buka kelas "Hands On Class: Bikin Roti Kasur Sendiri" memanfaatkan momentum pencarian nasional — kelas langsung bisa jadi diferensiator kuat dibanding Sari Roti yang hanya produk pabrikan.</div></div>
+  </div>
+</div>
+<!-- ══════ TAB: TT BAKING CLASS ══════ -->
+<div id="tab-tt-class" class="tab-page">
+  <div class="acct-hero">
+    <div class="acct-avatar" style="background:linear-gradient(135deg,#1D9E75,#4eca8b);--av-ring:var(--green)">🎓</div>
+    <div class="acct-info">
+      <h2>@ontyfarahbakingclass</h2>
+      <div class="handle"><i class="fa-brands fa-tiktok" style="color:var(--green)"></i><a href="https://www.tiktok.com/@ontyfarahbakingclass" target="_blank">tiktok.com/@ontyfarahbakingclass</a></div>
+      <div class="tags">
+        <div class="tag tag-edu">🎓 Edukatif / Kelas Baking</div>
+        <div class="tag tag-green">✅ Followers +18% — Basis Loyal Terbentuk</div>
+        <div class="real-badge"><i class="fa-solid fa-chart-bar"></i> TikTok Studio · 1-30 September 2026</div>
+      </div>
+    </div>
+    <div class="acct-score"><div class="score-n" style="color:var(--green)">58</div><div class="score-l">Skor Platform</div><div class="score-s" style="color:var(--text3)">● Turun dari puncak 72, masih jauh di atas krisis (4)</div></div>
+  </div>
+  <div class="grid3">
+    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-users"></i></div><div class="kpi-val">635</div><div class="kpi-lbl">Followers</div><div class="kpi-tag t-up">+97 vs Agustus (538) · +18%</div></div>
+    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-eye"></i></div><div class="kpi-val">40.400</div><div class="kpi-lbl">Video Views</div><div class="kpi-tag t-warn">-37,7% dari puncak Agustus (64.859)</div></div>
+    <div class="kpi" style="--kpi-color:var(--gold)"><div class="kpi-icon"><i class="fa-solid fa-heart"></i></div><div class="kpi-val">4.200</div><div class="kpi-lbl">Total Likes (Akumulasi)</div><div class="kpi-tag t-info">601 likes baru (-25,6% vs Agustus)</div></div>
+  </div>
+  <div class="grid3">
+    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-user-check"></i></div><div class="kpi-val">555</div><div class="kpi-lbl">Profile Views</div><div class="kpi-tag t-warn">-30,5% dari Agustus (798)</div></div>
+    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-comment"></i></div><div class="kpi-val">74</div><div class="kpi-lbl">Komentar</div><div class="kpi-tag t-warn">-5,1% dari Agustus (78) · relatif stabil</div></div>
+    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-share-nodes"></i></div><div class="kpi-val">54</div><div class="kpi-lbl">Shares</div><div class="kpi-tag t-warn">-52,2% dari Agustus (113)</div></div>
   </div>
 
-  <div class="sec-hdr" style="margin-top:8px"><div class="sec-title">🍞 Tren Kata Kunci "Roti" — Update Lanjutan</div><div class="real-badge">Google Trends — Data Terbaru</div></div>
+  <div class="alert-banner alert-green">
+    <i class="fa-solid fa-heart-circle-check"></i>
+    <div><strong>Views turun tapi followers justru naik +18%</strong> — sinyal positif: audiens yang datang di September lebih cenderung menjadi follower permanen dibanding sekadar menonton sekali (khas penonton viral Agustus). Basis komunitas loyal mulai terbentuk pasca-pemulihan dramatis bulan lalu (+11.262%).</div>
+  </div>
 
   <div class="grid2">
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-bolt"></i> Indonesia — Roti "Near Me" Mendominasi</div>
-      <table class="kw-table">
-        <thead><tr><th>Keyword</th><th>SI</th><th>Status</th></tr></thead>
-        <tbody>
-          <tr><td>roti john near me</td><td class="kw-si">21</td><td><span class="badge b-green">+950%</span></td></tr>
-          <tr><td>roti canai near me</td><td class="kw-si">21</td><td><span class="badge b-green">+800%</span></td></tr>
-          <tr><td>roti near me</td><td class="kw-si">95</td><td><span class="badge b-green">+650%</span></td></tr>
-          <tr><td>rumali roti near me</td><td class="kw-si">20</td><td><span class="badge b-green">+550%</span></td></tr>
-          <tr><td>roti john</td><td class="kw-si">24</td><td><span class="badge b-green">+300%</span></td></tr>
-          <tr><td>roti kismis</td><td class="kw-si">3</td><td><span class="badge b-green">+30%</span></td></tr>
-        </tbody>
-      </table>
-      <div style="margin-top:10px;background:var(--bg4);border-radius:8px;padding:12px;font-size:12px;color:var(--text2);line-height:1.6">
-        💡 <strong>Pola pencarian "near me" mendominasi</strong> — orang aktif mencari lokasi toko roti terdekat. Pastikan Google Business Profile Onty lengkap & akurat, dan sebut lokasi (Pekalongan) secara eksplisit di setiap caption produk baru.
-      </div>
+      <div class="panel-hdr"><i class="fa-solid fa-chart-bar"></i> Perbandingan 4 Bulan: Juni–September</div>
+      <div class="chart-wrap h240"><canvas id="chartTtClassTrend4M"></canvas></div>
     </div>
     <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-map-location-dot"></i> Jawa Tengah — Breakout Lokal</div>
-      <table class="kw-table">
-        <thead><tr><th>Keyword</th><th>SI</th><th>Status</th></tr></thead>
-        <tbody>
-          <tr><td>roti canai near me</td><td class="kw-si">7</td><td><span class="badge b-merah">Breakout</span></td></tr>
-          <tr><td>roti isi pisang</td><td class="kw-si">2</td><td><span class="badge b-merah">Breakout</span></td></tr>
-          <tr><td>roti o salatiga</td><td class="kw-si">2</td><td><span class="badge b-merah">Breakout</span></td></tr>
-          <tr><td>roti gembul terdekat</td><td class="kw-si">2</td><td><span class="badge b-merah">Breakout</span></td></tr>
-          <tr><td>roti near me</td><td class="kw-si">44</td><td><span class="badge b-green">+1.000%</span></td></tr>
-          <tr><td>roti john near me</td><td class="kw-si">8</td><td><span class="badge b-green">+600%</span></td></tr>
-        </tbody>
-      </table>
-      <div style="margin-top:10px;background:var(--bg4);border-radius:8px;padding:12px;font-size:12px;color:var(--text2);line-height:1.6">
-        📍 Sama seperti nasional, pola "near me" sangat dominan di Jawa Tengah (+1.000% untuk "roti near me"). Ini sinyal kuat untuk optimasi SEO lokal & Google Maps.
-      </div>
+      <div class="panel-hdr"><i class="fa-solid fa-lightbulb"></i> Insight & Rekomendasi Oktober</div>
+      <div class="ins"><div class="dot d-g"></div><div>Follower +97 dengan views lebih rendah berarti efisiensi konversi "penonton → follower" meningkat — pertanda konten semakin relevan dengan niche (bukan sekadar algoritmik viral).</div></div>
+      <div class="ins"><div class="dot d-a"></div><div>Volume views, likes, shares semuanya turun dari puncak Agustus — wajar pasca-viral, tapi perlu konten pendorong baru di Oktober agar tidak terus melandai menuju level krisis Juni-Juli.</div></div>
+      <div class="ins"><div class="dot d-rz"></div><div><strong>Untuk Roti Kasur:</strong> buat seri konten "Kelas Roti Kasur" di TikTok — behind-the-scenes proses pembuatan dari kelas IG Baking Class bisa dipotong jadi short-form TikTok, memanfaatkan dua platform dengan satu produksi konten.</div></div>
     </div>
   </div>
 </div>
 
-<!-- ══════ TAB: STRATEGI SEPTEMBER ══════ -->
-<div id="tab-strategi-september" class="tab-page">
+
+<!-- ══════ TAB: KOMPETITOR ══════ -->
+<div id="tab-kompetitor" class="tab-page">
+
   <div class="alert-banner alert-raisin">
-    <i class="fa-solid fa-bread-slice"></i>
-    <div><strong>September 2026 — Peluncuran Roti Geloong (Pain aux Raisins / Raisin Roll / Danish Kismis).</strong> Nama lokal yang unik & mudah diingat untuk pasar Pekalongan, didukung status Breakout internasional untuk "raisin roll" dan "pain au raisin", serta momentum "roti near me" yang terus tumbuh untuk SEO lokal.</div>
+    <i class="fa-solid fa-shield-halved"></i>
+    <div><strong>Lanskap kompetitif baru untuk kategori "Roti Kasur":</strong> tiga pemain nasional besar — Sari Roti (pemilik istilah "Roti Kasur" di benak konsumen), The Harvest, dan Holland Bakery — kini jadi benchmark relevan di samping kompetitor lokal langsung Delizia Bakery. Catatan penting: Delizia & Onty sendiri sama-sama sudah mengikuti akun Harvest dan Holland Bakery, menandakan kedua brand ini memang jadi acuan industri bakery regional.</div>
   </div>
 
-    <div class="sec-hdr"><div class="sec-title">🥐 Tentang Roti Geloong</div></div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-bottom:24px">
-    <div class="product-card"><div class="product-emoji">🥐</div><div class="product-name">Roti Geloong Original</div><div class="product-desc">Versi klasik pain aux raisins — pastry berlapis mentega dengan gulungan kismis khas Prancis, dinamai istilah lokal Pekalongan agar mudah diingat & unik.</div><div class="badge b-raisin">SI Breakout "raisin roll"</div></div>
-    <div class="product-card"><div class="product-emoji">🍫</div><div class="product-name">Roti Geloong Cokelat</div><div class="product-desc">Variasi tambahan cokelat — menyasar preferensi lokal yang sangat menyukai rasa cokelat, sekaligus diferensiasi dari versi original.</div><div class="badge b-raisin">Variasi rasa</div></div>
-    <div class="product-card"><div class="product-emoji">🧀</div><div class="product-name">Roti Geloong Keju</div><div class="product-desc">Perpaduan manis-gurih kismis dan keju — mengikuti pola sukses kombinasi rasa yang sudah terbukti di line Taro.</div><div class="badge b-raisin">Kombinasi manis-gurih</div></div>
-    <div class="product-card"><div class="product-emoji">📦</div><div class="product-name">Paket Roti Geloong Mini (Isi 4/6)</div><div class="product-desc">Format bundel untuk oleh-oleh & bekal — menyasar pencarian "roti near me" dan kebutuhan gift khas Pekalongan.</div><div class="badge b-green">Format oleh-oleh</div></div>
-  </div>
-  <div class="panel" style="margin-bottom:20px">
-    <div class="panel-hdr"><i class="fa-solid fa-calendar-days"></i> Master Content Plan September 2026</div>
-    <div style="overflow-x:auto">
-    <table class="cp-table">
-      <thead><tr><th>Minggu</th><th>Platform</th><th>Format</th><th>Ide Konten</th><th>Berbasis Data</th></tr></thead>
-      <tbody>
-        <tr><td><span class="w-tag wk1">M1</span></td><td>IG @ontycake</td><td>Reels + Story</td><td>Teaser "Ada yang baru dari Onty..." tanpa reveal nama, ajak audiens menebak — replikasi format interaktif yang terbukti viral</td><td>Formula guerrilla Agustus (29,1K views)</td></tr>
-        <tr><td><span class="w-tag wk1">M1</span></td><td>TikTok @ontycake</td><td>Video edukasi + reveal</td><td>"Kenalan sama Roti Geloong — pain aux raisins versi Onty!" jelaskan asal nama & rasa unik kismis</td><td>SI "raisin adalah" tinggi (edukasi dibutuhkan)</td></tr>
-        <tr><td><span class="w-tag wk1">M1</span></td><td>YouTube</td><td>Video reguler (WAJIB)</td><td>"Rahasia Roti Geloong Anti Gagal" — lanjutkan ritme publikasi yang baru pulih Agustus</td><td>Jaga momentum publikasi video reguler</td></tr>
-        <tr><td><span class="w-tag wk2">M2</span></td><td>IG Baking Class</td><td>Kelas kolaboratif baru</td><td>"Belajar Bikin Roti Geloong Sendiri" — replikasi formula sukses "Mom & Me"</td><td>Kolaborasi tematik = top performer Juli</td></tr>
-        <tr><td><span class="w-tag wk2">M2</span></td><td>TikTok Baking Class</td><td>Video proses + reveal</td><td>Seri "Proses Bikin Roti Geloong di Kelas Onty" — pertahankan momentum pemulihan</td><td>Jangan ulangi pola caption lama</td></tr>
-        <tr><td><span class="w-tag wk2">M2</span></td><td>TikTok @ontycake</td><td>Analisis & replikasi</td><td>Identifikasi & tiru format video pemicu lonjakan 22-23 Agustus</td><td>Lonjakan berkelanjutan 23-29 Agustus</td></tr>
-        <tr><td><span class="w-tag wk3">M3</span></td><td>Semua platform</td><td>Puncak launching</td><td>Reveal semua varian (Original, Cokelat, Keju, Paket Mini) dengan foto belah/reveal isian</td><td>Format reveal produk close-up konsisten baik</td></tr>
-        <tr><td><span class="w-tag wk3">M3</span></td><td>IG @ontycake</td><td>SEO lokal</td><td>Sebut "Pekalongan" eksplisit di caption + optimasi Google Business Profile</td><td>Pola "near me" dominan (+650-1.000% SI)</td></tr>
-        <tr><td><span class="w-tag wk4">M4</span></td><td>Semua platform</td><td>Testimoni & evaluasi</td><td>Kumpulkan testimoni Roti Geloong, evaluasi performa untuk perencanaan Oktober</td><td>Community building & data siklus berikutnya</td></tr>
-      </tbody>
-    </table>
+  <div class="sec-hdr"><div class="sec-title">Kompetitor Kategori "Roti Kasur" — Instagram</div></div>
+  <div class="pc-row">
+    <div class="pc" style="border-color:rgba(255,143,179,.4)">
+      <div class="pc-hdr">
+        <div class="pc-icon" style="background:linear-gradient(135deg,#e63946,#c1121f)">🍞</div>
+        <div><div style="font-size:13px;font-weight:600">@sariroti</div><div style="font-size:10px;color:var(--text3)">Nasional · Terverifikasi · FMCG</div></div>
+      </div>
+      <div class="pc-stats">
+        <div><div class="pv" style="color:#ff8fb3">439K</div><div class="pl">Followers</div></div>
+        <div><div class="pv">3.574</div><div class="pl">Posts</div></div>
+        <div><div class="pv">👑</div><div class="pl">Pemilik istilah "Roti Kasur"</div></div>
+      </div>
+      <div class="progbar"><div class="progfill" style="width:100%;background:linear-gradient(90deg,#e63946,#c1121f)"></div></div>
+      <div class="progmeta"><span>Distribusi</span><span>Retail nasional (minimarket)</span></div>
+    </div>
+    <div class="pc" style="border-color:rgba(255,143,179,.4)">
+      <div class="pc-hdr">
+        <div class="pc-icon" style="background:linear-gradient(135deg,#f5c518,#e09f00)">🌾</div>
+        <div><div style="font-size:13px;font-weight:600">@harvestindonesia</div><div style="font-size:10px;color:var(--text3)">Nasional · Terverifikasi · UGC/Komedi</div></div>
+      </div>
+      <div class="pc-stats">
+        <div><div class="pv" style="color:#ff8fb3">750K</div><div class="pl">Followers</div></div>
+        <div><div class="pv">9.239</div><div class="pl">Posts</div></div>
+        <div><div class="pv">317K</div><div class="pl">Video Terbaik</div></div>
+      </div>
+      <div class="progbar"><div class="progfill" style="width:100%;background:linear-gradient(90deg,#f5c518,#e09f00)"></div></div>
+      <div class="progmeta"><span>Gaya konten</span><span>Skit relatable/komedi, engagement tinggi</span></div>
+    </div>
+    <div class="pc" style="border-color:rgba(255,143,179,.4)">
+      <div class="pc-hdr">
+        <div class="pc-icon" style="background:linear-gradient(135deg,#8b1a1a,#c1121f)">🏪</div>
+        <div><div style="font-size:13px;font-weight:600">@hollandbakeryindonesia</div><div style="font-size:10px;color:var(--text3)">Nasional · Terverifikasi · Toko Fisik</div></div>
+      </div>
+      <div class="pc-stats">
+        <div><div class="pv" style="color:#ff8fb3">504K</div><div class="pl">Followers</div></div>
+        <div><div class="pv">2.579</div><div class="pl">Posts</div></div>
+        <div><div class="pv">128K</div><div class="pl">Video Terbaik</div></div>
+      </div>
+      <div class="progbar"><div class="progfill" style="width:100%;background:linear-gradient(90deg,#8b1a1a,#c1121f)"></div></div>
+      <div class="progmeta"><span>Catatan</span><span>Sudah diikuti @ontycake & @ontyfarah</span></div>
+    </div>
+    <div class="pc">
+      <div class="pc-hdr">
+        <div class="pc-icon" style="background:linear-gradient(135deg,#ff8fb3,#e1306c)">⚔️</div>
+        <div><div style="font-size:13px;font-weight:600">@deliziabakery</div><div style="font-size:10px;color:var(--text3)">Lokal · Batang · Kompetitor Langsung</div></div>
+      </div>
+      <div class="pc-stats">
+        <div><div class="pv" style="color:#ff8fb3">16,8K</div><div class="pl">Followers (+400 vs Agustus)</div></div>
+        <div><div class="pv">1.366</div><div class="pl">Posts</div></div>
+        <div><div class="pv">1jt</div><div class="pl">Video Terviral Sepanjang Masa</div></div>
+      </div>
+      <div class="progbar"><div class="progfill" style="width:60%;background:linear-gradient(90deg,#ff8fb3,#e1306c)"></div></div>
+      <div class="progmeta"><span>Fokus produk</span><span>Mochi/bolu — bukan kategori roti kasur</span></div>
     </div>
   </div>
-  <div class="sec-hdr"><div class="sec-title">🎯 Target KPI September 2026</div></div>
-  <div class="grid3">
-    <div class="kpi" style="--kpi-color:var(--raisin2);--kpi-bg:rgba(139,74,43,.2)"><div class="kpi-icon"><i class="fa-solid fa-bread-slice"></i></div><div class="kpi-val">25K+</div><div class="kpi-lbl">Target Views Reveal Roti Geloong</div><div class="kpi-tag t-raisin">Mendekati performa "Merdeka" Agustus</div></div>
-    <div class="kpi" style="--kpi-color:var(--green);--kpi-bg:rgba(62,203,130,.1)"><div class="kpi-icon"><i class="fa-solid fa-arrow-trend-up"></i></div><div class="kpi-val">Pertahankan</div><div class="kpi-lbl">Momentum TikTok Kedua Akun</div><div class="kpi-tag t-up">Jangan turun dari level Agustus</div></div>
-    <div class="kpi" style="--kpi-color:var(--amber);--kpi-bg:rgba(245,158,11,.1)"><div class="kpi-icon"><i class="fa-solid fa-arrow-trend-up"></i></div><div class="kpi-val">100K+</div><div class="kpi-lbl">Target Tayangan IG Baking Class</div><div class="kpi-tag t-warn">Pulihkan dari 84,7K Agustus</div></div>
+
+  <div class="panel" style="margin-bottom:22px">
+    <div class="panel-hdr"><i class="fa-solid fa-table"></i> Tabel Perbandingan Followers & Skala</div>
+    <table class="vs-table">
+      <tr><th>Brand</th><th>Followers IG</th><th>Posts</th><th>Konten Terviral</th><th>Kategori</th></tr>
+      <tr><td class="vs-onty">Onty Cake & Bakery</td><td class="vs-onty">47.402</td><td>2.991</td><td>29,9K views (event kelas)</td><td>Homemade, lokal</td></tr>
+      <tr><td class="vs-delizia">Delizia Bakery (Batang)</td><td>16.800</td><td>1.366</td><td>1.000.000 views</td><td>Mochi/bolu, lokal</td></tr>
+      <tr><td>Holland Bakery</td><td>504.000</td><td>2.579</td><td>128.000 views</td><td>Toko bakery nasional</td></tr>
+      <tr><td>Sari Roti</td><td>439.000</td><td>3.574</td><td>—</td><td>FMCG retail nasional</td></tr>
+      <tr><td>The Harvest</td><td>750.000</td><td>9.239</td><td>317.000 views</td><td>Bakery nasional, UGC</td></tr>
+    </table>
   </div>
-  <div class="panel">
-    <div class="panel-hdr"><i class="fa-solid fa-diagram-project"></i> Prinsip Kunci September — Belajar dari Pemulihan Agustus</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:4px">
-      <div class="tcard" style="border-color:rgba(62,203,130,.3)"><div class="tc-tag" style="color:var(--green)">Prinsip 1 — Konten Interaktif Menang</div><div class="tc-title">Libatkan Audiens Langsung</div><div class="tc-text">Format guerrilla/challenge jauh mengalahkan konten reveal produk pasif. Terapkan ke launching Roti Geloong.</div></div>
-      <div class="tcard" style="border-color:rgba(201,145,95,.35)"><div class="tc-tag" style="color:var(--raisin2)">Prinsip 2 — Nama Lokal + Istilah Global</div><div class="tc-title">Jembatani Dua Bahasa</div><div class="tc-text">"Roti Geloong" sebagai identitas unik, "Pain aux Raisins/Raisin Roll" sebagai SEO pendukung.</div></div>
-      <div class="tcard" style="border-color:rgba(69,208,216,.3)"><div class="tc-tag" style="color:var(--tt)">Prinsip 3 — Konsistensi Konten Segar</div><div class="tc-title">Jangan Kembali ke Pola Lama</div><div class="tc-text">TikTok Baking Class pulih karena keluar dari caption template berulang — pertahankan variasi terus-menerus.</div></div>
+
+  <div class="grid2">
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-chart-bar"></i> Perbandingan Skala Followers — Onty vs Kompetitor</div>
+      <div class="chart-wrap h260"><canvas id="chartCompAllFollowers"></canvas></div>
+    </div>
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-lightbulb"></i> Insight Kompetitif untuk Roti Kasur</div>
+      <div class="ins"><div class="dot d-m"></div><div><strong>Sari Roti tidak bisa dikalahkan dari sisi awareness</strong> (439K followers, distribusi retail nasional) — Onty jangan berebut posisi "Roti Kasur paling terkenal", melainkan posisi "Roti Kasur paling segar & homemade di Pekalongan".</div></div>
+      <div class="ins"><div class="dot d-a"></div><div>The Harvest unggul jauh di engagement lewat konten UGC/skit relatable, bukan hanya foto produk — gaya ini lebih realistis ditiru Onty dibanding gaya FMCG Sari Roti.</div></div>
+      <div class="ins"><div class="dot d-g"></div><div>Delizia masih fokus kategori mochi/bolu (non-roti) — artinya kategori "roti kasur" di Pekalongan/Batang masih kosong dari kompetitor lokal langsung. Peluang menjadi pemain homemade pertama di kategori ini.</div></div>
+      <div class="ins"><div class="dot d-b"></div><div>Holland Bakery & Harvest sudah diikuti kedua akun Onty — manfaatkan sebagai referensi riset konten rutin, bukan sekadar follow pasif.</div></div>
+    </div>
+  </div>
+</div>
+<!-- ══════ TAB: TREN ROTI KASUR ══════ -->
+<div id="tab-tren" class="tab-page">
+
+  <div class="alert-banner alert-raisin">
+    <i class="fa-solid fa-magnifying-glass-chart"></i>
+    <div><strong>Data Google Trends (1 Sep - 1 Okt 2026):</strong> minat nasional terhadap "Roti Kasur" tetap sangat tinggi secara absolut (SI 73-100) meski mulai melandai dari puncaknya (-20% hingga -30%). Sinyal paling menarik: <strong>"roti sobek sari roti" berstatus Breakout</strong> — menandakan audiens mulai tertarik pada format/tekstur baru (pull-apart/sobek), bukan hanya nama produknya saja.</div>
+  </div>
+
+  <div class="panel" style="margin-bottom:22px">
+    <div class="panel-hdr"><i class="fa-solid fa-magnifying-glass"></i> Kata Kunci "Roti Kasur" — Indonesia (Rising Queries)</div>
+    <table class="kw-table">
+      <tr><th>Kata Kunci</th><th>Search Interest</th><th>Perubahan</th></tr>
+      <tr><td class="kw-si">roti sobek sari roti</td><td>5</td><td><span class="badge b-green">Breakout 🚀</span></td></tr>
+      <tr><td class="kw-si">sari roti</td><td>100</td><td><span class="badge b-green">+10%</span></td></tr>
+      <tr><td class="kw-si">sari roti kasur</td><td>90</td><td><span class="badge b-amber">-20%</span></td></tr>
+      <tr><td class="kw-si">roti kasur sari roti</td><td>73</td><td><span class="badge b-amber">-30%</span></td></tr>
+      <tr><td class="kw-si">sari roti kasur keju</td><td>10</td><td><span class="badge b-red">-70%</span></td></tr>
+      <tr><td class="kw-si">roti kasur indomaret</td><td>0</td><td><span class="badge b-red">-100%</span></td></tr>
+    </table>
+    <div style="margin-top:12px;background:var(--bg4);border-radius:8px;padding:12px;font-size:11.5px;color:var(--text2);line-height:1.6">
+      💡 <strong>Pembacaan data:</strong> hype awal "Roti Kasur" terkait Sari Roti mulai mereda (-20% s/d -70% di sebagian besar varian kata kunci), namun level SI absolut masih sangat tinggi (73-100) — pasar tetap besar, hanya memasuki fase "normalisasi minat" setelah lonjakan awal. Minat spesifik ke retail minimarket (Indomaret) sudah hilang total (SI 0, -100%) — konsumen kini mencari pengalaman produknya sendiri, bukan tempat belinya, sinyal bagus untuk model direct-to-consumer Onty.
+    </div>
+  </div>
+
+  <div class="panel" style="margin-bottom:22px">
+    <div class="panel-hdr"><i class="fa-solid fa-map-location-dot"></i> Peringkat Provinsi — Pencarian Umum "Roti" (Indonesia)</div>
+    <table class="kw-table">
+      <tr><th>#</th><th>Provinsi</th><th>Search Interest</th></tr>
+      <tr><td>1</td><td class="kw-si">DI Yogyakarta</td><td><span class="badge b-green">100</span></td></tr>
+      <tr><td>2</td><td class="kw-si">Jawa Timur</td><td><span class="badge b-green">94</span></td></tr>
+      <tr style="background:rgba(201,145,95,.08)"><td>3</td><td class="kw-si">🏠 Jawa Tengah (basis Onty)</td><td><span class="badge b-raisin">90</span></td></tr>
+      <tr><td>4</td><td class="kw-si">DKI Jakarta</td><td><span class="badge b-blue">77</span></td></tr>
+      <tr><td>5</td><td class="kw-si">Kepulauan Riau</td><td><span class="badge b-blue">73</span></td></tr>
+      <tr><td>6</td><td class="kw-si">Jawa Barat</td><td><span class="badge b-blue">72</span></td></tr>
+      <tr><td>7</td><td class="kw-si">Kalimantan Timur</td><td><span class="badge b-blue">70</span></td></tr>
+    </table>
+    <div style="margin-top:12px;background:var(--bg4);border-radius:8px;padding:12px;font-size:11.5px;color:var(--text2);line-height:1.6">
+      🏠 <strong>Jawa Tengah menempati peringkat #3 nasional</strong> (SI 90) untuk pencarian umum "roti" — hanya sedikit di bawah Yogyakarta dan Jawa Timur. Ini adalah sinyal permintaan dasar yang sangat kuat di wilayah operasi utama Onty, independen dari tren spesifik "Roti Kasur" — fondasi pasar yang solid untuk peluncuran produk roti baru apa pun.
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-chart-bar"></i> Search Interest "Roti Kasur" — Varian Kata Kunci</div>
+      <div class="chart-wrap h240"><canvas id="chartTrendKeywords"></canvas></div>
+    </div>
+    <div class="panel">
+      <div class="panel-hdr"><i class="fa-solid fa-chart-bar"></i> Top 7 Provinsi — Search Interest "Roti"</div>
+      <div class="chart-wrap h240"><canvas id="chartTrendRegion"></canvas></div>
     </div>
   </div>
 </div>
 
+
+<!-- ══════ TAB: STRATEGI OKTOBER ══════ -->
+<div id="tab-strategi-oktober" class="tab-page">
+
+  <div class="sec-hdr"><div class="sec-title">Peluncuran "Roti Kasur" ala Onty — Rencana Oktober 2026</div></div>
+
+  <div class="grid2">
+    <div class="product-card">
+      <div class="product-emoji">🛏️</div>
+      <div class="product-name">Roti Kasur Onty — Original</div>
+      <div class="product-desc">Roti tawar super lembut gaya "mattress bread", dipanggang segar harian (bukan produk pabrikan massal). Positioning: "Roti Kasur paling empuk & segar di Pekalongan" — kontras langsung dengan produk retail kemasan jangka panjang seperti Sari Roti.</div>
+    </div>
+    <div class="product-card">
+      <div class="product-emoji">🧈</div>
+      <div class="product-name">Roti Kasur Sobek Keju</div>
+      <div class="product-desc">Varian format "sobek"/pull-apart dengan taburan keju — memanfaatkan sinyal Breakout "roti sobek sari roti" di Google Trends. Visual membuka/menyobek roti sangat cocok untuk konten short-form Reels & TikTok.</div>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-bottom:22px">
+    <div class="panel-hdr"><i class="fa-solid fa-route"></i> Rencana Eksekusi 4 Minggu</div>
+    <div class="action-item" style="--step-color:var(--raisin2)">
+      <div class="ai-header"><div class="ai-title">🗓️ Minggu 1 — Teaser & Edukasi</div><div class="ai-badge ai-b4">Awareness</div></div>
+      <div class="ai-body">Mulai dengan konten "Coming Soon" bertema roti (pola yang sudah terbukti bekerja di peluncuran Roti Geloong bulan lalu). Edukasi ringan: "Tau nggak kenapa disebut Roti Kasur?" — manfaatkan rasa penasaran sebelum reveal produk.</div>
+    </div>
+    <div class="action-item" style="--step-color:var(--green)">
+      <div class="ai-header"><div class="ai-title">🗓️ Minggu 2 — Reveal via Event/Kelas</div><div class="ai-badge ai-b3">Launch</div></div>
+      <div class="ai-body">Replikasi formula paling sukses bulan ini: bungkus peluncuran dalam format event/kelas langsung ("Kelas Bikin Roti Kasur Sendiri" di @ontyfarahbakingclass), bukan sekadar foto produk — konten event terbukti 2x lebih kuat dari produk biasa di IG @ontycake bulan ini.</div>
+    </div>
+    <div class="action-item" style="--step-color:var(--tt)">
+      <div class="ai-header"><div class="ai-title">🗓️ Minggu 3 — Konten "Sobek" Viral di TikTok</div><div class="ai-badge ai-b4">Momentum</div></div>
+      <div class="ai-body">Produksi seri video TikTok format "ASMR sobek roti" memanfaatkan tren Breakout "roti sobek sari roti" — angle visual & audio (suara menyobek roti empuk) berpotensi tinggi untuk FYP.</div>
+    </div>
+    <div class="action-item" style="--step-color:var(--amber)">
+      <div class="ai-header"><div class="ai-title">🗓️ Minggu 4 — Bundling & Evaluasi</div><div class="ai-badge ai-b2">Konversi</div></div>
+      <div class="ai-body">Promo bundling (misal: beli 2 Roti Kasur gratis 1 varian keju) untuk mendorong konversi akhir bulan, sekaligus evaluasi performa untuk menentukan apakah Roti Kasur jadi produk permanen di katalog Onty.</div>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-bottom:22px">
+    <div class="panel-hdr"><i class="fa-solid fa-list-check"></i> Checklist Lintas-Platform</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin-top:4px">
+      <div class="tcard" style="border-color:rgba(225,48,108,.3)"><div class="tc-tag" style="color:var(--ig)">IG @ontycake</div><div class="tc-title">Event/kelas, bukan foto produk</div><div class="tc-text">Format "Baking & Public Speaking Class" adalah konten terkuat bulan ini (449 interaksi) — replikasi untuk reveal Roti Kasur.</div></div>
+      <div class="tcard" style="border-color:rgba(69,208,216,.3)"><div class="tc-tag" style="color:var(--tt)">TT @ontycake</div><div class="tc-title">Konten format "sobek"</div><div class="tc-text">Manfaatkan tren Breakout "roti sobek" — video ASMR sobek roti berpotensi tinggi untuk FYP TikTok.</div></div>
+      <div class="tcard" style="border-color:rgba(239,68,68,.3)"><div class="tc-tag" style="color:var(--yt2)">YouTube</div><div class="tc-title">Audit judul sebelum upload!</div><div class="tc-text">Ada 1 teguran komunitas aktif — pastikan judul/thumbnail video Roti Kasur netral & edukatif, bukan clickbait.</div></div>
+      <div class="tcard" style="border-color:rgba(62,203,130,.3)"><div class="tc-tag" style="color:var(--green)">IG/TT Baking Class</div><div class="tc-title">Kelas "Bikin Roti Kasur Sendiri"</div><div class="tc-text">Diferensiator kuat vs Sari Roti (produk pabrikan) — produksi juga bisa dipotong jadi konten TikTok.</div></div>
+    </div>
+  </div>
+</div>
 <!-- ══════ TAB: ANALISIS AI ══════ -->
 <div id="tab-ai" class="tab-page">
-  <div style="margin-bottom:18px">
-    <div class="sec-title" style="margin-bottom:6px">Analisis Cerdas · Claude AI · Data Agustus 2026 → Strategi September</div>
-    <div style="font-size:12px;color:var(--text3)">Analisis real-time berbasis data aktual Agustus + peluncuran Roti Geloong. Pilih topik di bawah untuk insight mendalam.</div>
+  <div class="sec-hdr"><div class="sec-title">Analisis Mendalam dengan AI — Data September & Strategi Oktober 2026</div></div>
+
+  <div class="panel" style="margin-bottom:20px">
+    <div class="panel-hdr"><i class="fa-solid fa-chart-radar"></i> Skor Kesehatan Ekosistem (Referensi)</div>
+    <div class="chart-wrap h240"><canvas id="chartRadarAi"></canvas></div>
   </div>
 
-  <div class="ai-btns" style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px">
-    <button class="ai-btn" onclick="runAI('full')" style="background:var(--surface);border:1px solid var(--border2);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:11.5px;padding:7px 14px;border-radius:20px;cursor:pointer;display:flex;align-items:center;gap:5px"><i class="fa-solid fa-magnifying-glass-chart"></i> Analisis Komprehensif September</button>
-    <button class="ai-btn" onclick="runAI('geloong')" style="background:var(--surface);border:1px solid var(--border2);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:11.5px;padding:7px 14px;border-radius:20px;cursor:pointer;display:flex;align-items:center;gap:5px"><i class="fa-solid fa-bread-slice"></i> Strategi Peluncuran Roti Geloong</button>
-    <button class="ai-btn" onclick="runAI('recovery')" style="background:var(--surface);border:1px solid var(--border2);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:11.5px;padding:7px 14px;border-radius:20px;cursor:pointer;display:flex;align-items:center;gap:5px"><i class="fa-solid fa-arrow-trend-up"></i> Analisis Pemulihan TikTok</button>
-    <button class="ai-btn" onclick="runAI('igclassdrop')" style="background:var(--surface);border:1px solid var(--border2);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:11.5px;padding:7px 14px;border-radius:20px;cursor:pointer;display:flex;align-items:center;gap:5px"><i class="fa-solid fa-arrow-trend-down"></i> Kenapa Views IG Baking Class Turun?</button>
-    <button class="ai-btn" onclick="runAI('naming')" style="background:var(--surface);border:1px solid var(--border2);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:11.5px;padding:7px 14px;border-radius:20px;cursor:pointer;display:flex;align-items:center;gap:5px"><i class="fa-solid fa-signature"></i> Strategi Nama Lokal vs Global</button>
-    <button class="ai-btn" onclick="runAI('benchmark')" style="background:var(--surface);border:1px solid var(--border2);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:11.5px;padding:7px 14px;border-radius:20px;cursor:pointer;display:flex;align-items:center;gap:5px"><i class="fa-solid fa-chess"></i> Benchmark vs Kompetitor Nasional</button>
+  <div class="panel" style="margin-bottom:20px">
+    <div class="panel-hdr"><i class="fa-solid fa-robot"></i> Pilih Jenis Analisis</div>
+    <div class="ai-chips" style="margin-top:0">
+      <button class="ai-btn" onclick="runAI('full')" style="cursor:pointer;background:var(--bg4);border:1px solid var(--border2);color:var(--text);padding:9px 16px;border-radius:8px;font-size:12px;font-weight:500">📊 Analisis Komprehensif</button>
+      <button class="ai-btn" onclick="runAI('rotikasur')" style="cursor:pointer;background:var(--bg4);border:1px solid var(--border2);color:var(--text);padding:9px 16px;border-radius:8px;font-size:12px;font-weight:500">🛏️ Strategi Roti Kasur</button>
+      <button class="ai-btn" onclick="runAI('normalisasi')" style="cursor:pointer;background:var(--bg4);border:1px solid var(--border2);color:var(--text);padding:9px 16px;border-radius:8px;font-size:12px;font-weight:500">📉 Analisis Normalisasi Pasca-Viral</button>
+      <button class="ai-btn" onclick="runAI('ytwarning')" style="cursor:pointer;background:var(--bg4);border:1px solid var(--border2);color:var(--text);padding:9px 16px;border-radius:8px;font-size:12px;font-weight:500">⚠️ Mitigasi Teguran YouTube</button>
+      <button class="ai-btn" onclick="runAI('benchmark')" style="cursor:pointer;background:var(--bg4);border:1px solid var(--border2);color:var(--text);padding:9px 16px;border-radius:8px;font-size:12px;font-weight:500">⚔️ Benchmark Kompetitor Roti</button>
+    </div>
   </div>
 
-  <div class="ai-box" style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:18px;margin-bottom:14px;min-height:90px">
-    <div class="panel-hdr"><i class="fa-solid fa-robot"></i> Hasil Analisis AI</div>
-    <div class="ai-loading" id="aiLoading" style="display:flex;align-items:center;gap:9px;font-size:12.5px;color:var(--text3);min-height:70px">
-      <div class="pulse" style="display:flex;gap:3px"><span></span><span></span><span></span></div>
-      Pilih topik analisis di atas untuk memulai...
-    </div>
-    <div id="aiResult" style="display:none"></div>
-  </div>
+  <div id="aiLoading" style="display:none;align-items:center;gap:10px;padding:20px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);margin-bottom:20px;font-size:13px;color:var(--text2)"></div>
+  <div id="aiResult" style="display:none;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:20px"></div>
 
-  <div class="grid2">
-    <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-chart-radar"></i> Skor Kesehatan Ekosistem — Agustus Aktual</div>
-      <div class="chart-wrap h260"><canvas id="chartRadarAi"></canvas></div>
-    </div>
-    <div class="panel">
-      <div class="panel-hdr"><i class="fa-solid fa-ranking-star"></i> Top 5 Prioritas Aksi September 2026</div>
-      <div class="rec-grid" style="display:grid;grid-template-columns:1fr;gap:10px">
-        <div class="rec-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:15px"><div style="font-size:9px;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;color:var(--raisin2);font-weight:600">🥐 Prioritas Utama</div><div style="font-size:13px;font-weight:600;margin-bottom:5px">Eksekusi Launching Roti Geloong</div><div style="font-size:11.5px;color:var(--text2);line-height:1.65">Manfaatkan status Breakout "raisin roll"/"pain au raisin" dan replikasi formula guerrilla/interaktif yang terbukti sukses Agustus.</div></div>
-        <div class="rec-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:15px"><div style="font-size:9px;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;color:var(--green);font-weight:600">✅ Jaga Momentum</div><div style="font-size:13px;font-weight:600;margin-bottom:5px">Pertahankan Pemulihan TikTok Kedua Akun</div><div style="font-size:11.5px;color:var(--text2);line-height:1.65">Views naik +143,5% dan +11.262% — jangan kembali ke pola konten lama yang sebabkan kolaps sebelumnya.</div></div>
-        <div class="rec-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:15px"><div style="font-size:9px;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;color:var(--amber);font-weight:600">📉 Investigasi</div><div style="font-size:13px;font-weight:600;margin-bottom:5px">IG Baking Class Views Turun -24%</div><div style="font-size:11.5px;color:var(--text2);line-height:1.65">Meski followers naik, tayangan & interaksi turun — perlu format kolaborasi tematik baru seperti bulan Juli.</div></div>
-        <div class="rec-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:15px"><div style="font-size:9px;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;color:var(--yt2);font-weight:600">🎬 Konsistensi</div><div style="font-size:13px;font-weight:600;margin-bottom:5px">Lanjutkan Ritme Video YouTube</div><div style="font-size:11.5px;color:var(--text2);line-height:1.65">Video reguler pertama sejak Juni akhirnya terbit — pertahankan momentum minimal 1 video/bulan.</div></div>
-        <div class="rec-card" style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:15px"><div style="font-size:9px;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;color:#ff8fb3;font-weight:600">📋 Data Gap</div><div style="font-size:13px;font-weight:600;margin-bottom:5px">Perbarui Data Kompetitor Delizia</div><div style="font-size:11.5px;color:var(--text2);line-height:1.65">Belum ada data Agustus untuk Delizia — sertakan screenshot terbaru di siklus berikutnya.</div></div>
-      </div>
-    </div>
-  </div>
+  <style>
+  .pulse{display:flex;gap:4px}
+  .pulse span{width:7px;height:7px;background:var(--gold);border-radius:50%;animation:pulseAnim 1.2s infinite ease-in-out}
+  .pulse span:nth-child(2){animation-delay:.2s}
+  .pulse span:nth-child(3){animation-delay:.4s}
+  @keyframes pulseAnim{0%,80%,100%{opacity:.25;transform:scale(.8)}40%{opacity:1;transform:scale(1.1)}}
+  </style>
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
   <i class="fa-solid fa-circle-info"></i>
-  <div>Sumber data: Instagram Professional Dashboard, TikTok Studio Analytics (export XLSX resmi: Overview @ontycake & @ontyfarahbakingclass, periode Agustus 2026), dan YouTube Studio Analytics @ontycake / @ontyfarahbakingclass / @ontycakebakery. Data kompetitor Delizia Bakery & Cake merupakan data terakhir Juli 2026 (belum ada pembaruan untuk siklus ini). Data tren pencarian: Google Trends — kata kunci "Raisin" dan "Roti" untuk wilayah Indonesia dan Jawa Tengah. Data followers/subscriber/views merupakan angka aktual dari dashboard & file export masing-masing platform. Untuk data real-time terkini, selalu rujuk langsung ke Meta Business Suite, TikTok Analytics, dan YouTube Studio.</div>
+  <div>Sumber data: Instagram Professional Dashboard, TikTok Studio Analytics (export XLSX resmi: Overview @ontycake 1-29 Sep 2026 & @ontyfarahbakingclass), dan YouTube Studio Analytics @ontycake / @ontyfarahbakingclass / @ontycakebakery, periode September 2026. Data kompetitor: Delizia Bakery & Cake (update terbaru), Sari Roti, The Harvest, dan Holland Bakery (data profil Instagram per 1 Oktober 2026). Data tren pencarian: Google Trends — kata kunci "Roti Kasur"/"Sari Roti" dan pencarian umum "Roti" per provinsi, periode 1 Sep - 1 Okt 2026. Data followers/subscriber/views merupakan angka aktual dari dashboard & file export masing-masing platform. Untuk data real-time terkini, selalu rujuk langsung ke Meta Business Suite, TikTok Analytics, dan YouTube Studio.</div>
 </div>
 
 </div><!-- end .main -->
@@ -1044,138 +929,129 @@ function initCharts(){
   mk('chartAllFollowers',{type:'bar',data:{
     labels:['IG @ontycake','TT @ontycake','YouTube','IG BC','TT BC'],
     datasets:[
-      {label:'Juli',data:[47151,9132,7655,2664,391],backgroundColor:'rgba(232,184,109,.35)',borderRadius:5},
-      {label:'Agustus',data:[47322,9189,7643,2733,538],backgroundColor:['#e1306c','#45d0d8','#ff8080','#3ecb82','#4eca8b'],borderRadius:5}
+      {label:'Agustus',data:[47322,9189,7643,2733,538],backgroundColor:'rgba(232,184,109,.35)',borderRadius:5},
+      {label:'September',data:[47402,9256,7647,2806,635],backgroundColor:['#e1306c','#45d0d8','#ff8080','#3ecb82','#4eca8b'],borderRadius:5}
     ]
   },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:{...TT,callbacks:{label:c=>' '+c.dataset.label+': '+c.raw.toLocaleString('id-ID')}}},scales:{x:{ticks:{color:T,font:{size:9}},grid:{color:G}},y:{ticks:{color:T,callback:v=>v>=1000?(v/1000).toFixed(0)+'K':v,font:{size:10}},grid:{color:G}}}}});
 
   const radarCfg={type:'radar',data:{
     labels:['IG @ontycake','TT @ontycake','YouTube','IG BakingClass','TT BakingClass'],
     datasets:[
-      {label:'Juli',data:[68,25,36,65,4],backgroundColor:'rgba(232,184,109,.05)',borderColor:'#6a5a40',borderDash:[4,3],pointBackgroundColor:'#6a5a40',pointRadius:3},
-      {label:'Agustus (Aktual)',data:[88,82,42,55,72],backgroundColor:'rgba(62,203,130,.10)',borderColor:'#3ecb82',pointBackgroundColor:'#3ecb82',pointRadius:4},
-      {label:'Target September',data:[90,85,60,75,80],backgroundColor:'rgba(139,74,43,.14)',borderColor:'#c9915f',pointBackgroundColor:'#c9915f',pointRadius:4}
+      {label:'Agustus',data:[88,82,42,55,72],backgroundColor:'rgba(232,184,109,.05)',borderColor:'#6a5a40',borderDash:[4,3],pointBackgroundColor:'#6a5a40',pointRadius:3},
+      {label:'September (Aktual)',data:[74,70,34,62,58],backgroundColor:'rgba(245,158,11,.10)',borderColor:'#f59e0b',pointBackgroundColor:'#f59e0b',pointRadius:4},
+      {label:'Target Oktober',data:[85,80,55,75,70],backgroundColor:'rgba(139,74,43,.14)',borderColor:'#c9915f',pointBackgroundColor:'#c9915f',pointRadius:4}
     ]
   },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:TT},scales:{r:{ticks:{color:T,font:{size:9},backdropColor:'transparent',stepSize:20},grid:{color:G},pointLabels:{color:T2,font:{size:10}},angleLines:{color:G},suggestedMin:0,suggestedMax:100}}}};
   mk('chartRadarOverview',radarCfg);
   mk('chartRadarAi',JSON.parse(JSON.stringify(radarCfg)));
 
-  // IG content type Juli vs Agustus
   mk('chartIgContentType',{type:'bar',data:{
     labels:['Cerita','Reel','Postingan','Live'],
     datasets:[
-      {label:'Juli %',data:[68.7,30.3,1.1,0],backgroundColor:'rgba(232,184,109,.4)',borderRadius:5},
-      {label:'Agustus %',data:[65.0,31.7,3.2,0.1],backgroundColor:'#e1306c',borderRadius:5}
+      {label:'Agustus %',data:[65.0,31.7,3.2,0.1],backgroundColor:'rgba(232,184,109,.4)',borderRadius:5},
+      {label:'September %',data:[63.8,28.2,8.0,0.0],backgroundColor:'#e1306c',borderRadius:5}
     ]
   },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:{...TT,callbacks:{label:c=>' '+c.dataset.label+': '+c.raw+'%'}}},scales:{x:{ticks:{color:T,font:{size:10}},grid:{color:G}},y:{ticks:{color:T,callback:v=>v+'%',font:{size:10}},grid:{color:G}}}}});
 
-  // IG 3-month trend
-  mk('chartIgTrend3M',{type:'line',data:{labels:['Juli','Agustus','September (target)'],datasets:[
-    {label:'Views',data:[623975,675615,750000],borderColor:'#e1306c',backgroundColor:'rgba(225,48,108,.08)',tension:.35,pointRadius:5,pointBackgroundColor:'#e1306c',fill:true},
-    {label:'Interaksi',data:[3630,5169,6000],borderColor:'#f09433',backgroundColor:'rgba(240,148,51,.06)',tension:.35,pointRadius:5,pointBackgroundColor:'#f09433',fill:true,yAxisID:'y1'}
+  mk('chartIgTrend3M',{type:'line',data:{labels:['Agustus','September','Oktober (target)'],datasets:[
+    {label:'Views',data:[675615,578994,700000],borderColor:'#e1306c',backgroundColor:'rgba(225,48,108,.08)',tension:.35,pointRadius:5,pointBackgroundColor:'#e1306c',fill:true},
+    {label:'Interaksi',data:[5169,3846,5500],borderColor:'#f09433',backgroundColor:'rgba(240,148,51,.06)',tension:.35,pointRadius:5,pointBackgroundColor:'#f09433',fill:true,yAxisID:'y1'}
   ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:{...TT,callbacks:{label:c=>' '+c.dataset.label+': '+c.raw.toLocaleString('id-ID')}}},scales:{x:{ticks:{color:T,font:{size:10}},grid:{color:G}},y:{ticks:{color:T,callback:v=>(v/1000).toFixed(0)+'K',font:{size:10}},grid:{color:G}},y1:{position:'right',ticks:{color:T,callback:v=>(v/1000).toFixed(1)+'K',font:{size:10}},grid:{display:false}}}}});
 
-  // TT ontycake daily views/reach Agustus (full month)
-  mk('chartTtDaily',{type:'line',data:{labels:['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'],datasets:[
-    {label:'Video Views',data:[1418,1343,2259,1606,2044,1482,1815,2052,1624,1604,1517,1435,1395,1926,2150,1814,5381,1655,1707,1751,1600,1856,8926,4978,3664,3802,5059,8479,5912,2583],borderColor:'#45d0d8',backgroundColor:'rgba(69,208,216,.08)',tension:.3,pointRadius:1,fill:true},
-    {label:'Reached Audience',data:[747,761,1258,887,977,791,1051,1097,647,763,827,431,631,799,1263,920,4556,943,724,621,569,975,7550,3769,2852,3026,4112,7692,4821,1629],borderColor:'#e8b86d',backgroundColor:'rgba(232,184,109,.05)',tension:.3,pointRadius:1,fill:true}
+  mk('chartTtDaily',{type:'line',data:{labels:['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29'],datasets:[
+    {label:'Video Views',data:[3091,4081,3328,2723,2181,2334,1844,2572,2098,2636,1569,2315,1939,2878,2062,2377,2698,3213,2487,2089,2496,3158,1712,1834,1916,1863,3138,2226,2593],borderColor:'#45d0d8',backgroundColor:'rgba(69,208,216,.08)',tension:.3,pointRadius:1,fill:true},
+    {label:'Reached Audience',data:[2236,2707,2193,1615,1287,1526,618,1495,1100,1958,570,1263,1019,1890,1131,1068,1628,1888,1152,1044,1445,2183,920,774,967,875,2177,1213,1317],borderColor:'#e8b86d',backgroundColor:'rgba(232,184,109,.05)',tension:.3,pointRadius:1,fill:true}
   ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:{...TT,callbacks:{label:c=>' '+c.dataset.label+': '+c.raw.toLocaleString('id-ID')}}},scales:{x:{ticks:{color:T,font:{size:8}},grid:{color:G}},y:{ticks:{color:T,font:{size:10}},grid:{color:G}}}}});
 
-  // YouTube 3-month trend
-  mk('chartYtTrend3M',{type:'line',data:{labels:['Juli','Agustus','September (target)'],datasets:[
-    {label:'Penayangan',data:[17006,18446,22000],borderColor:'#ff8080',backgroundColor:'rgba(255,128,128,.08)',tension:.35,pointRadius:5,pointBackgroundColor:'#ff8080',fill:true},
-    {label:'Waktu Tonton (jam)',data:[72.9,72.1,85],borderColor:'#e8b86d',backgroundColor:'rgba(232,184,109,.05)',tension:.35,pointRadius:5,pointBackgroundColor:'#e8b86d',fill:true,yAxisID:'y1'}
+  mk('chartYtTrend3M',{type:'line',data:{labels:['Agustus','September','Oktober (target)'],datasets:[
+    {label:'Penayangan',data:[18446,13042,18000],borderColor:'#ff8080',backgroundColor:'rgba(255,128,128,.08)',tension:.35,pointRadius:5,pointBackgroundColor:'#ff8080',fill:true},
+    {label:'Subscribers',data:[7643,7647,7680],borderColor:'#e8b86d',backgroundColor:'rgba(232,184,109,.05)',tension:.35,pointRadius:5,pointBackgroundColor:'#e8b86d',fill:true,yAxisID:'y1'}
   ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:TT},scales:{x:{ticks:{color:T,font:{size:10}},grid:{color:G}},y:{ticks:{color:T,callback:v=>(v/1000).toFixed(0)+'K',font:{size:10}},grid:{color:G}},y1:{position:'right',ticks:{color:T,font:{size:10}},grid:{display:false}}}}});
 
-  // IG Class content type Juli vs Agustus
   mk('chartIgClassContentType',{type:'bar',data:{
     labels:['Cerita','Reel','Postingan'],
     datasets:[
-      {label:'Juli % views',data:[51.2,28.6,20.2],backgroundColor:'rgba(232,184,109,.35)',borderRadius:5},
-      {label:'Agustus % views',data:[44.3,41.0,14.7],backgroundColor:'#4eca8b',borderRadius:5}
+      {label:'Agustus % views',data:[44.3,41.0,14.7],backgroundColor:'rgba(232,184,109,.35)',borderRadius:5},
+      {label:'September % views (est.)',data:[44.0,37.8,18.2],backgroundColor:'#4eca8b',borderRadius:5}
     ]
   },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:{...TT,callbacks:{label:c=>' '+c.dataset.label+': '+c.raw+'%'}}},scales:{x:{ticks:{color:T,font:{size:10}},grid:{color:G}},y:{ticks:{color:T,callback:v=>v+'%',font:{size:10}},grid:{color:G}}}}});
 
-  // TT Class 4-month trend Mei-Juni-Juli-Agustus
   mk('chartTtClassTrend4M',{type:'bar',data:{
     labels:['Video Views','Likes','Profile Views','Shares'],
     datasets:[
-      {label:'Juni',data:[830,16,72,8],backgroundColor:'rgba(245,158,11,.4)',borderRadius:5},
       {label:'Juli',data:[571,2,46,1],backgroundColor:'#ef4444',borderRadius:5},
-      {label:'Agustus',data:[64859,808,798,113],backgroundColor:'#3ecb82',borderRadius:5}
+      {label:'Agustus',data:[64859,808,798,113],backgroundColor:'#3ecb82',borderRadius:5},
+      {label:'September',data:[40400,601,555,54],backgroundColor:'#45d0d8',borderRadius:5}
     ]
   },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:T2,font:{size:10},boxWidth:9,padding:10}},tooltip:{...TT,callbacks:{label:c=>' '+c.dataset.label+': '+c.raw.toLocaleString('id-ID')}}},scales:{x:{ticks:{color:T,font:{size:9}},grid:{color:G}},y:{type:'logarithmic',ticks:{color:T,font:{size:10}},grid:{color:G}}}}});
 
-  // Competitor benchmark: Onty vs all competitors followers
   mk('chartCompAllFollowers',{type:'bar',data:{
-    labels:['Onty Cake','Bolu Susu\nLembang','Surabaya\nRoll Cake','Bolu\nMeranti','Delizia\nBakery'],
-    datasets:[{data:[47322,133000,38400,32900,16400],backgroundColor:['#e8b86d','#ef4444','#60a5fa','#f5c518','#ff8fb3'],borderRadius:6}]
-  },options:{...baseOpt(),plugins:{legend:{display:false},tooltip:{...TT,callbacks:{label:c=>' '+c.raw.toLocaleString('id-ID')+' followers'}}},scales:{x:{ticks:{color:T,font:{size:9}},grid:{color:G}},y:{ticks:{color:T,callback:v=>(v/1000).toFixed(0)+'K',font:{size:10}},grid:{color:G}}}}});
+    labels:['Onty Cake','Delizia\nBakery','Sari Roti','Holland\nBakery','The\nHarvest'],
+    datasets:[{data:[47402,16800,439000,504000,750000],backgroundColor:['#e8b86d','#ff8fb3','#e63946','#8b1a1a','#f5c518'],borderRadius:6}]
+  },options:{...baseOpt(),plugins:{legend:{display:false},tooltip:{...TT,callbacks:{label:c=>' '+c.raw.toLocaleString('id-ID')+' followers'}}},scales:{x:{ticks:{color:T,font:{size:9}},grid:{color:G}},y:{type:'logarithmic',ticks:{color:T,callback:v=>v>=1000?(v/1000).toFixed(0)+'K':v,font:{size:10}},grid:{color:G}}}}});
+
+  mk('chartTrendKeywords',{type:'bar',data:{
+    labels:['sari roti','sari roti kasur','roti kasur sari roti','sari roti kasur keju','roti sobek sari roti','roti kasur indomaret'],
+    datasets:[{data:[100,90,73,10,5,0],backgroundColor:['#e63946','#f59e0b','#f59e0b','#ef4444','#3ecb82','#6a5a40'],borderRadius:5}]
+  },options:{...baseOpt(),indexAxis:'y',plugins:{legend:{display:false},tooltip:{...TT,callbacks:{label:c=>' Search Interest: '+c.raw}}},scales:{x:{ticks:{color:T,font:{size:10}},grid:{color:G}},y:{ticks:{color:T,font:{size:9}},grid:{color:G}}}}});
+
+  mk('chartTrendRegion',{type:'bar',data:{
+    labels:['DI Yogyakarta','Jawa Timur','Jawa Tengah','DKI Jakarta','Kep. Riau','Jawa Barat','Kalimantan Timur'],
+    datasets:[{data:[100,94,90,77,73,72,70],backgroundColor:(c)=>c.dataIndex===2?'#c9915f':'rgba(232,184,109,.4)',borderRadius:5}]
+  },options:{...baseOpt(),plugins:{legend:{display:false},tooltip:{...TT,callbacks:{label:c=>' Search Interest: '+c.raw}}},scales:{x:{ticks:{color:T,font:{size:8}},grid:{color:G}},y:{ticks:{color:T,font:{size:10}},grid:{color:G}}}}});
 }
 
 const aiPrompts={
-  full:`Anda adalah analis social media profesional Indonesia. Analisis KOMPREHENSIF ekosistem digital brand kue Onty dari Pekalongan untuk SEPTEMBER 2026 berdasarkan data aktual Agustus 2026.
+  full:`Anda adalah analis social media profesional Indonesia. Analisis KOMPREHENSIF ekosistem digital brand kue Onty dari Pekalongan untuk OKTOBER 2026 berdasarkan data aktual September 2026.
 
-Data akun Agustus 2026 (aktual, dibanding Juli):
-• Instagram @ontycake: 47.322 followers (+171), views 675.615 (+8,3%), interaksi 5.169 (+42,4%) — dipicu konten guerrilla "Merdeka = Bebas Bermimpi" (29,1K views) dan promo bundling "Taro Bun Merdeka"
-• TikTok @ontycake: 9.189 followers, video views 84.837 (+143,5% dari 34.840) — lonjakan besar 17 Agustus & rentetan 23-29 Agustus
-• Instagram @ontyfarahbakingclass: 2.733 followers (+69) TAPI tayangan 84.726 (-24,2% dari 111.774) — penurunan meski followers naik
-• TikTok @ontyfarahbakingclass: 538 followers (+147, +37,6%), views 64.859 (+11.262% dari 571!) — pemulihan dramatis setelah 3 bulan krisis
-• YouTube @ontycakebakery: 7.643 subscribers, views 18.446 (+9%), akhirnya 1 video reguler terbit lagi (pertama sejak Juni)
+Data akun September 2026 (aktual, dibanding Agustus):
+• Instagram @ontycake: 47.402 followers (+80), views 578.994 (-14,3% dari 675.615), interaksi 3.846 (-25,6% dari 5.169) — normalisasi setelah lonjakan Agustus
+• TikTok @ontycake: 9.256 followers (+67), video views 73.939 (-12,85% dari 84.837), namun shares naik +53,75% dan net growth followers naik +52,8%
+• Instagram @ontyfarahbakingclass: 2.806 followers (+73), tayangan 87.134 (+2,8%), akun berinteraksi 485 (+20,6%) — semua metrik membaik
+• TikTok @ontyfarahbakingclass: 635 followers (+97, +18%) meski views turun -37,7% dari puncak viral Agustus (64.859→40.400) — basis follower loyal baru terbentuk
+• YouTube @ontycakebakery: 7.647 subscribers, views 13.042 (-29,3%), DAN menerima 1 TEGURAN PEDOMAN KOMUNITAS aktif pada 16 September (konten dihapus karena dianggap alarming/clickbait)
 
-Konteks September: peluncuran "Roti Geloong" (nama lokal untuk Pain aux Raisins/Raisin Roll/Danish Kismis). Data Google Trends: "raisin roll", "pain au raisin", "danish raisin" berstatus Breakout nasional, tapi kata "raisin" masih asing di Jawa Tengah.
+Konteks Oktober: peluncuran "Roti Kasur" (roti tawar lembut, memanfaatkan tren nasional seputar produk Sari Roti). Data Google Trends: "sari roti" SI 100, "sari roti kasur" SI 90 (-20%), dengan sinyal baru Breakout "roti sobek sari roti". Jawa Tengah peringkat #3 nasional untuk pencarian umum "roti".
 
-Berikan analisis dalam Bahasa Indonesia: (1) Faktor kunci di balik pemulihan luar biasa Agustus dan cara mempertahankannya, (2) Mengapa IG Baking Class turun meski followers naik, (3) Strategi peluncuran Roti Geloong yang memanfaatkan momentum saat ini, (4) Prioritas mendesak September. Gaya profesional, padat, actionable. Maksimal 400 kata.`,
+Berikan analisis dalam Bahasa Indonesia: (1) Apakah penurunan views/interaksi September adalah hal normal pasca-viral atau sinyal masalah, (2) Prioritas mendesak terkait teguran YouTube, (3) Strategi peluncuran Roti Kasur yang realistis mengingat dominasi Sari Roti secara nasional, (4) 3 langkah konkret paling penting untuk Oktober. Gaya profesional, padat, actionable. Maksimal 400 kata.`,
 
-  geloong:`Product launch strategist untuk brand kue Onty Pekalongan. Produk baru: "Roti Geloong" — nama lokal untuk Pain aux Raisins (Raisin Roll/Danish Kismis), pastry berlapis mentega dengan gulungan kismis.
+  rotikasur:`Product launch strategist untuk brand kue rumahan Onty Cake & Bakery di Pekalongan (47.402 followers Instagram). Produk baru Oktober 2026: "Roti Kasur" — roti tawar super lembut gaya "mattress bread".
 
-Data Google Trends: "raisin roll" (SI 10, Breakout nasional), "pain au raisin" (SI 4, Breakout), "danish raisin" (SI 9, Breakout). Namun di Jawa Tengah data sangat terbatas — hanya "raisin adalah" (SI 100, Breakout) yang tercatat, menandakan istilah "raisin" masih asing di pasar lokal. Sebagai pembanding, "roti near me" sangat dominan (SI 95 nasional, +650%) menandakan pentingnya SEO lokasi.
+Konteks pasar: istilah "Roti Kasur" sedang sangat populer secara nasional karena produk Sari Roti (FMCG raksasa, 439.000 followers, distribusi retail nasional). Data Google Trends: "sari roti" SI 100 (+10%), "sari roti kasur" SI 90 (-20%), "roti kasur sari roti" SI 73 (-30%) — minat tinggi tapi mulai melandai dari puncak. Sinyal baru yang Breakout: "roti sobek sari roti" — menunjukkan minat bergeser ke format/tekstur "pull-apart". Menariknya, "roti kasur indomaret" turun ke SI 0 (-100%) — minat ke titik beli retail sudah hilang total, konsumen kini fokus pada pengalaman produk itu sendiri.
 
-Bulan lalu (Agustus) formula konten yang terbukti sangat sukses adalah: konten guerrilla/interaktif (ajak warga terlibat langsung, seperti "ucapkan mimpimu dapat roti gratis" yang meraih 29,1K views) dan promo bundling dengan urgency (gratis produk baru jika belanja sekian rupiah).
+Onty TIDAK bisa bersaing head-to-head dengan Sari Roti dari sisi skala/distribusi/awareness. Namun basis permintaan lokal sangat kuat: Jawa Tengah peringkat #3 nasional (SI 90) untuk pencarian umum "roti". Bulan lalu, formula konten paling sukses di akun Onty adalah event/kelas interaktif (bukan foto produk statis).
 
-Susun STRATEGI PELUNCURAN ROTI GELOONG dalam Bahasa Indonesia mencakup: (1) bagaimana menjembatani nama lokal "Roti Geloong" dengan istilah internasional untuk SEO, (2) ide konten guerrilla/interaktif spesifik untuk perkenalan produk, (3) taktik promo bundling ala Kemerdekaan yang bisa direplikasi. Maksimal 400 kata.`,
+Susun STRATEGI PELUNCURAN ROTI KASUR dalam Bahasa Indonesia mencakup: (1) positioning yang tepat agar tidak terlihat "meniru" Sari Roti namun tetap memanfaatkan momentumnya, (2) bagaimana memanfaatkan tren Breakout "roti sobek" dalam bentuk konten konkret, (3) mengapa format event/kelas langsung ("Kelas Bikin Roti Kasur Sendiri") bisa jadi diferensiator kuat dibanding produk pabrikan. Maksimal 400 kata.`,
 
-  recovery:`Anda adalah analis pertumbuhan social media yang meninjau sebuah pemulihan luar biasa. Akun TikTok @ontyfarahbakingclass (brand kelas baking Pekalongan) mengalami kolaps 3 bulan berturut-turut: Mei 38.260 views (normal) → Juni 830 views (-97,7%) → Juli 571 views (turun lagi -31%). Lalu di Agustus 2026, akun ini PULIH DRAMATIS ke 64.859 views — kenaikan +11.262% dari bulan sebelumnya, bahkan jauh melampaui level normal Mei. Likes naik dari 2 ke 808, followers naik dari 391 ke 538 (+37,6%).
+  normalisasi:`Anda adalah analis pertumbuhan social media yang meninjau fase "normalisasi" setelah lonjakan viral. Bulan Agustus 2026, ekosistem social media brand kue Onty mengalami lonjakan luar biasa: TikTok @ontycake views +143,5%, TikTok @ontyfarahbakingclass views +11.262%, Instagram @ontycake interaksi +42,4% — semua dipicu konten guerrilla bertema Kemerdekaan.
 
-Pemulihan ini terjadi setelah rekomendasi bulan lalu untuk menghentikan caption template berulang dan menggunakan konten musiman segar — terbukti dengan adanya konten "Merdeka Tim Onty Baking Class Edition" dan promosi kelas Salt Bread di bulan Agustus. Data harian menunjukkan performa tinggi berkelanjutan (bukan hanya 1 hari viral) sepanjang 6-19 Agustus.
+Di bulan September 2026, hampir semua metrik tersebut TURUN dari puncaknya: IG @ontycake views -14,3% (675.615→578.994), interaksi -25,6% (5.169→3.846); TikTok @ontycake views -12,85% (84.837→73.939); TikTok @ontyfarahbakingclass views -37,7% (64.859→40.400). NAMUN beberapa indikator kualitas justru membaik: TikTok @ontycake shares naik +53,75% dan net growth followers naik +52,8% meski views turun; TikTok @ontyfarahbakingclass followers naik +18% (538→635) meski views turun tajam; Instagram @ontyfarahbakingclass followers, views, DAN akun interaksi semuanya naik bersamaan.
 
-Akun TikTok saudaranya, @ontycake (brand utama), juga mengalami pemulihan serupa: views naik +143,5% di bulan yang sama, dengan lonjakan di 17 Agustus (Hari Kemerdekaan) dan rentetan 23-29 Agustus.
+Analisis dalam Bahasa Indonesia: (1) apakah pola penurunan metrik volume (views/interaksi) namun kenaikan metrik kualitas (followers, shares, konversi) di berbagai akun ini adalah pola normal dan sehat pasca-lonjakan viral, (2) risiko yang perlu diwaspadai jika tren penurunan volume berlanjut ke Oktober tanpa ada "viral hook" baru, (3) rekomendasi konkret untuk menciptakan momentum baru di Oktober melalui peluncuran Roti Kasur tanpa bergantung pada keberuntungan semata. Maksimal 380 kata.`,
 
-Analisis dalam Bahasa Indonesia: (1) faktor-faktor kunci yang kemungkinan mendorong pemulihan ganda di kedua akun TikTok ini, (2) bagaimana memastikan momentum ini tidak hilang di September, (3) risiko yang perlu diwaspadai agar tidak kembali ke pola lama yang menyebabkan kolaps. Maksimal 380 kata.`,
+  ytwarning:`Anda adalah konsultan kepatuhan konten YouTube untuk channel UMKM Indonesia. Channel @ontycakebakery (brand kue rumahan Onty, Pekalongan, 7.647 subscribers) menerima TEGURAN PEDOMAN KOMUNITAS pada 16 September 2026 setelah salah satu videonya dihapus oleh YouTube. Notifikasi dari YouTube menyebutkan konten dinilai berpotensi memicu kepanikan/alarming, dengan referensi pada tema "anak yang mengalami tantrum" dalam judul atau thumbnail — mengindikasikan pelanggaran terkait konten yang dianggap menyesatkan (misleading) atau tidak pantas terkait anak-anak.
 
-  igclassdrop:`Anda adalah analis data social media. Data Instagram @ontyfarahbakingclass (brand kelas baking Pekalongan) Agustus 2026 dibanding Juli 2026: Followers naik dari 2.664 ke 2.733 (+69, +2,6%) — pertumbuhan sehat. NAMUN tayangan (views) turun dari 111.774 ke 84.726 (-24,2%), interaksi turun dari 1.124 ke 944 (-16%), akun berinteraksi turun dari 468 ke 402, dan pemirsa unik turun dari 20.140 ke 16.737.
+Channel ini sebelumnya stabil di skor kesehatan ekosistem cukup rendah (42/100) dibanding platform lain milik brand yang sama, dan kini turun lagi ke 34/100 akibat teguran ini. Channel berencana mengunggah konten baru bertema peluncuran produk "Roti Kasur" di bulan Oktober.
 
-Konten kelas Agustus: "Hands On Class Bolu Gulung Batch 6" (Rp350K, 3,2rb views tertinggi), "Baking Class X Komunitas Seru" (2,5rb views), "Hands On Soft Cookies Batch 5" (Rp300K, 2,2rb views) — semua di bawah performa top content Juli yaitu "Mom & Me" (kolaborasi kelas psikologi) yang meraih 9,7rb views.
+Berikan panduan PRAKTIS dalam Bahasa Indonesia untuk tim konten UMKM (bukan tim hukum/legal besar) mencakup: (1) jenis judul dan thumbnail yang sebaiknya DIHINDARI ke depannya berdasarkan kasus ini (prinsip umum, bukan menduga-duga detail video yang dihapus), (2) praktik terbaik judul/thumbnail yang tetap menarik klik namun aman dari kebijakan YouTube, terutama untuk konten yang melibatkan anak-anak atau situasi emosional, (3) langkah konkret sebelum mengunggah video "Roti Kasur" di Oktober agar tidak menambah teguran. Maksimal 350 kata.`,
 
-Rasio jenis konten juga bergeser: Reel turun dari 28,6% ke 41,0% dari total views (Catatan: perhatikan arah perubahan), Cerita turun dari 51,2% ke 44,3%, Postingan naik dari 20,2% ke 14,7%. [Catatan: gunakan angka yang diberikan meski tampak tidak konsisten, itu data aktual]
+  benchmark:`Anda adalah konsultan strategi kompetitif untuk brand kue rumahan Onty Cake & Bakery di Pekalongan (47.402 followers Instagram). Onty akan meluncurkan produk "Roti Kasur" di Oktober 2026, memasuki kategori yang sudah didominasi pemain besar:
 
-Analisis dalam Bahasa Indonesia: (1) mengapa views/interaksi bisa turun signifikan meski followers tetap tumbuh, (2) apa yang membuat konten "Mom & Me" Juli begitu jauh lebih sukses dibanding kelas reguler Agustus, (3) rekomendasi konkret format konten September untuk memulihkan tayangan. Maksimal 380 kata.`,
+• Sari Roti: 439.000 followers, 3.574 posts, terverifikasi — brand FMCG nasional yang menjadi pemilik "mindshare" istilah Roti Kasur di benak konsumen Indonesia, didistribusikan luas lewat retail/minimarket
+• The Harvest: 750.000 followers, 9.239 posts, terverifikasi — bakery nasional dengan gaya konten UGC/skit relatable bernada komedi, engagement sangat tinggi (video terbaik 317.000 views)
+• Holland Bakery: 504.000 followers, 2.579 posts, terverifikasi — salah satu pionir bakery modern Indonesia dengan jaringan >560 toko, konten bertema keseharian & budaya lokal (video terbaik 128.000 views tentang "Kantor Kita 17 Agustus")
+• Delizia Bakery (Batang, kompetitor lokal langsung): 16.800 followers, fokus kategori mochi/bolu (bukan roti), video terviral tembus 1.000.000 views dengan konten non-produk ("AI gantikan pekerjaan baker")
 
-  naming:`Brand strategist yang menangani penamaan produk untuk brand kue rumahan Onty di Pekalongan, Jawa Tengah. Produk baru adalah Pain aux Raisins (pastry Prancis berlapis mentega dengan gulungan kismis) yang akan dipasarkan dengan nama lokal unik: "Roti Geloong".
+Onty (47.402 followers) jauh lebih kecil dari ketiga pemain nasional kategori roti, namun jauh lebih besar dari Delizia. Menariknya, kategori "roti kasur homemade" belum punya pemain lokal langsung di Pekalongan/Batang — baik Onty maupun Delizia belum pernah masuk kategori ini.
 
-Data Google Trends menunjukkan dilema menarik: istilah internasional "raisin roll", "pain au raisin", dan "danish raisin" semuanya berstatus Breakout secara NASIONAL Indonesia (menandakan tren global sedang naik daun), TAPI di level JAWA TENGAH (pasar utama Onty) data pencarian sangat minim — hanya "raisin adalah" (apa itu raisin) yang tercatat, dengan status Breakout, menandakan masyarakat lokal baru dalam tahap ingin tahu/edukasi dasar tentang bahan kismis, bukan istilah produk pastry itu sendiri.
-
-Sebagai perbandingan, brand kue lokal sukses lain umumnya menggunakan nama yang mudah diucapkan dan diingat pasar lokal (bukan istilah asing kompleks).
-
-Berikan REKOMENDASI STRATEGI PENAMAAN & POSITIONING dalam Bahasa Indonesia untuk peluncuran Roti Geloong: (1) apakah pendekatan "nama lokal (Roti Geloong) + istilah internasional sebagai pendukung SEO" adalah pilihan tepat, dengan alasan berbasis data trends di atas, (2) bagaimana caption/konten sebaiknya memperkenalkan istilah "raisin"/kismis kepada audiens yang belum familiar, (3) potensi risiko dan cara memitigasinya jika nama "Roti Geloong" terlalu unik hingga sulit ditemukan lewat pencarian online. Maksimal 380 kata.`,
-
-  benchmark:`Anda adalah konsultan strategi kompetitif untuk brand kue rumahan Onty Cake & Bakery di Pekalongan (47.322 followers Instagram). Data benchmark kompetitif terbaru menunjukkan lanskap kompetisi kategori "bolu gulung/oleh-oleh" di Indonesia:
-
-• Bolu Susu Lembang (Bandung, terverifikasi): 133.000 followers, 2.645 posts, video terbaik 345.000 views — menggunakan meme budaya pop dan event komunitas nyata (lomba makan kerupuk, lomba 17-an) dengan hadiah & partisipasi massa langsung
-• Surabaya Roll Cake (Surabaya): 38.400 followers, 804 posts, video terbaik 51.400 views — fokus produk hampers musiman (Idul Fitri) dan reveal tekstur produk
-• Bolu Meranti (Medan, terverifikasi, "oleh-oleh terpopuler dari Medan"): 32.900 followers, 1.755 posts, video terbaik 31.300 views — konsisten reveal produk dengan kualitas produksi visual tinggi, termasuk konten di lokasi bandara/perjalanan
-• Delizia Bakery (Batang, kompetitor lokal terdekat): 16.400 followers, video "AI gantikan pekerjaan baker" kini tembus 1.000.000 views — bukti kekuatan konten non-produk yang terus didistribusikan algoritma berbulan-bulan
-
-Onty saat ini di antara Delizia (lebih kecil, lokal) dan tiga brand besar regional/nasional tersebut, dengan basis followers 47.322 — lebih besar dari Delizia, Surabaya Roll Cake, dan Bolu Meranti, namun jauh dari skala Bolu Susu Lembang.
-
-Berikan ANALISIS STRATEGIS dalam Bahasa Indonesia: (1) posisi kompetitif Onty saat ini dibanding keempat brand tersebut, (2) elemen konkret dari brand skala besar (terutama Bolu Susu Lembang) yang paling realistis diadopsi Onty dalam jangka pendek, (3) bagaimana peluncuran Roti Geloong bisa memanfaatkan pelajaran dari lanskap kompetitif ini untuk mendorong pertumbuhan followers & reach yang lebih agresif. Maksimal 400 kata.`
+Berikan ANALISIS STRATEGIS dalam Bahasa Indonesia: (1) posisi realistis Onty di antara keempat benchmark ini untuk kategori roti, (2) elemen konkret dari The Harvest (gaya UGC/relatable) yang paling mungkin ditiru skala Onty dibanding gaya FMCG Sari Roti atau skala toko fisik Holland Bakery, (3) bagaimana status "belum ada pemain homemade lokal" di kategori Roti Kasur bisa dimanfaatkan sebagai keunggulan first-mover di Pekalongan. Maksimal 400 kata.`
 };
 
 async function runAI(type){
   const loading=document.getElementById('aiLoading');
   const result=document.getElementById('aiResult');
   loading.style.display='flex';
-  loading.innerHTML='<div class="pulse"><span></span><span></span><span></span></div> Menganalisis dengan Claude AI — data Agustus & strategi September 2026...';
+  loading.innerHTML='<div class="pulse"><span></span><span></span><span></span></div> Menganalisis dengan Claude AI — data September & strategi Oktober 2026...';
   result.style.display='none';
   try{
     const resp=await fetch('https://api.anthropic.com/v1/messages',{
